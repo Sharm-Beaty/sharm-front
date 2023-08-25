@@ -1,0 +1,49 @@
+header {
+
+  .top-bar-header {
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+    color: var(--color-stroke);
+
+    a {
+      color: var(--color-stroke);
+    }
+
+    .list-top-bar-header {
+      ul {
+        display: flex;
+
+        li {
+          &:hover {
+
+          }
+        }
+      }
+
+    }
+
+    .language-top-bar-header {
+      display: flex;
+    }
+  }
+
+  .main-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 62px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .user-actions-header {
+      display: flex;
+      justify-content: space-between;
+      min-width: 80px;
+      max-width: 130px
+    }
+  }
+
+
+}
