@@ -7,9 +7,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  transition: background-position 0.3s;
+  transition: background-position 0.5s;
 
   &:hover {
-    background-position: 0%;
+    background-position: 0;
   }
 }

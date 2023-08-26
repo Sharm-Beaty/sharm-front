@@ -2,26 +2,28 @@ import React from 'react';
 import Image from "next/image";
 import "./Header.scss"
 import {ActiveLink} from "../UI/ActiveLink/ActivLink";
+import {Search} from "@/app/component/svg/Search";
 
 export const Header = () => {
 
     return (
         <header>
-            <div className="top-bar-header desktop-only">
-                <div>
-
+            <div className="top-bar-header">
+                <a href="tel:+380123456789" className="phone-top-bar active-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
                         <path
                             d="M19.2395 14.4032V17.0579C19.2405 17.3044 19.19 17.5483 19.0913 17.7741C18.9925 17.9999 18.8477 18.2026 18.6661 18.3693C18.4845 18.5359 18.2701 18.6627 18.0366 18.7417C17.8032 18.8206 17.5558 18.85 17.3103 18.8278C14.5873 18.5319 11.9716 17.6014 9.67345 16.1111C7.53532 14.7524 5.72257 12.9396 4.36391 10.8015C2.86837 8.49293 1.93767 5.86452 1.6472 3.12923C1.62508 2.88452 1.65417 2.63789 1.73259 2.40503C1.81102 2.17218 1.93707 1.9582 2.10273 1.77673C2.26838 1.59526 2.47 1.45027 2.69476 1.351C2.91952 1.25172 3.16249 1.20033 3.40819 1.2001H6.06296C6.49242 1.19587 6.90877 1.34795 7.23439 1.62799C7.56002 1.90802 7.7727 2.29691 7.83281 2.72217C7.94486 3.57175 8.15267 4.40593 8.45226 5.2088C8.57132 5.52554 8.59709 5.86976 8.52651 6.20069C8.45593 6.53162 8.29196 6.83539 8.05404 7.07599L6.93019 8.19984C8.18993 10.4153 10.0243 12.2496 12.2397 13.5094L13.3636 12.3855C13.6042 12.1476 13.9079 11.9836 14.2389 11.9131C14.5698 11.8425 14.914 11.8683 15.2308 11.9873C16.0336 12.2869 16.8678 12.4947 17.7174 12.6068C18.1473 12.6674 18.5399 12.8839 18.8205 13.2151C19.1011 13.5464 19.2502 13.9692 19.2395 14.4032Z"
-                            stroke="#828282" stroke-width="1.76" stroke-linecap="round" stroke-linejoin="round"/>
+                            stroke="#828282" strokeWidth="1.76" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                    [<a href="tel:+380123456789">0800 50 51 13</a>]
+                    <span>
+                             [0800 50 51 13]
+                    </span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="18" viewBox="0 0 21 18" fill="none">
                         <path
                             d="M10.2929 12.7071C10.6834 13.0976 11.3166 13.0976 11.7071 12.7071L18.0711 6.34315C18.4616 5.95262 18.4616 5.31946 18.0711 4.92893C17.6805 4.53841 17.0474 4.53841 16.6569 4.92893L11 10.5858L5.34315 4.92893C4.95262 4.53841 4.31946 4.53841 3.92893 4.92893C3.53841 5.31946 3.53841 5.95262 3.92893 6.34315L10.2929 12.7071ZM10 11V12H12V11H10Z"
                             fill="#828282"/>
                     </svg>
-                </div>
+                </a>
 
 
                 <div className="list-top-bar-header">
@@ -68,6 +70,8 @@ export const Header = () => {
                 </div>
 
             </div>
+
+
             <div className="main-header">
                 <svg className="mobile-only" xmlns="http://www.w3.org/2000/svg" width="22" height="17"
                      viewBox="0 0 22 17" fill="none">
@@ -79,22 +83,24 @@ export const Header = () => {
                           strokeLinejoin="round"/>
                 </svg>
 
-                <Image src={"/logo.png"} alt={"logo"} width={80} height={32}/>
+                <div
+                    className="search"
+                >
+                    <Search/>
+                    <input
+                        type="test"
+                        placeholder="Пошук"
+                    />
+                </div>
+
+                <Image className="logo-top-bar-header" src={"/logo.png"} alt={"logo"} width={200} height={99}/>
+
 
                 <div
                     className="user-actions-header"
                 >
-
-                    <svg className="mobile-only" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                         viewBox="0 0 18 18" fill="none">
-                        <path
-                            d="M8.11937 14.8526C11.8134 14.8526 14.8081 11.858 14.8081 8.16393C14.8081 4.46986 11.8134 1.47522 8.11937 1.47522C4.4253 1.47522 1.43066 4.46986 1.43066 8.16393C1.43066 11.858 4.4253 14.8526 8.11937 14.8526Z"
-                            stroke="#363636" strokeWidth="1.58416" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M16.4801 16.5248L12.8431 12.8878" stroke="#363636" strokeWidth="1.58416"
-                              strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-
-                    <Image src={"/person.fill.png"} alt={"logo"} width={19} height={19}/>
+                    <Search/>
+                    <Image className="person" src={"/person.fill.png"} alt={"logo"} width={19} height={19}/>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <path
