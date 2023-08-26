@@ -1,6 +1,6 @@
 import './globals.css'
-import {Footer} from "@/app/component/Footer/Footer";
-import {Header} from "@/app/component/Header/Header";
+import {Footer} from "@/component/Footer/Footer";
+import {Header} from "@/component/Header/Header";
 
 export const metadata = {
     title: 'Main Leyout',

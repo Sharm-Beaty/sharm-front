@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import "./Header.scss"
 import {ActiveLink} from "../UI/ActiveLink/ActivLink";
-import {Search} from "@/app/component/svg/Search";
+import {Search} from "@/component/svg/Search";
 
 export const Header = () => {
 
@@ -49,7 +49,7 @@ export const Header = () => {
                             </ActiveLink>
                         </li>
                         <li>
-                            <ActiveLink rout={"/aAbout-us"}>
+                            <ActiveLink rout={"/about"}>
                                 Про магазин
                             </ActiveLink>
                         </li>
