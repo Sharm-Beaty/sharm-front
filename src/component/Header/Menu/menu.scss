@@ -1,0 +1,10 @@
+.container-menu {
+
+
+  @media (min-width: 768px) {
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

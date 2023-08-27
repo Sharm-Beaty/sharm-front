@@ -3,6 +3,7 @@ import Image from "next/image";
 import "./Header.scss"
 import {ActiveLink} from "../UI/ActiveLink/ActivLink";
 import {Search} from "@/component/svg/Search";
+import {Menu} from "@/component/Header/Menu/Menu";
 
 export const Header = () => {
 
@@ -115,6 +116,7 @@ export const Header = () => {
                     </svg>
                 </div>
             </div>
+            <Menu/>
         </header>
     );
 };
