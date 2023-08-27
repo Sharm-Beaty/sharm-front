@@ -1,6 +1,8 @@
 import './globals.css'
 import {Footer} from "@/component/Footer/Footer";
 import {Header} from "@/component/Header/Header";
+import {ReduxProvider} from "@/state/provider";
+import {ReactNode} from "react";
 
 export const metadata = {
     title: 'Main Leyout',
@@ -10,16 +12,18 @@ export const metadata = {
 export default function RootLayout({
                                        children,
                                    }: {
-    children: React.ReactNode
+    children: ReactNode
 }) {
     return (
         <html lang="en">
         <body>
-        <Header/>
-        <main>
-            {children}
-        </main>
-        <Footer/>
+        <ReduxProvider>
+            <Header/>
+            <main>
+                {children}
+            </main>
+            <Footer/>
+        </ReduxProvider>
         </body>
         </html>
     )

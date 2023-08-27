@@ -4,6 +4,7 @@ import "./Header.scss"
 import {ActiveLink} from "../UI/ActiveLink/ActivLink";
 import {Search} from "@/component/svg/Search";
 import {Menu} from "@/component/Header/Menu/Menu";
+import {MobileMenu} from "@/component/Header/MobileMenu/MobileMenu";
 
 export const Header = () => {
 
@@ -74,16 +75,7 @@ export const Header = () => {
 
 
             <div className="main-header">
-                <svg className="mobile-only" xmlns="http://www.w3.org/2000/svg" width="22" height="17"
-                     viewBox="0 0 22 17" fill="none">
-                    <path d="M1.5 8.5H20.5" stroke="#363636" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"/>
-                    <path d="M1.5 1.5H20.5" stroke="#363636" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"/>
-                    <path d="M1.5 15.5H20.5" stroke="#363636" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"/>
-                </svg>
-
+                <MobileMenu/>
                 <div
                     className="search"
                 >

@@ -1,22 +1,15 @@
-import React from 'react';
-import "./menu.scss"
-import {ActiveLink} from "../../UI/ActiveLink/ActivLink";
-import {getInfo} from "@/app/acrions/getInfo";
+"use client"
+import React, {useState} from 'react';
+import "./MobileMenu.scss"
 import {menuData} from "@/component/Header/menuData";
+import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
 
-export async function generateStaticParams() {
-    const menuList = await getInfo("")
-    console.log(menuList)
-
-    return menuList.results
-}
-
-
-export const Menu = () => {
+export const MobileMenu = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
 
     return (
         <>
-            <nav className="container-menu">
+            {isMenuOpen && <nav className="cotainer-mobile-menu">
                 <ul>
                     {
                         menuData.map((item: any) =>
@@ -29,6 +22,7 @@ export const Menu = () => {
                     }
                 </ul>
             </nav>
+            }
         </>
     );
 };

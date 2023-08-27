@@ -1,0 +1,7 @@
+.cotainer-mobile-menu {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
