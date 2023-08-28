@@ -5,6 +5,7 @@ import {ActiveLink} from "../UI/ActiveLink/ActivLink";
 import {Search} from "@/component/svg/Search";
 import {Menu} from "@/component/Header/Menu/Menu";
 import {MobileMenu} from "@/component/Header/MobileMenu/MobileMenu";
+import {Line} from "@/component/UI/Line/Line";
 
 export const Header = () => {
 
@@ -73,7 +74,6 @@ export const Header = () => {
 
             </div>
 
-
             <div className="main-header">
                 <MobileMenu/>
                 <div
@@ -108,7 +108,9 @@ export const Header = () => {
                     </svg>
                 </div>
             </div>
+            <Line isAbsolute={false} isMobile={true}/>
             <Menu/>
+            <Line isAbsolute={false}/>
         </header>
     );
 };

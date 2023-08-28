@@ -108,8 +108,7 @@ header {
           border-bottom: 1px solid var(--color-stroke);
           outline: none;
           padding-bottom: 10px;
-          padding-left: 20px;
-          margin: 10px 20px;
+          padding-left: 35px;
           color: var(--color-placeholder);
 
           &::placeholder {
@@ -123,8 +122,8 @@ header {
           position: absolute;
           width: 15px;
           height: 15px;
-          margin-left: 20px;
-          margin-top: 10px;
+          margin-left: 10px;
+          margin-top: 5px;
 
           path {
             stroke: var(--color-placeholder);
@@ -145,14 +144,14 @@ header {
       min-width: 17vw;
       max-width: 310px;
 
-
     }
 
     @media (min-width: 768px) {
       .user-actions-header {
         display: flex;
         justify-content: flex-end;
-        svg{
+
+        svg {
           margin-left: 30px;
         }
       }
@@ -164,6 +163,7 @@ header {
       .logo-top-bar-header {
         width: 200px;
         height: 98.09px;
+        margin-bottom: 5px;
       }
 
     }

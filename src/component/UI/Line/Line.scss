@@ -1,0 +1,23 @@
+.container-line-absolute {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-stroke);
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.container-line {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-stroke);
+}
+
+.is-mobile {
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+}
