@@ -26,13 +26,12 @@ export const DesktopFooter = () => {
                 ))}
             </div>
             <div className="footer-info">
-                <Image
-                    style={{marginBottom: "10px"}}
-                    src="/logo.png"
-                    alt="logo"
-                    width={200}
-                    height={99}
-                />
+                <a
+                    href="/"
+                    style={{marginBottom: "10px", display: "inline-block"}}
+                >
+                    <Image src="/logo.png" alt="logo" width={200} height={99} />
+                </a>
                 <h4 className="footer-info-title">Ми завжди на звʼязку!</h4>
                 <p className="footer-info-text">
                     Ви можете написати нам лист <br />
