@@ -1,0 +1,15 @@
+.read-more-button {
+    cursor: pointer;
+    font-family: Roboto;
+    font-size: 12px;
+    text-decoration-line: underline;
+    border: 0;
+    padding: 3px 0;
+    background-color: var(--color-background);
+}
+
+.more-info-container {
+    p {
+        color: var(--color-text);
+    }
+}

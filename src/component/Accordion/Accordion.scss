@@ -1,0 +1,46 @@
+.accordion__section {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--color-stroke, );
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    transition: background-color 0.6s ease;
+    background-color: var(--color-background);
+}
+  
+.accordion__title {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 6px 0;
+    color: var(--color-text);
+}
+
+.arrow-svg {
+    transition: transform 0.6s ease;
+    color: var(--color-text);
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.accordion__content {
+    overflow: auto;
+    transition: max-height 0.6s ease;
+}
+
+.accordion__text {
+    font-size: 12px;
+    padding-bottom: 10px;
+    color: var(--color-text);
+}
+  
