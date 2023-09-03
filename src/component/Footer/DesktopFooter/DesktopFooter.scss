@@ -4,17 +4,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 70px 0 40px 0;
-        
-        &::after {
-            content: "";
-            height: 1px;
-            width: 100%;
-            background-color: var(--color-stroke);
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin-bottom: 525px;
-        }
     }
 }
 
@@ -53,7 +42,6 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     color: var(--color-text);
-
 }
 
 .footer-info-text {
@@ -82,4 +70,11 @@
 
 .visa-svg {
     margin-right: 8px;
+}
+
+.footer-desktop-about {
+    p {
+        font-size: 14px;
+        color: var(--color-placeholder);
+    }
 }

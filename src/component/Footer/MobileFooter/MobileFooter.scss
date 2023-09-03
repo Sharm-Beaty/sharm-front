@@ -1,12 +1,7 @@
-.footer-mobile-container {
-    border-top: 1px solid var(--color-stroke);
-}
-
 .footer-social-list {
     display: flex;
     justify-content: center;
     padding: 20px 0;
-    border-bottom: 1px solid var(--color-stroke);
 }
 
 .footer-social-item {
@@ -28,7 +23,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--color-stroke, );
     padding: 20px 0;
     color: var(--color-text);
     background-image: linear-gradient(to right, #E56466 50%, var(--color-text) 50%);
