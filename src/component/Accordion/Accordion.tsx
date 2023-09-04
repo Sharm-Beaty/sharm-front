@@ -1,15 +1,16 @@
 "use client";
-import {useState, useRef} from "react";
+import {useState, useRef, ReactElement} from "react";
 
 import {Arrow} from "../svg/Arrow";
 import "./Accordion.scss";
 
 interface Accordion {
     title: string;
-    content: string;
+    content: string | ReactElement[];
+    footer?: boolean;
 }
 
-export const Accordion = ({title, content}: Accordion) => {
+export const Accordion = ({title, content, footer}: Accordion) => {
     const [isActive, setIsActive] = useState("");
     const [height, setHeight] = useState("0px");
     const [setRotate, setRotateState] = useState("");
@@ -40,10 +41,14 @@ export const Accordion = ({title, content}: Accordion) => {
                 style={{maxHeight: `${height}`}}
                 className="accordion__content"
             >
-                <div
-                    className="accordion__text"
-                    dangerouslySetInnerHTML={{__html: content}}
-                />
+                {footer ? (
+                    <ul style={{paddingBottom: "10px"}}>{content}</ul>
+                ) : (
+                    <div
+                        className="accordion__text"
+                        dangerouslySetInnerHTML={{__html: content}}
+                    />
+                )}
             </div>
         </div>
     );
