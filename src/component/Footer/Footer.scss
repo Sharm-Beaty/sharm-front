@@ -1,0 +1,26 @@
+footer {
+    margin-top: auto;
+}
+
+.footer-copyright-container {
+    padding: 15px 60px;
+
+    @media (max-width: 767px) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: var(--color-text);
+    }
+}
+
+.footer-copyright-text {
+    font-size: 14px;
+    text-align: center;
+    color: var(--color-light-gray);
+
+    @media (min-width: 768px) {
+        color: var(--color-placeholder);
+    }
+}
+
+

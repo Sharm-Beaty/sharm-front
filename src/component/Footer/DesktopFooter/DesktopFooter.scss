@@ -1,0 +1,80 @@
+.footer-desktop-container {
+    @media(min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 70px 0 40px 0;
+    }
+}
+
+.footer-navigation-menu {
+    display: flex;
+    width: 640px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 30px;
+}
+
+.footer-navigation-menu-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: var(--color-text);
+}
+
+.footer-navigation-menu-item {
+    font-size: 14px;
+
+    a {
+        color: var(--color-text);
+        background-image: linear-gradient(to right, #E56466 50%, var(--color-text) 50%);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 4px;
+    }
+}
+
+.footer-info-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.footer-info-text {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--color-placeholder);
+}
+
+.footer-contacts-list {
+    a{
+        color: var(--color-text);
+        background-image: linear-gradient(to right, #E56466 50%, var(--color-text) 50%);
+    }
+
+    > :first-child,
+    > :last-child {
+        margin-bottom: 12px;
+    }
+}
+
+.footer-working-hours {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: var(--color-placeholder)
+}
+
+.visa-svg {
+    margin-right: 8px;
+}
+
+.footer-desktop-about {
+    p {
+        font-size: 14px;
+        color: var(--color-placeholder);
+    }
+}
