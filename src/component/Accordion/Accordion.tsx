@@ -42,7 +42,16 @@ export const Accordion = ({title, content, footer}: Accordion) => {
                 className="accordion__content"
             >
                 {footer ? (
-                    <ul style={{paddingBottom: "10px"}}>{content}</ul>
+                    <ul
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            paddingBottom: "10px",
+                        }}
+                    >
+                        {content}
+                    </ul>
                 ) : (
                     <div
                         className="accordion__text"
