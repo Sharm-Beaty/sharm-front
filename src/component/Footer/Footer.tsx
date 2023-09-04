@@ -1,12 +1,12 @@
 import "./Footer.scss";
 import {DesktopFooter} from "./DesktopFooter";
 import {MobileFooter} from "./MobileFooter";
-import {Line} from '../UI/Line/Line'
+import {Line} from "../UI/Line/Line";
 
 export const Footer = () => {
     return (
         <footer id="footer">
-            <Line isAbsolute/>
+            <Line isAbsolute />
             <DesktopFooter />
             <MobileFooter />
             <div className="footer-copyright-container">
