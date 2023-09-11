@@ -1,0 +1,36 @@
+.slider-button-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    li:not(:last-child) {
+      margin-right: 2px;
+    }
+}
+
+.slide-container {
+    position: absolute;  
+    bottom: 63px;
+    right: 25px;
+    width: 220px;
+    
+    @media (min-width:768px) {
+      width: 476px;
+      top: 129px;
+      left: 90px;
+    }
+}
+
+.slider-button {
+    cursor: pointer;
+    padding: 1px;
+    border:0;
+    background-color: transparent;
+}
+
+.elipse-svg {
+    @media (min-width: 768px) {
+
+      width: 14px;
+      height: 14px;
+    }
+}
