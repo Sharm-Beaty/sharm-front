@@ -85,10 +85,10 @@ header {
   .main-header {
     display: flex;
     justify-content: space-between;
+    // gap:calc(0%);
     align-items: center;
     height: 62px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px 0;
 
 
     .search {
@@ -140,17 +140,17 @@ header {
 
     .user-actions-header {
       display: flex;
-      justify-content: space-around;
+      justify-content: right;
       min-width: 17vw;
       max-width: 310px;
-
+      gap: 8px;
     }
 
     @media (min-width: 768px) {
       .user-actions-header {
         display: flex;
         justify-content: flex-end;
-
+        gap:0px;
         svg {
           margin-left: 30px;
         }
@@ -166,6 +166,9 @@ header {
         margin-bottom: 5px;
       }
 
+    }
+    .language-top-bar-header {
+      display: none;
     }
     .user-actions-header {
 
