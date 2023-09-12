@@ -18,9 +18,8 @@ header {
         width: 22px;
         height: 22px
       }
-
+    
     }
-
     a {
       color: var(--color-stroke);
     }
@@ -28,11 +27,28 @@ header {
       width: max-content;
     }
     .phone-button {
-      border: 0px;
+      position: relative;
+      border: 0;
       background-color: white;
-      font-size: 14px;
+      font-size: 12px;
       width: max-content;
-      text-decoration-line: underline;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .phone-button::after{
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background: #000000;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .phone-button:hover::after{
+      width: 100%;
     }
 
     .list-top-bar-header {
@@ -48,14 +64,14 @@ header {
       }
 
     }
-
+    
     .language-top-bar-header {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
       color: var(--color-text);
 
-      > :first-child {
+      > :nth-child {
         position: relative;
         cursor: pointer;
         width: 19px;
@@ -93,15 +109,16 @@ header {
   .main-header {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     // gap:calc(0%);
     align-items: center;
     height: 62px;
     margin: 15px 0;
 
-
     .search {
       display: none;
     }
+    
 
     @media (min-width: 768px) {
       .search {
@@ -155,6 +172,7 @@ header {
       gap: 8px;
     }
 
+
     @media (min-width: 768px) {
       .user-actions-header {
         display: flex;
@@ -171,7 +189,7 @@ header {
 
     .first-header-component {
       display: flex;
-      gap: 4px;
+      gap: 8px;
     }
     .main-header {
       .logo-top-bar-header {
@@ -197,11 +215,15 @@ header {
       display: none;
     }
   }
+@media (min-width:768px) {
+  .mobile-language-control {
+    display: none;
+  }
+}
+
   @media (max-width: 948px) {
-    .language-top-bar-header {
-      :first-child{
-        display: none;
-      }
+    .phone-button {
+      display: none;
     }
     .list-top-bar-header {
       ul {

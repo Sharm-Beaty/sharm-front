@@ -7,6 +7,7 @@ import {Menu} from "@/component/Header/Menu/Menu";
 import {MobileMenu} from "@/component/Header/MobileMenu/MobileMenu";
 import {Line} from "@/component/UI/Line/Line";
 import { MyModal } from '../MyModal/MyModal';
+import {LanguageComponent} from '../LanguageComponent/LanguageComponent'
 
 export const Header = () => {
 
@@ -66,9 +67,7 @@ export const Header = () => {
                 </div>
 
                 <div className="language-top-bar-header">
-                    <div>
-                        ua
-                    </div>
+                    <LanguageComponent/>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 33 41" fill="none">
                             <path
@@ -92,6 +91,7 @@ export const Header = () => {
                     />
                 </div>
 
+                
                 <a href='/'>
                 <Image className="logo-top-bar-header" src={"/logo.png"} alt={"logo"} width={200} height={99}/>
                 </a>
@@ -114,6 +114,9 @@ export const Header = () => {
                             stroke="#363636" strokeWidth="1.58416" strokeLinecap="round" strokeLinejoin="round"/> 
                     </svg>
                 </div>
+            </div>
+            <div className="mobile-language-control">
+            <LanguageComponent/>
             </div>
             <Line isAbsolute={false} isMobile={true}/>
             <Menu/>

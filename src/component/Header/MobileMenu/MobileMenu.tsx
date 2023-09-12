@@ -19,7 +19,6 @@ export const MobileMenu = () => {
                 <div></div>
                 <div></div>
             </div>
-
             <div
                 className={`container-open-mobile-menu ${isActive ? 'active' : ''}`}
             >
@@ -35,12 +34,11 @@ export const MobileMenu = () => {
                                 </li>
                             )
                         }
-                    <div>
-                        ua
-                    </div>
+
                     </ul>
 
                 </nav>}
+                
             </div>
         </>
     );

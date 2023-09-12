@@ -17,7 +17,6 @@ export const Footer = () => {
                     {`Copyright Ⓒ 2019-${new Date().getFullYear()}`}
                 </p>
             </div>
-            <div className="footer-language">ua</div>
         </footer>
     );
 };
