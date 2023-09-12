@@ -13,7 +13,7 @@ header {
     .phone-top-bar {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
       svg {
         width: 22px;
         height: 22px
@@ -57,7 +57,6 @@ header {
         justify-content: space-between;
         align-items: center;
         max-width: 639px;
-        gap: 8px;
         li {
           width: max-content;
         }
@@ -68,7 +67,7 @@ header {
     .language-top-bar-header {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
       color: var(--color-text);
 
       > :nth-child {
@@ -113,7 +112,7 @@ header {
     // gap:calc(0%);
     align-items: center;
     height: 62px;
-    margin: 15px 0;
+    margin: 0 0;
 
     .search {
       display: none;
@@ -169,7 +168,7 @@ header {
       justify-content: right;
       min-width: 17vw;
       max-width: 310px;
-      gap: 8px;
+      gap: 7.92px;
     }
 
 
@@ -191,11 +190,18 @@ header {
       display: flex;
       gap: 8px;
     }
+    .user-actions-header {
+      gap: 30px;
+    }
     .main-header {
+      margin-bottom: 40px;
       .logo-top-bar-header {
+        position: relative;
+        top: 0px;
         width: 200px;
         height: 98.09px;
         margin-bottom: 5px;
+        z-index: -1;
       }
 
     }
@@ -219,18 +225,29 @@ header {
   .mobile-language-control {
     display: none;
   }
+
+
 }
 
   @media (max-width: 948px) {
-    .phone-button {
-      display: none;
+    .first-header-component {
+      flex-direction: column;
+      align-items: center;
     }
     .list-top-bar-header {
       ul {
-        gap:4px;
+        gap:12px;
         li {
           // margin: 0 1vw !important;
         }
+      }
+    }
+  }
+
+  @media (min-width:949px){
+    .list-top-bar-header {
+      ul {
+        gap: 22px;
       }
     }
   }

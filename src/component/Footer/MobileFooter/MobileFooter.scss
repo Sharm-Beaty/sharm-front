@@ -3,7 +3,24 @@
     justify-content: center;
     padding: 20px 0;
 }
+.mobile-language {
 
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 4px;
+    right: 0;
+    margin-top: 8px;
+    :first-child{
+        position: relative;
+        
+    }
+    :last-child{
+        top: 5px;
+    }
+}
 .footer-social-item {
     display: flex;
     align-items: center;

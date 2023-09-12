@@ -6,9 +6,14 @@ import {mobileData, footerData} from "../footerData";
 import {ReadMore} from "../../ReadMore";
 import {Line} from "../../UI/Line/Line";
 import {ActiveLink} from "../../UI/ActiveLink/ActivLink";
+import {LanguageComponent} from '../../LanguageComponent/LanguageComponent'
 
 export const MobileFooter = () => {
     return (
+        <>            
+        <div className="mobile-language">
+        <LanguageComponent/>
+        </div>
         <div className="mobile-only footer-mobile-container">
             <div className="footer-mobile-information">
                 {footerData.slice(0, 2).map(({id, mobileTitle, names}) => (
@@ -68,5 +73,6 @@ export const MobileFooter = () => {
                 <ReadMore content={mobileData.siteDescription} />
             </div>
         </div>
+        </>
     );
 };
