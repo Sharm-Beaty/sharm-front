@@ -1,7 +1,9 @@
 footer {
     margin-top: auto;
 }
-
+.footer-language {
+    text-align: center;
+}
 .footer-copyright-container {
     padding: 15px 60px;
 
@@ -10,6 +12,9 @@ footer {
         left: 0;
         right: 0;
         background-color: var(--color-text);
+        .footer-language {
+            display: none;
+        }
     }
 }
 
@@ -20,6 +25,12 @@ footer {
 
     @media (min-width: 768px) {
         color: var(--color-placeholder);
+    }
+}
+
+@media (min-width:949px){
+    .footer-language {
+        display: none;
     }
 }
 

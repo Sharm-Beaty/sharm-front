@@ -2,47 +2,48 @@ header {
 
   .top-bar-header {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     height: 60px;
     align-items: center;
-    font-size: 13px;
+    align-content: center;
+    justify-content: space-between;
+    font-size: 14px;
     color: var(--color-stroke);
 
     .phone-top-bar {
       display: flex;
       align-items: center;
+      gap: 4px;
       svg {
         width: 22px;
         height: 22px
       }
 
-      > :first-child {
-        margin-right: 8px;
-      }
-
-      > :last-child {
-        margin-left: 8px;
-      }
     }
 
     a {
       color: var(--color-stroke);
     }
     .phone-number {
-      margin-right: 8px;
+      width: max-content;
     }
-
+    .phone-button {
+      border: 0px;
+      background-color: white;
+      font-size: 14px;
+      width: max-content;
+      text-decoration-line: underline;
+    }
 
     .list-top-bar-header {
       ul {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 639px;
+        gap: 8px;
         li {
-          margin: 0 2vw;
-          a {
-            height:21px;
-          }
+          width: max-content;
         }
       }
 
@@ -51,13 +52,14 @@ header {
     .language-top-bar-header {
       display: flex;
       align-items: center;
+      gap: 8px;
       color: var(--color-text);
 
       > :first-child {
         position: relative;
-        margin-right: 15px;
         cursor: pointer;
-
+        width: 19px;
+        height: 21px;
         &:before {
           content: "";
           position: absolute;
@@ -167,7 +169,10 @@ header {
 
   @media (min-width: 767px) {
 
-
+    .first-header-component {
+      display: flex;
+      gap: 4px;
+    }
     .main-header {
       .logo-top-bar-header {
         width: 200px;
@@ -193,14 +198,16 @@ header {
     }
   }
   @media (max-width: 948px) {
-    .top-bar-header {
-      font-size: 10px;
+    .language-top-bar-header {
+      :first-child{
+        display: none;
+      }
     }
-    
     .list-top-bar-header {
       ul {
+        gap:4px;
         li {
-          margin: 0 1vw !important;
+          // margin: 0 1vw !important;
         }
       }
     }
