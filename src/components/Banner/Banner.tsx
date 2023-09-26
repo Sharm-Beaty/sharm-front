@@ -7,7 +7,7 @@ import "./Banner.scss";
 import bg from "public/baner.png";
 import Image from "next/image";
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <section className='banner'>
       <Swiper
@@ -52,5 +52,3 @@ const Banner = () => {
     </section>
   );
 };
-
-export default Banner;
