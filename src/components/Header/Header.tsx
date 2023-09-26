@@ -2,10 +2,10 @@ import React from 'react';
 import Image from "next/image";
 import "./Header.scss"
 import {ActiveLink} from "../UI/ActiveLink/ActivLink";
-import {Search} from "@/component/svg/Search";
-import {Menu} from "@/component/Header/Menu/Menu";
-import {MobileMenu} from "@/component/Header/MobileMenu/MobileMenu";
-import {Line} from "@/component/UI/Line/Line";
+import {Search} from "@/components/svg/Search";
+import {Menu} from "@/components/Header/Menu/Menu";
+import {MobileMenu} from "@/components/Header/MobileMenu/MobileMenu";
+import {Line} from "@/components/UI/Line/Line";
 
 export const Header = () => {
 

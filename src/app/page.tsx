@@ -1,9 +1,9 @@
+import Banner from "@/components/Banner/Banner";
 
 export default async function Home() {
-    return (
-        <main>
-            main
-        </main>
-    )
+  return (
+    <main>
+      <Banner />
+    </main>
+  );
 }
-
