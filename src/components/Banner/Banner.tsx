@@ -15,7 +15,8 @@ export const Banner = () => {
         pagination
         autoplay={{
           delay: 2500,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         loop
         modules={[Pagination, Autoplay]}
@@ -29,9 +30,9 @@ export const Banner = () => {
               alt='Image with beauty woman'
             />
             <div className='banner__content'>
-              <h2 className='banner__heading'>{info.header}</h2>
+              <h4 className='banner__heading'>{info.header}</h4>
               <Link
-                href={info.url}
+                href={`/${info.url}`}
                 className='banner__button'
               >
                 {info.btn}
