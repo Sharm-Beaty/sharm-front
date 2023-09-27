@@ -6,6 +6,7 @@
     margin-top: 24px;
   }
   &__bg {
+    width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
@@ -18,16 +19,17 @@
     max-width: 218px;
 
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 
     position: absolute;
-    top: 296px;
-    left: 152px;
+    bottom: 10%;
+    right: 0;
 
     @media (min-width: 768px) {
-      top: 140px;
+      top: 33%;
+      left: 12%;
       max-width: 470px;
-      left: 90px;
+      gap: 40px;
     }
   }
 
@@ -43,16 +45,15 @@
     }
   }
   &__button {
-    display: none;
-    width: 330px;
+    width: 80%;
     padding: 10px;
     background-color: var(--color-primary);
     border: none;
     color: white;
     text-transform: uppercase;
-    @media (min-width: 768px) {
-      display: inline-block;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .swiper {
     height: 100%;

@@ -1,53 +1,44 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Banner.scss";
-import bg from "public/baner.png";
-import Image from "next/image";
+import { data } from "./mockData";
+import Link from "next/link";
 
 export const Banner = () => {
   return (
     <section className='banner'>
       <Swiper
-        pagination={true}
-        modules={[Pagination]}
+        pagination
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: true,
+        }}
+        loop
+        modules={[Pagination, Autoplay]}
         spaceBetween={20}
       >
-        <SwiperSlide>
-          <Image
-            className='banner__bg'
-            src={bg}
-            alt='lbaner'
-          />
-          <div className='banner__content'>
-            <h2 className='banner__heading'>Найкращі пропозиції цього літа</h2>
-            <button className='banner__button'>Explore</button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className='banner__bg'
-            src={bg}
-            alt='lbaner'
-          />
-          <div className='banner__content'>
-            <h2 className='banner__heading'>Трендові товари</h2>
-            <button className='banner__button'>Explore</button>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className='banner__bg'
-            src={bg}
-            alt='lbaner'
-          />
-          <div className='banner__content'>
-            <h2 className='banner__heading'>Трендові товари</h2>
-            <button className='banner__button'>Explore</button>
-          </div>
-        </SwiperSlide>
+        {data.map((info) => (
+          <SwiperSlide key={info.src}>
+            <img
+              className='banner__bg'
+              src={info.src}
+              alt='Image with beauty woman'
+            />
+            <div className='banner__content'>
+              <h2 className='banner__heading'>{info.header}</h2>
+              <Link
+                href={info.url}
+                className='banner__button'
+              >
+                {info.btn}
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );
