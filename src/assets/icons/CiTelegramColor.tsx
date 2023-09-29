@@ -10,7 +10,7 @@ export const CiTelegramColor = ({ className, size = 24 }: IconProps) => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0_710_3052)'>
+      <g clipPath='url(#clip0_710_3052)'>
         <path
           d='M12 0C8.81812 0 5.76375 1.26506 3.51562 3.51469C1.26518 5.76521 0.000623381 8.81734 0 12C0 15.1813 1.26562 18.2357 3.51562 20.4853C5.76375 22.7349 8.81812 24 12 24C15.1819 24 18.2362 22.7349 20.4844 20.4853C22.7344 18.2357 24 15.1813 24 12C24 8.81869 22.7344 5.76431 20.4844 3.51469C18.2362 1.26506 15.1819 0 12 0Z'
           fill='url(#paint0_linear_710_3052)'
@@ -32,7 +32,7 @@ export const CiTelegramColor = ({ className, size = 24 }: IconProps) => {
           <stop stop-color='#2AABEE' />
           <stop
             offset='1'
-            stop-color='#229ED9'
+            stopColor='#229ED9'
           />
         </linearGradient>
         <clipPath id='clip0_710_3052'>

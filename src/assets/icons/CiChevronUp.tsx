@@ -17,9 +17,9 @@ export const CiChevronUp = ({
       <path
         d='M5 14.6L12 9L19 14.6'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );

@@ -17,16 +17,16 @@ export const CiEmail = ({
       <path
         d='M4 5H20C21.1 5 22 5.84375 22 6.875V18.125C22 19.1563 21.1 20 20 20H4C2.9 20 2 19.1563 2 18.125V6.875C2 5.84375 2.9 5 4 5Z'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
         d='M22 6.87488L12 13.4374L2 6.87488'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );

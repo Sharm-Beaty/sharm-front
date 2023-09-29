@@ -17,20 +17,20 @@ export const CiSort = ({
       <path
         d='M20 8L4 8'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
+        strokeWidth='2'
+        strokeLinecap='round'
       />
       <path
         d='M17.6001 12L6.4001 12'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
+        strokeWidth='2'
+        strokeLinecap='round'
       />
       <path
         d='M15.2002 16H8.8002'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
+        strokeWidth='2'
+        strokeLinecap='round'
       />
     </svg>
   );

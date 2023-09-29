@@ -17,9 +17,9 @@ export const CiArrowLeft = ({
       <path
         d='M20 12.7H4M4 12.7L10 7.19995M4 12.7L10 18.2'
         stroke={color}
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );
