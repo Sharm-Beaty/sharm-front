@@ -1,6 +1,6 @@
 import './globals.css'
-import {Footer} from "@/component/Footer/Footer";
-import {Header} from "@/component/Header/Header";
+import {Footer} from "@/components/Footer/Footer";
+import {Header} from "@/components/Header/Header";
 import {ReduxProvider} from "@/state/provider";
 import {ReactNode} from "react";
 

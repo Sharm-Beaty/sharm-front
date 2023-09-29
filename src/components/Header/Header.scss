@@ -96,37 +96,18 @@ header {
       justify-content: space-between;
       height: fit-content;
       .search {
-        display: block;
-        position: relative;
-
+        padding: 10px 20px;
+        color: #828282;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid var(--color-stroke);
         input {
-          width: 15vw;
-          min-width: 17vw;
-          max-width: 310px;
-          border: navajowhite;
-          border-bottom: 1px solid var(--color-stroke);
+          width: 100%;
+          border: none;
           outline: none;
-          padding-bottom: 10px;
-          padding-left: 35px;
-          color: var(--color-placeholder);
-
-          &::placeholder {
-          }
-
-          &:focus {
-          }
-        }
-
-        .search-svg {
-          position: absolute;
-          width: 15px;
-          height: 15px;
-          margin-left: 10px;
-          margin-top: 5px;
-
-          path {
-            stroke: var(--color-placeholder);
-          }
+          font-size: 14px;
+          background-color: transparent;
         }
       }
     }
@@ -144,6 +125,7 @@ header {
       justify-content: space-around;
       min-width: 17vw;
       max-width: 310px;
+      gap: 8px;
 
       @media (min-width: 768px) {
         position: static;

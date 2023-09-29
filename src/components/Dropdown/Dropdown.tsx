@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Arrow } from "../svg";
 import classNames from "classnames";
 import "./Dropdown.scss";
 import { ICategory } from "@/types/category";
+import { CiChevronDown } from "@/assets/icons";
 
 type Props = {
   title: string;
@@ -23,7 +23,7 @@ const Dropdown = ({ title, content }: Props) => {
           })}
         >
           {title}
-          <Arrow
+          <CiChevronDown
             className={classNames("arrow-svg", {
               rotate: show,
             })}
