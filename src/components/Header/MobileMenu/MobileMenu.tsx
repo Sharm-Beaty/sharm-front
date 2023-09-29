@@ -1,15 +1,15 @@
 "use client";
-import { Accordion } from "@/component/Accordion";
+import { Accordion } from "@/components/Accordion";
 import "./MobileMenu.scss";
 // import { menuData } from "@/component/Header/menuData";
 // import { ActiveLink } from "@/component/UI/ActiveLink/ActivLink";
-import { Arrow, Phone, Search } from "@/component/svg";
+import { Arrow, Phone, Search } from "@/components/svg";
 import { useGetCategoriesQuery } from "@/hooks/useGetCategoriesQuery";
 import classNames from "classnames";
 import { useState } from "react";
-import Dropdown from "@/component/Dropdown/Dropdown";
+import Dropdown from "@/components/Dropdown/Dropdown";
 import Link from "next/link";
-import Shop from "@/component/svg/Shop";
+import Shop from "@/components/svg/Shop";
 import Image from "next/image";
 
 type Props = {
