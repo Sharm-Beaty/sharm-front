@@ -1,7 +1,3 @@
 export default function OurTeam() {
-    return (
-        <>
-            OurTeam
-        </>
-    );
+  return <>OurTeam</>;
 }
