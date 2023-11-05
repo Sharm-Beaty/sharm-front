@@ -25,6 +25,7 @@ export const Banner = () => {
                         },
                     },
                 }}
+                speed={1000}
                 autoplay
                 loop
                 modules={[Pagination, Autoplay, EffectCoverflow]}
