@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Banner.scss";
-import { data } from "./mockData";
+import { data } from "../../data/dataMainBanner";
 import Link from "next/link";
 
 export const Banner = () => {
@@ -31,17 +31,17 @@ export const Banner = () => {
                 spaceBetween={10}
             >
                 {data.map((info) => (
-                    <SwiperSlide key={info.desktopSrc}>
+                    <SwiperSlide key={info.id}>
                         <Link href={`/${info.url}`}>
                             <img
                                 className="banner__bg desktop-only"
                                 src={info.desktopSrc}
-                                alt="Background photo"
+                                alt={info.name}
                             />
                             <img
                                 className="banner__bg mobile-only"
                                 src={info.mobileSrc || info.desktopSrc}
-                                alt="Background photo"
+                                alt={info.name}
                             />
                         </Link>
                     </SwiperSlide>
