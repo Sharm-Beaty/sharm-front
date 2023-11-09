@@ -4,11 +4,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./Banner.scss";
-import { data } from "../../data/dataMainBanner";
 import Link from "next/link";
+import Image from "next/image";
 
-export const Banner = () => {
+import { data } from "../../data/dataMainBanner";
+import "./Banner.scss";
+
+const isMobile = window.innerWidth < 768;
+
+const Banner = () => {
     return (
         <section className="banner">
             <Swiper
@@ -31,17 +35,15 @@ export const Banner = () => {
                 modules={[Pagination, Autoplay, EffectCoverflow]}
                 spaceBetween={10}
             >
-                {data.map((info) => (
-                    <SwiperSlide key={info.id}>
+                {data.map((info, ind) => (
+                    <SwiperSlide key={info.id} style={{ position: "relative" }}>
                         <Link href={`/${info.url}`}>
-                            <img
-                                className="banner__bg desktop-only"
-                                src={info.desktopSrc}
-                                alt={info.name}
-                            />
-                            <img
-                                className="banner__bg mobile-only"
-                                src={info.mobileSrc || info.desktopSrc}
+                            <Image
+                                className="banner__bg"
+                                width={300}
+                                height={300}
+                                priority={ind === 0}
+                                src={isMobile ? info.mobileSrc || info.desktopSrc : info.desktopSrc}
                                 alt={info.name}
                             />
                         </Link>
@@ -51,3 +53,4 @@ export const Banner = () => {
         </section>
     );
 };
+export default Banner;
