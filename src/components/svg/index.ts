@@ -6,3 +6,4 @@ export {Visa} from "./Visa";
 export {Mastercard} from "./Mastercard";
 export {Arrow} from "./Arrow";
 export {Search} from "./Search";
+export {Loader} from "./Loader";

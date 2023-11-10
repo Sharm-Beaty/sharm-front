@@ -1,5 +1,4 @@
-import dynamic from "next/dynamic";
-const Banner = dynamic(() => import("../components/Banner"), { ssr: false });
+import Banner from "../components/Banner";
 
 export default async function Home() {
     return (
