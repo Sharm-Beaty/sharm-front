@@ -12,7 +12,7 @@ export const slidesDb: SlideData[] = [
 		title: 'Найкращі пропозиції цього літа',
 		subTitle: 'для вашої краси',
 		btnText: 'Переглянути',
-		img: '/slider.sample.jfif',
+		img: '/slider.sample.png',
 	},
 	{
 		id: 2,

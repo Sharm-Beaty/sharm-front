@@ -1,0 +1,40 @@
+@media (max-width: 768px) {
+	.slideInfo {
+		top: unset;
+		left: unset;
+		bottom: 63px;
+		right: 23px;
+		align-items: flex-end;
+		width: 80vw;
+		max-width: 476px;
+
+		.textBox {
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-end;
+			text-align: end;
+			gap: unset;
+
+			.title {
+				color: var(---color-text, var(---color-text, #363636));
+				font-size: 24px;
+				font-weight: 600;
+				line-height: 100%;
+				text-shadow: unset;
+			}
+
+			.subTitle {
+				color: var(--color-primary, #e56466);
+				text-align: end;
+				font-size: 32px;
+				font-weight: 600;
+				line-height: 100%;
+				text-transform: uppercase;
+			}
+		}
+
+		.linkBox {
+			display: none;
+		}
+	}
+}

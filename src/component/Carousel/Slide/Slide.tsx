@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import cls from './Slide.module.scss';
+import cls from './index.module.scss';
 import { SlideData } from '../carouselData';
 import Link from 'next/link';
 import { classNames } from '@/helpers';

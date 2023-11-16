@@ -8,12 +8,10 @@
 	position: absolute;
 	top: 130px;
 	left: 90px;
-	z-index: 3;
 	width: 476px;
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 40px;
 
 	.textBox {
 		display: flex;
