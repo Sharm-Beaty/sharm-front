@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { slidesDb } from './carouselData';
 import { Slide } from './Slide/Slide';
+import { classNames } from '@/helpers';
 
 interface CarouselProps extends SwiperOptions {
 	className?: string;
@@ -16,6 +17,7 @@ interface CarouselProps extends SwiperOptions {
 
 const Carousel: FC<CarouselProps> = (props) => {
 	const { className, ...otherProps } = props;
+
 	const pagination: PaginationOptions = {
 		clickable: true,
 		el: '.' + cls.pagination,
@@ -31,7 +33,7 @@ const Carousel: FC<CarouselProps> = (props) => {
 	return (
 		<>
 			<Swiper
-				className={cls.swiper}
+				className={classNames(cls.swiper, [className])}
 				pagination={pagination}
 				modules={[Autoplay, Pagination]}
 				autoplay={autoplay}
