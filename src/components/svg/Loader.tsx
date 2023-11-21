@@ -1,6 +1,6 @@
-export const Loader = ({ width = 128, height = 128 }) => (
+export const Loader = ({ width = 128, height = 128, className = "pl" }) => (
     <svg
-        className="pl"
+        className={className}
         viewBox="0 0 128 128"
         width={width}
         height={height}

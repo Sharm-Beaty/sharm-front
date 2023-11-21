@@ -1,18 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { Pagination, Autoplay } from "swiper/modules";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { useState, useEffect } from "react";
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
-import Image from "next/image";
 
-import { data } from "../../data/dataMainBanner";
+import { Loader } from "../UI/Loader";
 import "./Slider.scss";
 
-const isMobile = window.innerWidth < 768;
+type Slider = {
+    children: React.ReactElement[];
+    autoplay?: boolean;
+};
 
-const Slider = () => {
+const Slider = ({ children, autoplay }: Slider) => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000);
+    }, []);
+
     return (
         <Swiper
             pagination={{ clickable: true }}
@@ -29,23 +38,15 @@ const Slider = () => {
                 },
             }}
             speed={1000}
-            autoplay
+            autoplay={autoplay}
             loop
-            modules={[Pagination, Autoplay, EffectCoverflow]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={10}
         >
-            {data.map((info, ind) => (
-                <SwiperSlide key={info.id} style={{ position: "relative" }}>
-                    <Link href={`/${info.url}`}>
-                        <Image
-                            className="banner__bg"
-                            width={300}
-                            height={300}
-                            priority={ind === 0}
-                            src={isMobile ? info.mobileSrc || info.desktopSrc : info.desktopSrc}
-                            alt={info.name}
-                        />
-                    </Link>
+            {children.map((data, index) => (
+                <SwiperSlide key={index} style={{ position: "relative" }}>
+                    {loading ? <Loader /> : data}
+                    {!loading && <Loader className="swiper-lazy-preloader"></Loader>}
                 </SwiperSlide>
             ))}
         </Swiper>

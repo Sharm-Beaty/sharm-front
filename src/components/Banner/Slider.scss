@@ -1,18 +1,12 @@
-.banner__bg {
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-  }
-
 .swiper {
   height: 100%;
 }
 
 .swiper-wrapper {
-  height: 94%;
+  height: 92%;
 
   @media (min-width: 768px) {
-    height: 92%;
+    height: 90%;
   }
 }
 
@@ -20,8 +14,12 @@
   overflow: hidden;
 }
 
-.swiper-pagination {
-  bottom: 0;
+.swiper-lazy-preloader {
+  border: none;
+  animation: none !important;
+  margin-left: 0;
+  margin-top: 0;
+  transform: translate(-50%, -50%);
 }
 
 .swiper-pagination-bullet {
