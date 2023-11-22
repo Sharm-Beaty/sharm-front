@@ -1,10 +1,10 @@
-import mockCategories from "@/component/CategorySelector/src/mock";
-import {CategorySelector} from "@/component/CategorySelector";
+import mockCategories from "@/mockForPopularCategories/mock";
+import PopularCategories from "@/component/PopularCategories/PopularCategories";
 
 export default async function Home() {
     return (
         <main>
-            <CategorySelector  categories={mockCategories} className={'category-selector'} />
+            <PopularCategories  categories={mockCategories} className={'popular-categories'} />
         </main>
     )
 }

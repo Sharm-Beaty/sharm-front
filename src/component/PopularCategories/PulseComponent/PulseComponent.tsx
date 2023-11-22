@@ -1,7 +1,7 @@
 'use client';
 import {motion, MotionStyle, Variants} from 'framer-motion'
 import {FC} from "react";
-import {PulseComponentProps} from "@/component/CategorySelector/src/interface";
+import {PulseComponentProps} from "@/component/PopularCategories/src/interface";
 import {Property} from "csstype";
 
 const animationVariants: Variants = {

@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface CategorySelectorProps {
+export interface PopularCategoriesProps {
     className?: string;
     categories:Category[]
 }
@@ -25,9 +25,10 @@ export interface CategoryIconProps {
     isHovered: boolean
 }
 
-export interface CategoryIconProps {
+export interface CategoryTitleProps {
     className?: string;
     title?: string;
+    link?: string;
     children?: React.ReactNode;
     isHovered:boolean
 }
@@ -36,6 +37,7 @@ export type Category = {
     id:number;
     icon:string;
     label:string;
+    link:string;
 }
 
 export interface TestProps {

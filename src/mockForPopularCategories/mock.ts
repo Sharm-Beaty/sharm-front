@@ -1,47 +1,47 @@
-import {Category} from "@/component/CategorySelector/src/interface";
+import {Category} from "@/component/PopularCategories/src/interface";
 
 const mockCategories:Category[] = [
     {
         id: 1,
         label: "Люкс",
         icon: "luxury",
-        // color:'yellow'
+        link: 'categoryLink'
     },
     {
         id: 2,
         label: "Бренди",
         icon: "brands",
-        // color:'green'
+        link: 'categoryLink'
     },
     {
         id: 3,
         label: "Парфумерія",
         icon: "perfume",
-        // color:'blue'
+        link: 'categoryLink'
     },
     {
         id: 4,
         label: "Макіяж",
         icon: "makeup",
-        // color:'darkslateblue'
+        link: 'categoryLink'
     },
     {
         id: 5,
         label: "Волосся",
         icon: "hair",
-        // color:'#FFCD3A'
+        link: 'categoryLink'
     },
     {
         id: 6,
         label: "Догляд",
         icon: "body",
-        // color:'#3E90F0'
+        link: 'categoryLink'
     },
     {
         id: 7,
         label: "Дитячі товари",
         icon: "kids",
-        // color:'#E56466'
+        link: 'categoryLink'
     }
 ];
 
