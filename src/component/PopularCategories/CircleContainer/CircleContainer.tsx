@@ -1,11 +1,16 @@
 'use client';
 import {motion, useAnimation, Variants} from 'framer-motion'
 import React, {FC, useState} from 'react';
-import {TestProps} from "@/component/PopularCategories/src/interface";
 import PulseComponent from "@/component/PopularCategories/PulseComponent/PulseComponent";
 import CategoryTitle from "@/component/PopularCategories/CircleContainer/CategoryTitle/CategoryTitle";
 import CategoryIcon from "@/component/PopularCategories/CircleContainer/CategoryIcon/CategoryIcon";
+import {Category} from "@/component/PopularCategories/PopularCategories";
 
+export interface CircleContainerProps {
+    className?: string;
+    children?: React.ReactNode;
+    category: Category;
+}
 const wrapperAnimationVariants: Variants  = {
     init: {
         scale: 0.9
@@ -20,7 +25,7 @@ const wrapperAnimationVariants: Variants  = {
     },
 }
 
-const CircleContainer: FC<TestProps> = ({className = '', category}) => {
+const CircleContainer: FC<CircleContainerProps> = ({className = '', category}) => {
     const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
     const [isHovered, setIsHovered] = useState(false);
 
@@ -28,10 +33,10 @@ const CircleContainer: FC<TestProps> = ({className = '', category}) => {
 
     const {icon, label} = category;
     if (!category || !icon || !label) {
-        return <div>Category data is empty</div>;
+        return <div className="error-message">Invalid category data</div>;
     }
 
-    const imagePath = `/images-for-categories/${icon}.jpg`;
+
 
     const handleMouseEnter = () => setIsHovered(true);
     const handleMouseLeave = () => setIsHovered(false);
@@ -70,10 +75,11 @@ const CircleContainer: FC<TestProps> = ({className = '', category}) => {
                 />
                 <CategoryIcon
                     className={'inner-img'}
-                    iconName={imagePath}
+                    iconName={icon}
                     isHovered={isHovered}/>
             </motion.div>
             <CategoryTitle
+                className={'category-title'}
                 isHovered={isHovered}
                 title={label}/>
         </motion.div>

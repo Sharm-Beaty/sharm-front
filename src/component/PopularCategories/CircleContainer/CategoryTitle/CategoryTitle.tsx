@@ -1,8 +1,14 @@
 'use client';
 import React, {FC} from 'react';
 import {motion, Variants} from "framer-motion";
-import {CategoryTitleProps} from "@/component/PopularCategories/src/interface";
 
+export interface CategoryTitleProps {
+    className?: string;
+    title?: string;
+    link?: string;
+    children?: React.ReactNode;
+    isHovered:boolean
+}
 const textAnimationVariants: Variants = {
     init: {
         opacity: 1,
@@ -12,8 +18,7 @@ const textAnimationVariants: Variants = {
     },
     hover: {
         originX: 0,
-        // x: [0, 5, 10,],
-        textShadow: '0.5px 0.5px 4px black',
+        x: [0, 5, 10,0],
         transition: {
             delay: 0.2,
             duration: 0.3,
@@ -22,24 +27,20 @@ const textAnimationVariants: Variants = {
     }
 }
 
-const CategoryTitle: FC<CategoryTitleProps> = ({className = '', title = ' ',link = '#', isHovered}) => {
+const CategoryTitle: FC<CategoryTitleProps> = ({className = '', title = '', isHovered}) => {
+    if (!title) {
+        return <div className="error-message">No title provided</div>;
+    }
     return (
         <>
-            <motion.a
+            <motion.p
                 className={className}
-                style={{
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    textDecoration: 'none',
-                    color: '#828282'
-                }}
                 variants={textAnimationVariants}
                 initial={'init'}
                 animate={isHovered ? 'hover' : 'init'}
-                href={link}
             >
                 {title}
-            </motion.a>
+            </motion.p>
         </>
     );
 };

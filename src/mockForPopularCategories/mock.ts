@@ -1,4 +1,4 @@
-import {Category} from "@/component/PopularCategories/src/interface";
+import {Category} from "@/component/PopularCategories/PopularCategories";
 
 const mockCategories:Category[] = [
     {
