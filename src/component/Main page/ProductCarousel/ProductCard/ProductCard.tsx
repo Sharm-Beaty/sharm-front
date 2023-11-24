@@ -7,6 +7,7 @@ import { Like } from '../../../UI/Like/Like';
 import { useState } from 'react';
 import Rating from '@/component/Rating/Rating';
 import Link from 'next/link';
+import { AnimatePresence } from 'framer-motion';
 
 interface ProductCardProps {
 	className?: string;
@@ -17,14 +18,17 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 	const { className, product } = props;
 	const [isInFavorite, setIsInFavorite] = useState(product.inFavorites);
 	const IsDiscounted = Boolean(product.discountedPrice);
+
 	return (
 		<article className={classNames(cls.productCard, [className])}>
 			<div className={cls.head}>
-				<Like
-					className={cls.svgLike}
-					onClick={() => setIsInFavorite((prev) => !prev)}
-					fillPath={isInFavorite ? 'red' : 'none'}
-				/>
+				<AnimatePresence mode='wait'>
+					<Like
+						className={cls.svgLike}
+						onClick={() => setIsInFavorite((prev) => !prev)}
+						fillPath={isInFavorite ? 'red' : 'none'}
+					/>
+				</AnimatePresence>
 				<Link href='#'>
 					<img src={product.img} alt={product.img_alt ?? ''} />
 				</Link>

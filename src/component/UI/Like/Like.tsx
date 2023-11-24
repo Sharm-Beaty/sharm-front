@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface likeProps extends React.SVGProps<SVGSVGElement> {
 	className?: string;
@@ -16,17 +16,26 @@ const Like: React.FC<likeProps> = (props) => {
 		...otherProps
 	} = props;
 
+	const isBeat = fillPath !== 'none';
+
 	const heartbeatVariants = {
 		rest: {
 			scale: 1,
 		},
 		beat: {
-			scale: [1, 1.3, 1.1, 1.2],
+			scale: [1, 1.3, 1, 1.2, 1],
 			transition: {
 				duration: 1,
-				times: [0, 0.3, 0.6, 1],
+				times: [0, 0.25, 0.5, 0.75, 1],
 				ease: 'easeIn',
 				repeat: Infinity,
+			},
+		},
+		clickOn: {
+			scale: 4.5,
+			transition: {
+				duration: 0.25,
+				ease: 'easeIn',
 			},
 		},
 	};
@@ -34,9 +43,17 @@ const Like: React.FC<likeProps> = (props) => {
 	return (
 		<motion.svg
 			className={className}
-			whileHover={'beat'}
-			initial={'rest'}
+			whileHover={isBeat ? '' : 'beat'}
+			whileTap='clickOn'
+			initial='rest'
 			variants={heartbeatVariants}
+			exit={{
+				scale: 1,
+				transition: {
+					duration: 0.5,
+					ease: 'easeInOut',
+				},
+			}}
 			width={width}
 			height={height}
 			viewBox='0 0 22 19'
