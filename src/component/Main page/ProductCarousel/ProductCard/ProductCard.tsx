@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 			</div>
 			<div className={cls.footer}>
 				<div className={cls.ratingWrapper}>
-					<Rating className={cls.rating} />
+					<Rating className={cls.rating} ratingNumber={product.rating} />
 					<Link href='#' className={cls.amountComments}>
 						({product.amountComments})
 					</Link>
