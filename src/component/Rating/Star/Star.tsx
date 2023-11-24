@@ -16,7 +16,7 @@ const Star: FC<StarProps> = (props) => {
 	const isHalfStar = Math.floor(indexVal) !== indexVal;
 
 	return (
-		<div className={classNames(cls.wrapper, [className])} title={indexVal + 0.5 + ' stars'}>
+		<span className={classNames(cls.wrapper, [className])} title={indexVal + 0.5 + ' stars'}>
 			<span
 				className={classNames(cls.star, [classNameForStar], { [cls.right]: isHalfStar })}
 				data-index={indexVal}
@@ -24,7 +24,7 @@ const Star: FC<StarProps> = (props) => {
 			>
 				{starIcon}
 			</span>
-		</div>
+		</span>
 	);
 };
 
