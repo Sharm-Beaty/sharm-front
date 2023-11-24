@@ -5,6 +5,7 @@ import { Product } from '../types/types';
 // import Image from 'next/image';
 import { Like } from '../../../UI/Like/Like';
 import { useState } from 'react';
+import Rating from '@/component/Rating/Rating';
 
 interface ProductCardProps {
 	className?: string;
@@ -30,10 +31,10 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 				<p className={cls.subTitle}>{product.subTitle}</p>
 			</div>
 			<div className={cls.footer}>
-				<p className={cls.rating}>
-					★★★★★
+				<div className={cls.rating}>
+					<Rating />
 					<a href='#'>({product.amountComments})</a>
-				</p>
+				</div>
 				<div className={cls.price}>
 					<span>{product.price}</span>
 					{product.discountedPrice && <span>{product.discountedPrice}</span>}
