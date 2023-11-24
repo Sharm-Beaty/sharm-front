@@ -1,6 +1,5 @@
 .carouselWrap {
 	width: 100%;
-	height: 500px;
 }
 
 .productCarousel {
@@ -11,4 +10,9 @@
 .slide {
 	text-align: center;
 	border: 1px solid red;
+}
+
+.swiperSlide {
+	height: unset;
+	display: flex;
 }

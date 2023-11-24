@@ -6,6 +6,7 @@ import { Product } from '../types/types';
 import { Like } from '../../../UI/Like/Like';
 import { useState } from 'react';
 import Rating from '@/component/Rating/Rating';
+import Link from 'next/link';
 
 interface ProductCardProps {
 	className?: string;
@@ -15,7 +16,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = (props) => {
 	const { className, product } = props;
 	const [isInFavorite, setIsInFavorite] = useState(product.inFavorites);
-
+	const IsDiscounted = Boolean(product.discountedPrice);
 	return (
 		<article className={classNames(cls.productCard, [className])}>
 			<div className={cls.head}>
@@ -24,20 +25,28 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 					onClick={() => setIsInFavorite((prev) => !prev)}
 					fillPath={isInFavorite ? 'red' : 'none'}
 				/>
-				<img src={product.img} alt={product.img_alt ?? ''} />
+				<Link href='#'>
+					<img src={product.img} alt={product.img_alt ?? ''} />
+				</Link>
 			</div>
 			<div className={cls.body}>
-				<h2 className={cls.title}>{product.title}</h2>
-				<p className={cls.subTitle}>{product.subTitle}</p>
+				<Link href='#'>
+					<h2 className={cls.title}>{product.title}</h2>
+					<p className={cls.subTitle}>{product.subTitle}</p>
+				</Link>
 			</div>
 			<div className={cls.footer}>
-				<div className={cls.rating}>
-					<Rating />
-					<a href='#'>({product.amountComments})</a>
+				<div className={cls.ratingWrapper}>
+					<Rating className={cls.rating} />
+					<Link href='#' className={cls.amountComments}>
+						({product.amountComments})
+					</Link>
 				</div>
 				<div className={cls.price}>
-					<span>{product.price}</span>
 					{product.discountedPrice && <span>{product.discountedPrice}</span>}
+					<span className={classNames('', [], { [cls.oldPrice]: IsDiscounted })}>
+						{product.price}
+					</span>
 				</div>
 			</div>
 		</article>

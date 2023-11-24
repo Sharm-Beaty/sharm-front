@@ -3,7 +3,7 @@ import { Product } from '../types/types';
 export const products: Product[] = [
 	{
 		id: 1,
-		title: 'Dr. Wai in the Scriptures with No Words (Mao xian wang)',
+		title: 'Dr. Wai in the Scriptures with No Words',
 		subTitle:
 			'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.',
 		rating: 2.10305,
