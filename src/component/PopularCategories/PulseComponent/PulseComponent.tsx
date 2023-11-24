@@ -10,7 +10,7 @@ export interface PulseComponentProps {
 }
 const animationVariants: Variants = {
     onHover: {
-        scale: [0.8, 1.2],
+        scale: [0.9, 1.2],
         zIndex: -1,
         opacity: [1, 0,],
     },
