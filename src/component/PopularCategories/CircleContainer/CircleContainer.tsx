@@ -16,7 +16,7 @@ const wrapperAnimationVariants: Variants  = {
         scale: 0.9
     },
     hover: {
-        scale: [1, 0.75, 1.25, 1 ],
+        scale: [1, 0.75, 1.1, 1 ],
         transition: {
             duration: 0.6,
             type: "tween",

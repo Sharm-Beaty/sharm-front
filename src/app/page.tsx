@@ -1,4 +1,4 @@
-import mockCategories from "@/mockForPopularCategories/mock";
+import mockCategories from "@/mock/mockForPopularCategories";
 import PopularCategories from "@/component/PopularCategories/PopularCategories";
 
 export default async function Home() {

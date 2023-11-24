@@ -37,7 +37,6 @@ const CategoryTitle: FC<CategoryTitleProps> = ({className = '', title = '', isHo
                 className={className}
                 variants={textAnimationVariants}
                 initial={'init'}
-                animate={isHovered ? 'hover' : 'init'}
             >
                 {title}
             </motion.p>
