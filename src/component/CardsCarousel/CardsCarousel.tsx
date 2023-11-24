@@ -28,6 +28,7 @@ const CardsCarousel: FC<CardsCarouselProps> = (props) => {
 		titleCarousel,
 		...otherProps
 	} = props;
+
 	const [products, setProducts] = useState(productsList);
 
 	useEffect(() => {
