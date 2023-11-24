@@ -15,12 +15,19 @@ interface CardsCarouselProps extends SwiperOptions {
 	className?: string;
 	classNameForNavigation?: string;
 	classNameForSlide?: string;
+	titleCarousel: string;
 	productsList: ReactNode[];
 }
 
 const CardsCarousel: FC<CardsCarouselProps> = (props) => {
-	const { className, classNameForSlide, classNameForNavigation, productsList, ...otherProps } =
-		props;
+	const {
+		className,
+		classNameForSlide,
+		classNameForNavigation,
+		productsList,
+		titleCarousel,
+		...otherProps
+	} = props;
 	const [products, setProducts] = useState(productsList);
 
 	useEffect(() => {
@@ -28,8 +35,8 @@ const CardsCarousel: FC<CardsCarouselProps> = (props) => {
 	}, [productsList]);
 
 	const navigation: NavigationOptions = {
-		prevEl: '.button-prev',
-		nextEl: '.button-next',
+		prevEl: '.' + cls.buttonPrev,
+		nextEl: '.' + cls.buttonNext,
 	};
 
 	const autoplay: AutoplayOptions = {
@@ -41,11 +48,14 @@ const CardsCarousel: FC<CardsCarouselProps> = (props) => {
 	return (
 		<>
 			<section className={classNames(cls.carouselWrap, [className])}>
+				<div className={cls.container}>
+					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+				</div>
 				<Swiper
 					className={classNames(cls.cardsCarousel)}
 					modules={[Autoplay, Navigation]}
 					navigation={navigation}
-					// autoplay={autoplay}
+					autoplay={autoplay}
 					spaceBetween={75}
 					loop={true}
 					speed={1000}
@@ -60,12 +70,12 @@ const CardsCarousel: FC<CardsCarouselProps> = (props) => {
 							</SwiperSlide>
 						))}
 				</Swiper>
-				<div className={classNames(cls['nav-wrap'], [classNameForNavigation])}>
-					<div className={cls['button-prev']}>
-						<ArrowLeft width={30} cursor='pointer' />
+				<div className={classNames(cls.navWrap, [classNameForNavigation])}>
+					<div className={cls.buttonPrev}>
+						<ArrowLeft width={27} height={20} cursor='pointer' />
 					</div>
-					<div className='button-next'>
-						<ArrowRight width={30} cursor='pointer' />
+					<div className={cls.buttonNext}>
+						<ArrowRight width={27} height={20} cursor='pointer' />
 					</div>
 				</div>
 			</section>

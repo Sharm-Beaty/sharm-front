@@ -15,6 +15,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 		<>
 			<CardsCarousel
 				className={classNames(cls.productCarousel, [className])}
+				titleCarousel='Акційні пропозиції'
 				productsList={products.map((product) => (
 					<ProductCard key={product.id} product={product} />
 				))}

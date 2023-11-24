@@ -1,18 +1,53 @@
 .carouselWrap {
-	width: 100%;
+	position: relative;
 }
 
-.productCarousel {
-	width: 100%;
-	height: 40vh;
+.container {
+	line-height: 0.5;
+	border-bottom: 10px solid rgba(229, 100, 102, 0.5);
+	display: inline-block;
 }
 
-.slide {
-	text-align: center;
-	border: 1px solid red;
+.mainTitle {
+	color: var(--color-text);
+}
+
+.cardsCarousel {
+	margin-top: 55px;
 }
 
 .swiperSlide {
 	height: unset;
 	display: flex;
+}
+
+.navWrap {
+	--slider-navbar-width: 90px;
+	position: relative;
+	left: calc(100% - var(--slider-navbar-width));
+	margin-top: 40px;
+	width: var(--slider-navbar-width);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.buttonPrev,
+.buttonNext {
+	width: 27px;
+	height: 20px;
+	color: var(--color-placeholder);
+	transition: 0.3s;
+}
+
+.buttonPrev:hover,
+.buttonNext:hover {
+	color: var(--color-text);
+}
+
+.buttonPrev {
+}
+
+.buttonNext {
 }
