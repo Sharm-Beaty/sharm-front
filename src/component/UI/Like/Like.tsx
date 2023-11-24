@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 interface likeProps extends React.SVGProps<SVGSVGElement> {
 	className?: string;
 	strokePathColor?: string;
@@ -14,9 +16,27 @@ const Like: React.FC<likeProps> = (props) => {
 		...otherProps
 	} = props;
 
+	const heartbeatVariants = {
+		rest: {
+			scale: 1,
+		},
+		beat: {
+			scale: [1, 1.3, 1.1, 1.2],
+			transition: {
+				duration: 1,
+				times: [0, 0.3, 0.6, 1],
+				ease: 'easeIn',
+				repeat: Infinity,
+			},
+		},
+	};
+
 	return (
-		<svg
+		<motion.svg
 			className={className}
+			whileHover={'beat'}
+			initial={'rest'}
+			variants={heartbeatVariants}
 			width={width}
 			height={height}
 			viewBox='0 0 22 19'
@@ -32,7 +52,7 @@ const Like: React.FC<likeProps> = (props) => {
 				strokeLinecap='round'
 				strokeLinejoin='round'
 			/>
-		</svg>
+		</motion.svg>
 	);
 };
 
