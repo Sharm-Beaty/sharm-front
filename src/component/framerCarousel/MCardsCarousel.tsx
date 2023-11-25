@@ -5,7 +5,7 @@ import { Product } from '../Main page/ProductCarousel/types/types';
 import React from 'react';
 import Slide from './Slide/Slide';
 import Controls from './Controls';
-import { HTMLMotionProps, motion } from 'framer-motion';
+import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 
 interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	className?: string;
@@ -21,13 +21,15 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	);
 
 	return (
-		<motion.section className={classNames(cls.mCardsCarousel, [className])}>
+		<motion.section className={classNames(cls.mCardsCarousel, [className])} {...otherProps}>
 			<h2 className={cls.mainTitle}>Framer Motion Carousel</h2>
-			<div className={cls.carousel}>
-				{data.map((data) => {
-					return <Slide key={data.img} product={data} />;
-				})}
-			</div>
+			<AnimatePresence>
+				<div className={cls.carousel}>
+					{data.map((data) => {
+						return <Slide key={data.img} product={data} />;
+					})}
+				</div>
+			</AnimatePresence>
 			<Controls
 				data={data}
 				transitionData={transitionData}
