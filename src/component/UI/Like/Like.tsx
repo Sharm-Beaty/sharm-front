@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { SVGMotionProps, motion } from 'framer-motion';
 
-interface likeProps extends React.SVGProps<SVGSVGElement> {
+interface likeProps extends SVGMotionProps<SVGSVGElement> {
 	className?: string;
 	strokePathColor?: string;
 	fillPath?: string;
