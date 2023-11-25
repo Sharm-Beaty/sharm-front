@@ -17,26 +17,6 @@ const Slide: React.FC<SlideProps> = (props) => {
 	const [isInFavorite, setIsInFavorite] = React.useState<boolean>(product.inFavorites);
 	const IsDiscounted = Boolean(product.discountedPrice);
 
-	const slideVariants = {
-		initial: { x: 0, scale: 0.8, opacity: 0 },
-
-		animate: {
-			scale: 1,
-			opacity: 1,
-			transition: {
-				duration: 0.4,
-			},
-		},
-
-		exit: { scale: 0.8, opacity: 0 },
-
-		transition: {
-			type: 'spring',
-			damping: 20,
-			stiffness: 100,
-		},
-	};
-
 	return (
 		<motion.article
 			className={classNames(cls.slide, [className])}
@@ -55,7 +35,6 @@ const Slide: React.FC<SlideProps> = (props) => {
 				stiffness: 100,
 			}}
 			exit={{ scale: 0.8, opacity: 0 }}
-			variants={slideVariants}
 		>
 			<motion.div layout className={cls.head}>
 				<Like
