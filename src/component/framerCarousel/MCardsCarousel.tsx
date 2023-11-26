@@ -2,41 +2,49 @@
 import cls from './MCardsCarousel.module.scss';
 import { classNames } from '@/helpers';
 import { Product } from '../Main page/ProductCarousel/types/types';
-import React from 'react';
-import Slide from './Slide/Slide';
+import React, { useState } from 'react';
+import { MSlide } from './Slide/Slide';
 import Controls from './Controls';
 import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion';
 
 interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	className?: string;
 	productsList: Product[];
+	slidesPerView: number;
+	spaceBetween?: number;
 }
 
 const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
-	const { className, productsList, ...otherProps } = props;
+	const { className, productsList, spaceBetween = 75, ...otherProps } = props;
+	let { slidesPerView = 5 } = props;
 
-	const [data, setData] = React.useState<Product[]>(productsList.slice(0, productsList.length - 1));
-	const [transitionData, setTransitionData] = React.useState<Product>(
-		productsList[productsList.length - 1],
+	if (slidesPerView > productsList.length) {
+		slidesPerView = productsList.length - 1;
+	}
+
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const productsInView = productsList.slice(0, slidesPerView + 1);
+	const [data, setData] = React.useState<Product[]>(
+		productsList.slice(0, productsInView.length - 1),
 	);
 
 	return (
 		<motion.section className={classNames(cls.mCardsCarousel, [className])} {...otherProps}>
 			<h2 className={cls.mainTitle}>Framer Motion Carousel</h2>
-			<AnimatePresence>
-				<div className={cls.carousel}>
+			<motion.div className={cls.carousel}>
+				<AnimatePresence mode='popLayout'>
 					{data.map((data) => {
-						return <Slide key={data.img} product={data} />;
+						return <MSlide key={data.img} product={data} />;
 					})}
-				</div>
-			</AnimatePresence>
+				</AnimatePresence>
+			</motion.div>
 			<Controls
 				data={data}
-				transitionData={transitionData}
-				initData={productsList[0]}
 				handleData={setData}
-				handleTransitionData={setTransitionData}
 				sliderData={productsList}
+				currentIndex={currentIndex}
+				setCurrentIndex={setCurrentIndex}
+				slidesPerView={slidesPerView}
 			/>
 		</motion.section>
 	);
