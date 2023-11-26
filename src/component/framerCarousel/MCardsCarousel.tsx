@@ -74,7 +74,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				className={cls.carousel}
 				drag='x'
 				dragConstraints={{ left: 0, right: 0 }}
-				dragElastic={1}
+				dragElastic={false}
 				onDragEnd={onSwipe}
 			>
 				<AnimatePresence mode='popLayout'>

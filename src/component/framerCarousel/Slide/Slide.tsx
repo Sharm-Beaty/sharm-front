@@ -35,9 +35,7 @@ const Slide: ComponentType<PropsWithChildren<SlideProps & RefAttributes<HTMLElem
 					damping: 15,
 					stiffness: 100,
 				}}
-				exit={{
-					opacity: 0,
-				}}
+				exit={{ scale: 0, opacity: 0 }}
 				{...otherProps}
 			>
 				<motion.div layout className={cls.head}>
