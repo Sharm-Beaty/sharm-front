@@ -12,6 +12,7 @@ interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	productsList: Product[];
 	slidesPerView?: number;
 	spaceBetween?: number;
+	titleCarousel?: string;
 }
 
 const swipeConfidenceThreshold = 10000;
@@ -20,13 +21,18 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
-	const { className, productsList, spaceBetween = 75, ...otherProps } = props;
-	let { slidesPerView = 5 } = props;
+	const {
+		className,
+		productsList,
+		titleCarousel,
+		slidesPerView = 5,
+		spaceBetween = 75,
+		...otherProps
+	} = props;
 
-	if (slidesPerView > productsList.length) {
-		slidesPerView = productsList.length - 1;
-	}
-
+	// if (slidesPerView > productsList.length) {
+	// 	slidesPerView = productsList.length - 1;
+	// }
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const productsInView = productsList.slice(0, slidesPerView);
 	const [data, setData] = useState<Product[]>(productsInView);
@@ -61,7 +67,9 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 
 	return (
 		<motion.section className={classNames(cls.mCardsCarousel, [className])} {...otherProps}>
-			<h2 className={cls.mainTitle}>Framer Motion Carousel</h2>
+			<div className={cls.container}>
+				<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+			</div>
 			<motion.div
 				className={cls.carousel}
 				drag='x'

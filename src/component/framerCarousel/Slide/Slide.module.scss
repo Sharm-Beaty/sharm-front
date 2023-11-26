@@ -16,6 +16,10 @@
 	right: 15px;
 }
 
+.svgLike:focus {
+	outline: none;
+}
+
 .body {
 	margin-top: 20px;
 	color: var(--color-text, var(--color-text, #828282));
