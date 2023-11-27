@@ -1,6 +1,7 @@
 import './globals.css'
 import {Footer} from "@/component/Footer/Footer";
 import {Header} from "@/component/Header/Header";
+import Reviews from '@/component/Reviews/Reviews';
 import {ReduxProvider} from "@/state/provider";
 import {ReactNode} from "react";
 
@@ -18,11 +19,12 @@ export default function RootLayout({
         <html lang="en">
         <body>
         <ReduxProvider>
-            <Header/>
+            {/* <Header/>
             <main>
                 {children}
             </main>
-            <Footer/>
+            <Footer/> */}
+                    <Reviews />     
         </ReduxProvider>
         </body>
         </html>
