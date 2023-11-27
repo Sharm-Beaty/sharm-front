@@ -1,8 +1,12 @@
-import React from 'react';    
+import React, {Dispatch,SetStateAction} from 'react';    
 import { reviewData } from './reviewsData';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+interface PageButtonProps {
+    currentPage: number;
+    setter: Dispatch<SetStateAction<number>>;
+}
 
-const PageButton = ({currentPage, setter}) => {
+const PageButton: React.FC<PageButtonProps> = ({currentPage, setter}) => {
     const itemPerPage = 3;// Інтерфейс для пропсів компоненту DesktopReviews
     const totalPages = Math.ceil(reviewData.length / itemPerPage); // Розрахунок загальної кількості сторінок
 

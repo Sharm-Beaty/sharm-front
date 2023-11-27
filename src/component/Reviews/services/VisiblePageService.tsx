@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';    
 
-const VisiblePageService = (arr, hook, num, currpage) => {// Інтерфейс для пропсів компоненту DesktopReviews
+const VisiblePageService = (arr: any[], num: number, currpage: number) => {// Інтерфейс для пропсів компоненту DesktopReviews
     const startIndex = (currpage - 1) * num; // Індекс початку видимих елементів на сторінці
     const endIndex = startIndex + num; // Індекс кінця видимих елементів на сторінці
 

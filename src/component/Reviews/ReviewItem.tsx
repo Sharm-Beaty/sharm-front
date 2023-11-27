@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 // Інтерфейс для пропсів компоненту ReviewItem
 interface ReviewItemProps {
-  id: number;
-  name: string;
-  date: string;
-  review: string;
-  img: string;
-  product: string;
-  type: string;
-  rating?: number;
+    id?: number;
+    name?: string;
+    date?: string;
+    review?: string;
+    img?: string;
+    product?: string;
+    type?: string;
+    rating?: number;
 }
 
 

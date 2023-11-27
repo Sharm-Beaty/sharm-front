@@ -1,4 +1,15 @@
-export const reviewData = [
+export interface ReviewItemProps {
+    id?: number;
+    name?: string;
+    date?: string;
+    review?: string;
+    img?: string; // Marking img as optional since it might be undefined in some cases
+    product?: string;
+    type?: string;
+    rating?: number; // Marking rating as optional since it might be undefined in some cases
+}
+
+export const reviewData: ReviewItemProps[] = [
     {
         id: Math.random(),
         name: "Вікторія",
