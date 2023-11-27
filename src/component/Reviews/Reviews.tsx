@@ -4,7 +4,7 @@ import DesktopReviews from './DesktopReviews';
 function Reviews() {
     return (
         <div>
-            <DesktopReviews/>
+            <DesktopReviews />
         </div>
     );
 }

@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import { reviewData } from '../reviewsData';
-import "./DesktopReviews.scss"
+import "./MobileReviews.scss"
 import ReviewItem from '../ReviewItem';//Імпорт компоненту ReviewItem для відображення окремого відгуку
 import VisiblePageService from '../services/VisiblePageService';
 import PageButton from '../PageButton';
 
-const DesktopReviews = () => {
+const MobileReviews = () => {
     const [currentPage, setCurrentPage] = useState(1);// Стан для відстеження поточної сторінки
 
-    const visibleItems = VisiblePageService(reviewData, useState, 3, currentPage)
+    const visibleItems = VisiblePageService(reviewData, useState, 2, currentPage)
 
     return (
         <div className="review-desktop-container">
@@ -26,4 +26,4 @@ const DesktopReviews = () => {
     );
 }
 
-export default DesktopReviews;
+export default MobileReviews;
