@@ -34,6 +34,14 @@
 	}
 }
 
+.title,
+.subTitle {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .title {
 	font-size: inherit;
 	font-weight: 600;
@@ -43,10 +51,6 @@
 .subTitle {
 	padding: 0;
 	margin-top: 5px;
-	width: 200px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 	flex: 1 0 100%;
 }
 
