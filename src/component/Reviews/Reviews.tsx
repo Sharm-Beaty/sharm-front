@@ -5,8 +5,8 @@ import MobileReviews from './MobileReviews/MobileReviews';
 function Reviews() {
     return (
         <div>
-            {/* <DesktopReviews /> */}
-            <MobileReviews/>
+            <DesktopReviews />
+            {/* <MobileReviews/> */}
         </div>
     );
 }
