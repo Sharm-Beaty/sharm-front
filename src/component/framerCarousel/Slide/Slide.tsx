@@ -22,6 +22,8 @@ const Slide: ComponentType<PropsWithChildren<SlideProps & RefAttributes<HTMLElem
 				ref={ref}
 				className={classNames(cls.slide, [className])}
 				layout
+				whileInView='visible'
+				viewport={{ once: true }}
 				initial={{ x: 0, scale: 0.8, opacity: 0 }}
 				animate={{
 					scale: 1,
@@ -35,7 +37,7 @@ const Slide: ComponentType<PropsWithChildren<SlideProps & RefAttributes<HTMLElem
 					damping: 15,
 					stiffness: 100,
 				}}
-				exit={{ scale: 0, opacity: 0 }}
+				exit={{ scale: 1, opacity: 0 }}
 				{...otherProps}
 			>
 				<motion.div layout className={cls.head}>

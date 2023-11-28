@@ -34,8 +34,8 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	// 	slidesPerView = productsList.length - 1;
 	// }
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const productsInView = productsList.slice(0, slidesPerView);
-	const [data, setData] = useState<Product[]>(productsInView);
+	// const productsInView = productsList.slice(0, slidesPerView);
+	const [data, setData] = useState<Product[]>(productsList);
 
 	const handlePrev = () =>
 		setCurrentIndex((prev) => (prev - 1 + productsList.length) % productsList.length);
