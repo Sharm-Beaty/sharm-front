@@ -1,40 +1,69 @@
-.review-mobile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .review-mobile-column {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px;
+        flex-direction: column;
+    }
 
-.review-item {
-    display: flex;
-    flex-direction: column;
-    width: 48%; /* Adjust this value based on your desired spacing */
-    margin-bottom: 20px;
-}
+    ul {
+        list-style: none;
+        border-bottom: 1px solid #ddd; /* Optional: Add border for styling */
+        padding: 10px;
+        width: 48%; /* Optional: Adjust the width as needed */
+        box-sizing: border-box;
+    }
 
-.item-name {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
+    .item-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        width: 155px;
+        height: 15px;
+    }
 
-.item-rating {
-    margin-bottom: 10px;
-}
+    .item-rating {
+        height: 10px;
+        width: 100%;
+    }
 
-.item-review {
-    width: 100%; /* Take the full width */
-    margin-bottom: 10px;
-}
+    .item-review {
+        line-height: 18px;
+        font-size: 12px;
+        width: 359px;
+        height: auto;
+        margin-top: 19px;
+    }
+    .cot {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+    }
 
-.image-link {
-    display: flex;
-    justify-content: space-between;
-}
+    .image-link {
+        display: flex;
+        flex-direction: row;
+        width: 134px;
+        height: 29px;
+        justify-content: flex-end;
+        margin-top: -40px;
+    }
+    .product-type {
+        width: 94px;
+        height: 30px;
+        margin-left: 10px;
+    }
+    .product {
+        display: block;
+        width: 94px;
+        height: 30px;
+        font-size: 10px;
+        line-height: 16px;
+        font-weight: 400;
+        color:#363636;
+    }
 
-/* Additional styles for other elements as needed */
+    .image-link img {
+        max-width: 40px;
+    }
