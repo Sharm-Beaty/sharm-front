@@ -10,7 +10,6 @@ import { AnimatePresence, HTMLMotionProps, PanInfo, motion } from 'framer-motion
 interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	className?: string;
 	productsList: Product[];
-	slidesPerView?: number;
 	spaceBetween?: number;
 	titleCarousel?: string;
 }
@@ -21,20 +20,9 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
-	const {
-		className,
-		productsList,
-		titleCarousel,
-		slidesPerView = 5,
-		spaceBetween = 75,
-		...otherProps
-	} = props;
+	const { className, productsList, titleCarousel, spaceBetween = 75, ...otherProps } = props;
 
-	// if (slidesPerView > productsList.length) {
-	// 	slidesPerView = productsList.length - 1;
-	// }
 	const [currentIndex, setCurrentIndex] = useState(0);
-	// const productsInView = productsList.slice(0, slidesPerView);
 	const [data, setData] = useState<Product[]>(productsList);
 
 	const handlePrev = () =>
@@ -52,18 +40,13 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	};
 
 	useEffect(() => {
-		let endIndex = currentIndex + slidesPerView;
+		let endIndex = currentIndex + productsList.length;
 
-		if (endIndex > productsList.length) {
-			// If yes, wrap around to the beginning
-			endIndex = endIndex - productsList.length;
-			// Display productsList from currentIndex to the end and then from the beginning to fill up to slidesPerView
-			setData(() => [...productsList.slice(currentIndex), ...productsList.slice(0, endIndex)]);
-		} else {
-			// Display productsList normally
-			setData(() => productsList.slice(currentIndex, endIndex));
-		}
-	}, [currentIndex, productsList, slidesPerView]);
+		// Wrap around to the beginning
+		endIndex = endIndex % productsList.length;
+
+		setData(() => [...productsList.slice(endIndex), ...productsList.slice(0, endIndex)]);
+	}, [currentIndex, productsList]);
 
 	return (
 		<motion.section className={classNames(cls.mCardsCarousel, [className])} {...otherProps}>
