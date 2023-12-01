@@ -2,8 +2,8 @@
 import cls from './index.module.scss';
 import { classNames } from '@/helpers';
 import { Product } from '../types/types';
-// import Image from 'next/image';
-import { Like } from '../../../UI/Like/Like';
+import Image from 'next/image';
+import { Like } from '@/component/UI/Like';
 import { useState } from 'react';
 import Rating from '@/component/Rating/Rating';
 import Link from 'next/link';
@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 					/>
 				</AnimatePresence>
 				<Link href={product.url}>
-					<img src={product.img} alt={product.img_alt ?? ''} />
+					<Image src={product.img} alt={product.img_alt ?? ''} width={200} height={270} />
 				</Link>
 			</div>
 			<div className={cls.body}>

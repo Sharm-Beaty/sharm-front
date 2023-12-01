@@ -1,7 +1,7 @@
 import { CardsCarousel } from '@/component/CardsCarousel';
 import cls from './ProductCarousel.module.scss';
 import { classNames } from '@/helpers';
-import { products } from './data/MOCK_DATA';
+import { products } from '@/mock';
 import { ProductCard } from './ProductCard/ProductCard';
 import { swiperConfig } from '@/component/CardsCarousel/swiperConfig';
 
@@ -18,7 +18,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 				className={classNames(cls.productCarousel, [className])}
 				titleCarousel='Акційні пропозиції'
 				breakpoints={swiperConfig.breakpoints}
-				// autoplay={swiperConfig.autoplay}
+				autoplay={swiperConfig.autoplay}
 				slidesPerView={5}
 				spaceBetween={75}
 				productsList={products.map((product) => (
@@ -29,4 +29,4 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 	);
 };
 
-export default ProductCarousel;
+export { ProductCarousel };

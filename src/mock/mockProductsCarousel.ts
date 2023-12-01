@@ -1,4 +1,4 @@
-import { Product } from '../types/types';
+import { Product } from '@/component/ProductCarousel';
 
 export const products: Product[] = [
 	{
@@ -14,7 +14,7 @@ export const products: Product[] = [
 		price: 356.28,
 		discountedPrice: 476.13,
 		get img() {
-			return `https://fakeimg.pl/200x270/ff4444/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'curabitur at ipsum',
 	},
@@ -31,7 +31,7 @@ export const products: Product[] = [
 		price: 599.76,
 		discountedPrice: 457.82,
 		get img() {
-			return `https://fakeimg.pl/200x270/cc0000/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'ut nunc',
 	},
@@ -47,7 +47,7 @@ export const products: Product[] = [
 		price: 903.77,
 		discountedPrice: 151.55,
 		get img() {
-			return `https://fakeimg.pl/200x270/cc0000/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'vulputate nonummy maecenas',
 	},
@@ -64,7 +64,7 @@ export const products: Product[] = [
 		price: 726.65,
 		discountedPrice: 474.68,
 		get img() {
-			return `https://fakeimg.pl/200x270/ff4444/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'libero nullam sit',
 	},
@@ -81,7 +81,7 @@ export const products: Product[] = [
 		price: 139.52,
 		discountedPrice: 358.9,
 		get img() {
-			return `https://fakeimg.pl/200x270/5fa2dd/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'orci luctus',
 	},
@@ -98,7 +98,7 @@ export const products: Product[] = [
 		price: 607.93,
 		discountedPrice: 268.38,
 		get img() {
-			return `https://fakeimg.pl/200x270/5fa2dd/ffffff/?text=Product${this.id}`;
+			return `/product-carousel/${this.id}.png`;
 		},
 		img_alt: 'in',
 	},
