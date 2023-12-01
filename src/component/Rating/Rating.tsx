@@ -42,7 +42,14 @@ const Rating: React.FC<RatingProps> = (props) => {
 		for (let i = 0; i < 5; i += 0.5) {
 			const selected = i < rating;
 
-			stars.push(<Star className={cls.defaultCursor} key={i} selected={selected} indexVal={i} />);
+			stars.push(
+				<Star
+					className={classNames('', [], { [cls.defaultCursor]: !canSetRating })}
+					key={i}
+					selected={selected}
+					indexVal={i}
+				/>,
+			);
 		}
 	}
 

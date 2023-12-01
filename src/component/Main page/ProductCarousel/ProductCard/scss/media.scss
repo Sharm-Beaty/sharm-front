@@ -1,0 +1,48 @@
+@media (max-width: 768px) {
+	.body {
+		margin-top: 10px;
+	}
+
+	.title,
+	.subTitle {
+		text-align: center;
+		font-size: 12px;
+	}
+
+	.ratingWrapper,
+	.price {
+		margin-top: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.rating {
+		font-size: 16px !important;
+	}
+
+	.amountComments {
+		font-size: 12px;
+	}
+
+	.price {
+		flex-wrap: wrap;
+		row-gap: 5px;
+		column-gap: 10px;
+		font-size: 12px;
+	}
+
+	.currentPrise {
+		margin: 0;
+	}
+
+	.discount {
+		display: inline-block;
+	}
+}
+
+@media (max-width: 400px) {
+	.subTitle {
+		font-size: 10px;
+	}
+}

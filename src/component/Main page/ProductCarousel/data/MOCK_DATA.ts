@@ -9,8 +9,9 @@ export const products: Product[] = [
 		rating: 2.10305,
 		inFavorites: false,
 		amountComments: 2,
-		price: '$356.28',
-		discountedPrice: '$476.13',
+		currency: '$',
+		price: 356.28,
+		discountedPrice: 476.13,
 		get img() {
 			return `https://fakeimg.pl/200x270/ff4444/ffffff/?text=Product${this.id}`;
 		},
@@ -24,8 +25,9 @@ export const products: Product[] = [
 		rating: 2.53532,
 		inFavorites: false,
 		amountComments: 3,
-		price: '$599.76',
-		discountedPrice: '$457.82',
+		currency: '$',
+		price: 599.76,
+		discountedPrice: 457.82,
 		get img() {
 			return `https://fakeimg.pl/200x270/cc0000/ffffff/?text=Product${this.id}`;
 		},
@@ -38,8 +40,9 @@ export const products: Product[] = [
 		rating: 3.36056,
 		inFavorites: true,
 		amountComments: 41,
-		price: '$903.77',
-		discountedPrice: '$151.55',
+		currency: '$',
+		price: 903.77,
+		discountedPrice: 151.55,
 		get img() {
 			return `https://fakeimg.pl/200x270/cc0000/ffffff/?text=Product${this.id}`;
 		},
@@ -53,8 +56,9 @@ export const products: Product[] = [
 		rating: 3.95913,
 		inFavorites: true,
 		amountComments: 97,
-		price: '$726.65',
-		discountedPrice: '$474.68',
+		currency: '$',
+		price: 726.65,
+		discountedPrice: 474.68,
 		get img() {
 			return `https://fakeimg.pl/200x270/ff4444/ffffff/?text=Product${this.id}`;
 		},
@@ -68,8 +72,9 @@ export const products: Product[] = [
 		rating: 4.19965,
 		inFavorites: true,
 		amountComments: 85,
-		price: '$139.52',
-		discountedPrice: '$358.90',
+		currency: '$',
+		price: 139.52,
+		discountedPrice: 358.9,
 		get img() {
 			return `https://fakeimg.pl/200x270/5fa2dd/ffffff/?text=Product${this.id}`;
 		},
@@ -83,8 +88,9 @@ export const products: Product[] = [
 		rating: 3.57089,
 		inFavorites: true,
 		amountComments: 39,
-		price: '$607.93',
-		discountedPrice: '$268.38',
+		currency: '$',
+		price: 607.93,
+		discountedPrice: 268.38,
 		get img() {
 			return `https://fakeimg.pl/200x270/5fa2dd/ffffff/?text=Product${this.id}`;
 		},

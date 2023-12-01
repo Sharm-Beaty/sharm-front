@@ -66,6 +66,7 @@
 }
 
 .rating {
+	line-height: 1;
 	margin-right: 5px;
 }
 
@@ -84,9 +85,30 @@
 	margin-top: 10px;
 }
 
+.currentPrise,
+.discount {
+	flex-shrink: 1;
+}
+
+.currentPrise {
+	margin-right: 15px;
+}
+
+.discount {
+	text-transform: uppercase;
+	display: none;
+}
+
 .oldPrice {
-	margin-left: 15px;
 	color: var(--color-placeholder, var(--color-placeholder, #828282));
 	line-height: 150%; /* 21px */
 	text-decoration-line: line-through;
+	text-align: center;
+	flex: 1 0 100%;
+}
+
+.head,
+.ratingWrapper,
+.price {
+	user-select: none;
 }

@@ -35,6 +35,11 @@
 	color: var(--color-placeholder);
 	border-color: transparent;
 	border-bottom-width: 6px;
+	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+	}
 }
 
 .swiperEachBullet {

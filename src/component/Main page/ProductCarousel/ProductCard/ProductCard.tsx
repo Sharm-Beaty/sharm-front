@@ -1,5 +1,5 @@
 'use client';
-import cls from './ProductCard.module.scss';
+import cls from './index.module.scss';
 import { classNames } from '@/helpers';
 import { Product } from '../types/types';
 // import Image from 'next/image';
@@ -18,7 +18,9 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 	const { className, product } = props;
 	const [isInFavorite, setIsInFavorite] = useState(product.inFavorites);
 	const IsDiscounted = Boolean(product.discountedPrice);
-
+	const discount = IsDiscounted
+		? Math.ceil((1 - product.discountedPrice! / product.price) * 100)
+		: null;
 	return (
 		<article className={classNames(cls.productCard, [className])}>
 			<div className={cls.head}>
@@ -41,14 +43,24 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 			</div>
 			<div className={cls.footer}>
 				<div className={cls.ratingWrapper}>
-					<Rating className={cls.rating} ratingNumber={product.rating} />
+					<Rating className={cls.rating} ratingNumber={product.rating} canSetRating />
 					<Link href='#' className={cls.amountComments}>
 						({product.amountComments})
 					</Link>
 				</div>
 				<div className={cls.price}>
-					{product.discountedPrice && <span>{product.discountedPrice}</span>}
+					{product.discountedPrice && (
+						<>
+							<span className={cls.currentPrise}>
+								{product.currency}
+								{product.discountedPrice}
+							</span>
+							{!!discount && <span className={cls.discount}>{discount}% OFF</span>}
+						</>
+					)}
+
 					<span className={classNames('', [], { [cls.oldPrice]: IsDiscounted })}>
+						{product.currency}
 						{product.price}
 					</span>
 				</div>
