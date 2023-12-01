@@ -18,7 +18,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 				className={classNames(cls.productCarousel, [className])}
 				titleCarousel='Акційні пропозиції'
 				breakpoints={swiperConfig.breakpoints}
-				autoplay={swiperConfig.autoplay}
 				slidesPerView={5}
 				spaceBetween={75}
 				productsList={products.map((product) => (
