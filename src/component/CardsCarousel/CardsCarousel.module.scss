@@ -90,17 +90,19 @@
 .buttonNext {
 	width: 27px;
 	height: 20px;
-	color: var(--color-placeholder);
+	color: var(--color-text);
 	transition: 0.3s;
 }
 
 .buttonPrev:hover:not(.swiper-button-disabled),
 .buttonNext:hover:not(.swiper-button-disabled) {
-	color: var(--color-text);
+	transform: scale(1.2);
 }
 
-.swiper-button-disabled {
+.swiper-button-disabled,
+.swiper-button-disabled > * {
 	opacity: 0.4;
+	cursor: default;
 }
 
 .buttonPrev {
