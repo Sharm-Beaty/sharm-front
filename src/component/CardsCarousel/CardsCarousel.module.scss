@@ -94,9 +94,13 @@
 	transition: 0.3s;
 }
 
-.buttonPrev:hover,
-.buttonNext:hover {
+.buttonPrev:hover:not(.swiper-button-disabled),
+.buttonNext:hover:not(.swiper-button-disabled) {
 	color: var(--color-text);
+}
+
+.swiper-button-disabled {
+	opacity: 0.4;
 }
 
 .buttonPrev {

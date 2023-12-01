@@ -5,6 +5,7 @@ export type Product = {
 	readonly rating: number;
 	readonly inFavorites: boolean;
 	readonly amountComments: number;
+	readonly url: string;
 	readonly currency: string;
 	readonly price: number;
 	readonly discountedPrice?: number;

@@ -28,15 +28,17 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 					<Like
 						className={cls.svgLike}
 						onClick={() => setIsInFavorite((prev) => !prev)}
+						width={25}
+						height={25}
 						fillPath={isInFavorite ? 'red' : 'none'}
 					/>
 				</AnimatePresence>
-				<Link href='#'>
+				<Link href={product.url}>
 					<img src={product.img} alt={product.img_alt ?? ''} />
 				</Link>
 			</div>
 			<div className={cls.body}>
-				<Link href='#'>
+				<Link href={product.url}>
 					<h2 className={cls.title}>{product.title}</h2>
 					<p className={cls.subTitle}>{product.subTitle}</p>
 				</Link>
@@ -44,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 			<div className={cls.footer}>
 				<div className={cls.ratingWrapper}>
 					<Rating className={cls.rating} ratingNumber={product.rating} canSetRating />
-					<Link href='#' className={cls.amountComments}>
+					<Link href={product.url} className={cls.amountComments}>
 						({product.amountComments})
 					</Link>
 				</div>

@@ -44,6 +44,7 @@ export const swiperBreakpoints: SwiperBreakpoint = {
 const navigation: NavigationOptions = {
 	prevEl: '.' + cls.buttonPrev,
 	nextEl: '.' + cls.buttonNext,
+	disabledClass: cls['swiper-button-disabled'],
 };
 
 const autoplay: AutoplayOptions = {
