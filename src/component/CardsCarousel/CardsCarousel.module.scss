@@ -2,18 +2,57 @@
 	position: relative;
 }
 
+.headContainer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@media (max-width: 768px) {
+		margin-top: 10px;
+	}
+}
+
 .container {
-	line-height: 0.5;
-	border-bottom: 10px solid var(--color-category-05);
+	--shadow-box-inset: 0px -10px 0px 0px var(--color-category-05);
+	-webkit-box-shadow: inset var(--shadow-box-inset);
+	-moz-box-shadow: inset var(--shadow-box-inset);
+	box-shadow: inset var(--shadow-box-inset);
 	display: inline-block;
 }
 
 .mainTitle {
 	color: var(--color-text);
+
+	@media (max-width: 768px) {
+		text-transform: uppercase;
+		font-size: 22px;
+	}
+}
+
+.swiperBullets {
+	width: auto !important;
+	color: var(--color-placeholder);
+	border-color: transparent;
+	border-bottom-width: 6px;
+}
+
+.swiperEachBullet {
+	background-color: transparent;
+	border: 1px solid var(--color-placeholder);
+	opacity: 1;
+}
+
+.swiperActiveBullet {
+	background-color: var(--color-text, #000);
+	border: 1px solid var(--color-text, #000);
 }
 
 .cardsCarousel {
 	margin-top: 55px;
+	@media (max-width: 768px) {
+		margin-top: 30px;
+	}
 }
 
 .swiperSlide {
@@ -31,6 +70,9 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: nowrap;
+	@media (max-width: 768px) {
+		display: none;
+	}
 }
 
 .buttonPrev,

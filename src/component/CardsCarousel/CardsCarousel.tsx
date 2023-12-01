@@ -3,11 +3,13 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
+import 'swiper/css/pagination';
 import cls from './CardsCarousel.module.scss';
 import { classNames } from '@/helpers';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import { AutoplayOptions, NavigationOptions, SwiperOptions } from 'swiper/types';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { SwiperOptions } from 'swiper/types';
+import { swiperConfig } from './swiperConfig';
 import { ArrowLeft } from '../svg/CardsCarousel/arrowLeft';
 import { ArrowRight } from '../svg/CardsCarousel/arrowRight';
 
@@ -35,33 +37,20 @@ const CardsCarousel: FC<CardsCarouselProps> = (props) => {
 		setProducts(productsList);
 	}, [productsList]);
 
-	const navigation: NavigationOptions = {
-		prevEl: '.' + cls.buttonPrev,
-		nextEl: '.' + cls.buttonNext,
-	};
-
-	const autoplay: AutoplayOptions = {
-		delay: 3000,
-		disableOnInteraction: false,
-		pauseOnMouseEnter: true,
-	};
-
 	return (
 		<>
 			<section className={classNames(cls.carouselWrap, [className])}>
-				<div className={cls.container}>
-					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+				<div className={cls.headContainer}>
+					<div className={cls.container}>
+						<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+					</div>
+					<div className={cls.swiperBullets}></div>
 				</div>
 				<Swiper
 					className={classNames(cls.cardsCarousel)}
-					modules={[Autoplay, Navigation]}
-					navigation={navigation}
-					autoplay={autoplay}
-					spaceBetween={75}
-					loop={true}
-					speed={1000}
-					grabCursor={true}
-					slidesPerView={5}
+					modules={[Autoplay, Navigation, Pagination]}
+					navigation={swiperConfig.navigation}
+					pagination={swiperConfig.pagination}
 					{...otherProps}
 				>
 					{products &&
