@@ -1,4 +1,5 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
+import "./Stars.scss"
 
 interface StarsProps {
     filled: boolean;

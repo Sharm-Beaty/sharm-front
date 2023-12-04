@@ -1,6 +1,8 @@
 import React, {Dispatch,SetStateAction} from 'react';    
-import { reviewData } from './reviewsData';
+import { reviewData } from '../reviewsData';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import './PageButton.scss'
+
 interface PageButtonProps {
     currentPage: number;
     setter: Dispatch<SetStateAction<number>>;

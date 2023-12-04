@@ -1,0 +1,36 @@
+@media only screen and (min-width: 767px) {
+    .pagination {
+    align-self: flex-end;
+    display: flex;
+    margin: 50px 50px -90px -160px;
+    justify-content: center;
+    padding: auto;
+}
+
+.pagination button {
+    margin: 20px;
+    padding: 5px;
+    border: none;
+    transition: color 0.2s;
+    &:hover {
+        color: rgba(128, 128, 128, 0.5);
+    }
+}
+}
+@media only screen and (max-width: 767px) {
+     .pagination {
+        width: 100%;
+        max-width: 91px;
+        height: 22px;
+        margin-left: auto;
+        margin-top: 14px;
+    }
+    .pagination button + button {
+        margin-left: 15px;
+    }
+    .pagination button {
+        width: 15px;
+        height: 15px;
+        border:none;
+    }
+}

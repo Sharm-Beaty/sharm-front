@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { ActiveLink } from '@/component/UI/ActiveLink/ActivLink';
 import Link from 'next/link';
-import Stars from './Stars';
+import Stars from '../Stars/Stars';
+import "./ReviewItem.scss";
 
 // Інтерфейс для пропсів компоненту ReviewItem
 interface ReviewItemProps {

@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { reviewData, ReviewItemProps } from '../reviewsData';
 import "./DesktopReviews.scss";
-import ReviewItem from '../ReviewItem';
+import ReviewItem from '../ReviewItem/ReviewItem';
 import VisiblePageService from '../services/VisiblePageService';
-import PageButton from '../PageButton';
+import PageButton from '../PageButton/PageButton';
 
 const DesktopReviews: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);

@@ -1,0 +1,11 @@
+.my-star {
+    font-size: 20px; /* Розмір зірки */
+}
+
+.my-star.filled {
+    color:#FFCD3A; /* Колір заповнених зірок */
+}
+
+.my-star.empty {
+    color: gray; /* Колір порожніх зірок */
+}
