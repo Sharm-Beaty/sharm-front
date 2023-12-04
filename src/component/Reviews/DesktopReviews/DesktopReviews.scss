@@ -1,37 +1,59 @@
+.my-star {
+    font-size: 20px; /* Розмір зірки */
+}
+
+.my-star.filled {
+    color:#FFCD3A; /* Колір заповнених зірок */
+}
+
+.my-star.empty {
+    color: gray; /* Колір порожніх зірок */
+}
+// Дескоп стилі
+@media only screen and (min-width: 767px) {
 h1 {
     margin: 40px 0 0 -1px;
     width: 100%;
 }
 
-.review-desktop-container {
-    width: 1440px;
-    height: 550px;
+.review-container {
+    width: 100%;
+    max-width: 1300px;
+    height: 404px;
 }
 
-.review-desktop-column {
+.review-column {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 1300px;
-    height: 404px;
+    width: 100%;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.review-desktop-column ul {
+.review-column ul {
     list-style-type: none;
     padding: 0;
-    margin-left: 42px;
-    height: 250px;
-    width: 420px;
+    margin-right: 19px;
+    height: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+ul:first-child {
+    margin-left: 70px;
+}
+ul:last-child {
+    margin-right: 70px;
+}
 
-.review-desktop-column li {
+.review-column li {
     text-align: left;
     padding: 5px;
+    margin-left: 42px;
+    margin-right: 42px;
 }
 
 .text-bold {
@@ -43,6 +65,10 @@ h1 {
 
 .item-name {
     margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 336px;
+    height: 21px;
 }
 
 .item-rating {
@@ -54,19 +80,27 @@ h1 {
     font-size: 14px;
     line-height: 21px;
     font-weight: 400;
-    border-bottom: 1px solid #828282;
-    padding-bottom: 10px;
+    margin-bottom: 38px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+    max-width: 335px;
+    height: 63px;
 }
 
 img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 100%;
+    height: auto;
 }
 
 li.image-link {
+    border-top: 1px solid #828282;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: 333px;
+    height: auto;
 }
 
 .product-type {
@@ -75,13 +109,19 @@ li.image-link {
     text-align: left;
     line-height: 21px;
     font-size: 14px;
+    width: 100%;
+    max-width: 168px;
+    height: 100px;
+    margin: 10px 0 10px 65px;
 }
 
 .product {
-    width: 168px;
+    width: 100%;
+    max-width: 168px;
+    height: auto;
 }
 
-.review-desktop-column .product-type span {
+.review-column .product-type span {
     margin-top: 5px;
 }
 
@@ -90,14 +130,11 @@ li.image-link {
 }
 
 .pagination {
-    margin-top: auto;
     align-self: flex-end;
     display: flex;
-    margin-left: -60px;
-}
-
-.pagination button + button {
-    margin-left: 15px;
+    margin: 50px 50px -90px -160px;
+    justify-content: center;
+    padding: auto;
 }
 
 .pagination button {
@@ -107,5 +144,120 @@ li.image-link {
     transition: color 0.2s;
     &:hover {
         color: rgba(128, 128, 128, 0.5);
+    }
+}
+}
+// Мобільні стилі
+@media only screen and (max-width: 767px) {
+    h1 {
+        width: 100%;
+        max-width: 297px;
+        height: 33px;
+        font-size: 22px;
+        line-height: 33px;
+        color: #363636;
+        margin-bottom: 12px;
+    }
+    .review-container {
+        width: 100%;
+        max-width: 393px;
+        height: 100%;
+        max-height: 385px;
+    }
+    .review-column {
+        display: flex;
+        flex-direction: column;
+    }
+    .review-ul {
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 393px;
+        height: 100%;
+        max-height: 169px;
+        border-bottom: 1px solid#B8B8B8;    
+    }
+
+    .item-name {
+        width: 100%;
+        max-width: 135px;
+        height: 100%;
+        max-height: 25px;
+        margin-bottom: 5px;
+        margin-top: 21px;
+        font-size: 10px;
+        line-height: 15px;
+    }
+    .item-rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        width: 100%;
+        min-width: 58px;
+        height: 10px;
+    }
+    img {
+        width: 100%;
+        min-width: 40px;
+        height: 28px;
+    }
+    .image-link {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-bottom: 26px;
+        margin-top: -27px;
+        max-width: 135px;
+        height: 29px;
+    }
+    .product-type {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 95px;
+        height: 29px;
+        margin: 0;
+        overflow: hidden;
+    }
+    .item-review {
+        width: 100%;
+        max-width: 359px;
+        height: 54px;
+        order: 2;
+        overflow: hidden;
+        margin-top: -16px;
+    }
+    .product {
+        font-size: 10px;
+        line-height: 15px;
+        color: #363636;
+    }
+    .type {
+        display: none;
+    }
+
+    .review-column ul {
+        display: none;
+    }
+
+    .review-column ul:nth-child(-n+2) {
+        display: flex;
+    }
+    .pagination {
+        width: 100%;
+        max-width: 91px;
+        height: 22px;
+        margin-left: auto;
+        margin-top: 14px;
+    }
+    .pagination button + button {
+        margin-left: 15px;
+    }
+    .pagination button {
+        width: 15px;
+        height: 15px;
+        border:none;
     }
 }
