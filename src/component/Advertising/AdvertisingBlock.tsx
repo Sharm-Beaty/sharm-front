@@ -24,6 +24,6 @@ export const AdvertisingBlock = (props: AdvertisingBlockProps) => {
 const StyledSection = styled.section`
   max-width: 1300px;
   width: 100%;
-  padding: 24px 70px 32px 70px;
+;
 
 `
