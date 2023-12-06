@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { reviewData, ReviewItemProps } from '../reviewsData';
-import "./DesktopReviews.scss";
+import "./ReviewsPage.scss";
 import ReviewItem from '../ReviewItem/ReviewItem';
 import VisiblePageService from '../services/VisiblePageService';
 import PageButton from '../PageButton/PageButton';

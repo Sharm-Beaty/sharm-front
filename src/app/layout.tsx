@@ -19,12 +19,13 @@ export default function RootLayout({
         <html lang="en">
         <body>
         <ReduxProvider>
-            {/* <Header/>
+            <Header/>
             <main>
                 {children}
             </main>
-            <Footer/> */}
-                    <Reviews /> 
+            <Reviews /> 
+            <Footer/>
+
                     
         </ReduxProvider>
         </body>

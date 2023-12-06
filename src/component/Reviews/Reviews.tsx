@@ -1,5 +1,5 @@
 import React from 'react';
-import DesktopReviews from './DesktopReviews';
+import DesktopReviews from './ReviewsPage';
 
 function Reviews() {
     return (
