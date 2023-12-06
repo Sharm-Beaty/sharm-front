@@ -1,0 +1,21 @@
+.slider{
+  width: 100%;
+}
+.alice-carousel__dots{
+  margin: 0;
+}
+.alice-carousel__dots-item:not(.__custom){
+  background-color: transparent;
+  outline: 0.5px solid #828282;
+  width: 14px;
+  height: 14px;
+  margin-right: 32px;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn{
+  display: none;
+}
+.alice-carousel__dots-item:not(.__custom):hover, .alice-carousel__dots-item:not(.__custom).__active{
+  background-color: #828282;
+}
