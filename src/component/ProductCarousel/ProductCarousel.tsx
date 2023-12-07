@@ -1,31 +1,24 @@
-import { CardsCarousel } from '@/component/CardsCarousel';
+'use client';
+import CardsCarousel from '@/component/CardsCarousel';
+import { MProductCard } from '@/component/ProductCard';
 import cls from './ProductCarousel.module.scss';
 import { classNames } from '@/helpers';
 import { products } from '@/mock';
-import { ProductCard } from './ProductCard/ProductCard';
-import { swiperConfig } from '@/component/CardsCarousel/swiperConfig';
 
 interface ProductCarouselProps {
 	className?: string;
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
-	const { className } = props;
+	const { className, ...otherProps } = props;
 
 	return (
-		<>
-			<CardsCarousel
-				className={classNames(cls.productCarousel, [className])}
-				titleCarousel='Акційні пропозиції'
-				breakpoints={swiperConfig.breakpoints}
-				slidesPerView={5}
-				spaceBetween={75}
-				productsList={products.map((product) => (
-					<ProductCard key={product.id} product={product} />
-				))}
-			/>
-		</>
+		<CardsCarousel className={classNames(cls.mProductCarousel, [className])} {...otherProps}>
+			{products.map((product) => (
+				<MProductCard className={cls.productCards} key={product.id} product={product} />
+			))}
+		</CardsCarousel>
 	);
 };
 
-export { ProductCarousel };
+export default ProductCarousel;

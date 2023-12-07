@@ -1,3 +1,3 @@
-import { products } from './mockProductsCarousel';
+import { products } from './discountProducts/mockDiscountProducts';
 
 export { products };

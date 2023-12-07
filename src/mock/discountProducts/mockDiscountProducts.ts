@@ -1,6 +1,4 @@
-import { Product } from '@/component/ProductCarousel';
-
-export const products: Product[] = [
+export const products: DiscountedProducts[] = [
 	{
 		id: 1,
 		title: 'Dr. Wai in the Scriptures with No Words',

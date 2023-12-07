@@ -1,4 +1,4 @@
-export type Product = {
+type DiscountedProducts = {
 	readonly id: number;
 	readonly title: string;
 	readonly subTitle: string;
@@ -11,4 +11,11 @@ export type Product = {
 	readonly discountedPrice?: number;
 	readonly img: string;
 	readonly img_alt?: string;
+};
+
+type CardsCarouselBreakpoints = {
+	[key: string]: {
+		slidesPerView: number;
+		spaceBetween: number;
+	};
 };

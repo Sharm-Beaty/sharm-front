@@ -1,2 +1,5 @@
-export { ProductCarousel } from './ProductCarousel';
-export type { Product } from './types/types';
+import { lazy } from 'react';
+
+const ProductCarousel = lazy(() => import('./ProductCarousel'));
+
+export default ProductCarousel;

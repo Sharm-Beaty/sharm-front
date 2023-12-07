@@ -1,73 +1,22 @@
-.carouselWrap {
+.mCardsCarousel {
+	margin: 50px 0;
+	overflow: hidden;
 	position: relative;
-}
-
-.headContainer {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	user-select: none;
 }
 
 .container {
-	--shadow-box-inset: 0px -10px 0px 0px var(--color-category-05);
-	-webkit-box-shadow: inset var(--shadow-box-inset);
-	-moz-box-shadow: inset var(--shadow-box-inset);
-	box-shadow: inset var(--shadow-box-inset);
+	line-height: 0.5;
+	border-bottom: 10px solid var(--color-category-05);
 	display: inline-block;
 }
 
 .mainTitle {
 	color: var(--color-text);
-
-	@media (max-width: 768px) {
-		text-transform: uppercase;
-		font-size: 22px;
-	}
-
-	@media (max-width: 350px) {
-		font-size: 18px;
-	}
-
-	@media (max-width: 300px) {
-		font-size: 16px;
-	}
 }
 
-.swiperBullets {
-	width: auto !important;
-	color: var(--color-placeholder);
-	border-color: transparent;
-	border-bottom-width: 6px;
-	display: none;
-
-	@media (max-width: 768px) {
-		display: block;
-	}
-}
-
-.swiperEachBullet {
-	background-color: transparent;
-	border: 1px solid var(--color-placeholder);
-	opacity: 1;
-	margin: 0 !important;
-	margin-right: 4px !important;
-}
-
-.swiperActiveBullet {
-	background-color: var(--color-text, #000);
-	border: 1px solid var(--color-text, #000);
-}
-
-.cardsCarousel {
+.carousel {
 	margin-top: 55px;
-	@media (max-width: 768px) {
-		margin-top: 30px;
-	}
-}
-
-.swiperSlide {
-	height: unset;
 	display: flex;
 }
 
@@ -81,32 +30,17 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: nowrap;
-	@media (max-width: 768px) {
-		display: none;
-	}
 }
 
 .buttonPrev,
 .buttonNext {
 	width: 27px;
 	height: 20px;
-	color: var(--color-text);
+	color: var(--color-placeholder);
 	transition: 0.3s;
 }
 
-.buttonPrev:hover:not(.swiper-button-disabled),
-.buttonNext:hover:not(.swiper-button-disabled) {
-	transform: scale(1.2);
-}
-
-.swiper-button-disabled,
-.swiper-button-disabled > * {
-	opacity: 0.4;
-	cursor: default;
-}
-
-.buttonPrev {
-}
-
-.buttonNext {
+.buttonPrev:hover,
+.buttonNext:hover {
+	color: var(--color-text);
 }
