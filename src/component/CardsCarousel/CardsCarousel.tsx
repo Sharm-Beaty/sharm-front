@@ -34,7 +34,9 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const childrenArr = Children.toArray(children);
 	let x = useMotionValue(0);
+
 	// TODO Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
+
 	const handlePrev = async () => {
 		if (x.get() >= 0) return;
 		xValue += 275;
@@ -63,7 +65,6 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	}, []);
 
 	return (
-		// TODO Не зробив пагінацію для мобільної версії
 		<motion.section
 			ref={section}
 			className={classNames(cls.mCardsCarousel, [className])}
@@ -77,6 +78,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				<div className={cls.container}>
 					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
 				</div>
+				{/*TODO при клікі на крапку не переходе до відповідного слайду.*/}
 				<CarouselDots
 					className={cls.swiperBullets}
 					bulletClassName={cls.swiperEachBullet}
