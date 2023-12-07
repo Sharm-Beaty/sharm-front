@@ -43,7 +43,11 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 	// }, [spaceBetween, slidesPerView, parentWidth, section]);
 
 	return (
-		<CardsCarousel className={classNames(cls.mProductCarousel, [className])} {...otherProps}>
+		<CardsCarousel
+			className={classNames(cls.mProductCarousel, [className])}
+			titleCarousel='Акційні пропозиції'
+			{...otherProps}
+		>
 			{products.map((product) => (
 				<MProductCard className={cls.productCards} key={product.id} product={product} />
 			))}

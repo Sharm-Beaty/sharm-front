@@ -1,7 +1,7 @@
 'use client';
 import cls from './CardsCarousel.module.scss';
 import { classNames } from '@/helpers';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Children } from 'react';
 import {
 	AnimatePresence,
 	HTMLMotionProps,
@@ -11,6 +11,7 @@ import {
 	useMotionValue,
 } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from '@/component/svg';
+import { CarouselDots } from './CarouselDots';
 
 interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	className?: string;
@@ -30,16 +31,20 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	const { className, titleCarousel, breakpoints, children, ...otherProps } = props;
 	const section = useRef<HTMLDivElement>(null);
 	const [width, setWidth] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(0);
+	const childrenArr = Children.toArray(children);
 	let x = useMotionValue(0);
 	// TODO Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
 	const handlePrev = async () => {
 		if (x.get() >= 0) return;
 		xValue += 275;
+		setActiveIndex((prev) => (prev -= 1));
 		await animate(x, xValue);
 	};
 	const handleNext = async () => {
 		if (x.get() <= -width) return;
 		xValue -= 275;
+		setActiveIndex((prev) => (prev += 1));
 		await animate(x, xValue);
 	};
 
@@ -68,8 +73,18 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 			onDragEnd={onSwipe}
 			{...otherProps}
 		>
-			<div className={cls.container}>
-				<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+			<div className={cls.headContainer}>
+				<div className={cls.container}>
+					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+				</div>
+				<CarouselDots
+					className={cls.swiperBullets}
+					bulletClassName={cls.swiperEachBullet}
+					activeBulletClassName={cls.swiperActiveBullet}
+					length={childrenArr.length}
+					activeIndex={activeIndex}
+					setActiveIndex={setActiveIndex}
+				/>
 			</div>
 			<motion.div
 				className={cls.carousel}
