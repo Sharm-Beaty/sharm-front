@@ -43,8 +43,9 @@
 	border-color: transparent;
 	border-bottom-width: 6px;
 	display: none;
-
+	pointer-events: none;
 	@media (max-width: 768px) {
+		pointer-events: unset;
 		display: block;
 	}
 }
@@ -86,6 +87,10 @@
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: nowrap;
+	@media (max-width: 768px) {
+		display: none;
+		pointer-events: none;
+	}
 }
 
 .buttonPrev,
@@ -96,13 +101,16 @@
 	transition: 0.3s;
 }
 
-.buttonPrev:hover:not(.swiper-button-disabled),
-.buttonNext:hover:not(.swiper-button-disabled) {
-	transform: scale(1.2);
+.buttonPrev:hover:not(.disabled) {
+	transform: translateX(10%) scale(1.2);
+}
+.buttonNext:hover:not(.disabled) {
+	transform: translateX(-10%) scale(1.2);
 }
 
-.swiper-button-disabled,
-.swiper-button-disabled > * {
+.disabled,
+.disabled > * {
 	opacity: 0.4;
 	cursor: default;
+	pointer-events: none;
 }

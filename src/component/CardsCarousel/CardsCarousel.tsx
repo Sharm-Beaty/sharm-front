@@ -35,7 +35,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	const childrenArr = Children.toArray(children);
 	let x = useMotionValue(0);
 
-	// TODO Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
+	// TODO  #1 Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
 
 	const handlePrev = async () => {
 		if (x.get() >= 0) return;
@@ -61,6 +61,12 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	};
 
 	useEffect(() => {
+		const translateX = activeIndex * -275;
+		xValue = translateX;
+		animate(x, xValue);
+	}, [activeIndex, x]);
+
+	useEffect(() => {
 		setWidth(section.current!.scrollWidth - section.current!.offsetWidth);
 	}, []);
 
@@ -70,7 +76,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 			className={classNames(cls.mCardsCarousel, [className])}
 			drag='x'
 			dragConstraints={{ left: 0, right: 0 }}
-			dragElastic={0}
+			dragElastic={false}
 			onDragEnd={onSwipe}
 			{...otherProps}
 		>
@@ -78,7 +84,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				<div className={cls.container}>
 					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
 				</div>
-				{/*TODO при клікі на крапку не переходе до відповідного слайду.*/}
+				{/*TODO #2 недоколихав логіку. якщо клацнути на останній кружочок пагінації, перелистає до останнього слайда, але якщо свайпати, незавжди можна долистати до останнього слайда. Це видно по активному кружочку пагінації.*/}
 				<CarouselDots
 					className={cls.swiperBullets}
 					bulletClassName={cls.swiperEachBullet}
@@ -99,10 +105,19 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				<AnimatePresence mode='popLayout'>{children}</AnimatePresence>
 			</motion.div>
 			<motion.div className={cls.navWrap}>
-				<motion.div className={cls.buttonPrev}>
+				<motion.div
+					className={classNames(cls.buttonPrev, [], {
+						[cls.disabled]: activeIndex === 0,
+					})}
+				>
 					<ArrowLeft width={27} height={20} onClick={handlePrev} cursor='pointer' />
 				</motion.div>
-				<motion.div className={cls.buttonNext}>
+				{/*TODO На десктопі клавіша не становиться disabled */}
+				<motion.div
+					className={classNames(cls.buttonNext, [], {
+						[cls.disabled]: activeIndex === childrenArr.length - 1,
+					})}
+				>
 					<ArrowRight width={27} height={20} onClick={handleNext} cursor='pointer' />
 				</motion.div>
 			</motion.div>
