@@ -32,18 +32,19 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	const [xValue, setXValue] = useState(0);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const childrenArr = Children.toArray(children);
-	let x = useMotionValue(0);
-
-	// TODO  #1 Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
+	const x = useMotionValue(0);
 
 	const handlePrev = async () => {
 		if (xValue >= 0) return;
+
 		setXValue((prev) => (prev += 275));
 		setActiveIndex((prev) => (prev -= 1));
 		await animate(x, xValue);
 	};
+
 	const handleNext = async () => {
 		if (xValue <= -width) return;
+
 		setXValue((prev) => (prev -= 275));
 		setActiveIndex((prev) => (prev += 1));
 		await animate(x, xValue);
@@ -54,15 +55,19 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 
 		if (swipe > -swipeConfidenceThreshold) {
 			handlePrev();
-		} else if (swipe < swipeConfidenceThreshold) {
+		}
+
+		if (swipe < swipeConfidenceThreshold) {
 			handleNext();
 		}
 	};
 
 	useEffect(() => {
 		const translateX = activeIndex * -275;
+		const duration = 0.2 * Math.abs((translateX - xValue) / 275) || 1;
+
 		setXValue(translateX);
-		animate(x, xValue);
+		animate(x, xValue, { duration });
 	}, [activeIndex, x, xValue]);
 
 	useEffect(() => {
@@ -83,7 +88,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				<div className={cls.container}>
 					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
 				</div>
-				{/*TODO #2 недоколихав логіку. якщо клацнути на останній кружочок пагінації, перелистає до останнього слайда, але якщо свайпати, незавжди можна долистати до останнього слайда. Це видно по активному кружочку пагінації.*/}
+				{/*TODO #1 недоколихав логіку. якщо клацнути на останній кружочок пагінації, перелистає до останнього слайда, але якщо свайпати, незавжди можна долистати до останнього слайда. Це видно по активному кружочку пагінації.*/}
 				<CarouselDots
 					className={cls.swiperBullets}
 					bulletClassName={cls.swiperEachBullet}
