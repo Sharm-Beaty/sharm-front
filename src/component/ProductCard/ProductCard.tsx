@@ -6,6 +6,7 @@ import { classNames } from '@/helpers';
 import Rating from '@/component/Rating';
 import Link from 'next/link';
 import { Like } from '@/component/UI/Like';
+import Script from 'next/script';
 
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
@@ -85,6 +86,13 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						</motion.span>
 					</motion.div>
 				</motion.div>
+				<Script
+					strategy='beforeInteractive'
+					id={`product-${product.id}`}
+					type='application/ld+json'
+				>
+					{JSON.stringify(product.additionalSchemaData)}
+				</Script>
 			</motion.article>
 		);
 	});

@@ -11,6 +11,7 @@ type DiscountedProducts = {
 	readonly discountedPrice?: number;
 	readonly img: string;
 	readonly img_alt?: string;
+	readonly additionalSchemaData: SchemaProductInfo;
 };
 
 type CardsCarouselBreakpoints = {
