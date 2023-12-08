@@ -93,7 +93,7 @@ export const Header = () => {
                     className="user-actions-header"
                 >
                     <Search/>
-                    <Image className="person" src={"/person.fill.png"} alt={"logo"} width={19} height={19}/>
+                    {/*<Image className="person" src={"/person.fill.png"} alt={"logo"} width={19} height={19}/>*/}
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                         <path
