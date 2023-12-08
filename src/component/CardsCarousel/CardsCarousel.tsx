@@ -25,12 +25,11 @@ const swipePower = (offset: number, velocity: number) => {
 	return Math.abs(offset) * velocity;
 };
 
-let xValue = 0;
-
 const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	const { className, titleCarousel, breakpoints, children, ...otherProps } = props;
 	const section = useRef<HTMLDivElement>(null);
 	const [width, setWidth] = useState(0);
+	const [xValue, setXValue] = useState(0);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const childrenArr = Children.toArray(children);
 	let x = useMotionValue(0);
@@ -38,14 +37,14 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	// TODO  #1 Часто свайп відпрацьовує не правильно, він не долистує до краю останього слайду. А якщо використовувати клавіші, якщо швидко клацати можна пролистати за край дозволеного. Наприклад (коли листаємо назад handlePrev) на 275 пікселів хоча має бути не більше 0.
 
 	const handlePrev = async () => {
-		if (x.get() >= 0) return;
-		xValue += 275;
+		if (xValue >= 0) return;
+		setXValue((prev) => (prev += 275));
 		setActiveIndex((prev) => (prev -= 1));
 		await animate(x, xValue);
 	};
 	const handleNext = async () => {
-		if (x.get() <= -width) return;
-		xValue -= 275;
+		if (xValue <= -width) return;
+		setXValue((prev) => (prev -= 275));
 		setActiveIndex((prev) => (prev += 1));
 		await animate(x, xValue);
 	};
@@ -62,9 +61,9 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 
 	useEffect(() => {
 		const translateX = activeIndex * -275;
-		xValue = translateX;
+		setXValue(translateX);
 		animate(x, xValue);
-	}, [activeIndex, x]);
+	}, [activeIndex, x, xValue]);
 
 	useEffect(() => {
 		setWidth(section.current!.scrollWidth - section.current!.offsetWidth);
@@ -112,10 +111,9 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				>
 					<ArrowLeft width={27} height={20} onClick={handlePrev} cursor='pointer' />
 				</motion.div>
-				{/*TODO На десктопі клавіша не становиться disabled */}
 				<motion.div
 					className={classNames(cls.buttonNext, [], {
-						[cls.disabled]: activeIndex === childrenArr.length - 1,
+						[cls.disabled]: activeIndex === childrenArr.length - 1 || xValue <= -width,
 					})}
 				>
 					<ArrowRight width={27} height={20} onClick={handleNext} cursor='pointer' />
