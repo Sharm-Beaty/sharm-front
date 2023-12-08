@@ -71,6 +71,9 @@
 .carousel {
 	margin-top: 55px;
 	display: flex;
+	@media (max-width: 768px) {
+		margin-top: 30px;
+	}
 }
 
 .navWrap {
@@ -93,7 +96,13 @@
 	transition: 0.3s;
 }
 
-.buttonPrev:hover,
-.buttonNext:hover {
-	color: var(--color-text);
+.buttonPrev:hover:not(.swiper-button-disabled),
+.buttonNext:hover:not(.swiper-button-disabled) {
+	transform: scale(1.2);
+}
+
+.swiper-button-disabled,
+.swiper-button-disabled > * {
+	opacity: 0.4;
+	cursor: default;
 }

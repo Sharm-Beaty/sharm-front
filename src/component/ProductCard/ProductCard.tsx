@@ -50,7 +50,13 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						fillPath={isInFavorite ? 'red' : 'none'}
 					/>
 					<Link href={product.url}>
-						<Image src={product.img} alt={product.img_alt ?? ''} width={200} height={270} />
+						<Image
+							src={product.img}
+							alt={product.img_alt ?? ''}
+							width={200}
+							height={270}
+							draggable='false'
+						/>
 					</Link>
 				</motion.div>
 				<motion.div layout className={cls.body}>
