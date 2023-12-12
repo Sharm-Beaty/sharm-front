@@ -1,14 +1,22 @@
 "use client"
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import "./MobileMenu.scss"
 import {menuData} from "@/component/Header/menuData";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
+import {HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
 
 
 export const MobileMenu = () => {
+    const { state, dispatch } = useContext(HeaderContext);
+
+    const toggleBurger = () => {
+        dispatch({ type: 'TOGGLE_BURGER', payload: true });
+    };
     const [isActive, setIsActive] = useState(false);
 
+
     const handleToggle = () => {
+        toggleBurger();
         setIsActive(prev => !prev);
     };
 
@@ -20,6 +28,9 @@ export const MobileMenu = () => {
                 <div></div>
             </div>
 
+
+
+
             <div
                 className={`container-open-mobile-menu ${isActive ? 'active' : ''}`}
             >
@@ -29,6 +40,8 @@ export const MobileMenu = () => {
                         {
                             menuData.map((item: any) =>
                                 <li key={item.id}>
+                                    {!state.isBurgerOpen && <p>TestTestTestTestTest</p>}
+                                    {state.isBurgerOpen && <p>false</p>}
                                     <ActiveLink rout={item.path}>
                                         {item.name}
                                     </ActiveLink>

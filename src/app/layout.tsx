@@ -2,7 +2,8 @@ import './globals.css'
 import {Footer} from "@/component/Footer/Footer";
 import {Header} from "@/component/Header/Header";
 import {ReduxProvider} from "@/state/provider";
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
+import {HeaderProvider} from "@/component/Header/HeaderProvider/HeaderProvider";
 
 export const metadata = {
     title: 'Main Leyout',
@@ -18,7 +19,9 @@ export default function RootLayout({
         <html lang="en">
         <body>
         <ReduxProvider>
-            <Header/>
+            <HeaderProvider>
+                <Header/>
+            </HeaderProvider>
             <main>
                 {children}
             </main>

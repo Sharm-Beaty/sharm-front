@@ -1,4 +1,6 @@
-export const Search = () => (
+import {FC} from "react";
+
+export const Search: FC<{styleProps: any } > = ({styleProps}) => (
     <svg
         className="search-svg"
         xmlns="http://www.w3.org/2000/svg"
