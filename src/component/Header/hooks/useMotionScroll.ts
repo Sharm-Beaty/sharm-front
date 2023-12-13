@@ -6,7 +6,7 @@ export const useMotionScroll = (dispatch: Dispatch<HeaderAction>) => {
     const {scrollY} = useScroll();
 
     useEffect(() => {
-        console.log(scrollY)
+        // console.log(scrollY)
         // dispatch({type: 'SET_MOBILE'});
 
     }, [scrollY]);

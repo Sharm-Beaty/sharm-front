@@ -25,6 +25,9 @@
     box-sizing: border-box;
 }
 
+#popular-categories{
+    min-height: 500px;
+}
 
 body {    
     height: 100vh;

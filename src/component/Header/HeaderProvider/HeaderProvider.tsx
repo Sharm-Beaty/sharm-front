@@ -10,7 +10,7 @@ export const HeaderProvider: React.FC<{ children: React.ReactNode }> = ({childre
     useScreenSizeChange(dispatch);
     useMotionScroll(dispatch);
 
-    console.log(state);
+    // console.log(state);
     return (
         <HeaderContext.Provider
             value={{state, dispatch}}>

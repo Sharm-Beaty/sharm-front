@@ -28,6 +28,12 @@ header {
       position: absolute;
       margin-top: 55px;
     }
+
+    @media (max-width: 767px) {
+      & {
+        display: none;
+      }
+    }
   }
 
   .main-header {
@@ -35,7 +41,8 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    .user-actions-header{
+
+    .user-actions-header {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -43,7 +50,7 @@ header {
     }
   }
 
-  .categories-container{
+  .categories-container {
     position: relative;
     z-index: -1;
     padding-top: 1rem;
@@ -54,9 +61,17 @@ header {
     width: 100%;
     background: white;
 
-    p{
+    @media (max-width: 767px) {
+      & {
+        display: none;
+        flex-direction: column;
+      }
+    }
+
+    p {
       text-transform: uppercase;
     }
+
     & li:first-of-type .category__section .category p {
       color: #E56466;
 
@@ -72,39 +87,65 @@ header {
       border-top: 1px solid #B8B8B8;
       background: white;
       width: 100%;
-      height: 100px;
+      height: 200px;
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -100px;
+      bottom: -200px;
       z-index: -1;
-      .sub-category{
+
+      .sub-category {
 
       }
     }
-      .category__section {
+
+    .category__section {
+      position: relative;
+
+      .category {
         position: relative;
+        z-index: 1;
+        width: 100%;
+        border: 0;
+        background: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        .category {
-          width: 100%;
-          border: 0;
-          background: white;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-
-          .category__title{
-            white-space: nowrap;
-          }
-          .arrow-svg {
-            display: none;
-          }
+        .background-line {
+          position: absolute;
+          top: 65%;
+          z-index: -1;
+          background: #E56466;
+          height: 5px;
+          //width: 100%;
         }
 
-        .category__content {
+        .category__title {
+          transition: all 0.1ms;
+          white-space: nowrap;
+        }
 
+        .arrow-svg {
+          display: none;
         }
       }
+
+      .category__content {
+
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 1000px) {
+      .category__title {
+        font-size: 0.7rem;
+      }
+    }
+    @media (min-width: 767px) and (max-width: 849px) {
+      .category__title {
+        font-size: 0.6rem;
+      }
+    }
   }
 
 

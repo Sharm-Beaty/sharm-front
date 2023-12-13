@@ -48,10 +48,13 @@ const dropDownCategory: Variants = {
     closeUnderline: {
         width: ['100%', '0%',],
     },
+    initialUnderline: {
+        width: 0,
+    },
     displaySelectedCategory: {
-        background: 'pink',
+        // background: 'pink',
         // width: '100%',
-        height: '100px',
+        // height: '200px',
         // position: 'absolute',
         // left: 0,
         // right: 0,
@@ -90,6 +93,7 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
         setHoveredItem(item.id)
         setShowedCategory(renderContentItems(item))
     }
+    console.log(allCategories)
     return (
         <>
             <AnimatePresence>
@@ -116,21 +120,15 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
                             >
                                 <p className="category__title">{item.name}</p>
                                 <motion.div
-                                    animate={hoveredItem ? 'openUnderline' : 'closeUnderline'}
+                                    initial={'initialUnderline'}
+                                    exit={'closeUnderline'}
+                                    animate={hoveredItem == item.id ? 'openUnderline' : ''}
                                     variants={dropDownCategory}
                                     className={'background-line'}>
                                 </motion.div>
                                 <Arrow className={arrowClass}/>
                             </button>
                         </motion.div>
-                        {/*<Category*/}
-                        {/*    categoryId={item.id}*/}
-                        {/*    footer={true}*/}
-                        {/*    title={item.name}*/}
-                        {/*    content={item.children}*/}
-                        {/*    className={'category-accordion'}*/}
-                        {/*    isHovered={hoveredItem === item.id}*/}
-                        {/*/>*/}
                     </motion.li>
                 ))}
                 {<motion.div
