@@ -7,10 +7,12 @@ import { products } from '@/mock';
 
 interface ProductCarouselProps {
 	className?: string;
+	products: DiscountedProducts[];
+	titleCarousel?: string;
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
-	const { className, ...otherProps } = props;
+	const { className, titleCarousel, products, ...otherProps } = props;
 
 	//TODO #3 не вийшло реалізувати адаптацію через JS. Розрахунок ширини карточки продукту я зробив, але в залежності від ширини екрану не вийшло.
 
@@ -45,7 +47,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = (props) => {
 	return (
 		<CardsCarousel
 			className={classNames(cls.mProductCarousel, [className])}
-			titleCarousel='Акційні пропозиції'
+			titleCarousel={titleCarousel}
 			{...otherProps}
 		>
 			{products.map((product) => (

@@ -6,7 +6,6 @@ import { classNames } from '@/helpers';
 import Rating from '@/component/Rating';
 import Link from 'next/link';
 import { Like } from '@/component/UI/Like';
-import Script from 'next/script';
 
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
@@ -52,7 +51,7 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 					<Link href={product.url}>
 						<Image
 							src={product.img}
-							alt={product.img_alt ?? ''}
+							alt={product.title}
 							width={200}
 							height={270}
 							draggable='false'
@@ -61,9 +60,9 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 				</motion.div>
 				<motion.div layout className={cls.body}>
 					<Link href={product.url}>
-						<motion.h2 layoutId={product.title} className={cls.title}>
+						<motion.h5 layoutId={product.title} className={cls.title}>
 							{product.title}
-						</motion.h2>
+						</motion.h5>
 						<motion.p layoutId={product.subTitle} className={cls.subTitle}>
 							{product.subTitle}
 						</motion.p>
@@ -92,13 +91,6 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						</motion.span>
 					</motion.div>
 				</motion.div>
-				<Script
-					strategy='beforeInteractive'
-					id={`product-${product.id}`}
-					type='application/ld+json'
-				>
-					{JSON.stringify(product.additionalSchemaData)}
-				</Script>
 			</motion.article>
 		);
 	});

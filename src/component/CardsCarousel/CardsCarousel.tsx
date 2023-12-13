@@ -86,7 +86,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 		>
 			<div className={cls.headContainer}>
 				<div className={cls.container}>
-					<h2 className={cls.mainTitle}>{titleCarousel}</h2>
+					<h4 className={cls.mainTitle}>{titleCarousel}</h4>
 				</div>
 				{/*TODO #1 недоколихав логіку. якщо клацнути на останній кружочок пагінації, перелистає до останнього слайда, але якщо свайпати, незавжди можна долистати до останнього слайда. Це видно по активному кружочку пагінації.*/}
 				<CarouselDots
