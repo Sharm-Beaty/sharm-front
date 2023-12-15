@@ -1,15 +1,13 @@
 'use client'
-import React, {Context, useEffect, useReducer, useRef} from 'react';
-import Image from "next/image";
-import {AnimationSequence, MotionValue, useAnimate, useCycle, useScroll, useTransform} from "framer-motion";
-import {headerReducer, HeaderState, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
+import React, {useReducer, useRef} from 'react';
+import {motion, MotionValue, useCycle, useScroll, useTransform} from "framer-motion";
+import {headerReducer, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
 import AllCategories from "@/component/Header/UI/AllCategories";
 import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
 import {useResizeObserver} from "@/component/Header/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader";
 import styles from "./DesktopStyles.module.scss";
-import { motion } from 'framer-motion';
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];

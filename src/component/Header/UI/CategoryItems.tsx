@@ -14,9 +14,6 @@ const CategoryItems: React.FC<MenuItemsProps> = ({ items }) => (
                 <MenuItem className={''} item={item} key={item.id}/>
             ))}
         </div>
-        {/*{items.map((item) => (*/}
-        {/*    <MenuItem className={''} item={item} key={item.id} />*/}
-        {/*))}*/}
     </>
 );
 export default CategoryItems;

@@ -47,8 +47,6 @@ const CircleContainer: FC<CircleContainerProps> =
                 hoverDivAnimationControls.start(categoryHoverAnimation.hover)
             }
         }
-    // const handleMouseEnter = () => setIsHovered(true);
-    // const handleMouseLeave = () => setIsHovered(false);
 
     return (
         <motion.div

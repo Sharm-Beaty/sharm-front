@@ -1,12 +1,10 @@
 import * as React from "react";
+import {ReactNode} from "react";
 import {motion} from "framer-motion";
 import {MenuItem} from "./MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
-import {Search} from "@/component/svg";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent";
 import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent";
-import Image from "next/image";
-import {CSSProperties, ReactNode} from "react";
 import {Love} from "@/component/svg/Love";
 import {Cart} from "@/component/svg/Cart";
 import {Person} from "@/component/svg/Person";

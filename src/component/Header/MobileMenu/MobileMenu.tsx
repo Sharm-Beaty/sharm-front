@@ -1,14 +1,12 @@
 "use client"
-import React, {useContext, useEffect, useReducer, useRef, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import "./MobileMenu.scss"
 import {menuData} from "@/component/Header/menuData";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
-import {HeaderContext, headerReducer, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
+import {HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
 import {Navigation} from "@/component/Header/UI/Navigation";
-import {motion, useCycle, useScroll} from "framer-motion";
+import {motion} from "framer-motion";
 import {MenuToggle} from "@/component/Header/UI/MenuToggle";
-import {useDimensions} from "@/component/Header/hooks/useDimensions";
-import {getStyleProps, Logo} from "@/component/Header/Header";
 
 export const sidebar = {
     open: (height = 1000) => ({

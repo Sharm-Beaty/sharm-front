@@ -12,7 +12,6 @@ export const useResizeObserver = (ref: React.RefObject<HTMLElement>) => {
 
             resizeObserver.observe(ref.current);
 
-            // Cleanup
             return () => {
                 if (ref.current) {
                     resizeObserver.unobserve(ref.current);
@@ -20,7 +19,7 @@ export const useResizeObserver = (ref: React.RefObject<HTMLElement>) => {
             };
         }
 
-        return () => {}; // Fallback to assure a function is always returned
+        return () => {};
     }, [ref]);
 
     return isMobile;

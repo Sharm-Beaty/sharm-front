@@ -1,6 +1,4 @@
 import {motion} from "framer-motion";
-import {Search} from "@/component/svg";
-import Image from "next/image";
 import React from "react";
 import {Logo} from "@/component/Header/Header";
 import SearchBox from "@/component/Header/UI/SearchBox";

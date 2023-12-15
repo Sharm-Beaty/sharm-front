@@ -1,13 +1,11 @@
 'use client'
-import React, {useEffect, useReducer, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {motion, useCycle, useDragControls, useMotionValue, useScroll} from "framer-motion";
 import {useDimensions} from "@/component/Header/hooks/useDimensions";
 import {Navigation} from "@/component/Header/UI/Navigation";
 import {MenuToggle} from "@/component/Header/UI/MenuToggle";
 import {sidebar} from "@/component/Header/MobileMenu/MobileMenu";
 import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
-import {Logo, useGetStyleProps} from "@/component/Header/Header";
-import {getImgProps} from "next/dist/shared/lib/get-img-props";
 
 
 const MobileMenuRefactor = () => {

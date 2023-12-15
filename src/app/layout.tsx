@@ -4,8 +4,6 @@ import {Header} from "@/component/Header/Header";
 import {ReduxProvider} from "@/state/provider";
 import React, {ReactNode} from "react";
 import {HeaderProvider} from "@/component/Header/HeaderProvider/HeaderProvider";
-import {MobileMenu} from "@/component/Header/MobileMenu/MobileMenu";
-import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
 
 export const metadata = {
     title: 'Main Leyout',

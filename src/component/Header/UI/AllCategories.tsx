@@ -1,8 +1,6 @@
 import React, {FC, useCallback, useState} from "react";
 import {allCategories, ICategory} from "@/mock/mockForHeader";
-import Category from "@/component/Header/UI/Category";
 import {AnimatePresence, motion, Variants} from "framer-motion";
-import {Arrow} from "@/component/svg";
 import styles from '../styles/AllCategoriesDesktop.module.scss';
 
 const dropDownCategory: Variants = {
