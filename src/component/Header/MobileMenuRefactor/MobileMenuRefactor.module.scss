@@ -1,8 +1,6 @@
-//@import '../styles/lang-swicher';
 @import "../styles/user-actions-header";
 @import "../styles/mobile-nav-items";
 @import "../styles/categories";
-//@import "../styles/search-input";
 #navbar{
   position: sticky;
   top: 0;
@@ -10,9 +8,10 @@
   bottom: 0;
   width: 100%;
   min-height: 60px;
-  background: #4EC568;
+  background: white;
   z-index: 10000;
-  //overflow-y: scroll;
+  border-bottom: 1px solid ;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .background {

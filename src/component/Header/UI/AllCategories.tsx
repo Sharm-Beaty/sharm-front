@@ -1,5 +1,5 @@
 import React, {FC, useCallback, useState} from "react";
-import {allCategories} from "@/mock/mockForHeader";
+import {allCategories, ICategory} from "@/mock/mockForHeader";
 import Category from "@/component/Header/UI/Category";
 import {AnimatePresence, motion, Variants} from "framer-motion";
 import {Arrow} from "@/component/svg";
@@ -73,7 +73,7 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
     const toggleAccordion = useCallback(() => {
         setCategoryOpen((isOpen) => !isOpen);
     }, []);
-    const renderContentItems = (item) => item.children.map((child: any, index: number) => (
+    const renderContentItems = (item:ICategory) => item.children.map((child: any, index: number) => (
         <motion.li
             className={styles['sub-category']}
             exit={{opacity: 0}}
@@ -87,7 +87,7 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
     ));
 
 
-    const showCategory = (item) => {
+    const showCategory = (item:ICategory) => {
         setHoveredItem(item.id)
         setShowedCategory(renderContentItems(item))
     }

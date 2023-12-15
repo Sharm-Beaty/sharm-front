@@ -1,12 +1,28 @@
-// import {Cart} from "@/component/svg/Cart";
-import {Phone} from "@/component/svg";
 import React from "react";
 
 type UserActionsIconsType = {
     [key:string]: React.ReactElement;
 };
 
-export const allCategories = [
+export interface IChild {
+    id: string;
+    name: string;
+    children: IChild[];
+}
+
+export interface ICategory {
+    id: string;
+    name: string;
+    children: IChild[];
+}
+
+export interface IUserAction {
+    name: string;
+    icon: string;
+    path: string;
+}
+
+export const allCategories:ICategory[] = [
     {
         "id": "a0d743c1-c032-4c12-8c52-5cd7999ab252",
         "name": "Люкс",
@@ -132,13 +148,6 @@ export const allCategories = [
     }
 ]
 
-// export const userActionsIcons: UserActionsIconsType =
-//     {
-//         'cart': <Cart/>,
-//         'heart': <Cart/>,
-//         'call':  <Phone/>,
-//         'user':  <Phone/>,
-//     };
 export const userActions = [
     {
         name: "Корзина",

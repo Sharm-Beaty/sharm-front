@@ -3,6 +3,7 @@ import {motion} from "framer-motion";
 import {useState} from "react";
 import {Arrow} from "@/component/svg";
 import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+import {ICategory} from "@/mock/mockForHeader";
 
 
 const containerVariants = {
@@ -33,7 +34,7 @@ const variants = {
 };
 
 
-export const MenuItem = ({item, className}) => {
+export const MenuItem = ({item, className} : {item:ICategory; className:string}) => {
     const [isChildrenVisible, setIsChildrenVisible] = useState(false);
     const [setRotate, setRotateState] = useState("");
 
