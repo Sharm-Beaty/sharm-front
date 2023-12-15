@@ -1,0 +1,23 @@
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  .user-actions-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+@media (min-width: 767px) {
+  .main-header {
+    .logo-top-bar-header {
+      width: 200px;
+      height: 98.09px;
+      margin-bottom: 5px;
+    }
+
+  }
+}

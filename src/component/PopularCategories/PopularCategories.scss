@@ -18,7 +18,7 @@ $sizes: ("xs":320px, "sm":576px, "md":768px, "lg":992px, "xl":1200px);
   justify-content: space-around;
   overflow-x: auto;
 
-  z-index: -1;
+  z-index: 5000;
   //scroll
   scrollbar-width: thin;
   scrollbar-color: #ffffff #f1f1f1;
@@ -67,7 +67,7 @@ $sizes: ("xs":320px, "sm":576px, "md":768px, "lg":992px, "xl":1200px);
   position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 1;
+  z-index: 1000;
   transform: translate(-50%, -50%);
   @include media("max", "md") {
     width: 72px;

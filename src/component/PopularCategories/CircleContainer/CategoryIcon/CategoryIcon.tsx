@@ -7,7 +7,10 @@ export interface CategoryIconProps {
     iconName?: string;
     isHovered: boolean
 }
-
+const defaultIconName = "default_image";
+const defaultImagePath = `/images-for-categories/${defaultIconName}.jpg`;
+const imageInitialWidth = 80;
+const imageInitialHeight = 80;
 const CategoryIcon: FC<CategoryIconProps> = ({className, iconName = 'default_image', isHovered}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [imageError, setImageError] = useState(false);
@@ -27,7 +30,7 @@ const CategoryIcon: FC<CategoryIconProps> = ({className, iconName = 'default_ima
     if (imageError) {
         return <Image
             className={className}
-            src={`/images-for-categories/default_image.jpg`}
+            src={defaultImagePath}
             alt={'Image loading error'}
             width={80}
             height={80}
@@ -41,8 +44,8 @@ const CategoryIcon: FC<CategoryIconProps> = ({className, iconName = 'default_ima
                 className={className}
                 src={imagePath}
                 alt={iconName}
-                width={80}
-                height={80}
+                width={imageInitialWidth}
+                height={imageInitialHeight}
                 onLoad={handleImageLoaded}
                 onError={handleImageError}
             />

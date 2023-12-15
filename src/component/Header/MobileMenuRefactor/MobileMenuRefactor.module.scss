@@ -1,9 +1,9 @@
-//@import 'styles/lang-swicher';
-//@import "styles/user-actions-header";
-//@import "styles/mobile-nav-items";
-//@import "styles/categories";
-//@import "styles/search-input";
-nav {
+//@import '../styles/lang-swicher';
+@import "../styles/user-actions-header";
+@import "../styles/mobile-nav-items";
+@import "../styles/categories";
+//@import "../styles/search-input";
+#navbar{
   position: sticky;
   top: 0;
   left: 0;
@@ -22,6 +22,7 @@ nav {
   bottom: 0;
   width: 100%;
   max-width: 400px;
+  min-width: 280px;
   height: 100vh;
   background: white;
   //z-index: -1;
@@ -62,7 +63,7 @@ nav {
   display: none;
 }
 
-button[role="toggle"] {
+#toggle-button {
   display: none;
   outline: none;
   border: none;

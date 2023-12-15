@@ -1,0 +1,38 @@
+
+.user-action{
+  margin: 0!important;
+  height: 4rem;
+  min-height: 2rem;
+  padding: 2rem ;
+  border-bottom: 1px solid var(--color-placeholder);
+
+  span{
+    color: #333333!important;
+  }
+  &::after{
+    padding-left: 2rem;
+    text-transform: uppercase;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+  }
+}
+  .user-account {
+    position: relative;
+    &::after{
+      content: 'мій акаунт';
+    }
+  }
+  .user-cart {
+    position: relative;
+    &::after{
+      content: 'мій кошик';
+    }
+  }
+  .user-wish-list {
+    position: relative;
+    &::after{
+      content: 'мій список бажань';
+    }
+  }
+//}

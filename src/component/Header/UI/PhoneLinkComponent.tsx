@@ -1,6 +1,3 @@
-// import {ReactComponent as PhoneIcon} from "Path_To_Phone_Icon.svg";
-// import {ReactComponent as ArrowIcon} from "Path_To_Arrow_Icon.svg";
-import './HeaderComponents.scss';
 import React from "react";
 
 const PhoneLinkComponent = () => {

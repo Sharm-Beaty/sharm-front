@@ -1,0 +1,25 @@
+//@import "../../UI/HeaderComponents";
+@import "../../refactor";
+@import "../../Header";
+//@import "../../sandboxStyles";
+
+.top-bar-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &:after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-stroke);
+    position: absolute;
+    margin-top: 55px;
+  }
+
+  @media (max-width: 767px) {
+    & {
+      display: none;
+    }
+  }
+}

@@ -1,7 +1,20 @@
 import * as React from "react";
 import {motion} from "framer-motion";
 import {useState} from "react";
+import {Arrow} from "@/component/svg";
+import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 
+
+const containerVariants = {
+    open: {
+        height: 'auto',
+        transition: {
+            staggerChildren: 0.05, // children will animate 0.1s one after another,
+            delayChildren: 0.1 // delay the animation of children by 0.3s
+        }
+    },
+    closed: { height: 0  }
+};
 const variants = {
     open: {
         y: 0,
@@ -20,35 +33,59 @@ const variants = {
 };
 
 
-export const MenuItem = ({ item }) => {
+export const MenuItem = ({item, className}) => {
     const [isChildrenVisible, setIsChildrenVisible] = useState(false);
+    const [setRotate, setRotateState] = useState("");
 
     const handleButtonClick = () => {
         setIsChildrenVisible(!isChildrenVisible);
+        setRotateState(
+            isChildrenVisible ? styles["arrow-svg"] : styles["rotate"]
+        );
+        console.log(setRotate)
     };
 
     return (
-        <motion.li
+        <motion.div
+            className={`${styles['category']} ${className}`}
+            style={{
+                paddingTop: className ? '0.3rem' : 'unset'
+            }}
             variants={variants}
-            whileHover={{ scale: 1.1, transformOrigin: 0 }}
-            whileTap={{ scale: 0.95 }}
         >
-            {item.name}
+            <motion.div className={styles["parent-category-row"]}
+            >
+                <motion.span
+                    whileHover={{ scale: 0.95,}}
+                    whileTap={{scale: 0.9}}
+                >
+                    {item.name}
+                </motion.span>
+                {item.children.length > 0 && (
+                    <button onClick={handleButtonClick}>
+                        <Arrow
+                            width={'10'}
+                            height={'10'}
+                            className={`${setRotate}`} />
+                    </button>
+                )}
+            </motion.div>
+
             {item.children && item.children.length > 0 && (
                 <>
-                    <button onClick={handleButtonClick}>
-                        {isChildrenVisible ? 'Hide' : 'Show'}
-                    </button>
-
                     {isChildrenVisible && (
-                        <ul>
+                        <motion.ul
+                            variants={containerVariants}
+                            initial="closed"
+                            animate={isChildrenVisible ? 'open' : 'closed'}
+                        >
                             {item.children.map((childItem) => (
-                                <MenuItem key={childItem.id} item={childItem} />
+                                <MenuItem className={styles['sub-category']} key={childItem.id} item={childItem}/>
                             ))}
-                        </ul>
+                        </motion.ul>
                     )}
                 </>
             )}
-        </motion.li>
+        </motion.div>
     );
 }

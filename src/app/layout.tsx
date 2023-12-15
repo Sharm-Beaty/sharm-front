@@ -22,8 +22,7 @@ export default function RootLayout({
         <body>
         <ReduxProvider>
             <HeaderProvider>
-                {/*<Header/>*/}
-                <MobileMenuRefactor />
+                <Header/>
             </HeaderProvider>
             <main>
                 {children}

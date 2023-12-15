@@ -149,35 +149,35 @@ header {
   }
 
 
-  //@media (min-width: 767px) {
-  //  .main-header {
-  //    .logo-top-bar-header {
-  //      width: 200px;
-  //      height: 98.09px;
-  //      margin-bottom: 5px;
-  //    }
-  //
-  //  }
-  //  .user-actions-header {
-  //
-  //    .search-svg {
-  //      display: none;
-  //    }
-  //  }
-  //}
-  //@media (max-width: 767px) {
-  //  .top-bar-header {
-  //    display: none;
-  //  }
-  //}
-  //@media (max-width: 948px) {
-  //  .list-top-bar-header {
-  //    ul {
-  //      li {
-  //        margin: 0 1vw !important;
-  //      }
-  //    }
-  //  }
-  //}
+  @media (min-width: 767px) {
+    .main-header {
+      .logo-top-bar-header {
+        width: 200px;
+        height: 98.09px;
+        margin-bottom: 5px;
+      }
+
+    }
+    .user-actions-header {
+
+      .search-svg {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    .top-bar-header {
+      display: none;
+    }
+  }
+  @media (max-width: 948px) {
+    .list-top-bar-header {
+      ul {
+        li {
+          margin: 0 1vw !important;
+        }
+      }
+    }
+  }
 
 }

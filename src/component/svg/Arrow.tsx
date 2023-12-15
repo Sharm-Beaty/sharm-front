@@ -1,9 +1,9 @@
-export const Arrow = ({className = "arrow-svg"}) => (
+export const Arrow = ({className = "arrow-svg", width='7', height='4'}) => (
     <svg
-        className={className}
+        className={`${className} arrow-svg`}
         xmlns="http://www.w3.org/2000/svg"
-        width="7"
-        height="4"
+        width={width}
+        height={height}
         viewBox="0 0 7 4"
         fill="none"
     >

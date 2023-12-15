@@ -81,33 +81,31 @@ export const MobileMenu = ({toggleOpen}: { toggleOpen: any }) => {
                 <MenuToggle toggle={() => toggleOpen()}/>
             {/*</motion.nav>*/}
 
-            {/*<div className={`burger-menu ${isActive ? 'active' : ''}`} onClick={handleToggle}>*/}
-            {/*    <div></div>*/}
-            {/*    <div></div>*/}
-            {/*    <div></div>*/}
-            {/*</div>*/}
+            <div className={`burger-menu ${isActive ? 'active' : ''}`} onClick={handleToggle}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
 
-            {/*<div*/}
-            {/*    className={`container-open-mobile-menu ${isActive ? 'active' : ''}`}*/}
-            {/*>*/}
-            {/*    <input type="text"/>*/}
-            {/*    {isActive && <nav>*/}
-            {/*        <ul >*/}
-            {/*            {*/}
-            {/*                menuData.map((item: any) =>*/}
-            {/*                    <li key={item.id}>*/}
-            {/*                        {!state.isBurgerOpen && <p>TestTestTestTestTest</p>}*/}
-            {/*                        {state.isBurgerOpen && <p>false</p>}*/}
-            {/*                        <ActiveLink rout={item.path}>*/}
-            {/*                            {item.name}*/}
-            {/*                        </ActiveLink>*/}
-            {/*                    </li>*/}
-            {/*                )*/}
-            {/*            }*/}
-            {/*        </ul>*/}
-            {/*    </nav>}*/}
-            {/*</div>*/}
+            <div
+                className={`container-open-mobile-menu ${isActive ? 'active' : ''}`}
+            >
+                <input type="text"/>
+                {isActive && <nav>
+                    <ul >
+                        {
+                            menuData.map((item: any) =>
+                                <li key={item.id}>
+                                    <ActiveLink rout={item.path}>
+                                        {item.name}
+                                    </ActiveLink>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </nav>}
+            </div>
         </>
     );
 };

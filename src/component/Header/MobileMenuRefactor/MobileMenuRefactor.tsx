@@ -5,7 +5,8 @@ import {useDimensions} from "@/component/Header/hooks/useDimensions";
 import {Navigation} from "@/component/Header/UI/Navigation";
 import {MenuToggle} from "@/component/Header/UI/MenuToggle";
 import {sidebar} from "@/component/Header/MobileMenu/MobileMenu";
-import "../sandboxStyles.scss"
+import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+
 
 const MobileMenuRefactor = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
@@ -39,16 +40,17 @@ const MobileMenuRefactor = () => {
 
     return (
         <motion.nav
+            id={styles.navbar}
             initial={false}
             animate={isOpen ? "open" : "closed"}
             custom={height}
             ref={containerRef}
         >
 
-            <motion.div className="background" variants={sidebar}/>
+            <motion.div className={styles.background} variants={sidebar}/>
             <motion.div
                 onClick={() => toggleOpen()}
-                className="overlay"
+                className={styles.overlay}
                 initial={false}
                 animate={isOpen ? {opacity: 0.5, pointerEvents: "auto"} : {opacity: 0, pointerEvents: "none"}}
                 style={{
@@ -78,7 +80,7 @@ const MobileMenuRefactor = () => {
                 style={{
                     y,
                 }}
-                className={isOpen ? 'stripe' : 'stripe hidden'}
+                className={isOpen ? styles.stripe : [styles.stripe, styles.hidden].join(' ')}
             />
         </motion.nav>
     )

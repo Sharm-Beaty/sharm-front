@@ -11,7 +11,7 @@ export interface CircleContainerProps {
     children?: React.ReactNode;
     category: Category;
 }
-const wrapperAnimationVariants: Variants  = {
+const categoryHoverAnimation: Variants  = {
     init: {
         scale: 0.9
     },
@@ -25,21 +25,30 @@ const wrapperAnimationVariants: Variants  = {
     },
 }
 
-const CircleContainer: FC<CircleContainerProps> = ({className = '', category}) => {
-    const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
-    const [isHovered, setIsHovered] = useState(false);
+const CircleContainer: FC<CircleContainerProps> =
+    ({className = '', category}) => {
+    const [isAnimationPlaying, setIsAnimationPlaying] =
+        useState(false)
+    const [isHovered, setIsHovered] =
+        useState(false);
 
     const hoverDivAnimationControls = useAnimation()
 
     const {icon, label} = category;
+
     if (!category || !icon || !label) {
         return <div className="error-message">Invalid category data</div>;
     }
 
-
-
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
+        const handleMouseOver = (setHoverState: boolean) => {
+            setIsHovered(setHoverState);
+            if(setHoverState && !isAnimationPlaying) {
+                setIsAnimationPlaying(true)
+                hoverDivAnimationControls.start(categoryHoverAnimation.hover)
+            }
+        }
+    // const handleMouseEnter = () => setIsHovered(true);
+    // const handleMouseLeave = () => setIsHovered(false);
 
     return (
         <motion.div
@@ -47,14 +56,14 @@ const CircleContainer: FC<CircleContainerProps> = ({className = '', category}) =
         >
             <motion.div
                 className={'wrapper-img'}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => handleMouseOver(true)}
+                onMouseLeave={() => handleMouseOver(false)}
                 animate={hoverDivAnimationControls}
                 initial={{scale: 1}}
                 onHoverStart={() => {
                     if (!isAnimationPlaying) {
                         setIsAnimationPlaying(true)
-                        hoverDivAnimationControls.start(wrapperAnimationVariants.hover)
+                        hoverDivAnimationControls.start(categoryHoverAnimation.hover)
                     }
                 }}
                 onAnimationComplete={() => {
@@ -70,8 +79,8 @@ const CircleContainer: FC<CircleContainerProps> = ({className = '', category}) =
             >
                 <PulseComponent
                     isHovered={isHovered}
-                    delay={0.05}
-                    duration={0.9}
+                    animationDelay={0.05}
+                    animationDuration={0.9}
                 />
                 <CategoryIcon
                     className={'inner-img'}

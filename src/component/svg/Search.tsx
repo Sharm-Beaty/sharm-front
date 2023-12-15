@@ -1,8 +1,8 @@
 import {FC} from "react";
 
-export const Search: FC<{styleProps: any } > = ({styleProps}) => (
+export const Search: FC<{styleProps: any, className: string } > = ({styleProps, className}) => (
     <svg
-        className="search-svg"
+        className={`${className} search-svg`}
         xmlns="http://www.w3.org/2000/svg"
         width="18"
         height="18"

@@ -1,13 +1,15 @@
 'use client';
 import {motion, MotionStyle, Variants} from 'framer-motion'
 import React, {FC} from "react";
+
 export interface PulseComponentProps {
     className?: string;
-    isHovered:boolean;
-    delay: number
-    duration: number
+    isHovered: boolean;
+    animationDelay: number
+    animationDuration: number
     children?: React.ReactNode
 }
+
 const animationVariants: Variants = {
     onHover: {
         scale: [0.9, 1.2],
@@ -19,8 +21,8 @@ const animationVariants: Variants = {
         zIndex: 100,
         opacity: [0,],
     },
-
 }
+
 const PulseComponentStyle: MotionStyle = {
     width: '96px',
     height: '96px',
@@ -33,22 +35,19 @@ const PulseComponentStyle: MotionStyle = {
     translateX: '-50%',
 }
 
-const PulseComponent: FC<PulseComponentProps> = ({isHovered, delay, duration, children}) => {
+const PulseComponent: FC<PulseComponentProps> = ({isHovered, animationDelay, animationDuration, children}) => {
     return (
         <motion.div
             className="pulse-component"
             variants={animationVariants}
             animate={isHovered ? 'onHover' : 'onHoverEnd'}
-            style={{
-                ...PulseComponentStyle,
-                zIndex: -1,
-            }}
+            style={PulseComponentStyle}
             transition={{
                 ease: "easeInOut",
                 repeat: Infinity,
                 repeatType: 'loop',
-                delay: delay,
-                duration: duration,
+                delay: animationDelay,
+                duration: animationDuration,
             }}
         >
             {children}

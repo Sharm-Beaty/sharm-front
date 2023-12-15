@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-
+import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 const Path = props => (
     <motion.path
         fill="transparent"
@@ -12,7 +12,8 @@ const Path = props => (
 );
 
 export const MenuToggle = ({ toggle }: {toggle:any}) => (
-    <button role="toggle" onClick={toggle}>
+    <button id={styles['toggle-button']}
+        role="toggle" onClick={toggle}>
         <svg width="23" height="23" viewBox="0 0 23 23">
             <Path
                 variants={{
