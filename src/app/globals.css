@@ -25,12 +25,13 @@
     box-sizing: border-box;
 }
 
-#popular-categories{
-    min-height: 500px;
+
+html{
+    height: fit-content;
 }
 
 body {    
-    height: 100vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;

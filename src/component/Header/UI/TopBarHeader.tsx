@@ -15,9 +15,15 @@ const TopBarHeader = ({styleProps}: { styleProps: any }) => (
             height: styleProps.height,
         }}
     >
-        <PhoneLinkComponent/>
-        <TopBarListComponent/>
-        <LanguageToggleComponent/>
+        <div className={`${styles['top-header-item']} ${styles['phone']}`}>
+            <PhoneLinkComponent />
+        </div>
+        <div className={`${styles['top-header-item']} ${styles['links']}`}>
+            <TopBarListComponent/>
+        </div>
+        <div className={`${styles['top-header-item']} ${styles['lang-toggle']}`}>
+            <LanguageToggleComponent/>
+        </div>
     </motion.div>
 );
 

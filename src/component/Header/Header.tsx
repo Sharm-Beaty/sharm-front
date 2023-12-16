@@ -19,8 +19,8 @@ const mainHeaderHeightMobile = [60, 50];
 const borderColorsValues = ['#fff', '#B8B8B8'];
 const hideBorderColorsValues = ['#B8B8B8', '#fff'];
 const moveElementX = [0, 150];
-const moveElementToRight = [0, 150];
-const moveElementToLeft = [0, -150];
+const moveElementToRight = [0, 75];
+const moveElementToLeft = [0, -75];
 
 type StylePropsType = {
     height: any,

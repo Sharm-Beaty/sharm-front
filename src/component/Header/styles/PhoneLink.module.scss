@@ -1,0 +1,51 @@
+.phone-link-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-decoration: unset;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-placeholder);
+  @media (max-width: 1155px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .phone-top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-decoration: unset;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-placeholder);
+    gap: 7px;
+
+    span {
+      color: var(--color-placeholder);
+      //font-size: 0.2rem;
+    }
+  }
+
+  .get-call {
+    align-self: center;
+    background: white;
+    border: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-placeholder);
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    span {
+    }
+  }
+
+  span {
+    color: var(--color-placeholder);
+    padding: 0.2rem 0.3rem;
+  }
+}

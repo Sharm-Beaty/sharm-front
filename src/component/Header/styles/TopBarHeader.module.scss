@@ -4,5 +4,27 @@
     height: 60px;
     align-items: center;
     font-size: 14px;
+    //min-height: 60px;
     color: var(--color-stroke);
+    .top-header-item {
+      height: 100%;
+      min-height: 60px;
+      display: flex;
+      justify-content: center;
+    }
+    .phone{
+      align-items: center;
+      justify-content: start;
+      flex: 0 1 280px;
+      @media (max-width: 1155px) {
+        flex: 0 0 145px;
+      }
+    }
+    .links{
+      align-items: center;
+      justify-content: start;
+    }
+    .lang-toggle{
+
+    }
   }
