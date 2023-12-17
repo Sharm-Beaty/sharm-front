@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useState} from "react";
 import {allCategories, ICategory} from "@/mock/mockForHeader";
 import {AnimatePresence, motion, Variants} from "framer-motion";
-import styles from '../styles/AllCategoriesDesktop.module.scss';
+import styles from './AllCategoriesDesktop.module.scss';
 
 const dropDownCategory: Variants = {
     open: {

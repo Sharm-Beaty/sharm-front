@@ -1,9 +1,9 @@
 import {motion} from "framer-motion";
-import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent";
-import TopBarListComponent from "@/component/Header/UI/TopBarListComponent";
-import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent";
+import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
+import TopBarListComponent from "@/component/Header/UI/TopBarListComponent/TopBarListComponent";
+import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent/LanguageToggleComponent";
 import React from "react";
-import styles from "../styles/TopBarHeader.module.scss"
+import styles from "./TopBarHeader.module.scss"
 
 
 const TopBarHeader = ({styleProps}: { styleProps: any }) => (
@@ -11,7 +11,6 @@ const TopBarHeader = ({styleProps}: { styleProps: any }) => (
         className={styles["top-bar-header"]}
         transition={{type: 'spring'}}
         style={{
-            // opacity: styleProps.opacity,
             borderBottomColor: styleProps.borderBottomColorHide,
             borderBottom: '1px solid',
         }}

@@ -2,11 +2,11 @@
 import React, {useReducer, useRef} from 'react';
 import {motion, MotionValue, useCycle, useScroll, useTransform} from "framer-motion";
 import {headerReducer, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
-import AllCategories from "@/component/Header/UI/AllCategories";
+import AllCategories from "@/component/Header/UI/AllCategories/AllCategories";
 import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
 import {useResizeObserver} from "@/hooks/useResizeObserver";
-import TopBarHeader from "@/component/Header/UI/TopBarHeader";
-import MainHeader from "@/component/Header/UI/MainHeader";
+import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
+import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
 import styles from "./DesktopStyles.module.scss";
 import Link from "next/link";
 

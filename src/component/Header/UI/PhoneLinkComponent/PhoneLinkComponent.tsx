@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/PhoneLink.module.scss"
+import styles from "./PhoneLink.module.scss"
 import {Phone} from "@/component/svg";
 import {motion} from 'framer-motion'
 

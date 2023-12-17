@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import {Search} from "@/component/svg";
 import React from "react";
-import styles from "../styles/SearchBox.module.scss";
+import styles from "./SearchBox.module.scss";
 
 const SearchBox = ({styleProps}: { styleProps: any }) => (
     <motion.div

@@ -2,10 +2,10 @@
 import React, {useEffect, useRef} from 'react';
 import {motion, useCycle, useDragControls, useMotionValue, useScroll} from "framer-motion";
 import {useDimensions} from "@/hooks/useDimensions";
-import {Navigation} from "@/component/Header/UI/Navigation";
-import {MenuToggle} from "@/component/Header/UI/MenuToggle";
+import {Navigation} from "@/component/Header/UI/Navigation (mobile)/Navigation";
+import {MenuToggle} from "@/component/Header/UI/MenuToggle/MenuToggle";
 import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
-import {Logo} from "@/component/Header/UI/Logo";
+import {Logo} from "@/component/Header/UI/Logo/Logo";
 import {useGetStyleProps} from "@/component/Header/Header";
 import {Cart} from "@/component/svg/Cart";
 import {Search} from "@/component/svg";

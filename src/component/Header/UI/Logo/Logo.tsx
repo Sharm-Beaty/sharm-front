@@ -1,6 +1,6 @@
 'use client'
 import {motion, useTransform} from "framer-motion";
-import styles from "@/component/Header/styles/Logo.module.scss";
+import styles from "@/component/Header/UI/Logo/Logo.module.scss";
 import Link from "next/link";
 import React, {FC} from "react";
 import {StylePropsType} from "@/component/Header/Header";

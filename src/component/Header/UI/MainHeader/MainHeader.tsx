@@ -1,11 +1,11 @@
 import {motion, useMotionValue, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import React, {useEffect} from "react";
-import SearchBox from "@/component/Header/UI/SearchBox";
-import styles from "../styles/MainHeader.module.scss";
+import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
+import styles from "./MainHeader.module.scss";
 import {Love} from "@/component/svg/Love";
 import {Person} from "@/component/svg/Person";
 import {Cart} from "@/component/svg/Cart";
-import {Logo} from "@/component/Header/UI/Logo";
+import {Logo} from "@/component/Header/UI/Logo/Logo";
 import {StylePropsType} from "@/component/Header/Header";
 
 const MainHeader = ({state, styleProps, toggleOpen}: { styleProps: any, state: any, toggleOpen: any }) => {

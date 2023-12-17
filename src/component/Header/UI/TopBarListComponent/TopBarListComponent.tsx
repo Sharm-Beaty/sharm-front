@@ -1,6 +1,6 @@
 import React from "react";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
-import styles from "../styles/TopBarList.module.scss";
+import styles from "./TopBarList.module.scss";
 
 const TopBarListComponent = () => {
     return (

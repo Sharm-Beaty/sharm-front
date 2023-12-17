@@ -1,7 +1,8 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
-const Path = props => (
+import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+import {FC} from "react";
+const Path:FC<any> = (props) => (
     <motion.path
         fill="transparent"
         strokeWidth="3"

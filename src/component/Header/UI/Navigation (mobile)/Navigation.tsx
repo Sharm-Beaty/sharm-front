@@ -1,15 +1,15 @@
 import * as React from "react";
 import {ReactNode} from "react";
 import {motion, Variants} from "framer-motion";
-import {MenuItem} from "./MenuItem";
+import {MenuItem} from "../MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
-import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent";
-import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent";
+import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
+import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent/LanguageToggleComponent";
 import {Love} from "@/component/svg/Love";
 import {Cart} from "@/component/svg/Cart";
 import {Person} from "@/component/svg/Person";
-import SearchBox from "@/component/Header/UI/SearchBox";
-import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
+import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 
 const variants: Variants = {
     open: {
@@ -82,11 +82,9 @@ export const Navigation = ({isOpen}:{isOpen:boolean}) => (
         animate={isOpen ? 'open' : ''}
         variants={variants}
     >
-        {/*SearchBox*/}
         <AnimatedNavItem>
             <SearchBox styleProps={{}}/>
         </AnimatedNavItem>
-        {/*categories-container*/}
         <AnimatedNavItem className={styles['categories-container']}>
             {allCategories.map((item) => (
                 <MenuItem className={''} item={item} key={item.id}/>

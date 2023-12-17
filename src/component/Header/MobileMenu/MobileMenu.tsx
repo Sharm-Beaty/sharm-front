@@ -4,9 +4,9 @@ import "./MobileMenu.scss"
 // import {menuData} from "@/component/Header/menuData";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
 import {HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
-import {Navigation} from "@/component/Header/UI/Navigation";
+import {Navigation} from "@/component/Header/UI/Navigation (mobile)/Navigation";
 import {motion} from "framer-motion";
-import {MenuToggle} from "@/component/Header/UI/MenuToggle";
+// import {MenuToggle} from "@/component/Header/UI/MenuToggle";
 
 export const sidebar = {
     open: (height = 1000) => ({
@@ -76,7 +76,7 @@ export const MobileMenu = ({toggleOpen}: { toggleOpen: any }) => {
             {/*    ref={containerRef}*/}
             {/*>*/}
                 <motion.div className="background" variants={sidebar}/>
-                <MenuToggle toggle={() => toggleOpen()}/>
+                {/*<MenuToggle toggle={() => toggleOpen()}/>*/}
             {/*</motion.nav>*/}
 
             <div className={`burger-menu ${isActive ? 'active' : ''}`} onClick={handleToggle}>
