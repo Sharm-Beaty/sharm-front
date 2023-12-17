@@ -47,16 +47,14 @@ const dropDownCategory: Variants = {
         width: 0,
     },
     displaySelectedCategory: {
-        zIndex: -1,
+        zIndex: 9999,
         opacity: 1,
-        // display: ["none", "block"],
-        x: ['-100%', '0%'],
+        height:[0, 225],
     },
     hideSelectedCategory: {
         zIndex: -1,
-        x: ['0%','-100%'],
+        height:[255, 0],
         opacity: [1, 0],
-        display: ["block", "none",]
     },
 
 };
@@ -98,6 +96,7 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
                     style={{
                         opacity: styleProps.opacity,
                         height: styleProps.height,
+                        display: (styleProps.height <= 5 ? 'none' : 'flex' )
                     }}
                     onMouseLeave={() => setHoveredItem(null)}
                 >
@@ -119,13 +118,10 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
                         exit={{
                             opacity: [1, 0],
                             zIndex:-1,
-                            // display:  'none'
                         }}
                         initial={{
                             opacity: 0,
                             zIndex:-1,
-                            // display: 'none',
-                            x: '-100%',
                         }}
                         variants={dropDownCategory}
                         className={styles["display-hovered-category"]}>

@@ -11,7 +11,29 @@
   background: white;
   z-index: 10000;
   border-bottom: 1px solid ;
-  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: fit-content;
+  .nav-wrapper {
+    min-height: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    .nav-actions {
+      position: relative;
+      z-index: -1;
+      min-width: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 .background {
@@ -70,9 +92,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  //position: absolute;
+  //top: 50%;
+  //transform: translateY(-50%);
   //left: 15px;
   width: 50px;
   height: 50px;

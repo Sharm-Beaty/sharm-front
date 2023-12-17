@@ -12,6 +12,8 @@ const SearchBox = ({styleProps}: { styleProps: any }) => (
             },
         }}
         style={{
+            borderBottomColor: styleProps.borderBottomColorHide,
+            borderBottom: '1px solid',
             x: styleProps.moveElementToRightX,
         }}
     >

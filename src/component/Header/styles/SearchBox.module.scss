@@ -59,13 +59,13 @@
         width: 100%;
         padding: 10px;
         background-color: #ffffff;
-        border-bottom: 1px solid var(--color-placeholder);
+        //border-bottom: 1px solid var(--color-placeholder);
         transition: all 0.3s;
         max-width: 15rem;
 
         &:focus {
           background-color: white;
-          border-bottom: 1px solid var(--color-stroke);
+          border-bottom: unset;
 
           + .search-svg {
             opacity: 0;

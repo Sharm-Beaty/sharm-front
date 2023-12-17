@@ -1,0 +1,13 @@
+.logo-top-bar-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (min-width: 767px) {
+    position: relative;
+    top: unset;
+    left: unset;
+    transform: unset;
+    //margin-bottom: 5px;
+  }
+}

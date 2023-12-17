@@ -11,8 +11,9 @@ const TopBarHeader = ({styleProps}: { styleProps: any }) => (
         className={styles["top-bar-header"]}
         transition={{type: 'spring'}}
         style={{
-            opacity: styleProps.opacity,
-            height: styleProps.height,
+            // opacity: styleProps.opacity,
+            borderBottomColor: styleProps.borderBottomColorHide,
+            borderBottom: '1px solid',
         }}
     >
         <div className={`${styles['top-header-item']} ${styles['phone']}`}>

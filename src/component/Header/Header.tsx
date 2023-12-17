@@ -4,15 +4,16 @@ import {motion, MotionValue, useCycle, useScroll, useTransform} from "framer-mot
 import {headerReducer, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
 import AllCategories from "@/component/Header/UI/AllCategories";
 import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
-import {useResizeObserver} from "@/component/Header/hooks/useResizeObserver";
+import {useResizeObserver} from "@/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader";
 import styles from "./DesktopStyles.module.scss";
+import Link from "next/link";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
 const topHeaderHeightValues = [60, 0];
-const imageHeightValues = [100, 60];
+const imageHeightValues = [100, 50];
 const imageWidthValues = [200, 100];
 const mainHeaderHeightDesktop = [150, 60];
 const mainHeaderHeightMobile = [60, 50];
@@ -22,12 +23,20 @@ const moveElementX = [0, 150];
 const moveElementToRight = [0, 75];
 const moveElementToLeft = [0, -75];
 
-type StylePropsType = {
+export type StylePropsType = {
     height: any,
     imageHeightTransform: any,
     imageWidthTransform: any,
     mainHeaderHeightDesktop: any,
     scrollY: any,
+    borderBottomColor:any,
+    mainHeaderHeight:any,
+    opacity:any,
+    topHeaderOpacityValues:any,
+    borderBottomColorHide:any,
+    moveElementToRightX:any,
+    moveElementToLeftX:any,
+
     // Add your other transformed values types here ...
 };
 export const useGetStyleProps = (scrollY: MotionValue) => {
@@ -60,27 +69,6 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
     };
 };
 
-export const Logo = ({styleProps}:{ styleProps: StylePropsType }) => {
-    const height = useTransform(styleProps.scrollY, offsetYS, imageHeightValues);
-    const width = useTransform(styleProps.scrollY, offsetYS, imageWidthValues);
-
-    return (
-        <div className={styles["logo-top-bar-header"]}>
-            <div className={styles["logo-top-bar-header"]}>
-                <motion.img
-                    style={{
-                        height: height,
-                        width: width
-                    }}
-                    transition={{duration: 0.01}}
-                    className={styles.logoTopBarHeader}
-                    src="/logo.png"
-                    alt="logo"
-                />
-            </div>
-        </div>
-    );
-};
 
 export const Header = () => {
     const [state] = useReducer(headerReducer, initialState);
@@ -96,7 +84,7 @@ export const Header = () => {
                 ref={headerRef}>
                 {
                     !isMobile && <>
-                    <TopBarHeader styleProps={styleProps}/>
+                        <TopBarHeader styleProps={styleProps}/>
                         <MainHeader toggleOpen={toggleOpen} state={state} styleProps={styleProps}/>
                         {/*<Navigation/>*/}
                         <AllCategories styleProps={styleProps} className={''}/>

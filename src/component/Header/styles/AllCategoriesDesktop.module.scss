@@ -23,6 +23,7 @@
       margin: auto;
       transition: all 0.1ms;
       white-space: nowrap;
+      padding: 0.5rem 0;
     }
 
   }
@@ -38,7 +39,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -200px;
+    bottom: -225px;
     z-index: -1;
 
     .sub-category {
@@ -79,7 +80,7 @@
     position: absolute;
     width: 0;
     height: 5px;
-    top: 15px;
+    top: 1.5rem;
     left: 0;
     background: var(--color-categoryr);
     z-index: -1;

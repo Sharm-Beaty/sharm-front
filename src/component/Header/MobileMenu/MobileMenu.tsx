@@ -1,7 +1,7 @@
 "use client"
 import React, {useContext, useState} from 'react';
 import "./MobileMenu.scss"
-import {menuData} from "@/component/Header/menuData";
+// import {menuData} from "@/component/Header/menuData";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
 import {HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
 import {Navigation} from "@/component/Header/UI/Navigation";
@@ -12,6 +12,7 @@ export const sidebar = {
     open: (height = 1000) => ({
         clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
         transition: {
+            duration: 0.1,
             type: "spring",
             stiffness: 20,
             restDelta: 2
@@ -20,7 +21,7 @@ export const sidebar = {
     closed: {
         clipPath: "circle(10px at 20px 20px)",
         transition: {
-            delay: 0.5,
+            // delay: 0.5,
             type: "spring",
             stiffness: 400,
             damping: 40
@@ -75,7 +76,6 @@ export const MobileMenu = ({toggleOpen}: { toggleOpen: any }) => {
             {/*    ref={containerRef}*/}
             {/*>*/}
                 <motion.div className="background" variants={sidebar}/>
-                <Navigation/>
                 <MenuToggle toggle={() => toggleOpen()}/>
             {/*</motion.nav>*/}
 
@@ -92,15 +92,15 @@ export const MobileMenu = ({toggleOpen}: { toggleOpen: any }) => {
                 <input type="text"/>
                 {isActive && <nav>
                     <ul >
-                        {
-                            menuData.map((item: any) =>
-                                <li key={item.id}>
-                                    <ActiveLink rout={item.path}>
-                                        {item.name}
-                                    </ActiveLink>
-                                </li>
-                            )
-                        }
+                        {/*{*/}
+                        {/*    menuData.map((item: any) =>*/}
+                        {/*        <li key={item.id}>*/}
+                        {/*            <ActiveLink rout={item.path}>*/}
+                        {/*                {item.name}*/}
+                        {/*            </ActiveLink>*/}
+                        {/*        </li>*/}
+                        {/*    )*/}
+                        {/*}*/}
                     </ul>
                 </nav>}
             </div>

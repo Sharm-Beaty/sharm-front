@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import {motion} from "framer-motion";
+import {motion, Variants} from "framer-motion";
 import {MenuItem} from "./MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent";
@@ -11,11 +11,17 @@ import {Person} from "@/component/svg/Person";
 import SearchBox from "@/component/Header/UI/SearchBox";
 import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 
-const variants = {
+const variants: Variants = {
     open: {
+        width:'100%',
+        overflowY: 'auto',
+        padding: '1rem' ,
         transition: {staggerChildren: 0.07, delayChildren: 0.2}
     },
     closed: {
+        width:'0%',
+        overflowY: 'hidden',
+        padding: '0rem' ,
         transition: {staggerChildren: 0.05, staggerDirection: -1}
     }
 };
@@ -69,9 +75,11 @@ const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({children, interactionS
         {children}
     </motion.li>
 );
-export const Navigation = () => (
+export const Navigation = ({isOpen}:{isOpen:boolean}) => (
     <motion.ul
         className={styles['mobile-nav-items']}
+        initial={'closed'}
+        animate={isOpen ? 'open' : ''}
         variants={variants}
     >
         {/*SearchBox*/}

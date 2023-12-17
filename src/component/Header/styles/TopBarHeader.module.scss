@@ -1,7 +1,7 @@
   .top-bar-header {
     display: flex;
     justify-content: space-between;
-    height: 60px;
+    height: fit-content;
     align-items: center;
     font-size: 14px;
     //min-height: 60px;
@@ -21,10 +21,14 @@
       }
     }
     .links{
+      width: 100%;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
+      flex: 3 0;
     }
     .lang-toggle{
-
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 50px;
     }
   }

@@ -1,11 +1,12 @@
 import {motion, useMotionValue, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
 import React, {useEffect} from "react";
-import {Logo} from "@/component/Header/Header";
 import SearchBox from "@/component/Header/UI/SearchBox";
 import styles from "../styles/MainHeader.module.scss";
 import {Love} from "@/component/svg/Love";
 import {Person} from "@/component/svg/Person";
 import {Cart} from "@/component/svg/Cart";
+import {Logo} from "@/component/Header/UI/Logo";
+import {StylePropsType} from "@/component/Header/Header";
 
 const MainHeader = ({state, styleProps, toggleOpen}: { styleProps: any, state: any, toggleOpen: any }) => {
     const {scrollY} = useScroll();
@@ -22,7 +23,11 @@ const MainHeader = ({state, styleProps, toggleOpen}: { styleProps: any, state: a
             >
 
                 <SearchBox styleProps={styleProps}/>
-                <Logo styleProps={styleProps}/>
+                <Logo
+                    styleProps={styleProps}
+                    imageWidthValues={[212, 106]}
+                    imageHeightValues={[106, 53]}
+                />
 
                 <motion.div
                     style={{

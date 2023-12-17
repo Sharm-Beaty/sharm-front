@@ -1,8 +1,8 @@
 'use client'
 import React, {useEffect, useReducer, useRef} from "react";
 import {headerReducer, initialState, HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
-import {useScreenSizeChange} from "@/component/Header/hooks/useScreenSizeChange";
-import {useMotionScroll} from "@/component/Header/hooks/useMotionScroll";
+import {useScreenSizeChange} from "@/hooks/useScreenSizeChange";
+import {useMotionScroll} from "@/hooks/useMotionScroll";
 
 export const HeaderProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
     const [state, dispatch] = useReducer(headerReducer, initialState);
