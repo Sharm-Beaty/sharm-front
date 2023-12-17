@@ -1,14 +1,12 @@
 'use client'
-import React, {useReducer, useRef} from 'react';
-import {motion, MotionValue, useCycle, useScroll, useTransform} from "framer-motion";
-import {headerReducer, initialState} from "@/component/Header/HeaderProvider/HeaderContext";
+import React, {useRef} from 'react';
+import {MotionValue, useScroll, useTransform} from "framer-motion";
 import AllCategories from "@/component/Header/UI/AllCategories/AllCategories";
 import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
 import {useResizeObserver} from "@/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
 import styles from "./DesktopStyles.module.scss";
-import Link from "next/link";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
@@ -71,28 +69,23 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
 
 
 export const Header = () => {
-    const [state] = useReducer(headerReducer, initialState);
-    const {scrollY} = useScroll();
+    const { scrollY } = useScroll();
     const styleProps = useGetStyleProps(scrollY);
-    const [isOpen, toggleOpen] = useCycle(false, true);
     const headerRef = useRef(null);
     const isMobile = useResizeObserver(headerRef) || window?.innerWidth <= 768;
+
     return (
         <header id={styles['header']}>
-            <div
-                className={styles["header-wrap"]}
-                ref={headerRef}>
-                {
-                    !isMobile && <>
-                        <TopBarHeader styleProps={styleProps}/>
-                        <MainHeader toggleOpen={toggleOpen} state={state} styleProps={styleProps}/>
-                        {/*<Navigation/>*/}
-                        <AllCategories styleProps={styleProps} className={''}/>
+            <div className={styles['header-wrap']} ref={headerRef}>
+                {!isMobile && (
+                    <>
+                        <TopBarHeader styleProps={styleProps} />
+                        <MainHeader styleProps={styleProps} />
+                        <AllCategories styleProps={styleProps} className={''} />
                     </>
-                }
-
+                )}
             </div>
-            {isMobile && <MobileMenuRefactor/>}
+            {isMobile && <MobileMenuRefactor />}
         </header>
     );
 };
