@@ -10,10 +10,10 @@ import styles from "./Header.module.scss";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
-const topHeaderHeightValues = [60, 0];
+const topHeaderHeightValues = [72, 0];
 const imageHeightValues = [100, 50];
 const imageWidthValues = [200, 100];
-const mainHeaderHeightDesktop = [150, 60];
+const mainHeaderHeightDesktop = [100, 45];
 const mainHeaderHeightMobile = [60, 50];
 const borderColorsValues = ['#fff', '#B8B8B8'];
 const hideBorderColorsValues = ['#B8B8B8', '#fff'];
@@ -72,15 +72,16 @@ export const Header = () => {
     return (
         <header id={styles['header']}>
             <div className={styles['header-wrap']} ref={headerRef}>
-                {!isMobile && (
+                {/*{!isMobile && (*/}
                     <>
                         <TopBarHeader styleProps={styleProps} />
                         <MainHeader styleProps={styleProps} />
                         <AllCategories styleProps={styleProps} className={''} />
                     </>
-                )}
+                {/*)}*/}
             </div>
-            {isMobile && <MobileMenuRefactor />}
+            {/*{isMobile && <MobileMenuRefactor />}*/}
+            <MobileMenuRefactor />
         </header>
     );
 };

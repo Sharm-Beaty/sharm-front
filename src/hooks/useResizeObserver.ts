@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from "react";
-// import getUserViewport from "@/hooks/headers";
 
 export const useResizeObserver = (ref: React.RefObject<HTMLElement>) => {
-    if (typeof window === 'undefined') {
-        console.log("getUserViewport()")
-    }
 
-    const [isMobile, setIsMobile] = useState(false);//= useState(window?.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         if (ref.current) {
             const resizeObserver = new ResizeObserver(entries => {

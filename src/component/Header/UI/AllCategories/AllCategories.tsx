@@ -92,8 +92,8 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                     className={`${styles["categories-container"]} ${className}`}
                     transition={{type: "spring"}}
                     style={{
-                        opacity: styleProps.opacity,
-                        height: styleProps.height,
+                        // opacity: styleProps.opacity,
+                        // height: styleProps.height,
                     }}
                     onMouseLeave={() => setHoveredItem(null)}
                 >
@@ -125,7 +125,10 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                             variants={dropDownCategory}
                             className={styles["display-hovered-category"]}
                         >
-                            {hoveredItem && showedCategory}
+                            {
+                                hoveredItem && (showedCategory && <div className={styles["shadow"]}></div>)
+                            }
+
                         </motion.div>
                     }
                 </motion.ul>

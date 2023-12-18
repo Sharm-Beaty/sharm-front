@@ -12,6 +12,9 @@
   z-index: 10000;
   border-bottom: 1px solid ;
   height: fit-content;
+  @media (min-width: 768px) {
+    display: none;
+  }
   .nav-wrapper {
     min-height: 60px;
     position: sticky;

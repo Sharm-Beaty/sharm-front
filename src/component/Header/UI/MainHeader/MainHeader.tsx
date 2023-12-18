@@ -1,15 +1,15 @@
 import {motion} from "framer-motion";
 import React from "react";
 import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
-import styles from "./MainHeader.module.scss";
 import {Love} from "@/component/svg/Love";
 import {Person} from "@/component/svg/Person";
 import {Cart} from "@/component/svg/Cart";
 import {Logo} from "@/component/Header/UI/Logo/Logo";
+import styles from "./MainHeader.module.scss";
 
 const MainHeader = ({styleProps}: { styleProps: any }) => {
-    const imageWidthValues = [212, 106];
-    const imageHeightValues = [106, 53];
+    const imageWidthValues = [190, 90];
+    const imageHeightValues = [90, 45];
     const mainHeaderStyles = {
         height: styleProps.mainHeaderHeight,
         borderBottomColor: styleProps.borderBottomColor,

@@ -13,6 +13,8 @@ const TopBarHeader = ({ styleProps }: { styleProps: any }) => {
     }
 
     const topBarHeaderStyles = {
+        opacity: styleProps.opacity,
+        height: styleProps.height,
         borderBottomColor: styleProps.borderBottomColorHide,
         borderBottom: '1px solid',
     };

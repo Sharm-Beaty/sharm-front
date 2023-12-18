@@ -8,6 +8,11 @@
   max-width: 1320px;
   position: relative;
   background: white;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+
   .user-actions-header {
     display: flex;
     flex-direction: row;
@@ -19,7 +24,7 @@
   .main-header {
     .logo-top-bar-header {
       width: 200px;
-      height: 98.09px;
+      height: 80px;
       margin-bottom: 5px;
     }
 

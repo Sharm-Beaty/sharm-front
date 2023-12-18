@@ -3,7 +3,6 @@ import React, {useContext, useState} from 'react';
 import "./MobileMenu.scss"
 // import {menuData} from "@/component/Header/menuData";
 import {ActiveLink} from "@/component/UI/ActiveLink/ActivLink";
-import {HeaderContext} from "@/component/Header/HeaderProvider/HeaderContext";
 import {Navigation} from "@/component/Header/UI/Navigation (mobile)/Navigation";
 import {motion} from "framer-motion";
 // import {MenuToggle} from "@/component/Header/UI/MenuToggle";
@@ -29,13 +28,9 @@ export const sidebar = {
     }
 };
 export const MobileMenu = ({toggleOpen}: { toggleOpen: any }) => {
-    const { state, dispatch } = useContext(HeaderContext);
-    const toggleBurger = () => {
-        dispatch({ type: 'TOGGLE_BURGER', payload: true });
-    };
+
     const [isActive, setIsActive] = useState(false);
     const handleToggle = () => {
-        toggleBurger();
         setIsActive(prev => !prev);
     };
 

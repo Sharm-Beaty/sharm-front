@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useRef} from 'react';
-import {motion, useCycle, useDragControls, useMotionValue, useScroll} from "framer-motion";
+import {animate, motion, useCycle, useDragControls, useMotionValue, useScroll, Variants} from "framer-motion";
 import {useDimensions} from "@/hooks/useDimensions";
 import {Navigation} from "@/component/Header/UI/Navigation (mobile)/Navigation";
 import {MenuToggle} from "@/component/Header/UI/MenuToggle/MenuToggle";
@@ -31,6 +31,16 @@ export const sidebar = {
     }
 };
 
+const logoTransformVariants: Variants = {
+    'openSideMenu': {
+
+    },
+    'closeSideMenu': {
+
+    }
+}
+
+
 const MobileMenuRefactor = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
@@ -39,17 +49,30 @@ const MobileMenuRefactor = () => {
     const y = useMotionValue(0);
     const {scrollY} = useScroll();
     const styleProps = useGetStyleProps(scrollY);
+    const navWrapperRef = useRef(null)
     const closeBurgerMenu = (event: React.PointerEvent<HTMLDivElement>) => {
         y.set(0)
     }
     const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
         controls.start(event)
     }
+    const actionOnToggleBurger = () => {
+        if (containerRef.current ) {
+            const navWrapperRefOffsetWidth = (containerRef.current as HTMLDivElement).offsetWidth;
+            const background = (containerRef.current as HTMLDivElement).querySelector(`.${styles.background}`)!;
+            const backgroundWidth = (background as HTMLDivElement).offsetWidth;
+            const logoXTransform = (navWrapperRefOffsetWidth - backgroundWidth) / 2
+            const logo = (containerRef.current as HTMLDivElement).querySelector('img')!;
+            animate(logo, (isOpen ? {x:0} : {x:-logoXTransform}))
+        }
+        toggleOpen()
+    }
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (isOpen) {
                 document.body.style.overflow = 'hidden';
+                document.body.style.height = '100vh';
             } else {
                 document.body.style.overflow = 'auto';
             }
@@ -58,6 +81,7 @@ const MobileMenuRefactor = () => {
         return () => {
             if (typeof window !== 'undefined') {
                 document.body.style.overflow = 'auto';
+                document.body.style.height = 'fit-content';
             }
         };
     }, [isOpen]);
@@ -73,7 +97,7 @@ const MobileMenuRefactor = () => {
 
             <motion.div className={styles.background} variants={sidebar}/>
             <motion.div
-                onClick={() => toggleOpen()}
+                onClick={actionOnToggleBurger}
                 className={styles.overlay}
                 initial={false}
                 animate={isOpen ? {opacity: 0.5, pointerEvents: "auto"} : {opacity: 0, pointerEvents: "none"}}
@@ -88,14 +112,15 @@ const MobileMenuRefactor = () => {
                 }}
             />
             <div className={`${styles['nav-wrapper']}`}>
-                <MenuToggle toggle={() => toggleOpen()}/>
+                <MenuToggle toggle={actionOnToggleBurger}/>
                 <Logo
                     styleProps={styleProps}
                     imageWidthValues={[110, 110]}
                     imageHeightValues={[55, 55]}
                 />
                 <motion.div
-                    animate={isOpen ? {x:100,opacity:0 } : {}}
+                    animate={isOpen ? {y:-100,opacity:0,} : {}}
+                    transition={{delay: 0.1}}
                     className={`${styles['nav-actions']}`}>
                     <Search styleProps={{}} className={''}/>
                     <Cart/>

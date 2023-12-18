@@ -15,10 +15,6 @@ export default function RootLayout({
                                    }: {
     children: ReactNode
 }) {
-
-    const initialViewport = headers().get('viewport')
-    console.log(initialViewport);
-
     return (
         <html lang="en">
         <body>

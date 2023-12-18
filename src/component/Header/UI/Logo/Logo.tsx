@@ -9,7 +9,7 @@ const offsetY = [50, 400];
 interface LogoProps {
     styleProps: any,
     imageHeightValues: number[],
-    imageWidthValues: number[]
+    imageWidthValues: number[],
 }
 
 export const Logo:FC<LogoProps> = ({styleProps, imageHeightValues, imageWidthValues}) => {
