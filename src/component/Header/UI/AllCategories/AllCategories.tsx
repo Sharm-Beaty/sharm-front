@@ -1,6 +1,6 @@
-import React, {FC, useEffect, useRef, useState} from "react";
+import React, {FC, useState} from "react";
 import {allCategories, ICategory, IChild} from "@/mock/mockForHeader";
-import {AnimatePresence, motion, useInView, useScroll, Variants} from "framer-motion";
+import {AnimatePresence, motion, Variants} from "framer-motion";
 import styles from './AllCategoriesDesktop.module.scss';
 import {StylePropsType} from "@/component/Header/Header";
 

@@ -104,8 +104,8 @@
   from {
     background: white;
     color: #E56466;
-    border: 0px solid #E56466;
-    border-radius: 0px;
+    border: 0 solid #E56466;
+    border-radius: 0;
     padding: 0;
   }
   to {
@@ -126,8 +126,7 @@
       transition: all 0.4s;
       animation: unset ;
     }
-    &:hover
-    .category__title{
+    &:hover .category__title{
       animation: bordered 0.3s forwards ;
       &:after, &:before {
         color: #E56466;

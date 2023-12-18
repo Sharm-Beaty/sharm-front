@@ -46,14 +46,6 @@ const interactionUserActions = {
     whileHover: {scale: 0.95},
     whileTap: {scale: 0.9}
 };
-const interactionCategoryContainer = {
-    whileHover: {scale: 1},
-    whileTap: {scale: 1}
-};
-const interactionSettings = {
-    whileHover: {scale: 1.1, transformOrigin: 0},
-    whileTap: {scale: 0.95}
-};
 
 type InteractionSettings = {
     whileHover?: { scale: number; originX?: number; originY?: number | string },
