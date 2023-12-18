@@ -4,7 +4,7 @@ export default function UserAgentMiddleware(request: NextRequest) {
     const { device } = userAgent(request);
     const viewport = device.type === 'mobile' ? 'mobile' : 'desktop';
 
-    const response = NextResponse.next({
+    return NextResponse.next({
         request: {
             headers: new Headers({
                 ...request.headers,
@@ -13,7 +13,6 @@ export default function UserAgentMiddleware(request: NextRequest) {
         },
     });
 
-    return response;
 }
 
 
