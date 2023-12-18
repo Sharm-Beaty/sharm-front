@@ -22,11 +22,11 @@ const moveElementToRight = [0, 75];
 const moveElementToLeft = [0, -75];
 
 export type StylePropsType = {
-    height: any,
-    imageHeightTransform: any,
+    height: MotionValue,
+    imageHeightTransform: MotionValue,
     imageWidthTransform: any,
     mainHeaderHeightDesktop: any,
-    scrollY: any,
+    scrollY: MotionValue,
     borderBottomColor:any,
     mainHeaderHeight:any,
     opacity:any,
@@ -43,11 +43,7 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
     const borderBottomColorHide = useTransform(scrollY, offsetYS, hideBorderColorsValues);
     const moveElementToRightX = useTransform(scrollY, offsetYS, moveElementToRight);
     const moveElementToLeftX = useTransform(scrollY, offsetYS, moveElementToLeft);
-    const mainHeaderHeight = useTransform(
-        scrollY,
-        offsetYS,
-        mainHeaderHeightDesktop
-    );
+    const mainHeaderHeight = useTransform(scrollY, offsetYS, mainHeaderHeightDesktop );
     const opacity = useTransform(scrollY, offsetYS, topHeaderOpacityValues);
 
     return {
@@ -57,6 +53,7 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
         mainHeaderHeight,
         opacity,
         imageHeightTransform,
+        imageWidthTransform,
         mainHeaderHeightDesktop,
         topHeaderOpacityValues,
         borderBottomColorHide,

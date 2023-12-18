@@ -1,7 +1,8 @@
-import React, {FC, useCallback, useState} from "react";
-import {allCategories, ICategory} from "@/mock/mockForHeader";
-import {AnimatePresence, motion, Variants} from "framer-motion";
+import React, {FC, useEffect, useRef, useState} from "react";
+import {allCategories, ICategory, IChild} from "@/mock/mockForHeader";
+import {AnimatePresence, motion, useInView, useScroll, Variants} from "framer-motion";
 import styles from './AllCategoriesDesktop.module.scss';
+import {StylePropsType} from "@/component/Header/Header";
 
 const dropDownCategory: Variants = {
     open: {
@@ -49,27 +50,25 @@ const dropDownCategory: Variants = {
     displaySelectedCategory: {
         zIndex: 9999,
         opacity: 1,
-        height:[0, 225],
+        height: [0, 225],
     },
     hideSelectedCategory: {
         zIndex: -1,
-        height:[255, 0],
+        height: [255, 0],
         opacity: [1, 0],
     },
 
 };
 
-const AllCategories: FC<{ className: string, styleProps: any }> = ({className, styleProps}) => {
-    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-    const [showedCategory, setShowedCategory] = useState<any | null>(null);
-    const [isCategoryOpen, setCategoryOpen] = useState(false);
+interface AllCategoriesProps {
+    className: string;
+    styleProps: StylePropsType;
+}
 
-    const btnClass = `category ${isCategoryOpen ? "active" : ""}`;
-    const arrowClass = `arrow-svg ${isCategoryOpen ? "" : "rotate"}`;
-    const toggleAccordion = useCallback(() => {
-        setCategoryOpen((isOpen) => !isOpen);
-    }, []);
-    const renderContentItems = (item:ICategory) => item.children.map((child: any, index: number) => (
+const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
+    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+    const [showedCategory, setShowedCategory] = useState<React.ReactNode | null>(null);
+    const renderContentItems = (item: ICategory) => item.children.map((child: IChild, index: number) => (
         <motion.li
             className={styles['sub-category']}
             exit={{opacity: 0}}
@@ -81,31 +80,30 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
             {child.name}
         </motion.li>
     ));
-
-
-    const showCategory = (item:ICategory) => {
+    const showCategory = (item: ICategory) => {
         setHoveredItem(item.id)
         setShowedCategory(renderContentItems(item))
     }
+    //TODO: hide 'categories-container when styleProps.height <= 1
     return (
         <>
             <AnimatePresence>
                 <motion.ul
-                    className={`${styles['categories-container']} ${className}`}
-                    transition={{type: 'spring'}}
+                    className={`${styles["categories-container"]} ${className}`}
+                    transition={{type: "spring"}}
                     style={{
                         opacity: styleProps.opacity,
                         height: styleProps.height,
-                        display: (styleProps.height <= 5 ? 'none' : 'flex' )
                     }}
                     onMouseLeave={() => setHoveredItem(null)}
                 >
                     {allCategories.map((item) => (
                         <motion.li
-                            className={styles['category-item']}
+                            className={styles["category-item"]}
                             key={item.id}
                             whileHover={{scale: 1.1}}
-                            transition={{type: 'spring', bounce: 0.2}}
+                            whileTap={{scale: 0.95}}
+                            transition={{type: "spring", bounce: 0.2}}
                             onMouseEnter={() => showCategory(item)}
                         >
                             <motion.div className={styles["category__section"]}>
@@ -113,21 +111,25 @@ const AllCategories: FC<{ className: string, styleProps: any }> = ({className, s
                             </motion.div>
                         </motion.li>
                     ))}
-                    {<motion.div
-                        animate={hoveredItem ? 'displaySelectedCategory' : ''}
-                        exit={{
-                            opacity: [1, 0],
-                            zIndex:-1,
-                        }}
-                        initial={{
-                            opacity: 0,
-                            zIndex:-1,
-                        }}
-                        variants={dropDownCategory}
-                        className={styles["display-hovered-category"]}>
-                        {hoveredItem && showedCategory}
-                    </motion.div>}
+                    {
+                        <motion.div
+                            animate={hoveredItem ? "displaySelectedCategory" : ""}
+                            exit={{
+                                opacity: [1, 0],
+                                zIndex: -1,
+                            }}
+                            initial={{
+                                opacity: 0,
+                                zIndex: -1,
+                            }}
+                            variants={dropDownCategory}
+                            className={styles["display-hovered-category"]}
+                        >
+                            {hoveredItem && showedCategory}
+                        </motion.div>
+                    }
                 </motion.ul>
+
             </AnimatePresence>
         </>
     );

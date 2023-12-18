@@ -5,7 +5,9 @@
   justify-content: space-between;
   align-items: center;
 
-
+.category-item {
+  user-select: none;
+}
   .category__section {
     position: relative;
 
