@@ -2,7 +2,7 @@ import * as React from "react";
 import {motion} from "framer-motion";
 import {useState} from "react";
 import {Arrow} from "@/component/svg";
-import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import {ICategory} from "@/mock/mockForHeader";
 
 

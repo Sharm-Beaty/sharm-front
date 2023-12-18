@@ -6,7 +6,7 @@ import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenu
 import {useResizeObserver} from "@/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
-import styles from "./DesktopStyles.module.scss";
+import styles from "./Header.module.scss";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
@@ -34,8 +34,6 @@ export type StylePropsType = {
     borderBottomColorHide:any,
     moveElementToRightX:any,
     moveElementToLeftX:any,
-
-    // Add your other transformed values types here ...
 };
 export const useGetStyleProps = (scrollY: MotionValue) => {
     const height = useTransform(scrollY, offsetYS, topHeaderHeightValues);
@@ -72,7 +70,7 @@ export const Header = () => {
     const { scrollY } = useScroll();
     const styleProps = useGetStyleProps(scrollY);
     const headerRef = useRef(null);
-    const isMobile = useResizeObserver(headerRef) || window?.innerWidth <= 768;
+    const isMobile = useResizeObserver(headerRef)// || window?.innerWidth <= 768;
 
     return (
         <header id={styles['header']}>

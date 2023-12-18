@@ -1,7 +1,7 @@
 import * as React from "react";
 import {ReactNode} from "react";
 import {motion, Variants} from "framer-motion";
-import {MenuItem} from "../MenuItem";
+import {MenuItem} from "../MenuItem (mobile)/MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
 import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent/LanguageToggleComponent";
