@@ -19,9 +19,6 @@ const SearchBox = ({styleProps}: { styleProps: any }) => (
     >
         <motion.input
             className={styles['search-input']}
-            style={{
-                // borderBottom: styleProps.moveElementToRightX.current >= 70 ? "0px" : '1px solid #B8B8B8'
-            }}
             type="text"
             placeholder="Пошук"
         />

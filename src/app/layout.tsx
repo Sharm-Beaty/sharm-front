@@ -3,7 +3,7 @@ import {Footer} from "@/component/Footer/Footer";
 import {Header} from "@/component/Header/Header";
 import {ReduxProvider} from "@/state/provider";
 import React, {ReactNode} from "react";
-import {HeaderProvider} from "@/component/Header/HeaderProvider/HeaderProvider";
+import {headers} from "next/headers";
 
 export const metadata = {
     title: 'Main Leyout',
@@ -15,13 +15,15 @@ export default function RootLayout({
                                    }: {
     children: ReactNode
 }) {
+
+    const initialViewport = headers().get('viewport')
+    console.log(initialViewport);
+
     return (
         <html lang="en">
         <body>
         <ReduxProvider>
-            {/*<HeaderProvider>*/}
-                <Header/>
-            {/*</HeaderProvider>*/}
+            <Header/>
             <main>
                 {children}
             </main>

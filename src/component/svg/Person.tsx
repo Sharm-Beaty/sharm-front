@@ -2,8 +2,8 @@ export const Person = ({className = "person-svg"}) => (
     <svg
         className={className}
         fill="#000000"
-        width="24px"
-        height="24px"
+        width="25px"
+        height="25px"
         viewBox="0 0 30 30"
         xmlns="http://www.w3.org/2000/svg">
         <path
