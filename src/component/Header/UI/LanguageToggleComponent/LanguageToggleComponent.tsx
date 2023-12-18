@@ -1,6 +1,5 @@
 import React, {forwardRef} from "react";
 import {motion} from "framer-motion";
-// import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import styles from "./languageSwitcher.module.scss";
 
 const interactionSettings = {

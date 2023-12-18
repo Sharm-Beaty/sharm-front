@@ -6,25 +6,33 @@ import React from "react";
 import styles from "./TopBarHeader.module.scss"
 
 
-const TopBarHeader = ({styleProps}: { styleProps: any }) => (
-    <motion.div
-        className={styles["top-bar-header"]}
-        transition={{type: 'spring'}}
-        style={{
-            borderBottomColor: styleProps.borderBottomColorHide,
-            borderBottom: '1px solid',
-        }}
-    >
-        <div className={`${styles['top-header-item']} ${styles['phone']}`}>
-            <PhoneLinkComponent />
-        </div>
-        <div className={`${styles['top-header-item']} ${styles['links']}`}>
-            <TopBarListComponent/>
-        </div>
-        <div className={`${styles['top-header-item']} ${styles['lang-toggle']}`}>
-            <LanguageToggleComponent/>
-        </div>
-    </motion.div>
-);
+const TopBarHeader = ({ styleProps }: { styleProps: any }) => {
+    if (!styleProps) {
+        console.error("TopBarHeader: Missing styleProps");
+        return null;
+    }
 
+    const topBarHeaderStyles = {
+        borderBottomColor: styleProps.borderBottomColorHide,
+        borderBottom: '1px solid',
+    };
+
+    return (
+        <motion.div
+            className={styles["top-bar-header"]}
+            transition={{ type: 'spring' }}
+            style={topBarHeaderStyles}
+        >
+            <div className={`${styles['top-header-item']} ${styles['phone']}`}>
+                <PhoneLinkComponent />
+            </div>
+            <div className={`${styles['top-header-item']} ${styles['links']}`}>
+                <TopBarListComponent />
+            </div>
+            <div className={`${styles['top-header-item']} ${styles['lang-toggle']}`}>
+                <LanguageToggleComponent />
+            </div>
+        </motion.div>
+    );
+};
 export default TopBarHeader;
