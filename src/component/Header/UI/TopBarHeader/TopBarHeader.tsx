@@ -1,7 +1,6 @@
 import {motion} from "framer-motion";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
 import TopBarListComponent from "@/component/Header/UI/TopBarListComponent/TopBarListComponent";
-import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent/LanguageToggleComponent";
 import React from "react";
 import styles from "./TopBarHeader.module.scss"
 import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/LocaleSwitcher";

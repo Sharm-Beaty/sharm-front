@@ -49,7 +49,6 @@ const dropDownCategory: Variants = {
         width: 0,
     },
     displaySelectedCategory: {
-        display: 'flex',
         zIndex: 9999,
         opacity: 1,
         height: [0, 225],
@@ -67,7 +66,7 @@ interface AllCategoriesProps {
     styleProps: StylePropsType;
 }
 
-const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
+const AllCategories: FC<AllCategoriesProps> = ({className}) => {
     const t = useTranslations('categories');
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [showedCategory, setShowedCategory] = useState<React.ReactNode | null>(null);
@@ -118,6 +117,7 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                                 zIndex: -1,
                             }}
                             initial={{
+                                height: 0,
                                 opacity: 0,
                                 zIndex: -1,
                             }}
@@ -125,7 +125,10 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                             className={styles["display-hovered-category"]}
                         >
                             {
-                                hoveredItem && (showedCategory && <div className={styles["shadow"]}></div>)
+                                hoveredItem && showedCategory
+                            }
+                            {
+                                hoveredItem &&  <div className={styles["shadow"]}></div>
                             }
 
                         </motion.div>

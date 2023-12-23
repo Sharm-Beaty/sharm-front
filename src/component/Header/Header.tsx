@@ -3,11 +3,9 @@ import React, {useRef} from 'react';
 import {MotionValue, useScroll, useTransform} from "framer-motion";
 import AllCategories from "@/component/Header/UI/AllCategories/AllCategories";
 import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenuRefactor";
-import {useResizeObserver} from "@/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
 import styles from "./Header.module.scss";
-import {useTranslations} from "use-intl";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];

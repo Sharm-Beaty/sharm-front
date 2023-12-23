@@ -4,7 +4,6 @@ import {motion, Variants} from "framer-motion";
 import {MenuItem} from "../MenuItem (mobile)/MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
-import LanguageToggleComponent from "@/component/Header/UI/LanguageToggleComponent/LanguageToggleComponent";
 import {Love} from "@/component/svg/Love";
 import {Cart} from "@/component/svg/Cart";
 import {Person} from "@/component/svg/Person";

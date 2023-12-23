@@ -3,7 +3,6 @@ import {Footer} from "@/component/Footer/Footer";
 import {Header} from "@/component/Header/Header";
 import {ReduxProvider} from "@/state/provider";
 import React, {ReactNode} from "react";
-import {headers} from "next/headers";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 import {unstable_setRequestLocale} from "next-intl/server";
 import {locales} from "../../../i18n/config";

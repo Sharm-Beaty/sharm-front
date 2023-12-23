@@ -1,6 +1,6 @@
 'use client'
 import React, {useEffect, useRef} from 'react';
-import {animate, motion, useCycle, useDragControls, useMotionValue, useScroll, Variants} from "framer-motion";
+import {animate, motion, useCycle, useDragControls, useMotionValue, useScroll} from "framer-motion";
 import {useDimensions} from "@/hooks/useDimensions";
 import {Navigation} from "@/component/Header/UI/Navigation (mobile)/Navigation";
 import {MenuToggle} from "@/component/Header/UI/MenuToggle/MenuToggle";
@@ -31,14 +31,6 @@ export const sidebar = {
     }
 };
 
-const logoTransformVariants: Variants = {
-    'openSideMenu': {
-
-    },
-    'closeSideMenu': {
-
-    }
-}
 
 
 const MobileMenuRefactor = () => {
@@ -49,7 +41,7 @@ const MobileMenuRefactor = () => {
     const y = useMotionValue(0);
     const {scrollY} = useScroll();
     const styleProps = useGetStyleProps(scrollY);
-    const closeBurgerMenu = (event: React.PointerEvent<HTMLDivElement>) => {
+    const closeBurgerMenu = () => {
         y.set(0)
     }
     const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -135,7 +127,7 @@ const MobileMenuRefactor = () => {
                 dragMomentum={false}
                 onPointerUp={closeBurgerMenu}
                 onPointerDown={startDrag}
-                onDragEnd={(e, {offset, velocity}) => {
+                onDragEnd={(e, {offset}) => {
                     if (offset.y < -70) {
                         toggleOpen();
                     }

@@ -1,6 +1,6 @@
 'use client';
-import React, {ChangeEvent, MouseEventHandler, ReactNode, useTransition} from 'react';
-import {useRouter, usePathname} from '../../../../../i18n/navigation';
+import React, {MouseEventHandler, ReactNode, useTransition} from 'react';
+import {usePathname, useRouter} from '../../../../../i18n/navigation';
 import styles from "@/component/Header/UI/LanguageToggleComponent/languageSwitcher.module.scss";
 import {motion} from "framer-motion";
 
@@ -17,9 +17,6 @@ type Props = {
 };
 
 export default function LocaleSwitcherSelect({
-                                                 children,
-                                                 defaultValue,
-                                                 label,
                                                  locale
                                              }: Props) {
     const router = useRouter();

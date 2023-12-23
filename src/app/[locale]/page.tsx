@@ -1,8 +1,7 @@
 import mockCategories from "@/mock/mockForPopularCategories";
 import PopularCategories from "@/component/PopularCategories/PopularCategories";
-import {useTranslations} from "use-intl";
 import {unstable_setRequestLocale} from "next-intl/server";
-import { FC } from 'react';
+import {FC} from 'react';
 
 interface HomeProps {
     params: {
