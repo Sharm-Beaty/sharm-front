@@ -1,6 +1,11 @@
-import React, {forwardRef} from "react";
+'use client'
+import React, {forwardRef, MouseEventHandler, useTransition} from "react";
 import {motion} from "framer-motion";
 import styles from "./languageSwitcher.module.scss";
+import {useLocale} from "use-intl";
+import {localesObject} from "../../../../../i18n/config";
+import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
 
 const interactionSettings = {
     whileHover: {scale: 1.1,},
@@ -8,10 +13,25 @@ const interactionSettings = {
 };
 const LanguageToggleComponent = forwardRef<HTMLDivElement, {}>(
     (props, ref) => {
+        // const locale = useLocale();
+        // const router = useRouter();
+        const [isPending, startTransition] = useTransition();
+        const pathname = usePathname();
+
+        const onLanguageChangeClickHandler: MouseEventHandler<HTMLDivElement> = ({target}) =>  {
+            const nextLocale = target;
+            console.log(nextLocale)
+        //     startTransition(() => {
+        //         router.replace(pathname, {locale: nextLocale});
+        //     });
+        }
 
         return (
-            <div ref={ref} className={styles["language-top-bar-header"]}>
+            <div ref={ref}
+                 onClick={onLanguageChangeClickHandler}
+                 className={styles["language-top-bar-header"]}>
                 <motion.div className={styles['lang']}
+                            data-lang={'ua'}
                             {...interactionSettings}
                 >
                     <p>
@@ -19,6 +39,7 @@ const LanguageToggleComponent = forwardRef<HTMLDivElement, {}>(
                     </p>
                 </motion.div>
                 <motion.div className={styles['ship']}
+                            data-lang={'ru'}
                             {...interactionSettings}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="41" viewBox="0 0 33 41" fill="none">

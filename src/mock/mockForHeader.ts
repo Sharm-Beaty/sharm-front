@@ -7,12 +7,14 @@ type UserActionsIconsType = {
 export interface IChild {
     id: string;
     name: string;
+    localizationKey: string;
     children: IChild[];
 }
 
 export interface ICategory {
     id: string;
     name: string;
+    localizationKey: string;
     children: IChild[];
 }
 
@@ -26,17 +28,19 @@ export const allCategories:ICategory[] = [
     {
         "id": "a0d743c1-c032-4c12-8c52-5cd7999ab252",
         "name": "Люкс",
+        "localizationKey": "luxury",
         "children": [
-            {"id": "1", "name": "Luxury-Child1", "children": []},
-            {"id": "2", "name": "Luxury-Child2", "children": []},
-            {"id": "3", "name": "Luxury-Child3", "children": []},
-            {"id": "4", "name": "Luxury-Child4", "children": []},
-            {"id": "5", "name": "Luxury-Child5", "children": []}
+            {"id": "1", "name": "Luxury-Child1", "children": [], "localizationKey": "luxury-1"},
+            {"id": "2", "name": "Luxury-Child2", "children": [], "localizationKey": "luxury-2"},
+            {"id": "3", "name": "Luxury-Child3", "children": [], "localizationKey": "luxury-3"},
+            {"id": "4", "name": "Luxury-Child4", "children": [], "localizationKey": "luxury-4"},
+            {"id": "5", "name": "Luxury-Child5", "children": [], "localizationKey": "luxury-5"}
         ]
     },
     {
         "id": "99e23a5b-49a0-48a7-99f7-fb8b4865cdee",
         "name": "Бренди",
+        "localizationKey": "brands",
         "children": [
             {"id": "1", "name": "Brandy-Child1", "children": []},
             {"id": "2", "name": "Brandy-Child2", "children": []},
@@ -48,6 +52,7 @@ export const allCategories:ICategory[] = [
     {
         "id": "a8c1a3e6-00eb-4d41-952e-154da97fe2fe",
         "name": "Парфумерія",
+        "localizationKey": "perfumery",
         "children": [
             { "id": "1", "name": "Perfume-Child1", "children": [] },
             { "id": "2", "name": "Perfume-Child2", "children": [] },
@@ -62,6 +67,7 @@ export const allCategories:ICategory[] = [
     {
         "id": "69bc00d9-7ebd-415b-a007-86d6325e20ba",
         "name": "Макіяж",
+        "localizationKey": "makeup",
         "children": [
             { "id": "1", "name": "Makeup-Child1", "children": [] },
             { "id": "2", "name": "Makeup-Child2", "children": [] },
@@ -76,6 +82,7 @@ export const allCategories:ICategory[] = [
     {
         "id": "5f2d2bc2-75db-483e-a6ac-f08dad0ad473",
         "name": "Догляд за обличам",
+        "localizationKey": "face_care",
         "children": [
             { id: "2da08c08-ef3c-4b64-9a4c-8d2943e8bb98", name: "Care-Child1", children: [] },
             { id: "f360427d-8e59-4131-bd4d-b59e9f7304b7", name: "Care-Child2", children: [] },
@@ -85,6 +92,7 @@ export const allCategories:ICategory[] = [
             {
                 id: "857c9b19-c0d3-45e8-a0ef-e80928b3ccd2",
                 name: "Care-Child6",
+                "localizationKey": "care-child-6",
                 children: [
                     { id: "31e467d5-d821-4e8b-abf8-85dbc0cbd74f", name: "Care-Child7", children: [] },
                 ],
@@ -104,6 +112,7 @@ export const allCategories:ICategory[] = [
     {
         "id": "ce7a2c8e-e104-413f-a9a7-8a54f996e118",
         "name": "Догляд за волоссям",
+        "localizationKey": "hair_care",
         "children": [
             { id: "c43fa3bd-ecda-4427-b173-58577707368e", name: "Hair-Child1", children: [] },
             { id: "c43fa3bd-ecda-4427-b173-648gh1mb333t", name: "Hair-Child1", children: [] },
@@ -118,6 +127,7 @@ export const allCategories:ICategory[] = [
     {
         "id": "07834739-1a1e-4474-a5dc-29a5824a44fd",
         "name": "Спідня білизна",
+        "localizationKey": "underwear",
         "children": [
             { id: "10a0cc21-6f99-4217-8263-sdfsdfdsvxcv", name: "Lingerie-Child1", children: [] },
             { id: "10a0cc21-6f99-4217-8263-2xc1v3xcvxcv", name: "Lingerie-Child1", children: [] },
@@ -135,6 +145,7 @@ export const allCategories:ICategory[] = [
             {
                 "id": "d0a41ac7-909d-4168-8cae-d6f642ed4a52",
                 "name": "name-99",
+                "localizationKey": "home_goods",
                 "children": []
             },
             { id: "ec9a8a24-fbcb-413e-a050-748db44678f8", name: "Home-Child2", children: [] },

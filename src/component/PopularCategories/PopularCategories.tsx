@@ -13,12 +13,13 @@ export type Category = {
 
 export interface PopularCategoriesProps {
     className?: string;
-    categories:Category[]
+    categories:Category[],
+    locale: string
 }
 
-const renderCategory = (category: Category) => (
+const renderCategory = (category: Category, locale: string) => (
     <motion.a
-        href={category.link}
+        href={`${locale}/${category.link}`}
         aria-label={category.label}
         key={category.id}
         initial={{opacity: 0, scale: 0.5}}
@@ -28,7 +29,8 @@ const renderCategory = (category: Category) => (
     </motion.a>
 );
 
-const PopularCategories: FC<PopularCategoriesProps> = ({className = '', categories}) => {
+const PopularCategories: FC<PopularCategoriesProps> = ({className = '', categories, locale}) => {
+    console.log(locale)
     if (!Array.isArray(categories) || categories.length === 0) {
         return <div className="error-message">No categories available.</div>;
     }
@@ -36,7 +38,9 @@ const PopularCategories: FC<PopularCategoriesProps> = ({className = '', categori
         <motion.section
             id={'popular-categories'}
             className={className}>
-            {categories.map(renderCategory)}
+            {categories.map((category) => (
+                renderCategory(category, locale)
+            ))}
         </motion.section>
     );
 };

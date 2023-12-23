@@ -10,6 +10,7 @@ import {Cart} from "@/component/svg/Cart";
 import {Person} from "@/component/svg/Person";
 import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
 import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
+import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/LocaleSwitcher";
 
 const variants: Variants = {
     open: {
@@ -104,7 +105,8 @@ export const Navigation = ({isOpen}:{isOpen:boolean}) => (
             <PhoneLinkComponent/>
         </AnimatedNavItem>
         <AnimatedNavItem>
-            <LanguageToggleComponent/>
+            {/*<LanguageToggleComponent/>*/}
+            <LocaleSwitcher />
         </AnimatedNavItem>
     </motion.ul>
 );

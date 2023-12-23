@@ -7,6 +7,7 @@ import {useResizeObserver} from "@/hooks/useResizeObserver";
 import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
 import styles from "./Header.module.scss";
+import {useTranslations} from "use-intl";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
@@ -27,13 +28,13 @@ export type StylePropsType = {
     imageWidthTransform: any,
     mainHeaderHeightDesktop: any,
     scrollY: MotionValue,
-    borderBottomColor:any,
-    mainHeaderHeight:any,
-    opacity:any,
-    topHeaderOpacityValues:any,
-    borderBottomColorHide:any,
-    moveElementToRightX:any,
-    moveElementToLeftX:any,
+    borderBottomColor: any,
+    mainHeaderHeight: any,
+    opacity: any,
+    topHeaderOpacityValues: any,
+    borderBottomColorHide: any,
+    moveElementToRightX: any,
+    moveElementToLeftX: any,
 };
 export const useGetStyleProps = (scrollY: MotionValue) => {
     const height = useTransform(scrollY, offsetYS, topHeaderHeightValues);
@@ -43,7 +44,7 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
     const borderBottomColorHide = useTransform(scrollY, offsetYS, hideBorderColorsValues);
     const moveElementToRightX = useTransform(scrollY, offsetYS, moveElementToRight);
     const moveElementToLeftX = useTransform(scrollY, offsetYS, moveElementToLeft);
-    const mainHeaderHeight = useTransform(scrollY, offsetYS, mainHeaderHeightDesktop );
+    const mainHeaderHeight = useTransform(scrollY, offsetYS, mainHeaderHeightDesktop);
     const opacity = useTransform(scrollY, offsetYS, topHeaderOpacityValues);
 
     return {
@@ -63,25 +64,21 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
 };
 
 
-export const Header = () => {
-    const { scrollY } = useScroll();
+export const Header = ({locale}: { locale: string }) => {
+    // const t = useTranslations('Index');
+    const {scrollY} = useScroll();
     const styleProps = useGetStyleProps(scrollY);
     const headerRef = useRef(null);
-    const isMobile = useResizeObserver(headerRef)// || window?.innerWidth <= 768;
 
     return (
         <header id={styles['header']}>
             <div className={styles['header-wrap']} ref={headerRef}>
-                {/*{!isMobile && (*/}
-                    <>
-                        <TopBarHeader styleProps={styleProps} />
-                        <MainHeader styleProps={styleProps} />
-                        <AllCategories styleProps={styleProps} className={''} />
-                    </>
-                {/*)}*/}
+                <TopBarHeader locale={locale} styleProps={styleProps}/>
+                <MainHeader styleProps={styleProps}/>
+                <AllCategories styleProps={styleProps} className={''}/>
+                {/*<h1 id={'gfdfg'}>{t('title')}</h1>*/}
             </div>
-            {/*{isMobile && <MobileMenuRefactor />}*/}
-            <MobileMenuRefactor />
+            <MobileMenuRefactor/>
         </header>
     );
 };

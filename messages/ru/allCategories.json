@@ -1,0 +1,12 @@
+{
+  "categories": {
+    "luxury": "Люкс",
+    "brands": "Бренды",
+    "perfumery": "Парфюмерия",
+    "makeup": "Макияж",
+    "face_care": "Уход за лицом",
+    "hair_care": "Уход за волосами",
+    "underwear": "Нижнее белье",
+    "home_goods": "Товары для дома"
+  }
+}

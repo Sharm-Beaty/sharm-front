@@ -1,7 +1,7 @@
 export default function OurTeam() {
     return (
         <>
-            OurTeam
+            delivery-payment
         </>
     );
 }

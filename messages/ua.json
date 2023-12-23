@@ -1,0 +1,19 @@
+{
+  "phoneLinkComponent": {
+    "request_call": "Замовити дзвінок"
+  },
+  "TopBarListComponent": {
+    "promotional-offers": "Акційні пропозиції",
+    "delivery-payment": "Доставка і Оплата",
+    "articles": "Статті",
+    "our-team": "Наша команда",
+    "about": "Про магазин"
+  },
+  "SearchBox": {
+    "placeholder": "Пошук"
+  },
+  "LocaleSwitcher": {
+    "label": "Українська",
+    "locale": "{locale, select, ua {Українська} en {Англійська} ru {Російська} other {Інші}}"
+  }
+}

@@ -49,7 +49,6 @@ const MobileMenuRefactor = () => {
     const y = useMotionValue(0);
     const {scrollY} = useScroll();
     const styleProps = useGetStyleProps(scrollY);
-    const navWrapperRef = useRef(null)
     const closeBurgerMenu = (event: React.PointerEvent<HTMLDivElement>) => {
         y.set(0)
     }

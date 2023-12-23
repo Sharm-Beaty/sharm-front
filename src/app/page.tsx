@@ -1,17 +1,6 @@
-import mockCategories from "@/mock/mockForPopularCategories";
-import PopularCategories from "@/component/PopularCategories/PopularCategories";
+import {redirect} from 'next/navigation';
 
-export default async function Home() {
-
-    return (
-        <>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-            <PopularCategories categories={mockCategories} className={'popular-categories'}/>
-        </>
-    )
-};
-
+// This page only renders when the app is built statically (output: 'export')
+export default function RootPage() {
+  redirect('/ua');
+}

@@ -1,0 +1,16 @@
+{
+  "categories": {
+    "luxury": "Люкс",
+    "brands": "Бренди",
+    "perfumery": "Парфумерія",
+    "makeup": "Макіяж",
+    "face_care": "Догляд за обличчям",
+    "hair_care": "Догляд за волоссям",
+    "underwear": "Спідня білизна",
+    "home_goods": "Товари для дому"
+  },
+  "subcategories": {
+    "label": "English",
+    "locale": "{locale, select, ua {Ukrainian} en {English} ru {Russian} other {Other}}"
+  }
+}

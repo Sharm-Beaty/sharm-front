@@ -1,0 +1,6 @@
+{
+  "LocaleSwitcher": {
+    "label": "English",
+    "locale": "{locale, select, ua {Ukrainian} en {English} ru {Russian} other {Other}}"
+  }
+}

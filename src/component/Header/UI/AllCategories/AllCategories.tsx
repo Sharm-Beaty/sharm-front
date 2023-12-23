@@ -3,6 +3,7 @@ import {allCategories, ICategory, IChild} from "@/mock/mockForHeader";
 import {AnimatePresence, motion, Variants} from "framer-motion";
 import styles from './AllCategoriesDesktop.module.scss';
 import {StylePropsType} from "@/component/Header/Header";
+import {useTranslations} from "use-intl";
 
 const dropDownCategory: Variants = {
     open: {
@@ -48,6 +49,7 @@ const dropDownCategory: Variants = {
         width: 0,
     },
     displaySelectedCategory: {
+        display: 'flex',
         zIndex: 9999,
         opacity: 1,
         height: [0, 225],
@@ -66,6 +68,7 @@ interface AllCategoriesProps {
 }
 
 const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
+    const t = useTranslations('categories');
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [showedCategory, setShowedCategory] = useState<React.ReactNode | null>(null);
     const renderContentItems = (item: ICategory) => item.children.map((child: IChild, index: number) => (
@@ -91,10 +94,6 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                 <motion.ul
                     className={`${styles["categories-container"]} ${className}`}
                     transition={{type: "spring"}}
-                    style={{
-                        // opacity: styleProps.opacity,
-                        // height: styleProps.height,
-                    }}
                     onMouseLeave={() => setHoveredItem(null)}
                 >
                     {allCategories.map((item) => (
@@ -107,7 +106,7 @@ const AllCategories: FC<AllCategoriesProps> = ({className, styleProps}) => {
                             onMouseEnter={() => showCategory(item)}
                         >
                             <motion.div className={styles["category__section"]}>
-                                <p className={styles["category__title"]}>{item.name}</p>
+                                <p className={styles["category__title"]}>{item.localizationKey ? t(item.localizationKey) : item.name }</p>
                             </motion.div>
                         </motion.li>
                     ))}
