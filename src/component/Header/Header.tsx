@@ -63,7 +63,6 @@ export const useGetStyleProps = (scrollY: MotionValue) => {
 
 
 export const Header = ({locale}: { locale: string }) => {
-    // const t = useTranslations('Index');
     const {scrollY} = useScroll();
     const styleProps = useGetStyleProps(scrollY);
     const headerRef = useRef(null);
@@ -74,7 +73,6 @@ export const Header = ({locale}: { locale: string }) => {
                 <TopBarHeader locale={locale} styleProps={styleProps}/>
                 <MainHeader styleProps={styleProps}/>
                 <AllCategories styleProps={styleProps} className={''}/>
-                {/*<h1 id={'gfdfg'}>{t('title')}</h1>*/}
             </div>
             <MobileMenuRefactor/>
         </header>

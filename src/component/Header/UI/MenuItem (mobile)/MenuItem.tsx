@@ -4,6 +4,7 @@ import {useState} from "react";
 import {Arrow} from "@/component/svg";
 import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import {ICategory} from "@/mock/mockForHeader";
+import {useTranslations} from "use-intl";
 
 
 const containerVariants = {
@@ -35,6 +36,7 @@ const variants = {
 
 
 export const MenuItem = ({item, className} : {item:ICategory; className:string}) => {
+    const t = useTranslations('categories');
     const [isChildrenVisible, setIsChildrenVisible] = useState(false);
     const [setRotate, setRotateState] = useState("");
 
@@ -60,7 +62,7 @@ export const MenuItem = ({item, className} : {item:ICategory; className:string})
                     whileHover={{ scale: 0.95,}}
                     whileTap={{scale: 0.9}}
                 >
-                    {item.name}
+                    {item.localizationKey ? t(item.localizationKey) :  item.name}
                 </motion.span>
                 {item.children.length > 0 && (
                     <button onClick={handleButtonClick}>
