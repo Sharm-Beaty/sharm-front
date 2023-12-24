@@ -1,12 +1,10 @@
 import React from 'react';
 import "./menu.scss"
-import {ActiveLink} from "../../UI/ActiveLink/ActivLink";
 import {getInfo} from "@/app/acrions/getInfo";
-// import {menuData} from "@/component/Header/menuData";
 
 export async function generateStaticParams() {
     const menuList = await getInfo("")
-    console.log(menuList)
+    // console.log(menuList)
 
     return menuList.results
 }

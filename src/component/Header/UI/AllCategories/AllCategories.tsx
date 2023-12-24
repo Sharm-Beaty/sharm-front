@@ -4,6 +4,7 @@ import {AnimatePresence, motion, Variants} from "framer-motion";
 import styles from './AllCategoriesDesktop.module.scss';
 import {StylePropsType} from "@/component/Header/Header";
 import {useTranslations} from "use-intl";
+import Link from "next/link";
 
 const dropDownCategory: Variants = {
     open: {
@@ -79,14 +80,14 @@ const AllCategories: FC<AllCategoriesProps> = ({className}) => {
             key={child.id}
             variants={dropDownCategory}
         >
-            {child.name}
+            <Link href={child.localizationKey}></Link>
+            {child.localizationKey ? t(`${item.localizationKey}.children.${child.localizationKey}`) : child.name}
         </motion.li>
     ));
     const showCategory = (item: ICategory) => {
         setHoveredItem(item.id)
         setShowedCategory(renderContentItems(item))
     }
-    //TODO: hide 'categories-container when styleProps.height <= 1
     return (
         <>
             <AnimatePresence>
@@ -105,7 +106,7 @@ const AllCategories: FC<AllCategoriesProps> = ({className}) => {
                             onMouseEnter={() => showCategory(item)}
                         >
                             <motion.div className={styles["category__section"]}>
-                                <p className={styles["category__title"]}>{item.localizationKey ? t(item.localizationKey) : item.name }</p>
+                                <Link href={item.localizationKey} className={styles["category__title"]}>{item.localizationKey ? t(`${item.localizationKey}.name`) : item.name }</Link>
                             </motion.div>
                         </motion.li>
                     ))}

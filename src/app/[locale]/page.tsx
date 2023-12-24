@@ -15,6 +15,11 @@ const Home:FC<HomeProps> = async ({params: {locale}} ) => {
     return (
         <>
             <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
+            <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
+            <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
+            <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
+            <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
+            <PopularCategories locale={locale} categories={mockCategories} className={'popular-categories'}/>
         </>
     )
 };

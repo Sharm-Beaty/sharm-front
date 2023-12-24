@@ -30,7 +30,6 @@ const renderCategory = (category: Category, locale: string) => (
 );
 
 const PopularCategories: FC<PopularCategoriesProps> = ({className = '', categories, locale}) => {
-    console.log(locale)
     if (!Array.isArray(categories) || categories.length === 0) {
         return <div className="error-message">No categories available.</div>;
     }

@@ -14,7 +14,9 @@
     width: 100%;
     position: relative;
     text-transform: uppercase;
-
+    a{
+      color: var(--color-text);
+    }
   }
 
   .parent-category-row {
@@ -30,7 +32,6 @@
     }
 
     button {
-      //width: 20%;
       padding: 0.2rem 1rem;
       border: unset;
       background: transparent;
@@ -51,23 +52,9 @@
       z-index: -1;
       animation: widthIncrease 0.3s forwards;
     }
-
-    //ul {
-    //  .parent-category-row {
-    //    .category .sub-category {
-    //      &:hover::after {
-    //        content: '';
-    //        display: none;
-    //      }
-    //    }
-    //  }
-    //}
-
-
   }
 
   ul {
-    //position: absolute;
     top: 0;
     left: 0;
   }

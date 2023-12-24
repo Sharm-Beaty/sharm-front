@@ -1,16 +1,107 @@
 {
   "categories": {
-    "luxury": "Люкс",
-    "brands": "Бренди",
-    "perfumery": "Парфумерія",
-    "makeup": "Макіяж",
-    "face_care": "Догляд за обличчям",
-    "hair_care": "Догляд за волоссям",
-    "underwear": "Спідня білизна",
-    "home_goods": "Товари для дому"
-  },
-  "subcategories": {
-    "label": "English",
-    "locale": "{locale, select, ua {Ukrainian} en {English} ru {Russian} other {Other}}"
+    "luxury": {
+      "name" : "Люкс",
+      "children": {
+        "luxury-1": "Luxury-Child1_UA",
+        "luxury-2": "Luxury-Child2_UA",
+        "luxury-3": "Luxury-Child3_UA",
+        "luxury-4": "Luxury-Child4_UA",
+        "luxury-5": "Luxury-Child5_UA"
+      }
+    },
+    "brands": {
+      "name": "Бренди",
+      "children": {
+        "brandy-1": "Brandy-Child1_UA",
+        "brandy-2": "Brandy-Child2_UA",
+        "brandy-3": "Brandy-Child3_UA",
+        "brandy-4": "Brandy-Child4_UA",
+        "brandy-5": "Brandy-Child5_UA"
+      }
+    },
+    "perfumery": {
+      "name": "Парфумерія",
+      "children": {
+        "perfume-1": "Perfume-Child1_UA",
+        "perfume-2": "Perfume-Child2_UA",
+        "perfume-3": "Perfume-Child3_UA",
+        "perfume-4": "Perfume-Child4_UA",
+        "perfume-5": "Perfume-Child5_UA"
+      }
+    },
+    "makeup": {
+      "name": "Макіяж",
+      "children": {
+        "makeup-1": "Makeup-Child1_UA",
+        "makeup-2": "Makeup-Child2_UA",
+        "makeup-3": "Makeup-Child3_UA",
+        "makeup-4": "Makeup-Child4_UA",
+        "makeup-5": "Makeup-Child5_UA",
+        "makeup-6": "Makeup-Child6_UA",
+        "makeup-7": "Makeup-Child7_UA",
+        "makeup-8": "Makeup-Child8_UA"
+      }
+    },
+    "face_care": {
+      "name": "Догляд за обличчям",
+      "children": {
+        "care-1": "Care-Child1_UA",
+        "care-2": "Care-Child2_UA",
+        "care-3": "Care-Child3_UA",
+        "care-4": "Care-Child4_UA",
+        "care-5": "Care-Child5_UA",
+        "care-6": "Care-Child6_UA",
+        "care-7": "Care-Child7_UA",
+        "care-8": "Care-Child8_UA",
+        "care-9": "Care-Child9_UA",
+        "care-10": "Care-Child10_UA",
+        "care-11": "Care-Child11_UA",
+        "care-12": "Care-Child12_UA",
+        "care-13": "Care-Child13_UA",
+        "care-14": "Care-Child14_UA",
+        "care-15": "Care-Child15_UA",
+        "care-16": "Care-Child16_UA",
+        "care-17": "Care-Child17_UA"
+      }
+    },
+    "hair_care": {
+      "name": "Догляд за волоссям",
+      "children": {
+        "hair-1": "Hair-Child1_UA",
+        "hair-2": "Hair-Child2_UA",
+        "hair-3": "Hair-Child3_UA",
+        "hair-4": "Hair-Child4_UA",
+        "hair-5": "Hair-Child5_UA",
+        "hair-6": "Hair-Child6_UA",
+        "hair-7": "Hair-Child7_UA",
+        "hair-8": "Hair-Child8_UA"
+      }
+    },
+    "underwear": {
+      "name": "Спідня білизна",
+      "children": {
+        "lingerie-1": "Lingerie-Child1_UA",
+        "lingerie-2": "Lingerie-Child2_UA",
+        "lingerie-3": "Lingerie-Child3_UA",
+        "lingerie-4": "Lingerie-Child4_UA",
+        "lingerie-5": "Lingerie-Child5_UA",
+        "lingerie-6": "Lingerie-Child6_UA",
+        "lingerie-7": "Lingerie-Child7_UA"
+      }
+    },
+    "home_goods": {
+      "name": "Товари для дому",
+      "children": {
+        "home-1": "Home-Child1_UA",
+        "home-2": "Home-Child2_UA",
+        "home-3": "Home-Child3_UA",
+        "home-4": "Home-Child4_UA",
+        "home-5": "Home-Child5_UA",
+        "home-6": "Home-Child6_UA",
+        "home-7": "Home-Child7_UA",
+        "home-8": "Home-Child8_UA"
+      }
+    }
   }
 }
