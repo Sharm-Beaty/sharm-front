@@ -40,7 +40,6 @@ const variants = {
 const SubCategory = ({category, isChildrenVisible}: {category: ICategory; isChildrenVisible: boolean}) => {
     const t = useTranslations(`categories.${category.localizationKey}.children`);
     const locale = useLocale();
-    console.log(locale)
     return (isChildrenVisible
         ? (<motion.ul
             variants={containerVariants}
