@@ -1,11 +1,10 @@
 import * as React from "react";
-import {motion} from "framer-motion";
 import {useState} from "react";
+import {motion} from "framer-motion";
 import {Arrow} from "@/component/svg";
 import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
-import {ICategory, IChild} from "@/mock/mockForHeader";
+import {ICategory} from "@/mock/mockForHeader";
 import {useTranslations} from "use-intl";
-import Link from "next/link";
 import {useLocale} from "next-intl";
 
 

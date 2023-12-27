@@ -5,13 +5,11 @@ import {MenuItem} from "../MenuItem (mobile)/MenuItem";
 import {allCategories} from "@/mock/mockForHeader";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
 import {Love} from "@/component/svg/Love";
-import {Cart} from "@/component/svg/Cart";
 import {Person} from "@/component/svg/Person";
 import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
 import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/LocaleSwitcher";
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
-import Link from "next/link";
 import {forCart} from "@/mock/forCart";
 
 const variants: Variants = {

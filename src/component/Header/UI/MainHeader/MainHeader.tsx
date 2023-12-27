@@ -3,11 +3,9 @@ import React from "react";
 import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
 import {Love} from "@/component/svg/Love";
 import {Person} from "@/component/svg/Person";
-import {Cart} from "@/component/svg/Cart";
 import {Logo} from "@/component/Header/UI/Logo/Logo";
 import styles from "./MainHeader.module.scss";
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
-import CartModal from "@/component/Header/UI/Cart/CartModal";
 import {forCart} from "@/mock/forCart";
 
 const MainHeader = ({styleProps}: { styleProps: any }) => {

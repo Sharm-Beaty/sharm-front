@@ -7,7 +7,6 @@ import {MenuToggle} from "@/component/Header/UI/MenuToggle/MenuToggle";
 import styles from "../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import {Logo} from "@/component/Header/UI/Logo/Logo";
 import {useGetStyleProps} from "@/component/Header/Header";
-import {Cart} from "@/component/svg/Cart";
 import {Search} from "@/component/svg";
 import {forCart} from "@/mock/forCart";
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
