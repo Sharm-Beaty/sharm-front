@@ -1,0 +1,121 @@
+.cart-icon-container {
+   height: fit-content;
+   min-height: 24px;
+   position: relative;
+   cursor: pointer;
+   small {
+      padding: 0 2px;
+      color: white;
+      user-select: none;
+      position: absolute;
+      left: 50%;
+      transform: translate(-10%, -60%);
+      font-weight: 500;
+      min-width: 24px;
+      min-height: 24px;
+      text-align: center;
+   }
+   .show-cart-indicator {
+      &:before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         background: #E56466;
+         padding: 5px;
+         z-index: -1;
+         border-radius: 50%;
+      }
+   }
+}
+
+.cart-modal {
+   width: 100%;
+   max-width: 820px;
+   min-width: 820px;
+   max-height: 60vh;
+   height: fit-content;
+   background: white;
+   box-shadow: 0px 3px 5px 0px rgba(128, 128, 128, 0.45);
+   position: absolute;
+   top: 2rem;
+   right: 0;
+   z-index: 99999;
+   display: flex;
+   flex-direction: column;
+   padding: 1rem 90px;
+   gap: 1rem;
+   cursor: default;
+   //overflow-y: hidden;
+   .cart-header {
+      flex: 1 1 20px;
+   }
+   .items-list {
+      flex: 2 0 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      overflow-y: auto;
+      max-height: 350px;
+      .cart-item-row {
+         min-height: 95px;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+         width: 100%;
+         border-bottom: 1px solid var(--color-placeholder);
+         padding: 0 5px 0 0;
+         .item-icon {
+            max-width: 10%;
+         }
+         .item-description{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            a{
+               color: var(--color-text);
+               font-weight: 500;
+            }
+            span {
+               font-size: 0.8rem;
+            }
+         }
+
+      }
+      .item-quantity {
+         font-weight: 500;
+      }
+      .item-price {
+         font-weight: 500;
+      }
+   }
+   .cart-footer {
+      flex: 2 0 100px;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      a:first-child {
+         font-weight: 500;
+         text-transform: uppercase;
+         color: var(--color-text);
+         padding: 1rem 2rem 1rem 0;
+         text-decoration: underline;
+      }
+      a:last-child {
+         font-weight: 500;
+         text-transform: uppercase;
+         color: white;
+         padding: 1rem 2rem;
+         background: #E56466;
+      }
+      span {
+         font-weight: 500;
+         font-size: 1.3rem;
+      }
+   }
+}

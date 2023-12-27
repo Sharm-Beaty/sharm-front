@@ -102,21 +102,6 @@ export const MenuItem = ({item, className} : {item:ICategory; className:string})
                     />
                 )
             }
-            {/*{item.children && item.children.length > 0 && (*/}
-            {/*    <>*/}
-            {/*        {isChildrenVisible && (*/}
-            {/*            <motion.ul*/}
-            {/*                variants={containerVariants}*/}
-            {/*                initial="closed"*/}
-            {/*                animate={isChildrenVisible ? 'open' : 'closed'}*/}
-            {/*            >*/}
-            {/*                {item.children.map((childItem) => (*/}
-            {/*                    <MenuItem className={styles['sub-category']} key={childItem.id} item={childItem}/>*/}
-            {/*                ))}*/}
-            {/*            </motion.ul>*/}
-            {/*        )}*/}
-            {/*    </>*/}
-            {/*)}*/}
         </motion.div>
     );
 }

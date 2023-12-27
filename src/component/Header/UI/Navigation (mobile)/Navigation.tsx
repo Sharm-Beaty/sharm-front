@@ -10,18 +10,21 @@ import {Person} from "@/component/svg/Person";
 import SearchBox from "@/component/Header/UI/SearchBox/SearchBox";
 import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/LocaleSwitcher";
+import CartIcon from "@/component/Header/UI/Cart/CartIcon";
+import Link from "next/link";
+import {forCart} from "@/mock/forCart";
 
 const variants: Variants = {
     open: {
-        width:'100%',
+        width: '100%',
         overflowY: 'auto',
-        padding: '1rem' ,
+        padding: '1rem',
         transition: {staggerChildren: 0.07, delayChildren: 0.2}
     },
     closed: {
-        width:'0%',
+        width: '0%',
         overflowY: 'hidden',
-        padding: '0rem' ,
+        padding: '0rem',
         transition: {staggerChildren: 0.05, staggerDirection: -1}
     }
 };
@@ -67,7 +70,7 @@ const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({children, interactionS
         {children}
     </motion.li>
 );
-export const Navigation = ({isOpen}:{isOpen:boolean}) => (
+export const Navigation = ({isOpen}: { isOpen: boolean }) => (
     <motion.ul
         className={styles['mobile-nav-items']}
         initial={'closed'}
@@ -86,11 +89,11 @@ export const Navigation = ({isOpen}:{isOpen:boolean}) => (
         <AnimatedNavItem
             interactionSettings={interactionUserActions}
             className={`${styles['user-cart']} ${styles['user-action']}`}>
-            <Cart/>
+                <CartIcon addModal={false} cartItems={forCart}/>
         </AnimatedNavItem>
         <AnimatedNavItem
             interactionSettings={interactionUserActions}
-            className={ `${styles['user-account']} ${styles['user-action']}`}>
+            className={`${styles['user-account']} ${styles['user-action']}`}>
             <Person/>
         </AnimatedNavItem>
         <AnimatedNavItem
@@ -100,12 +103,12 @@ export const Navigation = ({isOpen}:{isOpen:boolean}) => (
         </AnimatedNavItem>
         <AnimatedNavItem
             interactionSettings={interactionUserActions}
-            className={ styles['user-action']}>
+            className={styles['user-action']}>
             <PhoneLinkComponent/>
         </AnimatedNavItem>
         <AnimatedNavItem>
             {/*<LanguageToggleComponent/>*/}
-            <LocaleSwitcher />
+            <LocaleSwitcher/>
         </AnimatedNavItem>
     </motion.ul>
 );

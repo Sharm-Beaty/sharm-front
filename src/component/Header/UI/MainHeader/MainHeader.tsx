@@ -6,6 +6,9 @@ import {Person} from "@/component/svg/Person";
 import {Cart} from "@/component/svg/Cart";
 import {Logo} from "@/component/Header/UI/Logo/Logo";
 import styles from "./MainHeader.module.scss";
+import CartIcon from "@/component/Header/UI/Cart/CartIcon";
+import CartModal from "@/component/Header/UI/Cart/CartModal";
+import {forCart} from "@/mock/forCart";
 
 const MainHeader = ({styleProps}: { styleProps: any }) => {
     const imageWidthValues = [190, 90];
@@ -23,7 +26,6 @@ const MainHeader = ({styleProps}: { styleProps: any }) => {
         console.error("MainHeader: Missing styleProps");
         return null;
     }
-
     return (
         <motion.div className={styles["main-header"]} style={mainHeaderStyles}>
             <SearchBox styleProps={styleProps} />
@@ -38,7 +40,7 @@ const MainHeader = ({styleProps}: { styleProps: any }) => {
             >
                 <Love />
                 <Person />
-                <Cart />
+                <CartIcon addModal={true} cartItems={forCart}/>
             </motion.div>
         </motion.div>
     );

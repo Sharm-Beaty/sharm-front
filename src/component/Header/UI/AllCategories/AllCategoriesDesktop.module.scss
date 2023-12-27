@@ -6,7 +6,7 @@
   align-items: center;
   min-height: 50px;
   position: relative;
-
+  z-index: -1;
   @media (max-width: 767px) {
     display: none;
   }

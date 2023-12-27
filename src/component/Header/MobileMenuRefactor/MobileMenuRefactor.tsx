@@ -9,6 +9,8 @@ import {Logo} from "@/component/Header/UI/Logo/Logo";
 import {useGetStyleProps} from "@/component/Header/Header";
 import {Cart} from "@/component/svg/Cart";
 import {Search} from "@/component/svg";
+import {forCart} from "@/mock/forCart";
+import CartIcon from "@/component/Header/UI/Cart/CartIcon";
 
 export const sidebar = {
     open: (height = 1000) => ({
@@ -114,7 +116,7 @@ const MobileMenuRefactor = () => {
                     transition={{delay: 0.1}}
                     className={`${styles['nav-actions']}`}>
                     <Search styleProps={{}} className={''}/>
-                    <Cart/>
+                    <CartIcon addModal={false} cartItems={forCart}/>
                 </motion.div>
 
             </div>

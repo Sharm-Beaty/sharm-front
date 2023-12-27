@@ -1,4 +1,5 @@
 import * as React from "react";
+import CartIcon from "@/component/Header/UI/Cart/CartIcon";
 
 export const Cart = ({className = "cart-svg"}) => (
     <svg

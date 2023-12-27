@@ -50,7 +50,7 @@ const dropDownCategory: Variants = {
         width: 0,
     },
     displaySelectedCategory: {
-        zIndex: 9999,
+        zIndex: 500,
         opacity: 1,
         height: [0, 225],
     },
