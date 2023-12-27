@@ -11,6 +11,7 @@ import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/LocaleSwitcher";
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
 import {forCart} from "@/mock/forCart";
+import Link from "next/link";
 
 const variants: Variants = {
     open: {
@@ -87,7 +88,9 @@ export const Navigation = ({isOpen}: { isOpen: boolean }) => (
         <AnimatedNavItem
             interactionSettings={interactionUserActions}
             className={`${styles['user-cart']} ${styles['user-action']}`}>
+            <Link href={'/cart'}>
                 <CartIcon addModal={false} cartItems={forCart}/>
+            </Link>
         </AnimatedNavItem>
         <AnimatedNavItem
             interactionSettings={interactionUserActions}
@@ -105,7 +108,6 @@ export const Navigation = ({isOpen}: { isOpen: boolean }) => (
             <PhoneLinkComponent/>
         </AnimatedNavItem>
         <AnimatedNavItem>
-            {/*<LanguageToggleComponent/>*/}
             <LocaleSwitcher/>
         </AnimatedNavItem>
     </motion.ul>

@@ -1,5 +1,6 @@
 
 .user-action{
+  position: relative;
   margin: 0!important;
   height: 4rem;
   min-height: 2rem;
@@ -27,6 +28,11 @@
     position: relative;
     &::after{
       content: 'мій кошик';
+    }
+    a{
+      position: relative;
+      z-index: 999;
+      width: 100%;
     }
   }
   .user-wish-list {

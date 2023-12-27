@@ -10,6 +10,7 @@ import {useGetStyleProps} from "@/component/Header/Header";
 import {Search} from "@/component/svg";
 import {forCart} from "@/mock/forCart";
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
+import Link from "next/link";
 
 export const sidebar = {
     open: (height = 1000) => ({
@@ -33,11 +34,10 @@ export const sidebar = {
 };
 
 
-
 const MobileMenuRefactor = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
-    const { height } = useDimensions(containerRef);
+    const {height} = useDimensions(containerRef);
     const controls = useDragControls();
     const y = useMotionValue(0);
     const {scrollY} = useScroll();
@@ -49,13 +49,13 @@ const MobileMenuRefactor = () => {
         controls.start(event)
     }
     const actionOnToggleBurger = () => {
-        if (containerRef.current ) {
+        if (containerRef.current) {
             const navWrapperRefOffsetWidth = (containerRef.current as HTMLDivElement).offsetWidth;
             const background = (containerRef.current as HTMLDivElement).querySelector(`.${styles.background}`)!;
             const backgroundWidth = (background as HTMLDivElement).offsetWidth;
             const logoXTransform = (navWrapperRefOffsetWidth - backgroundWidth) / 2
             const logo = (containerRef.current as HTMLDivElement).querySelector('img')!;
-            animate(logo, (isOpen ? {x:0} : {x:-logoXTransform}))
+            animate(logo, (isOpen ? {x: 0} : {x: -logoXTransform}))
         }
         toggleOpen()
     }
@@ -111,11 +111,13 @@ const MobileMenuRefactor = () => {
                     imageHeightValues={[55, 55]}
                 />
                 <motion.div
-                    animate={isOpen ? {y:-100,opacity:0,} : {}}
+                    animate={isOpen ? {y: -100, opacity: 0,} : {}}
                     transition={{delay: 0.1}}
                     className={`${styles['nav-actions']}`}>
                     <Search styleProps={{}} className={''}/>
-                    <CartIcon addModal={false} cartItems={forCart}/>
+                    <Link href={'/cart'}>
+                        <CartIcon addModal={false} cartItems={forCart}/>
+                    </Link>
                 </motion.div>
 
             </div>

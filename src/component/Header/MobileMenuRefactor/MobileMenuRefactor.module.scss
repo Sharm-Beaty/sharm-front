@@ -15,6 +15,9 @@
   @media (min-width: 768px) {
     display: none;
   }
+  a{
+    color: var(--color-text);
+  }
   .nav-wrapper {
     min-height: 60px;
     position: sticky;
