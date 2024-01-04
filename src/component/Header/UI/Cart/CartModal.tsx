@@ -4,6 +4,7 @@ import CartModalFooter from "@/component/Header/UI/Cart/CartModalFooter";
 import {motion, AnimatePresence} from "framer-motion";
 import Link from "next/link";
 import {CartItem} from "@/mock/forCart";
+import Image from "next/image";
 
 const modalVariants = {
     hidden: {opacity: 0, y: '-100vh'},
@@ -14,17 +15,22 @@ const modalVariants = {
 interface ICartModalListItem {
     item: CartItem;
 }
+
 interface ICartModal {
     itemsList: CartItem[];
     isModalShow: boolean;
     isModalShowCallback: (param: boolean) => void;
 }
-const CartModalListItem:FC<ICartModalListItem> = ({item}) => {
+
+const CartModalListItem: FC<ICartModalListItem> = ({item}) => {
+    const imageSrc = item.images[0]?.url || '/images-for-categories/default_image.jpg';
     return (
         <div className={styles['cart-item-row']}>
-            <img className={styles['item-icon']}
-                 src={item.images[0]?.url || '/images-for-categories/default_image.jpg'}
-                 alt={item.name}/>
+            <Image className={styles['item-icon']}
+                   width={90}
+                   height={50}
+                   src={imageSrc}
+                   alt={item.name}/>
             <div className={styles["item-description"]}>
                 <Link href={item.name}>{item.name}</Link>
                 <span>{item.category}</span>

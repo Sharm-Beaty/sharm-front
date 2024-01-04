@@ -4,18 +4,20 @@ export const useResizeObserver = (ref: React.RefObject<HTMLElement>) => {
 
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        if (ref.current) {
+        const currentRef = ref.current;
+
+        if (currentRef) {
             const resizeObserver = new ResizeObserver(entries => {
                 for (let entry of entries) {
                     setIsMobile(entry.contentRect.width <= 768);
                 }
             });
 
-            resizeObserver.observe(ref.current);
+            resizeObserver.observe(currentRef);
 
             return () => {
-                if (ref.current) {
-                    resizeObserver.unobserve(ref.current);
+                if (currentRef) {
+                    resizeObserver.unobserve(currentRef);
                 }
             };
         }
