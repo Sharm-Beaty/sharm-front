@@ -1,12 +1,12 @@
 "use client"
 import React, {useEffect, useRef, useState} from 'react';
 import "./MainSwiper.scss";
-import {MocMainSwiper} from "@/mock/MainSwiper";
 import Image from "next/image";
 import {motion} from 'framer-motion';
 import Link from "next/link";
 import { PanInfo } from 'framer-motion';
 import {useResizeObserver} from "@/hooks/useResizeObserver";
+import {MocMainSwiper} from "@/mock/MainSwiper";
 
 const MainSwiper = () => {
     const [current, setCurrent] = useState(0);
