@@ -3,6 +3,7 @@ import {Search} from "@/component/svg";
 import React from "react";
 import styles from "./SearchBox.module.scss";
 import {useTranslations} from "use-intl";
+import {unstable_setRequestLocale} from "next-intl/server";
 
 const SearchBox = ({styleProps}: { styleProps: any }) => {
     const t = useTranslations('SearchBox');
