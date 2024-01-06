@@ -103,7 +103,7 @@ const MainSwiper = () => {
                             viewBox="0 0 14 14"
                             fill={index === current ? "#828282" : "none"}
                         >
-                            <circle cx="7" cy="7" r="6.75" stroke="#828282" stroke-width="0.5"/>
+                            <circle cx="7" cy="7" r="6.75" stroke="#828282" strokeWidth="0.5"/>
                         </svg>
                     </motion.div>
                 ))}
