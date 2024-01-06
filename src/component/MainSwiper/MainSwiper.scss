@@ -1,0 +1,26 @@
+.container-swiper {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  .wrapper-swiper {
+    min-width: 100vw;
+    height: 40vh;
+
+    img {
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}
+
+.wrapper-circle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px;
+
+  .circle {
+    cursor: pointer;
+  }
+}
