@@ -12,7 +12,9 @@ export default createMiddleware({
 export const config = {
     matcher: [
         '/',
-        '/(ua|ru|en)/:path*',
+        '/(ua|ru)/:path*',
+        '/favicon.ico',
+        '/favicon.ico.json', // temp solution
         '/((?!_next|_vercel|.*\\..*).*)'
     ]
 };
