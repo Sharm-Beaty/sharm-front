@@ -1,7 +1,7 @@
 export const MocMainSwiper = [
     {
         id: 1,
-        img: '/mainSwiper/1.jpg',
+        img: '/MainSwiper/1.jpg',
         name: 'Комплекты',
         buttonLink: "/",
     },

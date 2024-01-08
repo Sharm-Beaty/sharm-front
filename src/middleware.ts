@@ -13,8 +13,6 @@ export const config = {
     matcher: [
         '/',
         '/(ua|ru)/:path*',
-        '/favicon.ico',
-        '/favicon.ico.json', // temp solution
-        '/((?!_next|_vercel|.*\\..*).*)'
+        '/favicon.ico'
     ]
 };

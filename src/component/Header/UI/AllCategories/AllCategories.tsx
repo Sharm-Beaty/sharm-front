@@ -5,6 +5,7 @@ import styles from './AllCategoriesDesktop.module.scss';
 import {StylePropsType} from "@/component/Header/Header";
 import {useTranslations} from "use-intl";
 import Link from "next/link";
+import {useLocale} from "next-intl";
 
 const dropDownCategory: Variants = {
     open: {
@@ -71,6 +72,8 @@ const AllCategories: FC<AllCategoriesProps> = ({className}) => {
     const t = useTranslations('categories');
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [showedCategory, setShowedCategory] = useState<React.ReactNode | null>(null);
+    const locale = useLocale();
+
     const renderContentItems = (item: ICategory) => item.children.map((child: IChild, index: number) => (
         <motion.li
             className={styles['sub-category']}
@@ -80,7 +83,7 @@ const AllCategories: FC<AllCategoriesProps> = ({className}) => {
             key={child.id}
             variants={dropDownCategory}
         >
-            <Link href={child.localizationKey}></Link>
+            <Link href={`/${locale}/${item.localizationKey}`}></Link>
             {child.localizationKey ? t(`${item.localizationKey}.children.${child.localizationKey}`) : child.name}
         </motion.li>
     ));
@@ -106,7 +109,7 @@ const AllCategories: FC<AllCategoriesProps> = ({className}) => {
                             onMouseEnter={() => showCategory(item)}
                         >
                             <motion.div className={styles["category__section"]}>
-                                <Link href={item.localizationKey} className={styles["category__title"]}>{item.localizationKey ? t(`${item.localizationKey}.name`) : item.name }</Link>
+                                <Link href={`/${locale}/${item.localizationKey}`} className={styles["category__title"]}>{item.localizationKey ? t(`${item.localizationKey}.name`) : item.name }</Link>
                             </motion.div>
                         </motion.li>
                     ))}

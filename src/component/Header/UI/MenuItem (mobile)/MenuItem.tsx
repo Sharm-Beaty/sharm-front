@@ -6,6 +6,7 @@ import styles from "../../MobileMenuRefactor/MobileMenuRefactor.module.scss";
 import {ICategory} from "@/mock/mockForHeader";
 import {useTranslations} from "use-intl";
 import {useLocale} from "next-intl";
+import {locales} from "../../../../../i18n/config";
 
 
 const containerVariants = {
@@ -38,7 +39,6 @@ const variants = {
 
 const SubCategory = ({category, isChildrenVisible}: {category: ICategory; isChildrenVisible: boolean}) => {
     const t = useTranslations(`categories.${category.localizationKey}.children`);
-    const locale = useLocale();
     return (isChildrenVisible
         ? (<motion.ul
             variants={containerVariants}
@@ -60,7 +60,7 @@ export const MenuItem = ({item, className} : {item:ICategory; className:string})
     const t = useTranslations('categories');
     const [isChildrenVisible, setIsChildrenVisible] = useState(false);
     const [setRotate, setRotateState] = useState("");
-
+    const locale = useLocale();
     const handleButtonClick = () => {
         setIsChildrenVisible(!isChildrenVisible);
         setRotateState(
@@ -79,7 +79,8 @@ export const MenuItem = ({item, className} : {item:ICategory; className:string})
             <motion.div className={styles["parent-category-row"]}
             >
                 <motion.a
-                    href={item.localizationKey}
+                    lang={locale}
+                    href={`/${locale}/${item.localizationKey}`}
                     whileHover={{ scale: 0.95,}}
                     whileTap={{scale: 0.9}}
                 >
