@@ -6,33 +6,34 @@ import MobileMenuRefactor from "@/component/Header/MobileMenuRefactor/MobileMenu
 import TopBarHeader from "@/component/Header/UI/TopBarHeader/TopBarHeader";
 import MainHeader from "@/component/Header/UI/MainHeader/MainHeader";
 import styles from "./Header.module.scss";
+import ModalWindow from "@/component/UI/ModalWindow/ModalWindow";
 
 const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
 const topHeaderHeightValues = [72, 0];
 const imageHeightValues = [100, 50];
-const imageWidthValues = [200, 100];
+// const imageWidthValues = [200, 100];
 const mainHeaderHeightDesktop = [100, 45];
-const mainHeaderHeightMobile = [60, 50];
+// const mainHeaderHeightMobile = [60, 50];
 const borderColorsValues = ['#fff', '#B8B8B8'];
 const hideBorderColorsValues = ['#B8B8B8', '#fff'];
-const moveElementX = [0, 150];
+// const moveElementX = [0, 150];
 const moveElementToRight = [0, 75];
 const moveElementToLeft = [0, -75];
 
 export type StylePropsType = {
     height: MotionValue,
     imageHeightTransform: MotionValue,
-    imageWidthTransform: any,
-    mainHeaderHeightDesktop: any,
+    imageWidthTransform: MotionValue,
+    mainHeaderHeightDesktop: number[],
     scrollY: MotionValue,
-    borderBottomColor: any,
-    mainHeaderHeight: any,
-    opacity: any,
-    topHeaderOpacityValues: any,
-    borderBottomColorHide: any,
-    moveElementToRightX: any,
-    moveElementToLeftX: any,
+    borderBottomColor: MotionValue,
+    mainHeaderHeight: MotionValue,
+    opacity: MotionValue,
+    topHeaderOpacityValues: number[],
+    borderBottomColorHide: MotionValue,
+    moveElementToRightX: MotionValue,
+    moveElementToLeftX: MotionValue,
 };
 export const useGetStyleProps = (scrollY: MotionValue) => {
     const height = useTransform(scrollY, offsetYS, topHeaderHeightValues);
