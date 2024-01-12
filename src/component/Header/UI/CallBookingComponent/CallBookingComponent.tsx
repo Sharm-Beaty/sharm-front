@@ -13,6 +13,7 @@ type CallBookingComponentProps = {
     onChange?: (value: string) => string | null;
     value?: string;
     mask?: string;
+    char?: string;
     modalControl: any
 };
 
@@ -33,13 +34,14 @@ const BookButton: FC<{ children: string, onClick: (phoneNumber: string) => void,
 const CallBookingComponent: FC<CallBookingComponentProps> = ({
                                                                  time,
                                                                  mask = '',
+                                                                 char = '_',
                                                                  modalControl
                                                              }) => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [isValid, setIsValid] = useState(true);
 
     const bookButtonHandler = (phoneNumber: string) => {
-        const valid = validatePhoneNumber(phoneNumber, mask);
+        const valid = validatePhoneNumber(phoneNumber);
 
 
         if (valid) {
@@ -66,6 +68,7 @@ const CallBookingComponent: FC<CallBookingComponentProps> = ({
                 value={phoneNumber}
                 className={styles['phone-number']}
                 mask={mask}
+                char={char}
                 onChangeHandler={setPhoneNumber}
             />
             <div className={styles["error-message-container"]}>

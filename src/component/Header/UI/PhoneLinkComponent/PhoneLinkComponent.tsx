@@ -44,6 +44,7 @@ const PhoneLinkComponent = () => {
         <CallBookingComponent
           time={{ from: "08:00", to: "20:00" }}
           mask={"+38 (___) ___-__-__"} // required
+            char={'_'}
           modalControl={toggle}
         />
       </ModalWindow>

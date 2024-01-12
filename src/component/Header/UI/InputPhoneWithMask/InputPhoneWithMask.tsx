@@ -6,13 +6,14 @@ interface InputPhoneWithMaskProps {
     className: string;
     value: string;
     mask: string;
+    char: string;
 }
-const InputPhoneWithMask:FC<InputPhoneWithMaskProps> = ({ mask, className,value , onChangeHandler }) => {
+const InputPhoneWithMask:FC<InputPhoneWithMaskProps> = ({ mask, char, className,value , onChangeHandler }) => {
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (!mask) return
         const rawValue = event.target.value;
-        const maskedValue = applyMask(rawValue, String(mask))
+        const maskedValue = applyMask(rawValue, String(mask), char)
         onChangeHandler(maskedValue);
     };
 
