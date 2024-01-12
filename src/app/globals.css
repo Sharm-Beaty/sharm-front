@@ -1,72 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --color-primary: #E56466;
-    --color-background: #FFFFFF;
+	--color-primary: #e56466;
+	--color-background: #ffffff;
 
-    --color-categoryr: #E56466;
+	--color-category: rgb(230, 102, 104);
+	--color-category-05: rgba(230, 102, 104, 0.5);
 
-    --color-text: #363636;
-    --color-placeholder: #828282;
-    --color-stroke: #B8B8B8;
-    --color-light-gray: #E0E0E0;
+	--color-text: #363636;
+	--color-placeholder: #828282;
+	--color-stroke: #b8b8b8;
+	--color-light-gray: #e0e0e0;
 
-    --color-error: #FF7A7A;
-    --color-info: #3E90F0;
-    --color-warning: #FFCD3A;
-    --color-success: #4EC568;
+	--color-error: #ff7a7a;
+	--color-info: #3e90f0;
+	--color-warning: #ffcd3a;
+	--color-success: #4ec568;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-
-html{
-    height: fit-content;
+html {
+	height: fit-content;
 }
 
-body {    
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    max-width: 1320px;
-    margin: auto;
-    padding-left: 10px;
-    padding-right: 10px;
+body {
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+	max-width: 1320px;
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 ul {
-    list-style: none;
+	list-style: none;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
-
 .desktop-only {
-    display: none;
+	display: none;
 }
 
 .mobile-only {
-    display: block;
+	display: block;
+}
+
+script {
+	display: none;
 }
 
 @media (min-width: 768px) {
-    .desktop-only {
-        display: block;
-    }
+	.desktop-only {
+		display: block;
+	}
 
-    .mobile-only {
-        display: none;
-    }
+	.mobile-only {
+		display: none;
+	}
 }
