@@ -2,10 +2,11 @@ import React, { ComponentType, PropsWithChildren, RefAttributes, forwardRef } fr
 import Image from 'next/image';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import cls from './index.module.scss';
-import { classNames } from '@/helpers';
+import { classNames, getFormattedPrice } from '@/helpers';
 import Rating from '@/component/Rating';
 import Link from 'next/link';
 import { Like } from '@/component/UI/Like';
+import { useFavoriteProduct } from '@/hooks';
 
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
@@ -13,11 +14,8 @@ interface ProductCardProps extends HTMLMotionProps<'article'> {
 }
 const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttributes<HTMLElement>>> =
 	forwardRef(function ProductCard({ className, product, ...otherProps }, ref) {
-		const [isInFavorite, setIsInFavorite] = React.useState<boolean>(product.inFavorites);
+		const [isInFavorite, setIsInFavorite] = useFavoriteProduct(product.id);
 		const IsDiscounted = Boolean(product.discountedPrice);
-		const discount = IsDiscounted
-			? Math.ceil((1 - product.discountedPrice! / product.price) * 100)
-			: null;
 
 		return (
 			<motion.article
@@ -48,10 +46,10 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						height={25}
 						fillPath={isInFavorite ? 'red' : 'none'}
 					/>
-					<Link href={product.url}>
+					<Link href={product.id}>
 						<Image
-							src={product.img}
-							alt={product.title}
+							src={product.images[0].url}
+							alt={product.name}
 							width={200}
 							height={270}
 							draggable='false'
@@ -59,35 +57,30 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 					</Link>
 				</motion.div>
 				<motion.div layout className={cls.body}>
-					<Link href={product.url}>
-						<motion.h5 layoutId={product.title} className={cls.title}>
-							{product.title}
+					<Link href={product.id}>
+						<motion.h5 layoutId={product.name} className={cls.title}>
+							{product.name}
 						</motion.h5>
-						<motion.p layoutId={product.subTitle} className={cls.subTitle}>
-							{product.subTitle}
-						</motion.p>
+						<motion.p className={cls.subTitle}>{product.description}</motion.p>
 					</Link>
 				</motion.div>
 				<motion.div className={cls.footer}>
 					<motion.div layoutId={`${product.rating}`} className={cls.ratingWrapper}>
-						<Rating className={cls.rating} ratingNumber={product.rating} />
-						<Link href={product.url} className={cls.amountComments}>
-							({product.amountComments})
+						<Rating className={cls.rating} ratingNumber={product.rating ?? -1} />
+						<Link href={product.id} className={cls.amountComments}>
+							(1)
 						</Link>
 					</motion.div>
 					<motion.div className={cls.price}>
-						{product.discountedPrice && (
+						{IsDiscounted && (
 							<>
 								<motion.span className={cls.currentPrise}>
-									{product.currency}
-									{product.discountedPrice}
+									{getFormattedPrice(product.discountedPrice || 0)}
 								</motion.span>
-								{!!discount && <span className={cls.discount}>{discount}% OFF</span>}
 							</>
 						)}
-						<motion.span className={classNames('', [], { [cls.oldPrice]: IsDiscounted })}>
-							{product.currency}
-							{product.price}
+						<motion.span className={IsDiscounted ? cls.oldPrice : ''}>
+							{getFormattedPrice(product.price || 0)}
 						</motion.span>
 					</motion.div>
 				</motion.div>

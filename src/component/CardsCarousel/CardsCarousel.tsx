@@ -17,7 +17,6 @@ interface MCardsCarouselProps extends HTMLMotionProps<'section'> {
 	className?: string;
 	titleCarousel?: string;
 	children?: React.ReactNode;
-	breakpoints?: CardsCarouselBreakpoints;
 }
 
 const swipeConfidenceThreshold = 150;
@@ -26,12 +25,12 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
-	const { className, titleCarousel, breakpoints, children, ...otherProps } = props;
+	const { className, titleCarousel, children, ...otherProps } = props;
 	const section = useRef<HTMLDivElement>(null);
 	const [width, setWidth] = useState(0);
 	const [xValue, setXValue] = useState(0);
 	const [activeIndex, setActiveIndex] = useState(0);
-	const childrenArr = Children.toArray(children);
+	const amountOfCards = Children.toArray(children).length - 1;
 	const x = useMotionValue(0);
 
 	const handlePrev = async () => {
@@ -80,7 +79,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 			className={classNames(cls.mCardsCarousel, [className])}
 			drag='x'
 			dragConstraints={{ left: 0, right: 0 }}
-			dragElastic={false}
+			dragElastic={0.0001}
 			onDragEnd={onSwipe}
 			{...otherProps}
 		>
@@ -88,24 +87,16 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				<div className={cls.container}>
 					<h4 className={cls.mainTitle}>{titleCarousel}</h4>
 				</div>
-				{/*TODO #1 недоколихав логіку. якщо клацнути на останній кружочок пагінації, перелистає до останнього слайда, але якщо свайпати, незавжди можна долистати до останнього слайда. Це видно по активному кружочку пагінації.*/}
 				<CarouselDots
 					className={cls.swiperBullets}
 					bulletClassName={cls.swiperEachBullet}
 					activeBulletClassName={cls.swiperActiveBullet}
-					length={childrenArr.length}
+					length={amountOfCards}
 					activeIndex={activeIndex}
 					setActiveIndex={setActiveIndex}
 				/>
 			</div>
-			<motion.div
-				className={cls.carousel}
-				drag='x'
-				dragConstraints={{ left: -width, right: 0 }}
-				dragElastic={1}
-				onDragEnd={onSwipe}
-				style={{ display: 'flex', x }}
-			>
+			<motion.div className={cls.carousel} style={{ x }}>
 				<AnimatePresence mode='popLayout'>{children}</AnimatePresence>
 			</motion.div>
 			<motion.div className={cls.navWrap}>
@@ -118,7 +109,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				</motion.div>
 				<motion.div
 					className={classNames(cls.buttonNext, [], {
-						[cls.disabled]: activeIndex === childrenArr.length - 1 || xValue <= -width,
+						[cls.disabled]: activeIndex === amountOfCards || xValue <= -width,
 					})}
 				>
 					<ArrowRight width={27} height={20} onClick={handleNext} cursor='pointer' />

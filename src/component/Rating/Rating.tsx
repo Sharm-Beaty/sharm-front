@@ -8,12 +8,12 @@ const Star = lazy(() => import('./Star/Star'));
 interface RatingProps {
 	className?: string;
 	canSetRating?: boolean;
-	ratingNumber?: number;
+	ratingNumber?: number | string;
 }
 
 const Rating: React.FC<RatingProps> = (props) => {
 	const { className, canSetRating = false, ratingNumber = -1, ...otherProps } = props;
-	const [rating, setRating] = useState<number>(Math.floor(ratingNumber));
+	const [rating, setRating] = useState<number>(Math.floor(Number(ratingNumber)));
 	const [hoverAt, setHoverAt] = useState<number | null>(null);
 
 	const handleMouseOver = (idx: number) => canSetRating && setHoverAt(idx + 0.5);

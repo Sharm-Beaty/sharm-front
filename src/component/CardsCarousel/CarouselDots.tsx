@@ -26,7 +26,7 @@ const CarouselDots: ComponentType<PropsWithChildren<DotProps & RefAttributes<HTM
 	) {
 		return (
 			<motion.div layout className={classNames('', [className])} ref={ref} {...otherProps}>
-				{new Array(length).fill('').map((_, i) => (
+				{new Array(length + 1).fill('').map((_, i) => (
 					<motion.span
 						className={classNames('', [bulletClassName], {
 							[activeBulletClassName!]: i === activeIndex,
