@@ -1,25 +1,20 @@
 .modal {
-  //display: none;
-  //  width: 100%;
-  //  max-width: 820px;
-  //  min-width: 820px;
-  //  max-height: 60vh;
   height: fit-content;
   background: white;
   box-shadow: 0 3px 5px 0 rgba(128, 128, 128, 0.45);
   position: absolute;
-  //  top: 2rem;
-  //  right: 0;
   z-index: 99999;
   flex-direction: column;
-  padding: 1rem 90px;
+  padding: 0.5rem 0.5rem;
   gap: 1rem;
-
   cursor: default;
 
+
   .modal_children {
+    display: flex;
+    justify-content: center;
     min-height: 100px;
-    background: #4ec568;
+    background: #ffffff;
     width: 100%;
   }
 }

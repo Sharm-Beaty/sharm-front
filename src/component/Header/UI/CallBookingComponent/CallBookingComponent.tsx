@@ -1,92 +1,79 @@
 import styles from "./CallBookingComponent.module.scss";
-import React, { FC, useState } from "react";
+import React, {FC, useState} from "react";
+import InputPhoneWithMask from "@/component/Header/UI/InputPhoneWithMask/InputPhoneWithMask";
+import {validatePhoneNumber} from "@/utils/masks";
 
-type PhoneNumberProps = {
-  placeholder: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  maxLength: number;
-  value?: string;
-  phonenumber?: string;
-};
 
 type CallBookingComponentProps = {
-  time: {
-    from: string;
-    to: string;
-  };
-  children?: React.ReactNode;
-  phonenumber?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string;
-  maxLength: number;
+    time: {
+        from: string;
+        to: string;
+    };
+    children?: React.ReactNode;
+    onChange?: (value: string) => string | null;
+    value?: string;
+    mask?: string;
+    modalControl: any
 };
 
-const ScheduleText = ({ time }: { time: { from: string; to: string } }) => (
-  <div className={styles["schedule-text"]}>
-    <span>Schedule a call</span>
-    <span>
-      {time?.from} - {time?.to}
+const ScheduleText = ({time}: { time: { from: string; to: string } }) => (
+    <div className={styles["schedule-text"]}>
+        <span>Щоденно</span>
+        <span>
+     з {time?.from} до {time?.to}
     </span>
-  </div>
+    </div>
 );
 
-const PhoneNumber: FC<PhoneNumberProps> = ({
-  onChange,
-  maxLength,
-  placeholder,
-  phonenumber,
-}): React.JSX.Element => {
-  return (
-    <input
-      type="tel"
-      maxLength={maxLength}
-      onChange={onChange}
-      placeholder={placeholder}
-      className={styles["phone-number"]}
-      value={phonenumber}
-    />
-  );
-};
 
-const BookButton = ({ children }) => {
-  return <button className={styles["book-button"]}>{children}</button>;
+const BookButton: FC<{ children: string, onClick: (phoneNumber: string) => void, phoneNumber: string }> = ({children, onClick, phoneNumber }) => {
+    return <button onClick={() => onClick(phoneNumber)} className={styles["book-button"]}>{children}</button>;
 };
 
 const CallBookingComponent: FC<CallBookingComponentProps> = ({
-  time,
-  maxLength,
-}) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+                                                                 time,
+                                                                 mask = '',
+                                                                 modalControl
+                                                             }) => {
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [isValid, setIsValid] = useState(true);
 
-  const handlePhoneInputChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event,
-  ) => {
-    const input = event.target.value.replace(/\D/g, "");
-    const formattedInput = input
-      .replace(/(\d{3})(\d{2})(\d{2})(\d{2})$/, "+38 ($1) $2-$3-$4")
-      .substring(0, 19); // +38 (XXX) XX-XX-XXX has a max length of 19
-    setPhoneNumber(formattedInput);
-  };
+    const bookButtonHandler = (phoneNumber: string) => {
+        const valid = validatePhoneNumber(phoneNumber, mask);
 
-  if (!time) {
-    time = {
-      from: "08:00",
-      to: "20:00",
+
+        if (valid) {
+            console.log(phoneNumber)  // send request with client number
+            modalControl(false)
+            setIsValid(valid);
+        } else {
+            setIsValid(valid);
+        }
+
     };
-  }
 
-  return (
-    <div className={styles["call-booking-wrapper"]}>
-      <ScheduleText time={time}></ScheduleText>
-      <PhoneNumber
-        onChange={handlePhoneInputChange}
-        value={phoneNumber}
-        maxLength={19}
-        placeholder="+38 (___) ___-__-__"
-      ></PhoneNumber>
-      <BookButton>Book now</BookButton>
-    </div>
-  );
+    if (!time) {
+        time = {
+            from: "08:00",
+            to: "20:00",
+        };
+    }
+
+    return (
+        <div className={styles["call-booking-wrapper"]}>
+            <ScheduleText time={time}></ScheduleText>
+            <InputPhoneWithMask
+                value={phoneNumber}
+                className={styles['phone-number']}
+                mask={mask}
+                onChangeHandler={setPhoneNumber}
+            />
+            <div className={styles["error-message-container"]}>
+                {!isValid && <span className={styles['error-message']}>Не корректний формат телефону!</span>}
+            </div>
+            <BookButton phoneNumber={phoneNumber} onClick={() => bookButtonHandler(phoneNumber)}>замовити дзвінок</BookButton>
+        </div>
+    );
 };
 
 export default CallBookingComponent;
