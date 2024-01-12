@@ -1,22 +1,42 @@
+interface OptionsForFormattedPrice {
+	locales?: string;
+	currency?: string;
+	currencyDisplay?: 'narrowSymbol' | 'symbol' | 'name' | 'code';
+	minimumFractionDigits?: number;
+	maximumFractionDigits?: number;
+}
+
 type DiscountedProducts = {
-	readonly id: number;
-	readonly title: string;
-	readonly subTitle: string;
-	readonly rating: number;
-	readonly inFavorites: boolean;
-	readonly amountComments: number;
-	readonly url: string;
-	readonly currency: string;
-	readonly price: number;
-	readonly discountedPrice?: number;
-	readonly img: string;
-	readonly img_alt?: string;
-	readonly additionalSchemaData: SchemaProductInfo;
+	id: string;
+	createdAt: string;
+	updatedAt: string;
+	images: Image[];
+	isLuxury: boolean;
+	siblings: Sibling[];
+	mainCard: boolean;
+	name: string;
+	description: string | null;
+	rating: string | null;
+	price: string | null;
+	discountedPrice?: string | null;
+	url?: string | null;
+	amountComments?: string | null;
+	currency?: string | null;
+	sku: number;
+	status: 'I' | 'O' | 'P';
+	sibling_name: string;
+	manufacturer: string | null;
+	categories: string[];
+	options: string[];
 };
 
-type CardsCarouselBreakpoints = {
-	[key: string]: {
-		slidesPerView: number;
-		spaceBetween: number;
-	};
-};
+interface Image {
+	id: string;
+	order: number;
+	url: string;
+}
+
+interface Sibling {
+	id: string;
+	name: string;
+}

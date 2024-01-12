@@ -1,3 +1,4 @@
 import { classNames } from './classNames/classNames';
+import { getFormattedPrice } from './getCurrencySymbol/getCurrencySymbol';
 
-export { classNames };
+export { classNames, getFormattedPrice };
