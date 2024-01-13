@@ -1,7 +1,7 @@
 'use client';
 import cls from './CardsCarousel.module.scss';
 import { classNames } from '@/helpers';
-import { useState, useEffect, useRef, Children } from 'react';
+import { useState, useEffect, useRef, Children, useCallback } from 'react';
 import {
 	AnimatePresence,
 	HTMLMotionProps,
@@ -24,30 +24,32 @@ const swipePower = (offset: number, velocity: number) => {
 	return Math.abs(offset) * velocity;
 };
 
-const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
-	const { className, titleCarousel, children, ...otherProps } = props;
+const MCardsCarousel: React.FC<MCardsCarouselProps> = ({
+	className,
+	titleCarousel,
+	children,
+	...otherProps
+}) => {
 	const section = useRef<HTMLDivElement>(null);
-	const [width, setWidth] = useState(0);
+	const x = useMotionValue(0);
+	const width = useRef<number | null>(null);
+	const amountOfCards = Children.count(children);
 	const [xValue, setXValue] = useState(0);
 	const [activeIndex, setActiveIndex] = useState(0);
-	const amountOfCards = Children.toArray(children).length - 1;
-	const x = useMotionValue(0);
 
-	const handlePrev = async () => {
+	const handlePrev = useCallback(async () => {
 		if (xValue >= 0) return;
-
-		setXValue((prev) => (prev += 275));
-		setActiveIndex((prev) => (prev -= 1));
+		setXValue((prev) => prev + 275);
+		setActiveIndex((prev) => prev - 1);
 		await animate(x, xValue);
-	};
+	}, [x, xValue]);
 
-	const handleNext = async () => {
-		if (xValue <= -width) return;
-
-		setXValue((prev) => (prev -= 275));
-		setActiveIndex((prev) => (prev += 1));
+	const handleNext = useCallback(async () => {
+		if (xValue <= -width.current!) return;
+		setXValue((prev) => prev - 275);
+		setActiveIndex((prev) => prev + 1);
 		await animate(x, xValue);
-	};
+	}, [x, xValue, width]);
 
 	const onSwipe = (e: MouseEvent | TouchEvent | PointerEvent, { offset, velocity }: PanInfo) => {
 		const swipe = swipePower(offset.x, velocity.x * 10);
@@ -70,7 +72,9 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 	}, [activeIndex, x, xValue]);
 
 	useEffect(() => {
-		setWidth(section.current!.scrollWidth - section.current!.offsetWidth);
+		if (section.current) {
+			width.current = section.current.scrollWidth - section.current.offsetWidth;
+		}
 	}, []);
 
 	return (
@@ -109,7 +113,7 @@ const MCardsCarousel: React.FC<MCardsCarouselProps> = (props) => {
 				</motion.div>
 				<motion.div
 					className={classNames(cls.buttonNext, [], {
-						[cls.disabled]: activeIndex === amountOfCards || xValue <= -width,
+						[cls.disabled]: activeIndex === amountOfCards || xValue <= -width.current!,
 					})}
 				>
 					<ArrowRight width={27} height={20} onClick={handleNext} cursor='pointer' />
