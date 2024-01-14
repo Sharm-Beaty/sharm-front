@@ -1,86 +1,67 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, {FC, ReactNode, useEffect, useRef} from "react";
 import styles from "./ModalWindow.module.scss";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import {gsap} from 'gsap';
 
 interface ModalProps {
-  isVisible: boolean;
-  onClose: () => void;
-  children: ReactNode;
-  animationVariants?: Variants;
-  size?: { width: string; height: string };
-  targetElementSelector?: string; // ID or class selector
-  withOverlay?: boolean;
-  position?: { top: number; left: number };
-  padding?: string;
+    isVisible: boolean;
+    onClose: () => void;
+    children: ReactNode;
+    padding?: string;
+    className: string;
 }
 
-const defaultVariants = {};
+
 
 const Modal: FC<ModalProps> = ({
-  isVisible,
-  onClose,
-  children,
-  animationVariants,
-  size,
-  targetElementSelector,
-  withOverlay,
-  position,
-  padding = "1rem 90px",
-}) => {
-  const [positionRelativeToTarget, setPositionRelativeToTarget] = useState({
-    top: 0,
-    left: 0,
-  });
+                                   className,
+                                   isVisible,
+                                   onClose,
+                                   children,
+                                   padding = "1rem 90px",
+                               }) => {
+    const modalElement = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (targetElementSelector) {
-      const element = document.querySelector(targetElementSelector);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        setPositionRelativeToTarget({
-          top: rect.top + window.scrollY,
-          left: rect.left + window.scrollX,
-        });
-      }
-    } else {
-      setPositionRelativeToTarget({
-        top: position?.top || 0,
-        left: position?.left || 0,
-      });
-    }
-  }, [targetElementSelector, position]);
 
-  const modalStyle = {
-    width: size?.width || "auto",
-    height: size?.height || "auto",
-    top: `${positionRelativeToTarget.top}px`,
-    left: `${positionRelativeToTarget.left}px`,
-    padding,
-  };
+    let tl = gsap.timeline();
 
-  return (
-    <AnimatePresence>
-      {isVisible && (
+    useEffect(() => {
+            if (modalElement.current) {
+                if (isVisible) {
+                    tl.fromTo(modalElement.current, {
+                        opacity: 0,
+                        x: -50
+                    }, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.4
+                    });
+                } else {
+                    tl.fromTo(modalElement.current, {
+                        opacity: 1,
+                        y: 0
+                    }, {
+                        opacity: 0,
+                        y: -50,
+                        duration: 0.4
+                    });
+                }
+            }
+        },
+        [isVisible, tl]);
+
+    const modalStyle = {
+        padding,
+    };
+
+    return (isVisible && (
         <>
-          {withOverlay && (
-            <div className={styles.overlay} onClick={onClose}></div>
-          )}
-          <motion.div
-            className={styles.modal}
-            style={modalStyle}
-            variants={animationVariants || defaultVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onMouseLeave={onClose}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className={styles.modal_children}>{children}</div>
-          </motion.div>
+            <div ref={modalElement} className={`${styles.modal} ${className}`} style={modalStyle}>
+                <div className={styles.modal_children} onMouseLeave={onClose} onClick={e => e.stopPropagation()}>
+                    {children}
+                </div>
+            </div>
         </>
-      )}
-    </AnimatePresence>
-  );
+    ))
 };
 
 export default Modal;

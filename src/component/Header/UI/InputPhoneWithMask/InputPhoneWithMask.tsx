@@ -1,5 +1,6 @@
 import React, {ChangeEvent, FC} from 'react';
 import {applyMask} from "@/utils/masks";
+import {motion} from "framer-motion";
 
 interface InputPhoneWithMaskProps {
     onChangeHandler: (maskedValue:string) => void;

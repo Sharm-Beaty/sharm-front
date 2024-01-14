@@ -1,5 +1,6 @@
 @import "../../../UI/ActiveLink/ActiveLink";
 .phone-link-wrapper {
+  position: relative;
   padding-top: 0.5rem;
   width: 100%;
   display: flex;
@@ -19,6 +20,13 @@
     }
   }
 
+  .modal-styles {
+    width: 421px;
+    height: fit-content;
+    top: 60px;
+    left: 0;
+    position: absolute;
+  }
   .phone-top-bar {
     display: flex;
     flex-direction: row;
