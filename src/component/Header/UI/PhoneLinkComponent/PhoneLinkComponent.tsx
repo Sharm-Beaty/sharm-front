@@ -7,12 +7,6 @@ import ModalWindow from "@/component/UI/ModalWindow/ModalWindow";
 import useModal from "@/hooks/useModal";
 import CallBookingComponent from "../CallBookingComponent/CallBookingComponent";
 
-const modalVariants = {
-    hidden: {opacity: 0, x: '-100vh'},
-    visible: {opacity: 1, x: 0, transition : {duration: 0.4}},
-    exit: {opacity: 0, y: '100vh'}
-};
-
 const PhoneLinkComponent = () => {
     const [isValid, setIsValid] = useState(true);
     const t = useTranslations("phoneLinkComponent");
