@@ -5,6 +5,7 @@ import { FC } from 'react';
 import MainSwiper from '@/component/MainSwiper/MainSwiper';
 import ProductCarousel from '@/component/ProductCarousel';
 import { products } from '@/mock';
+import FAQ from "@/component/FAQ";
 
 interface HomeProps {
 	params: {
@@ -24,6 +25,7 @@ const Home: FC<HomeProps> = async ({ params: { locale } }) => {
 				className={'popular-categories'}
 			/>
 			<ProductCarousel titleCarousel='Акційні пропозиції' products={products} />
+			<FAQ/>
 		</>
 	);
 };

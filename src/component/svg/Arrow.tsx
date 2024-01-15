@@ -9,7 +9,7 @@ export const Arrow = ({className = "arrow-svg", width='7', height='4'}) => (
     >
         <path
             d="M0.5 0.5L3.5 3.5L6.5 0.5"
-            stroke="#363636"
+            stroke="currentColor"
             strokeLinecap="round"
             strokeLinejoin="round"
         />
