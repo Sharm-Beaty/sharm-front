@@ -1,1 +1,1 @@
-export { useFavoriteProduct } from './useFavoriteProduct/useFavoriteProduct';
+export { useFavoriteProduct } from './useFavoriteProduct';
