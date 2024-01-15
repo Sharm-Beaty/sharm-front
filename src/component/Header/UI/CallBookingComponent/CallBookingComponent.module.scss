@@ -15,6 +15,7 @@
     flex-direction: row;
     gap: 1rem;
     flex-wrap: nowrap;
+
     input[type="time"] {
       box-sizing: border-box;
       min-width: 35%;
@@ -27,6 +28,8 @@
       background: var(--color-light-gray);
       padding: 5px 1rem;
       outline: none;
+      transition: all 0.3s;
+
       &:focus {
         outline: 1px solid var(--color-placeholder);
         background: white;
@@ -64,6 +67,7 @@
     padding: 5px 1rem;
     width: 100%;
     box-sizing: border-box;
+    transition: all 0.3s;
 
     &:focus {
       outline: 1px solid var(--color-placeholder);

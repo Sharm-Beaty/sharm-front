@@ -1,6 +1,5 @@
 import React, {ChangeEvent, FC} from 'react';
 import {applyMask} from "@/utils/masks";
-import {motion} from "framer-motion";
 
 interface InputPhoneWithMaskProps {
     onChangeHandler: (maskedValue:string) => void;
@@ -19,12 +18,12 @@ const InputPhoneWithMask:FC<InputPhoneWithMaskProps> = ({ mask, char, className,
     };
 
     return (
-        <input
-            className={className}
-            value={value}
-            onChange={handleChange}
-            placeholder={String(mask)}
-        />
+         <input
+                className={className}
+                value={value}
+                onChange={handleChange}
+                placeholder={String(mask)}
+            />
     );
 };
 

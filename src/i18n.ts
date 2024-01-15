@@ -4,7 +4,6 @@ import {locales} from '../i18n/config';
 
 const default_locale = 'ua';
 export default getRequestConfig(async ({locale}) => {
-    // if (!locales.includes(locale as any)) NotFound(); //TODO delete after approve :vs
     if (!locales.includes(locale as any)) locale = default_locale;
     const messages = {
         ...(await import(`../messages/${locale}.json`)).default,

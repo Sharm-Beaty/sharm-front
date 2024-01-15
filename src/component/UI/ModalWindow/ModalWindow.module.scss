@@ -1,9 +1,44 @@
+@mixin cross($size: 20px, $color: currentColor, $thickness: 1px) {
+  margin: 0.8rem 0.8rem;
+  padding: 0.5rem 0.5rem;
+  border: 0;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $size;
+  height: $size;
+  transition: 0.3s all;
+  &:hover {
+    transform: scale(1.1) rotateZ(90deg);
+  }
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: ($size - $thickness) / 2;
+    left: 0;
+    right: 0;
+    height: $thickness;
+    background: $color;
+    border-radius: $thickness;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
 .modal {
   height: fit-content;
   background: white;
   box-shadow: 0 3px 5px 0 rgba(128, 128, 128, 0.45);
   position: absolute;
-  z-index: 99999;
+  z-index: 100000;
   flex-direction: column;
   padding: 0.5rem 0.5rem;
   gap: 1rem;
@@ -15,5 +50,10 @@
     min-height: 100px;
     background: #ffffff;
     width: 100%;
+
+  }
+
+  .cross-stand-alone {
+       @include cross(20px, #828282 , 2px);
   }
 }

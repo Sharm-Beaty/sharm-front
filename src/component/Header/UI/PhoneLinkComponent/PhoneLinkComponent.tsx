@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import styles from "./PhoneLink.module.scss";
 import {Phone} from "@/component/svg";
 import {motion} from "framer-motion";
@@ -14,8 +14,14 @@ const modalVariants = {
 };
 
 const PhoneLinkComponent = () => {
+    const [isValid, setIsValid] = useState(true);
     const t = useTranslations("phoneLinkComponent");
     const {isVisible, toggle} = useModal();
+    const modalRef = useRef<HTMLDivElement>(null);
+    const openModalWindow = () => {
+        setIsValid(true);
+        toggle();
+    }
     return (
         <div className={`${styles["phone-link-wrapper"]}`}>
             <a
@@ -35,17 +41,20 @@ const PhoneLinkComponent = () => {
                 className={styles["get-call"]}
             >
         <span
-            onClick={toggle}
+            onClick={openModalWindow}
             dangerouslySetInnerHTML={{__html: t.raw("request_call")}}
         />
             </motion.button>
             <ModalWindow
+                ref={modalRef}
                 className={styles['modal-styles']}
                 isVisible={isVisible}
                 onClose={toggle}
                 padding="0.5rem 0.5rem"
             >
                 <CallBookingComponent
+                    modalRef={modalRef}
+                    validation={{isValid, setIsValid}}
                     time={{from: "08:00", to: "20:00"}}
                     mask={"+38 (___) ___-__-__"} // required
                     char={'_'}
