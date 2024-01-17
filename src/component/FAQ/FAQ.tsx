@@ -52,7 +52,8 @@ const Faq: FC<FaqProps> = ({ className, ...otherProps }) => {
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: 'top center+=100',
-					toggleActions: 'play none none reverse',
+					end: 'bottom+=100 center-=100',
+					toggleActions: 'play reverse play reverse',
 					// markers: true,
 				},
 			},

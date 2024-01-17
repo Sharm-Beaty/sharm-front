@@ -4,6 +4,7 @@ import cls from './FAQCard.module.scss';
 import { classNames } from '@/helpers';
 import { Arrow } from '@/component/svg';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface FAQCardProps {
 	className?: string;
@@ -35,6 +36,7 @@ const FAQCard: FC<FAQCardProps> = (props) => {
 			duration: 0.5,
 			height: open ? 'auto' : '0px',
 			opacity: open ? 1 : 0,
+			onComplete: () => ScrollTrigger.refresh(),
 		});
 	}, [open]);
 
