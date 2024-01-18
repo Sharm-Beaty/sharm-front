@@ -5,7 +5,6 @@ import cls from './FAQ.module.scss';
 import { FAQCard } from './FAQCard/FAQCard';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
 interface FaqProps extends HTMLProps<HTMLDivElement> {
@@ -39,38 +38,48 @@ const Faq: FC<FaqProps> = ({ className, ...otherProps }) => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		gsap.fromTo(
-			sectionRef.current,
-			{
+		let ctx = gsap.context(() => {
+			let tl = gsap.timeline({
 				autoAlpha: 0,
-			},
-			{
-				id: 'faqSection',
-				duration: 0.5,
-				autoAlpha: 1,
-				ease: 'none',
 				scrollTrigger: {
 					trigger: sectionRef.current,
-					start: 'top center+=100',
-					end: 'bottom+=100 center-=100',
+					start: 'top center+=200',
+					end: 'bottom+=150 center-=100',
 					toggleActions: 'play reverse play reverse',
 					// markers: true,
 				},
-			},
-		);
+			});
+
+			tl.to(sectionRef.current, {
+				id: 'faqSection',
+				duration: 0.3,
+				autoAlpha: 1,
+				ease: 'none',
+			}).to(`.${cls.qAndAWrapper} button`, {
+				x: 0,
+				stagger: 0.2,
+			});
+		}, sectionRef);
+
+		return () => ctx.revert();
 	}, []);
 
 	return (
-		<section className={classNames(cls.faqSection, [className])} {...otherProps} ref={sectionRef}>
+		<section
+			className={classNames(cls.faqSection, [className])}
+			{...otherProps}
+			ref={sectionRef}
+			style={{ opacity: 0, visibility: 'hidden' }}
+		>
 			<h5 className={cls.title}>Інтернет магазин косметики та парфумерії Sharm Beauty</h5>
 			<ul className={cls.listOfAnsw}>
 				<li className={cls.qAndAWrapper}>
-					<FAQCard faqData={faqSection[0]} />
-					<FAQCard faqData={faqSection[1]} />
+					<FAQCard faqData={faqSection[0]} style={{ transform: 'translate(-1000px, 0px)' }} />
+					<FAQCard faqData={faqSection[1]} style={{ transform: 'translate(-1000px, 0px)' }} />
 				</li>
 				<li className={cls.qAndAWrapper}>
-					<FAQCard faqData={faqSection[2]} />
-					<FAQCard faqData={faqSection[3]} />
+					<FAQCard faqData={faqSection[2]} style={{ transform: 'translate(1000px, 0px)' }} />
+					<FAQCard faqData={faqSection[3]} style={{ transform: 'translate(1000px, 0px)' }} />
 				</li>
 			</ul>
 		</section>

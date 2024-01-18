@@ -2,6 +2,7 @@
 	color: var(--color-text, #363636);
 	margin: 92px 0;
 	padding: 0 72px;
+	overflow: hidden;
 
 	@media (max-width: 768px) {
 		padding: 0;

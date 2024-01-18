@@ -1,12 +1,12 @@
 'useClient';
-import { FC, useEffect, useRef, useState } from 'react';
+import { ButtonHTMLAttributes, FC, useEffect, useRef, useState } from 'react';
 import cls from './FAQCard.module.scss';
 import { classNames } from '@/helpers';
 import { Arrow } from '@/component/svg';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-interface FAQCardProps {
+interface FAQCardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 	faqData: FAQData;
 }
@@ -28,15 +28,18 @@ const FAQCard: FC<FAQCardProps> = (props) => {
 	};
 
 	useEffect(() => {
-		gsap.to(arrowRef.current, {
-			duration: 0.01,
-			rotate: open ? '-180deg' : '0deg',
-		});
-		gsap.to(answerRef.current, {
-			duration: 0.5,
-			height: open ? 'auto' : '0px',
-			opacity: open ? 1 : 0,
-			onComplete: () => ScrollTrigger.refresh(),
+		gsap.context(() => {
+			gsap.to(arrowRef.current, {
+				duration: 0.01,
+				rotate: open ? '-180deg' : '0deg',
+			});
+
+			gsap.to(answerRef.current, {
+				duration: 0.5,
+				height: open ? 'auto' : '0px',
+				opacity: open ? 1 : 0,
+				onComplete: () => ScrollTrigger.refresh(),
+			});
 		});
 	}, [open]);
 
