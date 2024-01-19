@@ -1,4 +1,4 @@
-interface OptionsForFormattedPrice {
+type OptionsForFormattedPrice = {
 	locales?: string;
 	currency?: string;
 	currencyDisplay?: 'narrowSymbol' | 'symbol' | 'name' | 'code';
@@ -39,4 +39,9 @@ interface Image {
 interface Sibling {
 	id: string;
 	name: string;
+}
+
+type FAQData = {
+	question: string;
+	answer: string;
 }
