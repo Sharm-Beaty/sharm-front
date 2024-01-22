@@ -4,7 +4,7 @@ import { MyAccountProps, MyFormData } from "../interfaces";
 import "./MyAccount.scss";
 import Sidebar from "../Sidebar";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { getAccountData } from "@/app/acrions/getAccountData";
+import { getAccountData } from "@/app/acrions/getAcсountData";
 
 const MyAccount: React.FC<MyAccountProps> = ({}) => {
   const {

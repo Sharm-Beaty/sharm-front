@@ -1,5 +1,5 @@
-import DeliveryInfo from "@/component/Account/DeliveryInfo/DeliveryInfo";
+import DeliveryStatus from "@/component/Account/DeliveryInfo/DeliveryInfo";
 
 export default function MyDeliveryInfo() {
-  return <DeliveryInfo />;
+  return <DeliveryStatus />;
 }
