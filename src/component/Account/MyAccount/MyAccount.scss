@@ -1,0 +1,128 @@
+.client-account-section {
+  display: flex;
+  gap: 64px;
+}
+
+.client-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 64px;
+  margin-bottom: 120px;
+}
+
+.nav-link {
+  display: flex;
+  gap: 16px;
+  padding: 12px 8px;
+  align-items: center;
+}
+
+.icon-container {
+  display: flex;
+}
+
+.text-container {
+  color: var(--color-text);
+}
+
+.client-profile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 64px;
+  margin-bottom: 120px;
+}
+
+.client-title {
+  margin-bottom: 48px;
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.client-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.client-form-item {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.client-form-label {
+}
+
+.client-form-input {
+  display: flex;
+  width: 400px;
+  padding: 16px;
+  align-items: center;
+}
+.client-form-input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.client-password-section {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.password-change-title {
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.password-length-hint {
+  color: var(--color-placeholder);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.client-password-form {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.client-password-label {
+}
+
+.client-password-input {
+  display: flex;
+  width: 400px;
+  padding: 16px;
+  align-items: center;
+}
+
+.client-submit-button {
+  margin-top: 48px;
+  display: flex;
+  width: 220px;
+  padding: 14px 10px;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+}
