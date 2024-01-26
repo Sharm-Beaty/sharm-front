@@ -20,11 +20,15 @@ const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => (
 
 const Sidebar: React.FC<SidebarProps> = () => (
   <div className="client-sidebar">
-    <NavLink to="/my-data" icon={<User />} text="Мої дані" />
-    <NavLink to="/my-orders" icon={<Clarity />} text="Мої замовлення" />
-    <NavLink to="/delivery-info" icon={<Location />} text="Адреси доставки" />
-    <NavLink to="/notifications" icon={<Mail />} text="Сповіщення" />
-    <NavLink to="/favorite " icon={<Heart />} text="Список бажань" />
+    <NavLink to="/ru/my-data" icon={<User />} text="Мої дані" />
+    <NavLink to="/ru/my-orders" icon={<Clarity />} text="Мої замовлення" />
+    <NavLink
+      to="/ru/delivery-info"
+      icon={<Location />}
+      text="Адреси доставки"
+    />
+    <NavLink to="/ru/notifications" icon={<Mail />} text="Сповіщення" />
+    <NavLink to="/ru/favorite " icon={<Heart />} text="Список бажань" />
     <NavLink to="/" icon={<Logout />} text="Вихід" />
   </div>
 );

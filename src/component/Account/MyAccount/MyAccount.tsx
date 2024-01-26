@@ -46,26 +46,6 @@ const MyAccount: React.FC<MyAccountProps> = ({}) => {
     reset();
   };
 
-  // const [formData, setFormData] = React.useState<MyFormData>({
-  //   firstName: "",
-  //   lastName: "",
-  //   phoneNumber: "",
-  //   email: "",
-  //   city: "",
-  //   newPassword: "",
-  //   confirmPassword: "",
-  // });
-
-  // const handleSubmit = (event: FormEvent) => {
-  //   event.preventDefault();
-  //   onSubmit(formData);
-  // };
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({ ...prevData, [name]: value }));
-  // };
-
   return (
     <div className="client-account-section">
       <Sidebar />

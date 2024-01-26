@@ -3,7 +3,9 @@ import { sendAccountData } from "@/app/acrions/sendAccountData";
 import MyAccount from "@/component/Account/MyAccount/MyAccount";
 import { MyFormData } from "@/component/Account/interfaces";
 
-export default function Account() {
+export default function Account({ params }: { params: { locale: string } }) {
+  const { locale } = params;
+
   const handleSubmit = async (formData: MyFormData) => {
     try {
       await sendAccountData(formData);
@@ -12,8 +14,9 @@ export default function Account() {
     }
   };
   return (
-    <div>
+    <>
+      {locale}
       <MyAccount onSubmit={handleSubmit}></MyAccount>
-    </div>
+    </>
   );
 }
