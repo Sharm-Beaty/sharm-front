@@ -1,14 +1,8 @@
 .client-account-section {
   display: flex;
-  gap: 64px;
-}
-
-.client-sidebar {
-  display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 64px;
-  margin-bottom: 120px;
+  align-items: center;
+  // gap: 64px;
 }
 
 .nav-link {
@@ -31,6 +25,7 @@
   flex-direction: column;
   margin-top: 64px;
   margin-bottom: 120px;
+  width: 100%;
 }
 
 .client-title {
@@ -49,10 +44,8 @@
 }
 
 .client-form-item {
-  display: flex;
-  width: 600px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .client-form-label {
@@ -93,10 +86,8 @@
 }
 
 .client-password-form {
-  display: flex;
-  width: 600px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .client-password-label {
@@ -125,4 +116,38 @@
   color: #fff;
   background: var(--color-primary);
   border: none;
+}
+
+// @media screen and (max-width: 768px) {
+//   .client-sidebar {
+//     display: none;
+//   }
+// }
+
+@media screen and (min-width: 768px) {
+  .client-account-section {
+    display: flex;
+    gap: 64px;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .client-profile {
+    width: 60%;
+  }
+
+  .client-form-item {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: none;
+  }
+
+  .client-password-form {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

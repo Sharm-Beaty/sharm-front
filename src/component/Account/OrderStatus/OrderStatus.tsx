@@ -1,4 +1,4 @@
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/SidebarMobile/SidebarMobile";
 import { OrderStatusProps } from "../interfaces";
 
 const OrderStatus: React.FC<OrderStatusProps> = () => {

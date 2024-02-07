@@ -1,4 +1,4 @@
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/SidebarMobile/SidebarMobile";
 import { FavoritesProps } from "../interfaces";
 
 const Favorites: React.FC<FavoritesProps> = () => {

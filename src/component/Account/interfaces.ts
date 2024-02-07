@@ -17,7 +17,9 @@ export interface MyFormData {
   confirmPassword: string;
 }
 
-export interface SidebarProps {}
+export interface SidebarProps {
+  initialMenuItem: string;
+}
 
 export interface OrderStatusProps {}
 

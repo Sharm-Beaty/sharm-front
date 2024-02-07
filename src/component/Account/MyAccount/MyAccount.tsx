@@ -1,12 +1,16 @@
 "use client";
 import React, { FormEvent, useEffect } from "react";
 import { MyAccountProps, MyFormData } from "../interfaces";
+import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
+import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
 import "./MyAccount.scss";
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/SidebarMobile/SidebarMobile";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { getAccountData } from "@/app/acrions/getAcсountData";
 
-const MyAccount: React.FC<MyAccountProps> = ({}) => {
+const MyAccount: React.FC<MyAccountProps> = () => {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
   const {
     formState: { errors },
     register,
@@ -48,10 +52,13 @@ const MyAccount: React.FC<MyAccountProps> = ({}) => {
 
   return (
     <div className="client-account-section">
-      <Sidebar />
+      {isMobile ? (
+        <SidebarMobile initialMenuItem="Мої дані" />
+      ) : (
+        <SidebarDesktop />
+      )}
       <div className="client-profile">
         <h2 className="client-title">Мій профіль</h2>
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="client-form">
             <div className="client-form-item">

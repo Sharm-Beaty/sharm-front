@@ -1,4 +1,4 @@
-import Sidebar from "../Sidebar";
+import Sidebar from "../Sidebar/SidebarMobile/SidebarMobile";
 import { NotificationsProps } from "../interfaces";
 
 const Notifications: React.FC<NotificationsProps> = () => {
