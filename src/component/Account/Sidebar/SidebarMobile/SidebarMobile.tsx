@@ -1,20 +1,24 @@
 "use client";
 import React, { useState } from "react";
-import { Logout } from "../../../svg/Logout";
-import { User } from "../../../svg/User";
-import { Clarity } from "../../../svg/Clarity";
-import { Location } from "../../../svg/Location";
-import { Mail } from "../../../svg/Mail";
-import { Heart } from "../../../svg/Heart";
 import { NavLinkProps, SidebarProps } from "../../interfaces";
 import NextLink from "next/link";
 import "./SidebarMobile.scss";
+import {
+  VectorDown,
+  VectorUp,
+  Logout,
+  User,
+  Clarity,
+  Location,
+  Mail,
+  Heart,
+} from "@/component/svg";
 
-const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => (
+const NavLink: React.FC<NavLinkProps> = ({ to, icon, text }) => (
   <NextLink href={to}>
     <div className="nav-link">
       <div className="icon-container">{icon}</div>
-      <div className="text-container">{text}</div>
+      <div className="text-container-mobile">{text}</div>
     </div>
   </NextLink>
 );
@@ -44,26 +48,47 @@ const Sidebar: React.FC<SidebarProps> = ({ initialMenuItem }) => {
     }
   };
 
+  const vectorIcon = isMenuOpen ? <VectorUp /> : <VectorDown />;
+
   return (
-    <div className="client-sidebar">
+    <div className="client-sidebar-mobile">
       <div className="menu-header" onClick={toggleMenu}>
         <div className="nav-link">
           <div className="icon-container"> {selectIcon(currentMenuItem)}</div>
           <div className="text-container">{currentMenuItem}</div>
+          <div className="icon-vector">{vectorIcon} </div>
         </div>
       </div>
 
       <div className={`dropdown-menu ${isMenuOpen ? "active" : ""}`}>
-        <NavLink to="/ru/account" icon={<User />} text="Мої дані" />
-        <NavLink to="/ru/my-orders" icon={<Clarity />} text="Мої замовлення" />
-        <NavLink
-          to="/ru/delivery-info"
-          icon={<Location />}
-          text="Адреси доставки"
-        />
-        <NavLink to="/ru/notifications" icon={<Mail />} text="Сповіщення" />
-        <NavLink to="/ru/favorite " icon={<Heart />} text="Список бажань" />
-        <NavLink to="/" icon={<Logout />} text="Вихід" />
+        <ul>
+          <li>
+            <NavLink to="/ru/account" icon={<User />} text="Мої дані" />
+          </li>
+          <li>
+            <NavLink
+              to="/ru/my-orders"
+              icon={<Clarity />}
+              text="Мої замовлення"
+            />
+          </li>
+          <li>
+            <NavLink
+              to="/ru/delivery-info"
+              icon={<Location />}
+              text="Адреси доставки"
+            />
+          </li>
+          <li>
+            <NavLink to="/ru/notifications" icon={<Mail />} text="Сповіщення" />
+          </li>
+          <li>
+            <NavLink to="/ru/favorite" icon={<Heart />} text="Список бажань" />
+          </li>
+          <li>
+            <NavLink to="/" icon={<Logout />} text="Вихід" />
+          </li>
+        </ul>
       </div>
     </div>
   );

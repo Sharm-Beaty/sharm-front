@@ -9,7 +9,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { getAccountData } from "@/app/acrions/getAcсountData";
 
 const MyAccount: React.FC<MyAccountProps> = () => {
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 767px)").matches;
 
   const {
     formState: { errors },
@@ -70,9 +72,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-form-input"
                 type="text"
                 name="firstName"
-                // value={formData.firstName}
                 placeholder="Марія"
-                // onChange={handleChange}
               />
             </div>
 
@@ -85,9 +85,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-form-input"
                 type="text"
                 name="lastName"
-                // value={formData.lastName}
                 placeholder="Коваленко"
-                // onChange={handleChange}
               />
             </div>
 
@@ -100,9 +98,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-form-input"
                 type="text"
                 name="phoneNumber"
-                // value={formData.phoneNumber}
                 placeholder="+38 (098) 000-00-00"
-                // onChange={handleChange}
               />
             </div>
 
@@ -111,11 +107,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
               <input
                 {...register("email", { required: "Email is require field" })}
                 className="client-form-input"
-                // type="email"
-                // name="email"
-                // value={formData.email}
                 placeholder="mariiakovalenko@gmail.com  "
-                // onChange={handleChange}
               />
             </div>
 
@@ -128,9 +120,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-form-input"
                 type="text"
                 name="city"
-                // value={formData.city}
                 placeholder="Київ"
-                // onChange={handleChange}
               />
             </div>
           </div>
@@ -147,8 +137,6 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-password-input"
                 type="password"
                 name="newPassword"
-                // value={formData.newPassword}
-                // onChange={handleChange}
               />
             </div>
 
@@ -158,8 +146,6 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 className="client-password-input"
                 type="password"
                 name="confirmPassword"
-                // value={formData.confirmPassword}
-                // onChange={handleChange}
               />
             </div>
           </div>

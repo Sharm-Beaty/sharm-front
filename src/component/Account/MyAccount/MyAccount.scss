@@ -23,13 +23,14 @@
 .client-profile {
   display: flex;
   flex-direction: column;
-  margin-top: 64px;
+  margin-top: 12px;
   margin-bottom: 120px;
   width: 100%;
 }
 
 .client-title {
-  margin-bottom: 48px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-family: Roboto;
   font-size: 26px;
   font-style: normal;
@@ -134,6 +135,11 @@
 
   .client-profile {
     width: 60%;
+    margin-top: 64px;
+  }
+
+  .client-title {
+    margin-bottom: 48px;
   }
 
   .client-form-item {
@@ -141,7 +147,7 @@
     width: 600px;
     justify-content: space-between;
     align-items: center;
-    flex-direction: none;
+    flex-direction: row;
   }
 
   .client-password-form {

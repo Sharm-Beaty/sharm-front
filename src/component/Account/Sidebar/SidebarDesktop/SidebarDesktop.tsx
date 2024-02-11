@@ -19,7 +19,7 @@ const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => (
 );
 
 const SidebarDesktop: React.FC = () => (
-  <div className="client-sidebar">
+  <div className="client-sidebar-desktop">
     <NavLink to="/ru/account" icon={<User />} text="Мої дані" />
     <NavLink to="/ru/my-orders" icon={<Clarity />} text="Мої замовлення" />
     <NavLink
