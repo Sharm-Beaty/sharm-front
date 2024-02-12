@@ -14,14 +14,48 @@ import {
   Heart,
 } from "@/component/svg";
 
-const NavLink: React.FC<NavLinkProps> = ({ to, icon, text }) => (
-  <NextLink href={to}>
-    <div className="nav-link">
-      <div className="icon-container">{icon}</div>
-      <div className="text-container-mobile">{text}</div>
-    </div>
-  </NextLink>
-);
+const menuItems = [
+  { text: "Мої дані", icon: <User />, path: "/ru/account" },
+  { text: "Мої замовлення", icon: <Clarity />, path: "/ru/my-orders" },
+  { text: "Адреси доставки", icon: <Location />, path: "/ru/delivery-info" },
+  { text: "Сповіщення", icon: <Mail />, path: "/ru/notifications" },
+  { text: "Список бажань", icon: <Heart />, path: "/ru/favorite" },
+  { text: "Вихід", icon: <Logout />, path: "/" },
+];
+
+const NavLink: React.FC<
+  NavLinkProps & {
+    updateCurrentMenuItem: (text: string) => void;
+    currentMenuItem: string;
+  }
+> = ({ to, icon, text, updateCurrentMenuItem, currentMenuItem }) => {
+  const isMenuHeader = currentMenuItem === text;
+  const iconElement = icon
+    ? React.cloneElement(icon as React.ReactElement<any>, {
+        className: isMenuHeader ? "svg-icon" : "",
+      })
+    : null;
+
+  return (
+    <NextLink href={to}>
+      <div className="nav-link" onClick={() => updateCurrentMenuItem(text)}>
+        <div className="icon-container">{iconElement}</div>
+        <div className="text-container-mobile">{text}</div>
+      </div>
+    </NextLink>
+  );
+};
+
+// const NavLink: React.FC<
+//   NavLinkProps & { updateCurrentMenuItem: (text: string) => void }
+// > = ({ to, icon, text, updateCurrentMenuItem }) => (
+//   <NextLink href={to}>
+//     <div className="nav-link" onClick={() => updateCurrentMenuItem(text)}>
+//       <div className="icon-container">{icon}</div>
+//       <div className="text-container-mobile">{text}</div>
+//     </div>
+//   </NextLink>
+// );
 
 const Sidebar: React.FC<SidebarProps> = ({ initialMenuItem }) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(initialMenuItem);
@@ -54,40 +88,28 @@ const Sidebar: React.FC<SidebarProps> = ({ initialMenuItem }) => {
     <div className="client-sidebar-mobile">
       <div className="menu-header" onClick={toggleMenu}>
         <div className="nav-link">
-          <div className="icon-container"> {selectIcon(currentMenuItem)}</div>
+          <div className="icon-container">{selectIcon(currentMenuItem)}</div>
           <div className="text-container">{currentMenuItem}</div>
-          <div className="icon-vector">{vectorIcon} </div>
+          <div className="icon-vector">{vectorIcon}</div>
         </div>
       </div>
 
       <div className={`dropdown-menu ${isMenuOpen ? "active" : ""}`}>
         <ul>
-          <li>
-            <NavLink to="/ru/account" icon={<User />} text="Мої дані" />
-          </li>
-          <li>
-            <NavLink
-              to="/ru/my-orders"
-              icon={<Clarity />}
-              text="Мої замовлення"
-            />
-          </li>
-          <li>
-            <NavLink
-              to="/ru/delivery-info"
-              icon={<Location />}
-              text="Адреси доставки"
-            />
-          </li>
-          <li>
-            <NavLink to="/ru/notifications" icon={<Mail />} text="Сповіщення" />
-          </li>
-          <li>
-            <NavLink to="/ru/favorite" icon={<Heart />} text="Список бажань" />
-          </li>
-          <li>
-            <NavLink to="/" icon={<Logout />} text="Вихід" />
-          </li>
+          {menuItems.map(
+            (item) =>
+              item.text !== currentMenuItem && (
+                <li key={item.text}>
+                  <NavLink
+                    to={item.path}
+                    icon={item.icon}
+                    text={item.text}
+                    updateCurrentMenuItem={setCurrentMenuItem}
+                    currentMenuItem={currentMenuItem}
+                  />
+                </li>
+              )
+          )}
         </ul>
       </div>
     </div>

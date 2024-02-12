@@ -1,7 +1,7 @@
 export const VectorUp = () => (
   <svg
-    width="24"
-    height="24"
+    width="16"
+    height="6.4"
     viewBox="0 0 18.0078 8.40393"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

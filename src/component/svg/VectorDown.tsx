@@ -1,7 +1,7 @@
 export const VectorDown = () => (
   <svg
-    width="8.403992"
-    height="8.403992"
+    width="16"
+    height="6.4"
     viewBox="0 0 18.0078 8.40399"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
