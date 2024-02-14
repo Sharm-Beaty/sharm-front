@@ -55,7 +55,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
                         opacity: 1,
                         duration: 0.5,
                     });
-=                } else {
+                } else {
                     gsap.to(overlayElement?.current, {
                         opacity: 0,
                         duration: 0.5,
