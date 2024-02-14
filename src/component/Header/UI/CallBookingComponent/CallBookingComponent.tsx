@@ -71,7 +71,6 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
     }, [callBookingWrapper]);
 
     const hideModalWindow = () => {
-        console.log('hide')
         if (modalRef?.current) {
             gsap.fromTo(
                 modalRef?.current,
@@ -97,7 +96,6 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
         setValidationAttempted(true);
 
         const isPhoneNumberValid = (validatePhoneNumber(phoneNumber));
-        console.log('validate ' + validatePhoneNumber(phoneNumber))
         setIsValid(isPhoneNumberValid);
 
         if (isPhoneNumberValid) {
