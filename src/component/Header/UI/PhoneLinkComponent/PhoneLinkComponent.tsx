@@ -6,14 +6,21 @@ import {useTranslations} from "use-intl";
 import ModalWindow from "@/component/UI/ModalWindow/ModalWindow";
 import useModal from "@/hooks/useModal";
 import CallBookingComponent from "../CallBookingComponent/CallBookingComponent";
+import {AnimatedNavItem} from "@/component/Header/UI/Navigation (mobile)/Navigation";
+import {useCustomMediaQuery} from "@/hooks/useMediaQuery";
 
+const interactionUserActions = {
+    whileHover: {scale: 0.95},
+    whileTap: {scale: 0.9}
+};
 const PhoneLinkComponent = () => {
-    const [isValid, setIsValid] = useState(true);
+    const isMobile = useCustomMediaQuery('(max-width: 770px)')
+    const [isValid, setIsValid] = useState(false);
     const t = useTranslations("phoneLinkComponent");
     const {isVisible, toggle} = useModal();
     const modalRef = useRef<HTMLDivElement>(null);
     const openModalWindow = () => {
-        setIsValid(true);
+        setIsValid(false);
         toggle();
     }
     return (
@@ -24,6 +31,7 @@ const PhoneLinkComponent = () => {
             >
                 <Phone/>
                 <span> [0800 50 51 13]</span>
+
             </a>
             <motion.button
                 whileTap={{
@@ -40,6 +48,7 @@ const PhoneLinkComponent = () => {
         />
             </motion.button>
             <ModalWindow
+                overlay={isMobile}
                 ref={modalRef}
                 className={styles['modal-styles']}
                 isVisible={isVisible}

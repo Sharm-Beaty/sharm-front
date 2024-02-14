@@ -57,6 +57,7 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
     const [phoneNumber, setPhoneNumber] = useState("");
     const callBookingWrapper = useRef<HTMLDivElement>(null);
     const [selectedTime, setSelectedTime] = useState<string | null>(null);
+    const [validationAttempted, setValidationAttempted] = useState(false);
     const t = useTranslations('callBookingComponent');
     useEffect(() => {
         if (callBookingWrapper) {
@@ -70,6 +71,7 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
     }, [callBookingWrapper]);
 
     const hideModalWindow = () => {
+        console.log('hide')
         if (modalRef?.current) {
             gsap.fromTo(
                 modalRef?.current,
@@ -92,8 +94,10 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
     };
 
     const validateAndCloseModal = () => {
-        const isPhoneNumberValid = validatePhoneNumber(phoneNumber);
+        setValidationAttempted(true);
 
+        const isPhoneNumberValid = (validatePhoneNumber(phoneNumber));
+        console.log('validate ' + validatePhoneNumber(phoneNumber))
         setIsValid(isPhoneNumberValid);
 
         if (isPhoneNumberValid) {
@@ -138,7 +142,7 @@ const CallBookingComponent: FunctionComponent<CallBookingComponentProps> = ({
             </div>
 
             <div className={styles["error-message-container"]}>
-                {!isValid && <span className={styles["error-message"]}>{t('error-message')}</span>}
+                {!isValid && validationAttempted &&  <span className={styles["error-message"]}>{t('error-message')}</span>}
             </div>
 
             <BookButton onClick={validateAndCloseModal}>{t('book-call-button')}</BookButton>

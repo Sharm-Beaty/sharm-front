@@ -12,12 +12,9 @@ const offsetYS = [50, 400];
 const topHeaderOpacityValues = [1, 0];
 const topHeaderHeightValues = [72, 0];
 const imageHeightValues = [100, 50];
-// const imageWidthValues = [200, 100];
 const mainHeaderHeightDesktop = [100, 45];
-// const mainHeaderHeightMobile = [60, 50];
 const borderColorsValues = ['#fff', '#B8B8B8'];
 const hideBorderColorsValues = ['#B8B8B8', '#fff'];
-// const moveElementX = [0, 150];
 const moveElementToRight = [0, 75];
 const moveElementToLeft = [0, -75];
 

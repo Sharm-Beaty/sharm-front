@@ -8,6 +8,7 @@ interface ModalProps {
     children: ReactNode;
     padding?: string;
     className: string;
+    overlay?: boolean;
 }
 
 
@@ -18,9 +19,11 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
          onClose,
          children,
          padding = "1rem 90px",
+         overlay = false,
      }, ref) => {
         const modalElement = ref as RefObject<HTMLDivElement>;
         const targetRef = useRef(null);
+        const overlayElement = useRef(null);
         const modalStyle = {
             padding,
         };
@@ -81,6 +84,23 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
             },
             [isVisible, tl, onClose, modalElement, hideModalWindow]);
 
+        useEffect(() => {
+            if (overlayElement?.current) {
+                if (isVisible) {
+                    gsap.to(overlayElement?.current, {
+                        opacity: 1,
+                        duration: 0.5,
+                    });
+                    console.log(overlayElement)
+                } else {
+                    gsap.to(overlayElement?.current, {
+                        opacity: 0,
+                        duration: 0.5,
+                    });
+                }
+            }
+        }, [isVisible]);
+
         const mouseDownAnimate = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
             event.stopPropagation();
@@ -118,13 +138,18 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
 
         return (isVisible && (
             <>
+                {overlay && <div
+                    ref={overlayElement}
+                    className={styles.overlay}></div>}
                 <div
                     ref={modalElement}
                     className={`${styles.modal} ${className}`}
                     style={modalStyle}>
                     <div
                         className={styles.modal_children}
-                        onClick={e => e.stopPropagation()}>
+                        onClick={e => {
+                            e.stopPropagation()
+                        }}>
                         {children}
                     </div>
                     <button
