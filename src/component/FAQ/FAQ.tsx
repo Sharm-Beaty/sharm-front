@@ -5,7 +5,6 @@ import cls from './FAQ.module.scss';
 import { FAQCard } from './FAQCard/FAQCard';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 interface FaqProps extends HTMLProps<HTMLDivElement> {
 	className?: string;
@@ -38,6 +37,7 @@ const Faq: FC<FaqProps> = ({ className, ...otherProps }) => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
 		let ctx = gsap.context(() => {
 			let tl = gsap.timeline({
 				autoAlpha: 0,
