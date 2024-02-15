@@ -4,7 +4,14 @@ type OptionsForFormattedPrice = {
 	currencyDisplay?: 'narrowSymbol' | 'symbol' | 'name' | 'code';
 	minimumFractionDigits?: number;
 	maximumFractionDigits?: number;
-}
+};
+
+type ProductVariantsData = {
+	price: string;
+	priceOld: string;
+	value: string;
+	shipping?: 'eu';
+};
 
 type DiscountedProducts = {
 	id: string;
@@ -13,6 +20,12 @@ type DiscountedProducts = {
 	images: Image[];
 	isLuxury: boolean;
 	siblings: Sibling[];
+	variants: Record<string, string> | null;
+	variantsData: Record<string, ProductVariantsData> | null;
+	variant: string;
+	variantId: string;
+	brand?: string | null;
+	brandId?: string | null;
 	mainCard: boolean;
 	name: string;
 	description: string | null;
@@ -44,4 +57,4 @@ interface Sibling {
 type FAQData = {
 	question: string;
 	answer: string;
-}
+};

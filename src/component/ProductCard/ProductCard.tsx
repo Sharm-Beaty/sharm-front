@@ -1,4 +1,11 @@
-import React, { ComponentType, PropsWithChildren, RefAttributes, forwardRef } from 'react';
+'use client';
+import React, {
+	ComponentType,
+	PropsWithChildren,
+	RefAttributes,
+	useState,
+	forwardRef,
+} from 'react';
 import Image from 'next/image';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import cls from './index.module.scss';
@@ -7,6 +14,7 @@ import Rating from '@/component/Rating';
 import Link from 'next/link';
 import { Like } from '@/component/UI/Like';
 import { useFavoriteProduct } from '@/hooks';
+import { ProductCardModal } from './ProductCardModal/ProductCardModal';
 
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
@@ -16,7 +24,10 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 	forwardRef(function ProductCard({ className, product, ...otherProps }, ref) {
 		const [isInFavorite, setIsInFavorite] = useFavoriteProduct(product.id);
 		const IsDiscounted = Boolean(product.discountedPrice);
-
+		const [price, setCurrentPrice] = useState({
+			current: product.discountedPrice,
+			old: product.price,
+		});
 		return (
 			<motion.article
 				ref={ref}
@@ -75,15 +86,24 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						{IsDiscounted && (
 							<>
 								<motion.span className={cls.currentPrise}>
-									{getFormattedPrice(product.discountedPrice || 0)}
+									{getFormattedPrice(price.current || 0)}
 								</motion.span>
 							</>
 						)}
 						<motion.span className={IsDiscounted ? cls.oldPrice : ''}>
-							{getFormattedPrice(product.price || 0)}
+							{getFormattedPrice(price.old || 0)}
 						</motion.span>
 					</motion.div>
 				</motion.div>
+				{product.variantsData && (
+					<ProductCardModal
+						className={cls.modal}
+						productId={product.id}
+						variantId={product.variantId}
+						variantsData={product.variantsData}
+						setCurrentPrice={setCurrentPrice}
+					/>
+				)}
 			</motion.article>
 		);
 	});

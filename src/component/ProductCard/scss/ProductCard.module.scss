@@ -1,5 +1,6 @@
 .productCard {
 	width: inherit;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 }
@@ -110,4 +111,10 @@
 .ratingWrapper,
 .price {
 	user-select: none;
+}
+
+.productCard:hover .modal {
+	opacity: 1 !important;
+	visibility: visible;
+	transform: translate3d(0, 0, 0);
 }
