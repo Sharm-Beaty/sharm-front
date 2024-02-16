@@ -8,3 +8,4 @@ export { Arrow } from './Arrow';
 export { Search } from './Search';
 export { ArrowLeft } from './CardsCarousel/arrowLeft';
 export { ArrowRight } from './CardsCarousel/arrowRight';
+export { SortArrow } from './SortArrow';

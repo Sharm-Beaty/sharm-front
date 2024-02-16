@@ -19,9 +19,16 @@ import { ProductCardModal } from './ProductCardModal/ProductCardModal';
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
 	product: DiscountedProducts;
+	imgSize?: {
+		width: number;
+		height: number;
+	};
 }
 const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttributes<HTMLElement>>> =
-	forwardRef(function ProductCard({ className, product, ...otherProps }, ref) {
+	forwardRef(function ProductCard(
+		{ className, product, imgSize = { width: 200, height: 270 }, ...otherProps },
+		ref,
+	) {
 		const [isInFavorite, setIsInFavorite] = useFavoriteProduct(product.id);
 		const IsDiscounted = Boolean(product.discountedPrice);
 		const [price, setCurrentPrice] = useState({
@@ -61,8 +68,8 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						<Image
 							src={product.images[0].url}
 							alt={product.name}
-							width={200}
-							height={270}
+							width={imgSize.width}
+							height={imgSize.height}
 							draggable='false'
 						/>
 					</Link>
