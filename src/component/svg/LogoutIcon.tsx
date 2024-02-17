@@ -1,6 +1,9 @@
-export const Logout = () => (
+import React from "react";
+import { IconProps } from "../Account/interfaces";
+
+export const LogoutIcon: React.FC<IconProps> = ({ className }) => (
   <svg
-    className="logout-svg"
+    className={`${className}`}
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -19,7 +22,6 @@ export const Logout = () => (
       <path
         id="Vector_2"
         d="M11.2856 12H21.2856"
-        stroke="#363636"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -27,7 +29,6 @@ export const Logout = () => (
       <path
         id="Vector_3"
         d="M18.4287 9.14258L21.2859 11.9997L18.4287 14.8569"
-        stroke="#363636"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

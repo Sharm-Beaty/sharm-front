@@ -1,12 +1,11 @@
 "use client";
 import React, { FormEvent, useEffect } from "react";
 import { MyAccountProps, MyFormData } from "../interfaces";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { getAccountData } from "@/app/acrions/getAcсountData";
 import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
 import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
 import "./MyAccount.scss";
-import Sidebar from "../Sidebar/SidebarMobile/SidebarMobile";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { getAccountData } from "@/app/acrions/getAcсountData";
 
 const MyAccount: React.FC<MyAccountProps> = () => {
   const isMobile =
