@@ -1,5 +1,5 @@
 'use client';
-import { Dispatch, FC, MouseEventHandler, SetStateAction, memo, useState } from 'react';
+import { Dispatch, FC, SetStateAction, memo, useState } from 'react';
 import { classNames } from '@/helpers';
 
 import './ProductCardModal.scss';
@@ -33,11 +33,12 @@ const ProductCardModal: FC<ProductCardModalProps> = memo(function ProductModal(p
 	const [checked, setChecked] = useState(variantId);
 	const [isOpen, setIsOpen] = useState(false);
 
-	const onClickHandler = ({ target }: MouseEvent) => {
-		const variant = target?.dataset.variantId || null;
+	const onClickHandler = (event: any) => {
+		const target = event.target as HTMLDivElement;
+		const variant = target.dataset.variantId || null;
 		const price = {
-			current: target?.dataset.price || null,
-			old: target?.dataset.priceOld || null,
+			current: target.dataset.price || null,
+			old: target.dataset.priceOld || null,
 		};
 
 		if (variant) {

@@ -18,9 +18,9 @@ const Select: FC<SelectProps> = memo(function SelectSortBy(props) {
 	const [checked, setChecked] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
 
-	const onClickHandler = (event: Event) => {
+	function onClickHandler(event: any) {
 		const target = event.target as HTMLDivElement;
-		const variant = Number(target?.dataset.variantId);
+		const variant = Number(target.dataset.variantId);
 
 		onClick();
 
@@ -30,15 +30,17 @@ const Select: FC<SelectProps> = memo(function SelectSortBy(props) {
 		}
 
 		setIsOpen(false);
-	};
+	}
 
 	useEffect(() => {
-		const checkIfClickedOutside = (event: Event) => {
+		function checkIfClickedOutside(event: Event) {
 			if (ref.current && !ref.current.contains(event.target as Node)) {
 				setIsOpen(false);
 			}
-		};
+		}
+
 		document.addEventListener('click', checkIfClickedOutside);
+
 		return () => {
 			document.removeEventListener('click', checkIfClickedOutside);
 		};
@@ -67,8 +69,7 @@ const Select: FC<SelectProps> = memo(function SelectSortBy(props) {
 									title={variant}
 									onClick={onClickHandler}
 									data-variant-id={i}
-									data-variant={variant}
-								>
+									data-variant={variant}>
 									{variant}
 								</div>
 							);
