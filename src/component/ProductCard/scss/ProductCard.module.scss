@@ -1,5 +1,5 @@
 .productCard {
-	width: inherit;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 }
@@ -41,6 +41,13 @@
 	a {
 		color: inherit;
 	}
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .title,
@@ -110,4 +117,10 @@
 .ratingWrapper,
 .price {
 	user-select: none;
+}
+
+.productCard:hover .modal {
+	opacity: 1 !important;
+	visibility: visible;
+	transform: translate3d(0, 0, 0);
 }

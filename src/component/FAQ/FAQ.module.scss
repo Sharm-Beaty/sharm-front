@@ -3,6 +3,8 @@
 	margin: 92px 0;
 	padding: 0 72px;
 	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
 
 	@media (max-width: 768px) {
 		padding: 0;
@@ -47,4 +49,12 @@
 	@media (max-width: 1025px) {
 		max-width: unset;
 	}
+}
+
+.initLeft {
+	transform: translate(-1000px, 0px);
+}
+
+.initRight {
+	transform: translate(1000px, 0px);
 }

@@ -65,21 +65,16 @@ const Faq: FC<FaqProps> = ({ className, ...otherProps }) => {
 	}, []);
 
 	return (
-		<section
-			className={classNames(cls.faqSection, [className])}
-			{...otherProps}
-			ref={sectionRef}
-			style={{ opacity: 0, visibility: 'hidden' }}
-		>
+		<section className={classNames(cls.faqSection, [className])} {...otherProps} ref={sectionRef}>
 			<h5 className={cls.title}>Інтернет магазин косметики та парфумерії Sharm Beauty</h5>
 			<ul className={cls.listOfAnsw}>
 				<li className={cls.qAndAWrapper}>
-					<FAQCard faqData={faqSection[0]} style={{ transform: 'translate(-1000px, 0px)' }} />
-					<FAQCard faqData={faqSection[1]} style={{ transform: 'translate(-1000px, 0px)' }} />
+					<FAQCard faqData={faqSection[0]} className={cls.initLeft} />
+					<FAQCard faqData={faqSection[1]} className={cls.initLeft} />
 				</li>
 				<li className={cls.qAndAWrapper}>
-					<FAQCard faqData={faqSection[2]} style={{ transform: 'translate(1000px, 0px)' }} />
-					<FAQCard faqData={faqSection[3]} style={{ transform: 'translate(1000px, 0px)' }} />
+					<FAQCard faqData={faqSection[2]} className={cls.initRight} />
+					<FAQCard faqData={faqSection[3]} className={cls.initRight} />
 				</li>
 			</ul>
 		</section>
