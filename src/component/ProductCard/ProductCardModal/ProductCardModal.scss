@@ -176,7 +176,7 @@ input:valid {
 
 .select .variants .variant.checked,
 .select .variants .variant:hover {
-	background: #fafafa;
+	background: hsl(0, 0%, 95%);
 }
 
 .select .variants .variant {
@@ -221,6 +221,9 @@ input:valid {
 
 .button {
 	color: #fff;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 150%;
 	border: 1px solid transparent;
-	background: #212121;
+	background: var(--color-primary);
 }

@@ -84,14 +84,13 @@ const ProductCardModal: FC<ProductCardModalProps> = memo(function ProductModal(p
 								<div
 									key={key + productId}
 									className={'variant' + checkedClass}
-									title={'&nbsp;' + variant.value}
+									title={variant.value}
 									data-variant-id={key}
 									data-price={variant.price}
 									data-price-old={variant.priceOld || 0}
 									data-favourite='false'
 									data-img='/product-carousel/variant_pic/test.jpg'
-									onClick={onClickHandler}
-								>
+									onClick={onClickHandler}>
 									<Image
 										width={22}
 										height={22}
@@ -110,7 +109,7 @@ const ProductCardModal: FC<ProductCardModalProps> = memo(function ProductModal(p
 				</div>
 			</div>
 			<div className='simple-slider-list-buttons'>
-				<div className='button buy'>Купити</div>
+				<div className='button buy'>До кошика</div>
 			</div>
 		</div>
 	);
