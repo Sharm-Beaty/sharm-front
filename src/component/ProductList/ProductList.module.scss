@@ -7,22 +7,22 @@
 	align-items: center;
 	flex-wrap: wrap;
 	column-gap: 16px;
-	row-gap: 40px;
 }
 
 .productCards {
+	margin-bottom: 120px;
 	width: 230px;
 	height: 475px;
 }
 
 .filter {
+	margin-bottom: 40px;
 	flex: 1 1 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.sort,
 .sortBy {
 	display: flex;
 	align-items: center;

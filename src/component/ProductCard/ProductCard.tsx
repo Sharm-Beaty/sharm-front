@@ -72,16 +72,18 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						</Link>
 					</motion.div>
 					<motion.div className={cls.price}>
-						{IsDiscounted && (
+						{price.current && (
 							<>
 								<motion.span className={cls.currentPrise}>
 									{getFormattedPrice(price.current || 0)}
 								</motion.span>
 							</>
 						)}
-						<motion.span className={IsDiscounted ? cls.oldPrice : ''}>
-							{getFormattedPrice(price.old || 0)}
-						</motion.span>
+						{Number(price.old) > 0 && (
+							<motion.span className={price.old ? cls.oldPrice : ''}>
+								{getFormattedPrice(price.old || 0)}
+							</motion.span>
+						)}
 					</motion.div>
 				</motion.div>
 				{product.variantsData && (
