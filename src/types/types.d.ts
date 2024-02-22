@@ -6,6 +6,14 @@ type OptionsForFormattedPrice = {
 	maximumFractionDigits?: number;
 };
 
+type SelectFormSortBy_UA = [
+	'Популярністю',
+	'Рейтингом',
+	'Зростанням ціни',
+	'Зменшенням ціни',
+	'Наявністю',
+];
+
 type ProductVariantsData = {
 	price: string;
 	priceOld: string;
@@ -31,7 +39,7 @@ type DiscountedProducts = {
 	description: string | null;
 	rating: string | null;
 	price: string | null;
-	discountedPrice?: string | null;
+	priceOld: string | null;
 	url?: string | null;
 	amountComments?: string | null;
 	currency?: string | null;

@@ -26,8 +26,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.',
 		rating: '4',
-		discountedPrice: '100',
-		price: '333',
+		price: '100',
+		priceOld: '333',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -113,8 +113,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.',
 		rating: '1',
-		discountedPrice: '100',
-		price: '111',
+		price: '100',
+		priceOld: '111',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -200,8 +200,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.',
 		rating: '5',
-		discountedPrice: '100',
-		price: '245',
+		price: '100',
+		priceOld: '245',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -272,8 +272,8 @@ export const products: DiscountedProducts[] = [
 		name: 'ut ultrices',
 		description: 'In eleifend quam a odio.',
 		rating: '3',
-		discountedPrice: '100',
-		price: '567',
+		price: '100',
+		priceOld: '567',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -344,8 +344,8 @@ export const products: DiscountedProducts[] = [
 		name: 'non interdum',
 		description: 'Praesent blandit.',
 		rating: '1',
-		discountedPrice: '100',
-		price: '2131',
+		price: '100',
+		priceOld: '2131',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -417,8 +417,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.',
 		rating: '2',
-		discountedPrice: '100',
-		price: '3111',
+		price: '100',
+		priceOld: '3111',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -489,8 +489,8 @@ export const products: DiscountedProducts[] = [
 		name: 'nec',
 		description: 'Nunc purus. Phasellus in felis.',
 		rating: '4',
-		discountedPrice: '100',
-		price: '54',
+		price: '100',
+		priceOld: '54',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -562,8 +562,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.',
 		rating: '3',
-		discountedPrice: '100',
-		price: '564',
+		price: '100',
+		priceOld: '564',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -634,8 +634,8 @@ export const products: DiscountedProducts[] = [
 		name: 'luctus tincidunt',
 		description: 'Donec posuere metus vitae ipsum.',
 		rating: '4',
-		discountedPrice: '100',
-		price: '89',
+		price: '100',
+		priceOld: '89',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',
@@ -707,8 +707,8 @@ export const products: DiscountedProducts[] = [
 		description:
 			'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
 		rating: '5',
-		discountedPrice: '100',
-		price: '80',
+		price: '100',
+		priceOld: '80',
 		variants: {
 			'1412801': '50ml',
 			'1412803': '100ml',

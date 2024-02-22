@@ -12,7 +12,7 @@ interface ProductCardModalProps {
 	variantsData: NonNullable<DiscountedProducts['variantsData']>;
 	setCurrentPrice?: Dispatch<
 		SetStateAction<{
-			current: string | null | undefined;
+			current: string | null;
 			old: string | null;
 		}>
 	>;
@@ -102,7 +102,7 @@ const ProductCardModal: FC<ProductCardModalProps> = memo(function ProductModal(p
 									{variant.shipping && (
 										<i className={variant.shipping} title='Доставка з ЄС, 5-8 роб. днів'></i>
 									)}
-									&nbsp;30ml
+									{variant.value}
 								</div>
 							);
 						})}

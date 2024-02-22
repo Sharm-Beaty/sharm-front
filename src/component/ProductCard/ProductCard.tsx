@@ -30,33 +30,17 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 		ref,
 	) {
 		const [isInFavorite, setIsInFavorite] = useFavoriteProduct(product.id);
-		const IsDiscounted = Boolean(product.discountedPrice);
+		const IsDiscounted = Boolean(product.priceOld);
 		const [price, setCurrentPrice] = useState({
-			current: product.discountedPrice,
-			old: product.price,
+			current: product.price,
+			old: product.priceOld,
 		});
 		return (
 			<motion.article
 				ref={ref}
 				className={classNames(cls.productCard, [className])}
-				layout
-				initial={{ x: 0, scale: 0.8, opacity: 0 }}
-				animate={{
-					scale: 1,
-					opacity: 1,
-					transition: {
-						duration: 0.4,
-					},
-				}}
-				transition={{
-					type: 'keyframes',
-					damping: 15,
-					stiffness: 100,
-				}}
-				exit={{ scale: 1, opacity: 0 }}
-				{...otherProps}
-			>
-				<motion.div layout className={cls.head}>
+				{...otherProps}>
+				<motion.div className={cls.head}>
 					<Like
 						className={cls.svgLike}
 						onClick={() => setIsInFavorite((prev) => !prev)}
@@ -74,16 +58,14 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						/>
 					</Link>
 				</motion.div>
-				<motion.div layout className={cls.body}>
+				<motion.div className={cls.body}>
 					<Link href={product.id}>
-						<motion.h5 layoutId={product.name} className={cls.title}>
-							{product.name}
-						</motion.h5>
+						<motion.h5 className={cls.title}>{product.name}</motion.h5>
 						<motion.p className={cls.subTitle}>{product.description}</motion.p>
 					</Link>
 				</motion.div>
 				<motion.div className={cls.footer}>
-					<motion.div layoutId={`${product.rating}`} className={cls.ratingWrapper}>
+					<motion.div className={cls.ratingWrapper}>
 						<Rating className={cls.rating} ratingNumber={product.rating ?? -1} />
 						<Link href={product.id} className={cls.amountComments}>
 							(1)

@@ -1,0 +1,25 @@
+.sortOrder {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.button {
+	background: none;
+	color: var(--color-placeholder);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	line-height: 0;
+}
+
+.arrow {
+	transform: rotate3d(0, 0, 0, 0);
+	transition: all 500ms;
+}
+
+.arrowUp {
+	transform: rotate3d(1, 0, 0, 180deg);
+}
