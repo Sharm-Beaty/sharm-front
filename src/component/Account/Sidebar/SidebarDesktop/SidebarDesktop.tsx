@@ -1,22 +1,33 @@
+"use client";
 import React from "react";
-import { LogoutIcon } from "../../../svg/LogoutIcon";
-import { UserIcon } from "../../../svg/UserIcon";
-import { ClarityIcon } from "../../../svg/ClarityIcon";
-import { LocationIcon } from "../../../svg/LocationIcon";
-import { MailIcon } from "../../../svg/MailIcon";
-import { HeartIcon } from "../../../svg/HeartIcon";
-import { NavLinkProps } from "../../interfaces";
+import { usePathname } from "next/navigation";
 import NextLink from "next/link";
+import {
+  LogoutIcon,
+  UserIcon,
+  ClarityIcon,
+  LocationIcon,
+  MailIcon,
+  HeartIcon,
+} from "@/component/svg";
+import { NavLinkProps } from "../../interfaces";
 import "./SidebarDesktop.scss";
 
-const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => (
-  <NextLink href={to}>
-    <div className="nav-link">
-      <div className="icon-container">{icon}</div>
-      <div className="text-container">{text}</div>
-    </div>
-  </NextLink>
-);
+const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => {
+  const pathname = usePathname();
+  const isActive = pathname === to;
+
+  return (
+    <NextLink href={to}>
+      <div className={`nav-link ${isActive ? "active" : ""}`}>
+        <div className="icon-container">
+          <div className="svg-icon">{icon}</div>
+        </div>
+        <div className="text-container">{text}</div>
+      </div>
+    </NextLink>
+  );
+};
 
 const SidebarDesktop: React.FC = () => (
   <div className="client-sidebar-desktop">

@@ -21,7 +21,6 @@ export const LocationIcon: React.FC<IconProps> = ({ className }) => (
       <path
         id="Vector_2"
         d="M12.0003 11.2857C13.1838 11.2857 14.1431 10.3263 14.1431 9.14286C14.1431 7.95939 13.1838 7 12.0003 7C10.8168 7 9.85742 7.95939 9.85742 9.14286C9.85742 10.3263 10.8168 11.2857 12.0003 11.2857Z"
-        stroke="#363636"
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"

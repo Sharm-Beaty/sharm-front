@@ -29,22 +29,22 @@ const MyAccount: React.FC<MyAccountProps> = () => {
     mode: "onChange",
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getAccountData();
-        setValue("firstName", response.data.firstName);
-        setValue("lastName", response.data.lastName);
-        setValue("phoneNumber", response.data.phoneNumber);
-        setValue("email", response.data.email);
-        setValue("city", response.data.city);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await getAccountData();
+  //       setValue("firstName", response.data.firstName);
+  //       setValue("lastName", response.data.lastName);
+  //       setValue("phoneNumber", response.data.phoneNumber);
+  //       setValue("email", response.data.email);
+  //       setValue("city", response.data.city);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [setValue]);
+  //   fetchData();
+  // }, [setValue]);
 
   const onSubmit: SubmitHandler<MyFormData> = (data) => {
     console.log(data.firstName);

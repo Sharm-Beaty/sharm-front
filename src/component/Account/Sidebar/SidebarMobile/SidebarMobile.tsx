@@ -1,11 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import NextLink from "next/link";
-import {
-  NavLinkPropsMobile,
-  NavLinkProps,
-  SidebarProps,
-} from "../../interfaces";
+import { NavLinkPropsMobile, SidebarProps } from "../../interfaces";
 import "./SidebarMobile.scss";
 import {
   VectorDown,
@@ -52,7 +48,7 @@ const NavLink: React.FC<NavLinkPropsMobile> = ({
   </NextLink>
 );
 
-const Sidebar: React.FC<SidebarProps> = ({ initialMenuItem }) => {
+const SidebarMobile: React.FC<SidebarProps> = ({ initialMenuItem }) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(initialMenuItem);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -113,4 +109,4 @@ const Sidebar: React.FC<SidebarProps> = ({ initialMenuItem }) => {
   );
 };
 
-export default Sidebar;
+export default SidebarMobile;

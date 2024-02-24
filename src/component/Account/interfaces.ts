@@ -13,7 +13,7 @@ export interface NavLinkPropsMobile {
 }
 
 export interface MyAccountProps {
-  onSubmit: (formData: MyFormData) => void;
+  // onSubmit: (formData: MyFormData) => void;
 }
 export interface MyFormData {
   firstName: string;

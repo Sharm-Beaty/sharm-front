@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // max-width: 360px;
 }
 
 .nav-link {
@@ -109,7 +108,6 @@
   margin-top: 48px;
   display: flex;
   width: 100%;
-  // min-width: 360px;
   padding: 14px 10px;
   justify-content: center;
   align-items: center;
@@ -121,8 +119,7 @@
   text-transform: uppercase;
   color: #fff;
   background: var(--color-primary);
-
-  // border: none;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -131,14 +128,18 @@
     gap: 64px;
     flex-direction: row;
     align-items: stretch;
+    justify-content: start;
+
+    padding: 64px 70px 120px 70px;
+    width: 100%;
   }
 
   .client-profile {
     width: 60%;
-    margin-top: 64px;
   }
 
   .client-title {
+    margin-top: 0;
     margin-bottom: 48px;
   }
 
