@@ -34,6 +34,10 @@ export interface IconProps {
   color?: string;
 }
 
+export interface BreadcrumbsProps {
+  path: string;
+}
+
 export interface OrderStatusProps {}
 
 export interface DeliveryInfoProps {}

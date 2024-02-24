@@ -1,4 +1,3 @@
-// "use client";
 import { sendAccountData } from "@/app/acrions/sendAccountData";
 import MyAccount from "@/component/Account/MyAccount/MyAccount";
 import { MyFormData } from "@/component/Account/interfaces";
