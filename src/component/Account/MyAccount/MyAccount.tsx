@@ -7,7 +7,6 @@ import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
 import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
 import "./MyAccount.scss";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
-import path from "path";
 
 const MyAccount: React.FC<MyAccountProps> = () => {
   const pathname = usePathname();

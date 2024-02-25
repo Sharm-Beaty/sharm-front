@@ -7,11 +7,12 @@ import { BreadcrumbsProps } from "../interfaces";
 
 const menuItems = [
   { text: "МІЙ КАБІНЕТ", path: "/account" },
-  { text: "МОЇ ЗАМОВЛЕННЯ", path: "/my-orders" },
-  { text: "АДРЕСИ ДОСТАВКИ", path: "/delivery-info" },
-  { text: "СПОВІЩЕННЯ", path: "/notifications" },
-  { text: "СПИСОК БАЖАНЬ", path: "/favorite" },
-  { text: "Вихід", path: "/logout" },
+  { text: "МОЇ ДАНІ", path: "/account/my-data" },
+  { text: "МОЇ ЗАМОВЛЕННЯ", path: "/account/my-orders" },
+  { text: "АДРЕСИ ДОСТАВКИ", path: "/account/delivery-info" },
+  { text: "СПОВІЩЕННЯ", path: "/account/notifications" },
+  { text: "СПИСОК БАЖАНЬ", path: "/account/favorite" },
+  { text: "ВИХІД", path: "/account/logout" },
 ];
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ path }) => {

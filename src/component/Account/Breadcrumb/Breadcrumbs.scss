@@ -31,6 +31,11 @@
 
   .last-breadcrumb {
     color: #363636;
+    border-bottom: 10px solid rgba(229, 100, 102, 0.5);
+    padding: 0;
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 1;
   }
 
   .breadcrumb-link:hover {
@@ -40,6 +45,5 @@
 .breadcrumb-divider {
   color: #828282;
   margin: 0 4px;
-
   padding: 5px;
 }
