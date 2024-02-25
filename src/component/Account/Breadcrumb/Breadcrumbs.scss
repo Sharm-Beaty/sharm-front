@@ -11,7 +11,6 @@
 
   li {
     display: inline;
-    margin-right: 5px;
   }
 
   li:last-child {
@@ -20,8 +19,18 @@
 
   .breadcrumb-link {
     color: #828282;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0%;
     text-decoration: none;
     transition: color 0.3s ease;
+    padding: 5px;
+  }
+
+  .last-breadcrumb {
+    color: #363636;
   }
 
   .breadcrumb-link:hover {
@@ -29,5 +38,8 @@
   }
 }
 .breadcrumb-divider {
-  margin: 0 5px;
+  color: #828282;
+  margin: 0 4px;
+
+  padding: 5px;
 }

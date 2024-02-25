@@ -14,7 +14,7 @@ export default function Account({ params }: { params: { locale: string } }) {
   // };
   return (
     <>
-      {locale}
+      {/* {locale} */}
       <MyAccount></MyAccount>
     </>
   );

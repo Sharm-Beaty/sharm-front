@@ -26,24 +26,34 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ path }) => {
           <NextLink href="/" className="breadcrumb-link">
             ШАРМ
           </NextLink>
+          {<span className="breadcrumb-divider">/</span>}
         </li>
-        {filteredSegments.map((segment, index) => (
-          <li key={index}>
-            <NextLink
-              href={`/${filteredSegments.slice(0, index + 1).join("/")}`}
-              className="breadcrumb-link"
-            >
-              {menuItems.find(
-                (item) =>
-                  item.path ===
-                  `/${filteredSegments.slice(0, index + 1).join("/")}`
-              )?.text || segment}
-            </NextLink>
-            {index < filteredSegments.length - 1 && (
-              <span className="breadcrumb-divider"> / </span>
-            )}
-          </li>
-        ))}
+
+        {filteredSegments.map((segment, index) => {
+          const isLastSegment = index === filteredSegments.length - 1;
+          const menuItem = menuItems.find(
+            (item) =>
+              item.path === `/${filteredSegments.slice(0, index + 1).join("/")}`
+          );
+          const displayText = menuItem?.text || segment;
+          const className = isLastSegment
+            ? "last-breadcrumb breadcrumb-link"
+            : "breadcrumb-link";
+
+          return (
+            <li key={index}>
+              <NextLink
+                href={`/${filteredSegments.slice(0, index + 1).join("/")}`}
+                className={className}
+              >
+                {displayText}
+              </NextLink>
+              {index < filteredSegments.length - 1 && (
+                <span className="breadcrumb-divider"> / </span>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
