@@ -18,16 +18,20 @@ const menuItems = [
   {
     text: "Мої дані",
     icon: <UserIcon className="svg-icon" color="var(--color-primary)" />,
-    path: "/ru/account",
+    path: "/ru/account/my-data",
   },
-  { text: "Мої замовлення", icon: <ClarityIcon />, path: "/ru/my-orders" },
+  {
+    text: "Мої замовлення",
+    icon: <ClarityIcon />,
+    path: "/ru/account/my-orders",
+  },
   {
     text: "Адреси доставки",
     icon: <LocationIcon />,
-    path: "/ru/delivery-info",
+    path: "/ru/account/delivery-info",
   },
-  { text: "Сповіщення", icon: <MailIcon />, path: "/ru/notifications" },
-  { text: "Список бажань", icon: <HeartIcon />, path: "/ru/favorite" },
+  { text: "Сповіщення", icon: <MailIcon />, path: "/ru/account/notifications" },
+  { text: "Список бажань", icon: <HeartIcon />, path: "/ru/account/favorite" },
   { text: "Вихід", icon: <LogoutIcon />, path: "/" },
 ];
 

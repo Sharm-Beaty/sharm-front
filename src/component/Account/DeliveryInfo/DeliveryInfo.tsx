@@ -15,7 +15,7 @@ const DeliveryStatus: React.FC<DeliveryInfoProps> = () => {
 
   return (
     <>
-      <Breadcrumbs path={pathname} />
+      {!isMobile && <Breadcrumbs path={pathname} />}
       <div className="delivery-section">
         {isMobile ? (
           <SidebarMobile initialMenuItem="Мої дані" />

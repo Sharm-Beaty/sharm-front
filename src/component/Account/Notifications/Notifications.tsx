@@ -15,7 +15,7 @@ const Notifications: React.FC<NotificationsProps> = () => {
 
   return (
     <>
-      <Breadcrumbs path={pathname} />
+      {!isMobile && <Breadcrumbs path={pathname} />}
       <div className="notifications-section">
         {isMobile ? (
           <SidebarMobile initialMenuItem="Мої дані" />

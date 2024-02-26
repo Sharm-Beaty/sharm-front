@@ -15,7 +15,7 @@ const OrderStatus: React.FC<OrderStatusProps> = () => {
 
   return (
     <>
-      <Breadcrumbs path={pathname} />
+      {!isMobile && <Breadcrumbs path={pathname} />}
       <div className="order-section">
         {isMobile ? (
           <SidebarMobile initialMenuItem="Мої дані" />

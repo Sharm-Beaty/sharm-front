@@ -12,9 +12,10 @@ const Favorites: React.FC<FavoritesProps> = () => {
   const isMobile =
     typeof window !== "undefined" &&
     window.matchMedia("(max-width: 767px)").matches;
+
   return (
     <>
-      <Breadcrumbs path={pathname} />
+      {!isMobile && <Breadcrumbs path={pathname} />}
       <div className="favorite-section">
         {isMobile ? (
           <SidebarMobile initialMenuItem="Мої дані" />

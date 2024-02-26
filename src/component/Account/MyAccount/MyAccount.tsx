@@ -39,7 +39,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
 
   return (
     <>
-      <Breadcrumbs path={pathname} />
+      {!isMobile && <Breadcrumbs path={pathname} />}
       <div className="client-account-section">
         {isMobile ? (
           <SidebarMobile initialMenuItem="Мої дані" />
