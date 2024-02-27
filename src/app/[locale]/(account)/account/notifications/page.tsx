@@ -8,7 +8,7 @@ export default function notifications({
   const { locale } = params;
   return (
     <>
-      {locale}
+      {/* {locale} */}
       <Notifications />
     </>
   );

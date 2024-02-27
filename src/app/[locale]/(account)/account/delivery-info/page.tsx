@@ -8,7 +8,7 @@ export default function MyDeliveryInfo({
   const { locale } = params;
   return (
     <>
-      {locale}
+      {/* {locale} */}
       <DeliveryStatus />
     </>
   );

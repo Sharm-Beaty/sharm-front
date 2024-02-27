@@ -1,14 +1,19 @@
 "use client";
-import { MyAccountProps, MyFormData } from "../interfaces";
+import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { usePathname } from "next/navigation";
-import { getAccountData } from "@/app/acrions/getAcсountData";
-import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
 import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
 import "./MyAccount.scss";
+import { getUserDataById } from "@/app/acrions/getUserDataById";
+import { updateUserData } from "@/app/acrions/updateUserData";
+import { MyAccountProps, MyFormData } from "../interfaces";
+import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
+import { useAppSelector } from "@/state/store";
 
 const MyAccount: React.FC<MyAccountProps> = () => {
+  // const userId = useAppSelector((state) => state.auth.userId);
+  const userId = "";
   const pathname = usePathname();
 
   const isMobile =
@@ -19,6 +24,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
     formState: { errors },
     register,
     handleSubmit,
+    formState,
     setValue,
     reset,
   } = useForm<MyFormData>({
@@ -28,11 +34,44 @@ const MyAccount: React.FC<MyAccountProps> = () => {
       phoneNumber: "",
       email: "",
       city: "",
+      newPassword: "",
+      confirmPassword: "",
     },
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<MyFormData> = (data) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUserDataById(userId);
+        if (response && response.data) {
+          const { firstName, lastName, phoneNumber, email, city } =
+            response.data;
+          setValue("firstName", firstName);
+          setValue("lastName", lastName);
+          setValue("phoneNumber", phoneNumber);
+          setValue("email", email);
+          setValue("city", city);
+        }
+      } catch (error) {
+        console.log("Error fetching account data:", error);
+      }
+    };
+
+    fetchData();
+  }, [userId]);
+
+  const onSubmit: SubmitHandler<MyFormData> = async (data) => {
+    try {
+      const response = await updateUserData(userId, data);
+      if (response) {
+        console.log("Data successfully updated");
+      } else {
+        throw new Error("HTTP Error! status" + response);
+      }
+    } catch (error) {
+      console.log("There was a problem with the fetch operation");
+    }
     console.log(data.firstName);
     reset();
   };
@@ -48,6 +87,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
         )}
         <div className="client-profile">
           <h2 className="client-title">Мій профіль</h2>
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="client-form">
               <div className="client-form-item">
@@ -55,6 +95,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 <input
                   {...register("firstName", {
                     required: "FirstName is require field",
+                    maxLength: 255,
                   })}
                   className="client-form-input"
                   type="text"
@@ -68,6 +109,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 <input
                   {...register("lastName", {
                     required: "LastName is require field",
+                    maxLength: 255,
                   })}
                   className="client-form-input"
                   type="text"
@@ -81,6 +123,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 <input
                   {...register("phoneNumber", {
                     required: "PhoneNumber is require field",
+                    maxLength: 10,
                   })}
                   className="client-form-input"
                   type="text"
@@ -92,7 +135,10 @@ const MyAccount: React.FC<MyAccountProps> = () => {
               <div className="client-form-item">
                 <label className="client-form-label">Email</label>
                 <input
-                  {...register("email", { required: "Email is require field" })}
+                  {...register("email", {
+                    required: "Email is require field",
+                    maxLength: 255,
+                  })}
                   className="client-form-input"
                   placeholder="mariiakovalenko@gmail.com  "
                 />
@@ -121,6 +167,9 @@ const MyAccount: React.FC<MyAccountProps> = () => {
               <div className="client-password-form">
                 <label className="client-password-label">Новий пароль</label>
                 <input
+                  {...register("newPassword", {
+                    maxLength: 128,
+                  })}
                   className="client-password-input"
                   type="password"
                   name="newPassword"
@@ -132,6 +181,9 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                   Повторіть пароль
                 </label>
                 <input
+                  {...register("confirmPassword", {
+                    maxLength: 128,
+                  })}
                   className="client-password-input"
                   type="password"
                   name="confirmPassword"

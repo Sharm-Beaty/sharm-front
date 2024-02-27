@@ -38,7 +38,7 @@ const MainHeader = ({ styleProps }: { styleProps: any }) => {
         className={styles["user-actions-header"]}
       >
         <Love />
-        <Link href="/ru/account">
+        <Link href="/ru/account/my-data">
           <Person />
         </Link>
         <CartIcon addModal={true} cartItems={forCart} />
