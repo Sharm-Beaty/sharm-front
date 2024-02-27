@@ -1,44 +1,45 @@
 {
-	"todo-tree.highlights.defaultHighlight": {
-		"type": "tag-and-comment"
-	},
-	"todo-tree.highlights.customHighlight": {
-		"TODO": {
-			"icon": "check",
-			"iconColour": "#ffce00",
-			"foreground": "black",
-			"background": "#ffce00"
-		},
-		"BUG": {
-			"icon": "bug",
-			"foreground": "white",
-			"background": "red"
-		},
-		"HACK": {
-			"icon": "tools",
-			"foreground": "white",
-			"iconColour": "#2999df",
-			"background": "#2999df"
-		},
-		"FIXME": {
-			"icon": "flame",
-			"iconColour": "#ff5a00",
-			"background": "#ff5a00"
-		},
-		"XXX": {
-			"icon": "x"
-		},
-		"[ ]": {
-			"icon": "issue-draft",
-			"iconColour": "#ff000080",
-			"foreground": "white",
-			"background": "#ff000080"
-		},
-		"[x]": {
-			"icon": "issue-closed",
-			"iconColour": "#00ff0080",
-			"foreground": "white",
-			"background": "#00ff0080"
-		}
-	}
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "tag-and-comment"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "iconColour": "#ffce00",
+      "foreground": "black",
+      "background": "#ffce00"
+    },
+    "BUG": {
+      "icon": "bug",
+      "foreground": "white",
+      "background": "red"
+    },
+    "HACK": {
+      "icon": "tools",
+      "foreground": "white",
+      "iconColour": "#2999df",
+      "background": "#2999df"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "iconColour": "#ff5a00",
+      "background": "#ff5a00"
+    },
+    "XXX": {
+      "icon": "x"
+    },
+    "[ ]": {
+      "icon": "issue-draft",
+      "iconColour": "#ff000080",
+      "foreground": "white",
+      "background": "#ff000080"
+    },
+    "[x]": {
+      "icon": "issue-closed",
+      "iconColour": "#00ff0080",
+      "foreground": "white",
+      "background": "#00ff0080"
+    }
+  },
+  "git.ignoreLimitWarning": true
 }
