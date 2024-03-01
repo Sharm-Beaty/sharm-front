@@ -1,0 +1,54 @@
+// .qAndA {
+// 	width: 528px;
+// 	padding: 12px 0;
+// 	border-bottom: 1px solid var(--color-stroke, #b8b8b8);
+// }
+
+.questionButton {
+	display: block;
+	width: 100%;
+	padding: 12px 0;
+	background: none;
+	border: none;
+	border-bottom: 1px solid var(--color-stroke, #b8b8b8);
+	box-shadow: none;
+
+	@media (max-width: 768px) {
+		padding: 10px 0;
+	}
+}
+
+.question {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: start;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	@media (max-width: 768px) {
+		font-size: 13px;
+	}
+}
+
+.arrow {
+	color: var(--color-stroke, #b8b8b8);
+	@media (max-width: 768px) {
+		width: 20px;
+	}
+
+	@media (max-width: 320px) {
+		width: 16px;
+	}
+}
+
+.answer {
+	height: 0px;
+	overflow: hidden;
+	text-align: left;
+
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
+}

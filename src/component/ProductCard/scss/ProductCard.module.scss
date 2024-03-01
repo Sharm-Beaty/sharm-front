@@ -1,0 +1,126 @@
+.productCard {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.head {
+	position: relative;
+	width: 100%;
+	line-height: 0;
+	overflow: hidden;
+}
+
+.svgLike {
+	padding: 2px 0;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.svgLike:focus {
+	outline: none;
+}
+
+.head img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.body {
+	width: inherit;
+	margin-top: 20px;
+	color: var(--color-text, var(--color-text, #828282));
+	font-size: 14px;
+	line-height: 150%; /* 21px */
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+
+	a {
+		color: inherit;
+	}
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title,
+.subTitle {
+	width: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.title {
+	font-size: inherit;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.subTitle {
+	padding: 0;
+	margin-top: 5px;
+}
+
+.ratingWrapper {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.rating {
+	line-height: 1;
+	margin-right: 5px;
+}
+
+.amountComments {
+	color: var(--color-placeholder, var(--color-placeholder, #828282));
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 150%;
+	text-decoration-line: underline;
+	text-transform: uppercase;
+}
+
+.price {
+	color: var(--color-text, var(--color-text, #828282));
+	margin-top: 10px;
+	display: flex;
+	gap: 10px;
+}
+
+.currentPrise,
+.oldPrice {
+	font-size: 16px;
+}
+
+.currentPrise {
+	margin-right: 15px;
+}
+
+.oldPrice {
+	color: var(--color-placeholder, var(--color-placeholder, #828282));
+	line-height: 150%; /* 21px */
+	text-decoration-line: line-through;
+	text-align: center;
+}
+
+.head,
+.ratingWrapper,
+.price {
+	user-select: none;
+}
+
+.productCard:hover .modal {
+	opacity: 1 !important;
+	visibility: visible;
+	transform: translate3d(0, 0, 0);
+}
