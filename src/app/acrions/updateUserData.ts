@@ -1,11 +1,10 @@
 import { MyFormData } from "../../component/Account/interfaces";
 import axios from "axios";
 
-const BASE_URL = "https://example.com/api";
+const BASE_URL = "https://beautyshop.fly.dev/api/v1/users";
 
-export function updateUserData(userId: string, data: MyFormData) {
-  const response = axios.post(`${BASE_URL}/account`, {
-    userId: userId,
+export function updateUserData(data: MyFormData) {
+  const response = axios.patch(`${BASE_URL}/me`, {
     ...data,
   });
   return response;

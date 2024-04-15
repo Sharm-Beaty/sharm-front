@@ -128,14 +128,16 @@
   }
 
   .client-profile {
-    width: 60%;
+    width: 600px;
   }
 
   .client-title {
     margin-top: 0;
     margin-bottom: 48px;
   }
-
+  .client-form {
+    width: 600px;
+  }
   .client-form-input {
     display: flex;
     width: 400px;
@@ -145,15 +147,18 @@
 
   .client-form-item {
     display: flex;
-    width: 600px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
   }
+  .client-password-section {
+    width: 600px;
+  }
 
   .client-password-form {
     display: flex;
-    width: 600px;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -165,5 +170,14 @@
 
   .client-submit-button {
     width: 220px;
+  }
+
+  .client-form-item.error .client-form-input {
+    border-color: var(--color-error);
+  }
+
+  .error-message {
+    color: var(--color-error);
+    text-align: center;
   }
 }

@@ -2,17 +2,16 @@
 import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { usePathname } from "next/navigation";
-import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
-import "./MyAccount.scss";
-import { getUserDataById } from "@/app/acrions/getUserDataById";
+
+import { getUserData } from "@/app/acrions/getUserData";
 import { updateUserData } from "@/app/acrions/updateUserData";
+import SidebarDesktop from "../Sidebar/SidebarDesktop/SidebarDesktop";
 import { MyAccountProps, MyFormData } from "../interfaces";
 import SidebarMobile from "../Sidebar/SidebarMobile/SidebarMobile";
 import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
-import { useAppSelector } from "@/state/store";
+import "./MyAccount.scss";
 
 const MyAccount: React.FC<MyAccountProps> = () => {
-  // const userId = useAppSelector((state) => state.auth.userId);
   const userId = "";
   const pathname = usePathname();
 
@@ -27,6 +26,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
     formState,
     setValue,
     reset,
+    watch,
   } = useForm<MyFormData>({
     defaultValues: {
       firstName: "",
@@ -40,10 +40,13 @@ const MyAccount: React.FC<MyAccountProps> = () => {
     mode: "onChange",
   });
 
+  const newPassword = watch("newPassword");
+  const confirmPassword = watch("confirmPassword");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getUserDataById(userId);
+        const response = await getUserData();
         if (response && response.data) {
           const { firstName, lastName, phoneNumber, email, city } =
             response.data;
@@ -63,7 +66,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
 
   const onSubmit: SubmitHandler<MyFormData> = async (data) => {
     try {
-      const response = await updateUserData(userId, data);
+      const response = await updateUserData(data);
       if (response) {
         console.log("Data successfully updated");
       } else {
@@ -72,7 +75,6 @@ const MyAccount: React.FC<MyAccountProps> = () => {
     } catch (error) {
       console.log("There was a problem with the fetch operation");
     }
-    console.log(data.firstName);
     reset();
   };
 
@@ -90,7 +92,11 @@ const MyAccount: React.FC<MyAccountProps> = () => {
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="client-form">
-              <div className="client-form-item">
+              <div
+                className={`client-form-item ${
+                  errors.firstName ? "error" : ""
+                }`}
+              >
                 <label className="client-form-label">Ім’я</label>
                 <input
                   {...register("firstName", {
@@ -104,7 +110,9 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 />
               </div>
 
-              <div className="client-form-item">
+              <div
+                className={`client-form-item ${errors.lastName ? "error" : ""}`}
+              >
                 <label className="client-form-label">Прізвище</label>
                 <input
                   {...register("lastName", {
@@ -118,7 +126,11 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 />
               </div>
 
-              <div className="client-form-item">
+              <div
+                className={`client-form-item ${
+                  errors.phoneNumber ? "error" : ""
+                }`}
+              >
                 <label className="client-form-label">Номер телефону</label>
                 <input
                   {...register("phoneNumber", {
@@ -132,7 +144,9 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 />
               </div>
 
-              <div className="client-form-item">
+              <div
+                className={`client-form-item ${errors.email ? "error" : ""}`}
+              >
                 <label className="client-form-label">Email</label>
                 <input
                   {...register("email", {
@@ -144,7 +158,7 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 />
               </div>
 
-              <div className="client-form-item">
+              <div className={`client-form-item ${errors.city ? "error" : ""}`}>
                 <label className="client-form-label">Місто</label>
                 <input
                   {...register("city", {
@@ -164,7 +178,11 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                 Пароль повинен бути не менше 8 символів{" "}
               </p>
 
-              <div className="client-password-form">
+              <div
+                className={`client-password-form ${
+                  errors.newPassword ? "error" : ""
+                }`}
+              >
                 <label className="client-password-label">Новий пароль</label>
                 <input
                   {...register("newPassword", {
@@ -174,21 +192,35 @@ const MyAccount: React.FC<MyAccountProps> = () => {
                   type="password"
                   name="newPassword"
                 />
+                {errors.newPassword && (
+                  <p className="error-message">{errors.newPassword.message}</p>
+                )}
               </div>
 
-              <div className="client-password-form">
+              <div
+                className={`client-password-form ${
+                  errors.confirmPassword ? "error" : ""
+                }`}
+              >
                 <label className="client-password-label">
                   Повторіть пароль
                 </label>
                 <input
                   {...register("confirmPassword", {
                     maxLength: 128,
+                    validate: (value) =>
+                      value === newPassword || "Паролі не співпадають",
                   })}
                   className="client-password-input"
                   type="password"
                   name="confirmPassword"
                 />
               </div>
+              {errors.confirmPassword && (
+                <p className="error-message">
+                  {errors.confirmPassword.message}
+                </p>
+              )}
             </div>
 
             <button className="client-submit-button" type="submit">

@@ -12,9 +12,7 @@ export interface NavLinkPropsMobile {
   currentMenuItem: string;
 }
 
-export interface MyAccountProps {
-  // onSubmit: (formData: MyFormData) => void;
-}
+export interface MyAccountProps {}
 export interface MyFormData {
   firstName: string;
   lastName: string;
