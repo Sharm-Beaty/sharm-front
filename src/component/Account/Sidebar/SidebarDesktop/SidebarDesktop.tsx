@@ -2,6 +2,9 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
+import { NavLinkProps } from "../../interfaces";
+
+import "./SidebarDesktop.scss";
 import {
   LogoutIcon,
   UserIcon,
@@ -10,8 +13,6 @@ import {
   MailIcon,
   HeartIcon,
 } from "@/component/svg";
-import { NavLinkProps } from "../../interfaces";
-import "./SidebarDesktop.scss";
 
 const NavLink: React.FC<NavLinkProps> = ({ to, text, icon }) => {
   const pathname = usePathname();

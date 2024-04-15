@@ -1,5 +1,7 @@
 @import "../../../UI/ActiveLink/ActiveLink";
+
 .phone-link-wrapper {
+  position: relative;
   padding-top: 0.5rem;
   width: 100%;
   display: flex;
@@ -14,8 +16,27 @@
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
-    .get-call{
+    .get-call {
       border-bottom: unset;
+    }
+    @media (max-width: 767px) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .modal-styles {
+    width: 421px;
+    height: fit-content;
+    top: 60px;
+    left: 0;
+    position: absolute;
+    @media (max-width: 767px) {
+      max-width: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: fixed;
     }
   }
 
@@ -43,11 +64,17 @@
     cursor: pointer;
     transition: all .3s;
     @media (max-width: 1155px) {
-        border-bottom: unset;
+      border-bottom: unset;
       padding-bottom: 0.5rem;
     }
     @media (max-width: 767px) {
-      display: none;
+
+      justify-self: center;
+      //display: flex;
+      //flex-direction: row;
+      span {
+        text-decoration: underline;
+      }
     }
 
     span {

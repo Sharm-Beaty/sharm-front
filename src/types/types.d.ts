@@ -4,7 +4,22 @@ type OptionsForFormattedPrice = {
 	currencyDisplay?: 'narrowSymbol' | 'symbol' | 'name' | 'code';
 	minimumFractionDigits?: number;
 	maximumFractionDigits?: number;
-}
+};
+
+type SelectFormSortBy_UA = [
+	'Популярністю',
+	'Рейтингом',
+	'Зростанням ціни',
+	'Зменшенням ціни',
+	'Наявністю',
+];
+
+type ProductVariantsData = {
+	price: string;
+	priceOld: string;
+	value: string;
+	shipping?: 'eu';
+};
 
 type DiscountedProducts = {
 	id: string;
@@ -13,12 +28,18 @@ type DiscountedProducts = {
 	images: Image[];
 	isLuxury: boolean;
 	siblings: Sibling[];
+	variants: Record<string, string> | null;
+	variantsData: Record<string, ProductVariantsData> | null;
+	variant: string;
+	variantId: string;
+	brand?: string | null;
+	brandId?: string | null;
 	mainCard: boolean;
 	name: string;
 	description: string | null;
 	rating: string | null;
 	price: string | null;
-	discountedPrice?: string | null;
+	priceOld: string | null;
 	url?: string | null;
 	amountComments?: string | null;
 	currency?: string | null;
@@ -44,4 +65,4 @@ interface Sibling {
 type FAQData = {
 	question: string;
 	answer: string;
-}
+};

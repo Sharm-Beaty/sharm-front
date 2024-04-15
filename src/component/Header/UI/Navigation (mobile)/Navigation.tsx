@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ReactNode } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { MenuItem } from "../MenuItem (mobile)/MenuItem";
 import { allCategories } from "@/mock/mockForHeader";
@@ -12,6 +12,8 @@ import LocaleSwitcher from "@/component/Header/UI/LanguageToggleComponent/Locale
 import CartIcon from "@/component/Header/UI/Cart/CartIcon";
 import { forCart } from "@/mock/forCart";
 import Link from "next/link";
+import CallBookingComponent from "@/component/Header/UI/CallBookingComponent/CallBookingComponent";
+import useModal from "@/hooks/useModal";
 
 const variants: Variants = {
   open: {
@@ -43,82 +45,79 @@ const variantsItems = {
     },
   },
 };
-
 const interactionUserActions = {
   whileHover: { scale: 0.95 },
   whileTap: { scale: 0.9 },
 };
-
 type InteractionSettings = {
   whileHover?: { scale: number; originX?: number; originY?: number | string };
   whileTap?: { scale: number };
 };
-
 type AnimatedNavItemProps = {
   className?: string;
   children: ReactNode;
   interactionSettings?: InteractionSettings;
 };
 
-const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({
+export const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({
   children,
   interactionSettings = {},
   className,
 }) => (
-  <motion.li
+  <motion.div
     className={`${styles["mobile-nav-item"]} ${className}`}
     variants={variantsItems}
     {...interactionSettings}
   >
     {children}
-  </motion.li>
+  </motion.div>
 );
-export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
-  <motion.ul
-    className={styles["mobile-nav-items"]}
-    initial={"closed"}
-    animate={isOpen ? "open" : ""}
-    variants={variants}
-  >
-    <AnimatedNavItem>
-      <SearchBox styleProps={{}} />
-    </AnimatedNavItem>
-    <AnimatedNavItem className={styles["categories-container"]}>
-      {allCategories.map((item) => (
-        <MenuItem className={""} item={item} key={item.id} />
-      ))}
-    </AnimatedNavItem>
+export const Navigation = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <motion.ul
+      className={styles["mobile-nav-items"]}
+      initial={"closed"}
+      animate={isOpen ? "open" : ""}
+      variants={variants}
+    >
+      <AnimatedNavItem>
+        <SearchBox styleProps={{}} />
+      </AnimatedNavItem>
+      <AnimatedNavItem className={styles["categories-container"]}>
+        {allCategories.map((item) => (
+          <MenuItem className={""} item={item} key={item.id} />
+        ))}
+      </AnimatedNavItem>
 
-    <AnimatedNavItem
-      interactionSettings={interactionUserActions}
-      className={`${styles["user-cart"]} ${styles["user-action"]}`}
-    >
-      <Link href={"/cart"}>
-        <CartIcon addModal={false} cartItems={forCart} />
-      </Link>
-    </AnimatedNavItem>
-    <AnimatedNavItem
-      interactionSettings={interactionUserActions}
-      className={`${styles["user-account"]} ${styles["user-action"]}`}
-    >
-      <Link href={"/ru/account"}>
+      <AnimatedNavItem
+        interactionSettings={interactionUserActions}
+        className={`${styles["user-cart"]} ${styles["user-action"]}`}
+      >
+        <Link href={"/cart"}>
+          <CartIcon addModal={false} cartItems={forCart} />
+        </Link>
+      </AnimatedNavItem>
+      <AnimatedNavItem
+        interactionSettings={interactionUserActions}
+        className={`${styles["user-account"]} ${styles["user-action"]}`}
+      >
         <Person />
-      </Link>
-    </AnimatedNavItem>
-    <AnimatedNavItem
-      interactionSettings={interactionUserActions}
-      className={`${styles["user-wish-list"]} ${styles["user-action"]}`}
-    >
-      <Love />
-    </AnimatedNavItem>
-    <AnimatedNavItem
-      interactionSettings={interactionUserActions}
-      className={styles["user-action"]}
-    >
-      <PhoneLinkComponent />
-    </AnimatedNavItem>
-    <AnimatedNavItem>
-      <LocaleSwitcher />
-    </AnimatedNavItem>
-  </motion.ul>
-);
+      </AnimatedNavItem>
+      <AnimatedNavItem
+        interactionSettings={interactionUserActions}
+        className={`${styles["user-wish-list"]} ${styles["user-action"]}`}
+      >
+        <Love />
+      </AnimatedNavItem>
+      <AnimatedNavItem
+        // interactionSettings={interactionUserActions}
+        className={styles["user-action"]}
+      >
+        <PhoneLinkComponent />
+      </AnimatedNavItem>
+      <AnimatedNavItem>
+        <LocaleSwitcher />
+      </AnimatedNavItem>
+    </motion.ul>
+  );
+};

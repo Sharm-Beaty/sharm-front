@@ -1,4 +1,11 @@
-import React, { ComponentType, PropsWithChildren, RefAttributes, forwardRef } from 'react';
+'use client';
+import React, {
+	ComponentType,
+	PropsWithChildren,
+	RefAttributes,
+	useState,
+	forwardRef,
+} from 'react';
 import Image from 'next/image';
 import { HTMLMotionProps, motion } from 'framer-motion';
 import cls from './index.module.scss';
@@ -7,38 +14,33 @@ import Rating from '@/component/Rating';
 import Link from 'next/link';
 import { Like } from '@/component/UI/Like';
 import { useFavoriteProduct } from '@/hooks';
+import { ProductCardModal } from './ProductCardModal/ProductCardModal';
 
 interface ProductCardProps extends HTMLMotionProps<'article'> {
 	className?: string;
 	product: DiscountedProducts;
+	imgSize?: {
+		width: number;
+		height: number;
+	};
 }
 const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttributes<HTMLElement>>> =
-	forwardRef(function ProductCard({ className, product, ...otherProps }, ref) {
+	forwardRef(function ProductCard(
+		{ className, product, imgSize = { width: 200, height: 270 }, ...otherProps },
+		ref,
+	) {
 		const [isInFavorite, setIsInFavorite] = useFavoriteProduct(product.id);
-		const IsDiscounted = Boolean(product.discountedPrice);
-
+		const IsDiscounted = Boolean(product.priceOld);
+		const [price, setCurrentPrice] = useState({
+			current: product.price,
+			old: product.priceOld,
+		});
 		return (
 			<motion.article
 				ref={ref}
 				className={classNames(cls.productCard, [className])}
-				layout
-				initial={{ x: 0, scale: 0.8, opacity: 0 }}
-				animate={{
-					scale: 1,
-					opacity: 1,
-					transition: {
-						duration: 0.4,
-					},
-				}}
-				transition={{
-					type: 'keyframes',
-					damping: 15,
-					stiffness: 100,
-				}}
-				exit={{ scale: 1, opacity: 0 }}
-				{...otherProps}
-			>
-				<motion.div layout className={cls.head}>
+				{...otherProps}>
+				<motion.div className={cls.head}>
 					<Like
 						className={cls.svgLike}
 						onClick={() => setIsInFavorite((prev) => !prev)}
@@ -50,40 +52,49 @@ const ProductCard: ComponentType<PropsWithChildren<ProductCardProps & RefAttribu
 						<Image
 							src={product.images[0].url}
 							alt={product.name}
-							width={200}
-							height={270}
+							width={imgSize.width}
+							height={imgSize.height}
 							draggable='false'
 						/>
 					</Link>
 				</motion.div>
-				<motion.div layout className={cls.body}>
+				<motion.div className={cls.body}>
 					<Link href={product.id}>
-						<motion.h5 layoutId={product.name} className={cls.title}>
-							{product.name}
-						</motion.h5>
+						<motion.h5 className={cls.title}>{product.name}</motion.h5>
 						<motion.p className={cls.subTitle}>{product.description}</motion.p>
 					</Link>
 				</motion.div>
 				<motion.div className={cls.footer}>
-					<motion.div layoutId={`${product.rating}`} className={cls.ratingWrapper}>
+					<motion.div className={cls.ratingWrapper}>
 						<Rating className={cls.rating} ratingNumber={product.rating ?? -1} />
 						<Link href={product.id} className={cls.amountComments}>
 							(1)
 						</Link>
 					</motion.div>
 					<motion.div className={cls.price}>
-						{IsDiscounted && (
+						{price.current && (
 							<>
 								<motion.span className={cls.currentPrise}>
-									{getFormattedPrice(product.discountedPrice || 0)}
+									{getFormattedPrice(price.current || 0)}
 								</motion.span>
 							</>
 						)}
-						<motion.span className={IsDiscounted ? cls.oldPrice : ''}>
-							{getFormattedPrice(product.price || 0)}
-						</motion.span>
+						{Number(price.old) > 0 && (
+							<motion.span className={price.old ? cls.oldPrice : ''}>
+								{getFormattedPrice(price.old || 0)}
+							</motion.span>
+						)}
 					</motion.div>
 				</motion.div>
+				{product.variantsData && (
+					<ProductCardModal
+						className={cls.modal}
+						productId={product.id}
+						variantId={product.variantId}
+						variantsData={product.variantsData}
+						setCurrentPrice={setCurrentPrice}
+					/>
+				)}
 			</motion.article>
 		);
 	});

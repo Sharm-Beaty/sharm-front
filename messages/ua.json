@@ -2,6 +2,13 @@
   "phoneLinkComponent": {
     "request_call": "Замовити дзвінок"
   },
+  "callBookingComponent": {
+    "book-call-button": "Замовити дзвінок",
+    "error-message": "Не корректний формат телефону!",
+    "daily": "Щоденно",
+    "from": "з",
+    "to": "до"
+  },
   "TopBarListComponent": {
     "promotional-offers": "Акційні пропозиції",
     "delivery-payment": "Доставка і Оплата",

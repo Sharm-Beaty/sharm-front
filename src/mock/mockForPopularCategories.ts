@@ -40,7 +40,7 @@ const mockCategories:Category[] = [
     {
         id: 7,
         label: "Дитячі товари",
-        icon: "kids",
+        icon: "kidsGoods",
         link: 'categoryLink'
     }
 ];

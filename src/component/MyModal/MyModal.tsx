@@ -9,11 +9,12 @@ interface MyModalType {
 }
 
 
-export const MyModal: FC<MyModalType> = ({children}) => {
+const MyModal: FC<MyModalType> = ({children}) => {
     return (
         <div className="container-my-modal" >
             {children}
         </div>
     );
 };
+export default MyModal;
 
