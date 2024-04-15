@@ -1,0 +1,126 @@
+.call-booking-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 1rem 0.5rem;
+  width: 350px;
+  min-height: 180px;
+  user-select: none;
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: nowrap;
+
+    input[type="time"] {
+      box-sizing: border-box;
+      min-width: 35%;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 0;
+      background: var(--color-light-gray);
+      padding: 5px 1rem;
+      outline: none;
+      transition: all 0.3s;
+
+      &:focus {
+        outline: 1px solid var(--color-placeholder);
+        background: white;
+      }
+    }
+  }
+
+  .reset_default_input {
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      outline: none;
+      background: none;
+      box-shadow: none;
+    }
+  }
+
+  .schedule-text {
+    width: 100%;
+    color: var(--color-placeholder);
+    font-size: 16px;
+    text-align: start;
+    margin-bottom: 20px;
+  }
+
+  .phone-number {
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    border: none;
+    background: var(--color-light-gray);
+    padding: 5px 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s;
+
+    &:focus {
+      outline: 1px solid var(--color-placeholder);
+      border: 0 solid transparent;
+      background-color: #ffffff;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    &::placeholder {
+      color: var(--color-placeholder);
+      padding-left: 0.5rem;
+    }
+  }
+
+  .book-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #888;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s all;
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+
+  .error-message-container {
+    width: 100%;
+    height: 1px;
+    //min-height: 5px;
+    position: relative;
+    margin-bottom: 10px;
+
+    .error-message {
+      height: fit-content;
+      width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      color: #E56466 !important;
+      font-size: 0.7rem;
+    }
+  }
+
+}
