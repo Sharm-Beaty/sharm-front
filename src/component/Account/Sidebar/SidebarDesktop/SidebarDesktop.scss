@@ -1,0 +1,9 @@
+.client-sidebar-desktop {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nav-link.active {
+  border-bottom: 10px solid rgba(229, 100, 102, 0.5);
+  padding-bottom: 2px;
+}
