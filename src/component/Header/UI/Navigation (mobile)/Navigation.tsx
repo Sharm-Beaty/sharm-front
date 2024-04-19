@@ -1,8 +1,8 @@
 import * as React from "react";
-import { ReactNode, useRef, useState } from "react";
-import { motion, Variants } from "framer-motion";
-import { MenuItem } from "../MenuItem (mobile)/MenuItem";
-import { allCategories } from "@/mock/mockForHeader";
+import {ReactNode, useRef, useState} from "react";
+import {motion, Variants} from "framer-motion";
+import {MenuItem} from "../MenuItem (mobile)/MenuItem";
+import {allCategories} from "@/mock/mockForHeader";
 import PhoneLinkComponent from "@/component/Header/UI/PhoneLinkComponent/PhoneLinkComponent";
 import { Love } from "@/component/svg/Love";
 import { Person } from "@/component/svg/Person";
@@ -59,26 +59,22 @@ type AnimatedNavItemProps = {
   interactionSettings?: InteractionSettings;
 };
 
-export const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({
-  children,
-  interactionSettings = {},
-  className,
-}) => (
-  <motion.div
-    className={`${styles["mobile-nav-item"]} ${className}`}
-    variants={variantsItems}
-    {...interactionSettings}
-  >
-    {children}
-  </motion.div>
+export const AnimatedNavItem: React.FC<AnimatedNavItemProps> = ({children, interactionSettings = {}, className}) => (
+    <motion.div
+        className={`${styles['mobile-nav-item']} ${className}`}
+        variants={variantsItems}
+        {...interactionSettings}
+    >
+        {children}
+    </motion.div>
 );
-export const Navigation = ({ isOpen }: { isOpen: boolean }) => {
-  return (
-    <motion.ul
-      className={styles["mobile-nav-items"]}
-      initial={"closed"}
-      animate={isOpen ? "open" : ""}
-      variants={variants}
+export const Navigation = ({isOpen}: { isOpen: boolean }) => {
+    return (<motion.ul
+        className={styles['mobile-nav-items']}
+        initial={'closed'}
+        animate={isOpen ? 'open' : ''}
+        variants={variants}
+
     >
       <AnimatedNavItem>
         <SearchBox styleProps={{}} />
@@ -87,37 +83,32 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => {
         {allCategories.map((item) => (
           <MenuItem className={""} item={item} key={item.id} />
         ))}
-      </AnimatedNavItem>
+        </AnimatedNavItem>
+        <AnimatedNavItem
+            interactionSettings={interactionUserActions}
+            className={`${styles['user-cart']} ${styles['user-action']}`}>
+            <Link href={'/cart'}>
+                <CartIcon addModal={false} cartItems={forCart}/>
+            </Link>
+        </AnimatedNavItem>
+        <AnimatedNavItem
+            interactionSettings={interactionUserActions}
+            className={`${styles['user-account']} ${styles['user-action']}`}>
+            <Person/>
+        </AnimatedNavItem>
+        <AnimatedNavItem
+            interactionSettings={interactionUserActions}
+            className={`${styles['user-wish-list']} ${styles['user-action']}`}>
+            <Love/>
+        </AnimatedNavItem>
+        <AnimatedNavItem
+            // interactionSettings={interactionUserActions}
+            className={styles['user-action']}>
+            <PhoneLinkComponent/>
+        </AnimatedNavItem>
+        <AnimatedNavItem>
+            <LocaleSwitcher/>
+        </AnimatedNavItem>
+    </motion.ul>)
+}
 
-      <AnimatedNavItem
-        interactionSettings={interactionUserActions}
-        className={`${styles["user-cart"]} ${styles["user-action"]}`}
-      >
-        <Link href={"/cart"}>
-          <CartIcon addModal={false} cartItems={forCart} />
-        </Link>
-      </AnimatedNavItem>
-      <AnimatedNavItem
-        interactionSettings={interactionUserActions}
-        className={`${styles["user-account"]} ${styles["user-action"]}`}
-      >
-        <Person />
-      </AnimatedNavItem>
-      <AnimatedNavItem
-        interactionSettings={interactionUserActions}
-        className={`${styles["user-wish-list"]} ${styles["user-action"]}`}
-      >
-        <Love />
-      </AnimatedNavItem>
-      <AnimatedNavItem
-        // interactionSettings={interactionUserActions}
-        className={styles["user-action"]}
-      >
-        <PhoneLinkComponent />
-      </AnimatedNavItem>
-      <AnimatedNavItem>
-        <LocaleSwitcher />
-      </AnimatedNavItem>
-    </motion.ul>
-  );
-};
